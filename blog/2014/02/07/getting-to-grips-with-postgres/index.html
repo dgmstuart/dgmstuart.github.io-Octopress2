@@ -5,8 +5,8 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Getting to Grips With Postgres - My Octopress Blog</title>
-  <meta name="author" content="Your Name">
+  <title>Getting to Grips With Postgres - dgms code</title>
+  <meta name="author" content="Duncan Stuart">
 
   
   <meta name="description" content="So, having generated my Rails app and selected postgres as the development database, I&rsquo;m now faced with getting the damn thing running. On a &hellip;">
@@ -18,10 +18,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://yoursite.com/blog/2014/02/07/getting-to-grips-with-postgres">
+  <link rel="canonical" href="http://dgmstuart.github.io/blog/2014/02/07/getting-to-grips-with-postgres">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
-  <link href="/atom.xml" rel="alternate" title="My Octopress Blog" type="application/atom+xml">
+  <link href="/atom.xml" rel="alternate" title="dgms code" type="application/atom+xml">
   <script src="/javascripts/modernizr-2.0.js"></script>
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
   <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/libs/jquery.min.js"%3E%3C/script%3E'))</script>
@@ -36,9 +36,9 @@
 
 <body   >
   <header role="banner"><hgroup>
-  <h1><a href="/">My Octopress Blog</a></h1>
+  <h1><a href="/">dgms code</a></h1>
   
-    <h2>A blogging framework for hackers.</h2>
+    <h2>A Ruby on Rails code blog</h2>
   
 </hgroup>
 
@@ -50,7 +50,7 @@
   
 <form action="http://google.com/search" method="get">
   <fieldset role="search">
-    <input type="hidden" name="q" value="site:yoursite.com" />
+    <input type="hidden" name="q" value="site:dgmstuart.github.io" />
     <input class="search" type="text" name="q" results="0" placeholder="Search"/>
   </fieldset>
 </form>
@@ -230,7 +230,7 @@ Shall the new role be allowed to create more new roles? (y/n) n
       
   
 
-<span class="byline author vcard">Posted by <span class="fn">Your Name</span></span>
+<span class="byline author vcard">Posted by <span class="fn">Duncan Stuart</span></span>
 
       
 
@@ -252,7 +252,7 @@ Shall the new role be allowed to create more new roles? (y/n) n
     
       <div class="sharing">
   
-  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://yoursite.com/blog/2014/02/07/getting-to-grips-with-postgres/" data-via="" data-counturl="http://yoursite.com/blog/2014/02/07/getting-to-grips-with-postgres/" >Tweet</a>
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://dgmstuart.github.io/blog/2014/02/07/getting-to-grips-with-postgres/" data-via="dgmstuart" data-counturl="http://dgmstuart.github.io/blog/2014/02/07/getting-to-grips-with-postgres/" >Tweet</a>
   
   
   
@@ -287,6 +287,35 @@ Shall the new role be allowed to create more new roles? (y/n) n
   </ul>
 </section>
 
+<section>
+  <h1>GitHub Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating...</li>
+  </ul>
+  
+  <a href="https://github.com/dgmstuart">@dgmstuart</a> on GitHub
+  
+  <script type="text/javascript">
+    $(document).ready(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'dgmstuart',
+            count: 0,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/javascripts/github.js" type="text/javascript"> </script>
+</section>
+
 
 
 
@@ -298,7 +327,7 @@ Shall the new role be allowed to create more new roles? (y/n) n
     </div>
   </div>
   <footer role="contentinfo"><p>
-  Copyright &copy; 2014 - Your Name -
+  Copyright &copy; 2014 - Duncan Stuart -
   <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
 </p>
 
