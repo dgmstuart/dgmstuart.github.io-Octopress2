@@ -6,7 +6,7 @@ url: http://dgmstuart.github.io
 title: dgms code
 subtitle: A Ruby on Rails code blog
 author: Duncan Stuart
-simple_search: http://google.com/search
+simple_search: https://www.google.com/search
 description:
 
 # Default date format is "ordinal" (resulting in "July 22nd 2007")
