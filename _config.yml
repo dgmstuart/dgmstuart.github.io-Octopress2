@@ -19,7 +19,9 @@ date_format: "ordinal"
 subscribe_rss: /atom.xml
 subscribe_email:
 # RSS feeds can list your email address if you like
-email:
+email: "dgmstuart@gmail.com"
+# email_md5: "v\xEC\x97\xF0^\xC8\xEF\xFAe:Nt\xADF\x86\xD8"
+
 
 # ----------------------- #
 #    Jekyll & Plugins     #
