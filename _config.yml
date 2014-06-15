@@ -7,13 +7,13 @@ title: dgms code
 subtitle: A Ruby on Rails code blog
 author: Duncan Stuart
 simple_search: http://google.com/search
-description: 
+description:
 
 # Default date format is "ordinal" (resulting in "July 22nd 2007")
 # You can customize the format as defined in
 # http://www.ruby-doc.org/core-1.9.2/Time.html#method-i-strftime
 # Additionally, %o will give you the ordinal representation of the day
-date_format: "ordinal"  
+date_format: "ordinal"
 
 # RSS / Email (optional) subscription links (change if using something like Feedburner)
 subscribe_rss: /atom.xml
@@ -90,8 +90,8 @@ delicious_user:
 delicious_count: 3
 
 # Disqus Comments
-disqus_short_name:
-disqus_show_comment_count: false
+disqus_short_name: dgmscode
+disqus_show_comment_count: true
 
 # Google Analytics
 google_analytics_tracking_id:
