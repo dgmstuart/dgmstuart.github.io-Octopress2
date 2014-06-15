@@ -9,7 +9,7 @@
   <meta name="author" content="Duncan Stuart">
 
   
-  <meta name="description" content="I use RSpec for doing TDD, and the rspec-rails gem for integration in Rails projects. On initialising RSpec for SOLDN2, with rspec init it generated &hellip;">
+  <meta name="description" content="When inside any directory with a Rakefile, you can bring up the list of available rake tasks with rake -T In Rails projects everyone is used to &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -65,6 +65,126 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2014/06/15/useful-rake-tasks-in-rails/">Useful Rake Tasks in Rails</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-06-15T15:55:16+01:00" pubdate data-updated="true">Jun 15<span>th</span>, 2014</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>When inside any directory with a <a href="https://github.com/jimweirich/rake">Rakefile</a>, you can bring up the list of available rake tasks with <code>rake -T</code></p>
+
+<p>In <a href="http://rubyonrails.org/">Rails</a> projects everyone is used to running rake tasks related to database migration and asset management, but here are some tasks I&rsquo;ve found useful which you might not be aware of:</p>
+
+<ul>
+<li><code>rake notes</code> &ndash; Lists all the comments in your application beginning with annotations like <code># TODO</code> and <code># FIXME</code></li>
+<li><code>rake log:clear</code> &ndash; Clears out all of your log files (which can tend to get rather large if you&rsquo;re regularly developing and running tests)</li>
+<li><code>rake routes</code> &ndash; Prints out all the routes defined by your <code>config/routes.rb</code> file. Very useful for debugging</li>
+<li><code>rake tmp:clear</code>/<code>rake tmp:create</code> &ndash; Clear out all your tempfiles (sessions, caches etc.) / create the folders for those tempfiles.</li>
+<li><code>rake secret</code> &ndash; &ldquo;Generate a cryptographically secure secret key&rdquo; &ndash; the recommended way to generate the secret token for your applications, but useful anywhere you need a long random key</li>
+</ul>
+
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2014/06/04/matching-on-a-final-segment-of-a-string/">Matching on a Final Segment of a String</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-06-04T19:55:14+01:00" pubdate data-updated="true">Jun 4<span>th</span>, 2014</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>When matching on the final segment of a string, e.g for a file extension, you could use a regular expression:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="o">&gt;</span> <span class="s2">&quot;foo.bar&quot;</span> <span class="o">=~</span> <span class="sr">/.*\.bar$/</span>
+</span><span class='line'><span class="c1"># =&gt; 0</span>
+</span><span class='line'><span class="o">&gt;</span> <span class="s2">&quot;foo.bar.baz&quot;</span> <span class="o">=~</span> <span class="sr">/.*\.bar$/</span>
+</span><span class='line'><span class="c1">#=&gt; nil</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>But of course in ruby there&rsquo;s a much more expressive way</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="o">&gt;</span> <span class="s2">&quot;foo.bar&quot;</span><span class="o">.</span><span class="n">end_with?</span><span class="p">(</span><span class="s2">&quot;.bar&quot;</span><span class="p">)</span>
+</span><span class='line'><span class="c1">#=&gt; true</span>
+</span><span class='line'><span class="o">&gt;</span> <span class="s2">&quot;foo.bar.baz&quot;</span><span class="o">.</span><span class="n">end_with?</span><span class="p">(</span><span class="s2">&quot;.bar&quot;</span><span class="p">)</span>
+</span><span class='line'><span class="c1">#=&gt; false</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>You can even pass multiple suffixes as arguments:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="o">&gt;</span> <span class="s2">&quot;foo.qux&quot;</span><span class="o">.</span><span class="n">end_with?</span><span class="p">(</span><span class="s2">&quot;bar&quot;</span><span class="p">,</span> <span class="s2">&quot;baz&quot;</span><span class="p">,</span> <span class="s2">&quot;qux&quot;</span><span class="p">)</span>
+</span><span class='line'><span class="c1">#=&gt; true</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Oh Ruby how I love you so.</p>
+
+<p><em><a href="http://www.ruby-doc.org/core-2.1.1/String.html#method-i-end_with-3F">api documentation for end_with?</a></em></p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -347,6 +467,14 @@ Shall the new role be allowed to create more new roles? (y/n) n
     <section>
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2014/06/15/useful-rake-tasks-in-rails/">Useful Rake Tasks in Rails</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/06/04/matching-on-a-final-segment-of-a-string/">Matching on a Final Segment of a String</a>
+      </li>
     
       <li class="post">
         <a href="/blog/2014/02/10/initialising-rspec-in-a-rails-project/">Gotcha: Initialising RSpec in a Rails Project</a>

@@ -5,13 +5,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Blog Archive - dgms code</title>
+  <title>Useful Rake Tasks in Rails - dgms code</title>
   <meta name="author" content="Duncan Stuart">
 
   
-  <meta name="description" content="Blog Archive 2014 Useful Rake Tasks in Rails
-Jun 15 2014 posted in rails, ruby, Matching on a Final Segment of a String
-Jun 04 2014 Gotcha: &hellip;">
+  <meta name="description" content="When inside any directory with a Rakefile, you can bring up the list of available rake tasks with rake -T In Rails projects everyone is used to &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -20,7 +18,7 @@ Jun 04 2014 Gotcha: &hellip;">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://dgmstuart.github.io/blog/archives">
+  <link rel="canonical" href="http://dgmstuart.github.io/blog/2014/06/15/useful-rake-tasks-in-rails">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/atom.xml" rel="alternate" title="dgms code" type="application/atom+xml">
@@ -66,65 +64,95 @@ Jun 04 2014 Gotcha: &hellip;">
   <div id="main">
     <div id="content">
       <div>
-<article role="article">
+<article class="hentry" role="article">
   
   <header>
-    <h1 class="entry-title">Blog Archive</h1>
+    
+      <h1 class="entry-title">Useful Rake Tasks in Rails</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-06-15T15:55:16+01:00" pubdate data-updated="true">Jun 15<span>th</span>, 2014</time>
+        
+      </p>
     
   </header>
-  
-  <div id="blog-archives">
 
 
+<div class="entry-content"><p>When inside any directory with a <a href="https://github.com/jimweirich/rake">Rakefile</a>, you can bring up the list of available rake tasks with <code>rake -T</code></p>
 
-  
-  <h2>2014</h2>
+<p>In <a href="http://rubyonrails.org/">Rails</a> projects everyone is used to running rake tasks related to database migration and asset management, but here are some tasks I&rsquo;ve found useful which you might not be aware of:</p>
 
-<article>
-  
-<h1><a href="/blog/2014/06/15/useful-rake-tasks-in-rails/">Useful Rake Tasks in Rails</a></h1>
-<time datetime="2014-06-15T15:55:16+01:00" pubdate><span class='month'>Jun</span> <span class='day'>15</span> <span class='year'>2014</span></time>
-
-<footer>
-  <span class="categories">posted in <a class='category' href='/blog/categories/rails/'>rails</a>, <a class='category' href='/blog/categories/ruby/'>ruby,</a></span>
-</footer>
-
-
-</article>
-
-
-
-<article>
-  
-<h1><a href="/blog/2014/06/04/matching-on-a-final-segment-of-a-string/">Matching on a Final Segment of a String</a></h1>
-<time datetime="2014-06-04T19:55:14+01:00" pubdate><span class='month'>Jun</span> <span class='day'>04</span> <span class='year'>2014</span></time>
-
-
-</article>
-
-
-
-<article>
-  
-<h1><a href="/blog/2014/02/10/initialising-rspec-in-a-rails-project/">Gotcha: Initialising RSpec in a Rails Project</a></h1>
-<time datetime="2014-02-10T07:50:09+00:00" pubdate><span class='month'>Feb</span> <span class='day'>10</span> <span class='year'>2014</span></time>
-
-
-</article>
-
-
-
-<article>
-  
-<h1><a href="/blog/2014/02/07/getting-to-grips-with-postgres/">Getting to Grips With Postgres</a></h1>
-<time datetime="2014-02-07T12:10:20+00:00" pubdate><span class='month'>Feb</span> <span class='day'>07</span> <span class='year'>2014</span></time>
-
-
-</article>
+<ul>
+<li><code>rake notes</code> &ndash; Lists all the comments in your application beginning with annotations like <code># TODO</code> and <code># FIXME</code></li>
+<li><code>rake log:clear</code> &ndash; Clears out all of your log files (which can tend to get rather large if you&rsquo;re regularly developing and running tests)</li>
+<li><code>rake routes</code> &ndash; Prints out all the routes defined by your <code>config/routes.rb</code> file. Very useful for debugging</li>
+<li><code>rake tmp:clear</code>/<code>rake tmp:create</code> &ndash; Clear out all your tempfiles (sessions, caches etc.) / create the folders for those tempfiles.</li>
+<li><code>rake secret</code> &ndash; &ldquo;Generate a cryptographically secure secret key&rdquo; &ndash; the recommended way to generate the secret token for your applications, but useful anywhere you need a long random key</li>
+</ul>
 
 </div>
 
+
+  <footer>
+    <p class="meta">
+      
   
+
+<span class="byline author vcard">Posted by <span class="fn">Duncan Stuart</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-06-15T15:55:16+01:00" pubdate data-updated="true">Jun 15<span>th</span>, 2014</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/rails/'>rails</a>, <a class='category' href='/blog/categories/ruby/'>ruby,</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://dgmstuart.github.io/blog/2014/06/15/useful-rake-tasks-in-rails/" data-via="dgmstuart" data-counturl="http://dgmstuart.github.io/blog/2014/06/15/useful-rake-tasks-in-rails/" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2014/06/04/matching-on-a-final-segment-of-a-string/" title="Previous Post: Matching on a final segment of a string">&laquo; Matching on a final segment of a string</a>
+      
+      
+    </p>
+  </footer>
 </article>
 
 </div>
