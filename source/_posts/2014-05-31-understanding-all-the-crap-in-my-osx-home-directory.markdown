@@ -9,7 +9,7 @@ published: false
 
 Blog: PATH - gets set in /etc/paths and /etc/paths.d
 
-
+TO LOOKUP: .dropbox-master/ - seemed to just contain some binary keys.
 
 .netrc
 .serverauth.xxxx
