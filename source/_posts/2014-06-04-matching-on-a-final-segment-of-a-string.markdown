@@ -3,7 +3,7 @@ layout: post
 title: "Matching on a final segment of a string"
 date: 2014-06-04 19:55:14 +0100
 comments: true
-categories:
+categories: [Ruby]
 ---
 
 When matching on the final segment of a string, e.g for a file extension, you could use a regular expression:

@@ -3,7 +3,7 @@ layout: post
 title: "Gotcha: Initialising RSpec in a rails project"
 date: 2014-02-10 07:50:09 +0000
 comments: true
-categories:
+categories: [Ruby, RSpec, Rails, Testing]
 ---
 I use RSpec for doing TDD, and the rspec-rails gem for integration in Rails projects. On initialising RSpec for SOLDN2, with `rspec init` it generated the following spec helper (comments removed):
 

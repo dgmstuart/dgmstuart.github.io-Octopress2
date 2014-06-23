@@ -3,7 +3,7 @@ layout: post
 title: "Useful rake tasks in Rails"
 date: 2014-06-15 15:55:16 +0100
 comments: true
-categories: ruby, rails
+categories: [Ruby, Rails]
 ---
 
 When inside any directory with a [Rakefile](https://github.com/jimweirich/rake), you can bring up the list of available rake tasks with `rake -T`
