@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: Ruby | dgms code]]></title>
-  <link href="http://dgmstuart.github.io/blog/categories/ruby/atom.xml" rel="self"/>
+  <title><![CDATA[Category: Testing | dgms code]]></title>
+  <link href="http://dgmstuart.github.io/blog/categories/testing/atom.xml" rel="self"/>
   <link href="http://dgmstuart.github.io/"/>
   <updated>2014-06-24T00:21:27+01:00</updated>
   <id>http://dgmstuart.github.io/</id>
@@ -12,73 +12,6 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
-  
-  <entry>
-    <title type="html"><![CDATA[Useful Rake Tasks in Rails]]></title>
-    <link href="http://dgmstuart.github.io/blog/2014/06/15/useful-rake-tasks-in-rails/"/>
-    <updated>2014-06-15T15:55:16+01:00</updated>
-    <id>http://dgmstuart.github.io/blog/2014/06/15/useful-rake-tasks-in-rails</id>
-    <content type="html"><![CDATA[<p>When inside any directory with a <a href="https://github.com/jimweirich/rake">Rakefile</a>, you can bring up the list of available rake tasks with <code>rake -T</code></p>
-
-<p>In <a href="http://rubyonrails.org/">Rails</a> projects everyone is used to running rake tasks related to database migration and asset management, but here are some tasks I&rsquo;ve found useful which you might not be aware of:</p>
-
-<ul>
-<li><code>rake notes</code> &ndash; Lists all the comments in your application beginning with annotations like <code># TODO</code> and <code># FIXME</code></li>
-<li><code>rake log:clear</code> &ndash; Clears out all of your log files (which can tend to get rather large if you&rsquo;re regularly developing and running tests)</li>
-<li><code>rake routes</code> &ndash; Prints out all the routes defined by your <code>config/routes.rb</code> file. Very useful for debugging</li>
-<li><code>rake tmp:clear</code>/<code>rake tmp:create</code> &ndash; Clear out all your tempfiles (sessions, caches etc.) / create the folders for those tempfiles.</li>
-<li><code>rake secret</code> &ndash; &ldquo;Generate a cryptographically secure secret key&rdquo; &ndash; the recommended way to generate the secret token for your applications, but useful anywhere you need a long random key</li>
-</ul>
-
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Matching on a Final Segment of a String]]></title>
-    <link href="http://dgmstuart.github.io/blog/2014/06/04/matching-on-a-final-segment-of-a-string/"/>
-    <updated>2014-06-04T19:55:14+01:00</updated>
-    <id>http://dgmstuart.github.io/blog/2014/06/04/matching-on-a-final-segment-of-a-string</id>
-    <content type="html"><![CDATA[<p>When matching on the final segment of a string, e.g for a file extension, you could use a regular expression:</p>
-
-<p>```ruby</p>
-
-<blockquote><p>&ldquo;foo.bar&rdquo; =~ /.*.bar$/</p>
-
-<h1>=> 0</h1>
-
-<p>&ldquo;foo.bar.baz&rdquo; =~ /.*.bar$/</p>
-
-<h1>=> nil</h1>
-
-<p>```</p></blockquote>
-
-<p>But of course in ruby there&rsquo;s a much more expressive way
-```ruby</p>
-
-<blockquote><p>&ldquo;foo.bar&rdquo;.end_with?(&ldquo;.bar&rdquo;)</p>
-
-<h1>=> true</h1>
-
-<p>&ldquo;foo.bar.baz&rdquo;.end_with?(&ldquo;.bar&rdquo;)</p>
-
-<h1>=> false</h1>
-
-<p>```</p></blockquote>
-
-<p>You can even pass multiple suffixes as arguments:
-```ruby</p>
-
-<blockquote><p>&ldquo;foo.qux&rdquo;.end_with?(&ldquo;bar&rdquo;, &ldquo;baz&rdquo;, &ldquo;qux&rdquo;)</p>
-
-<h1>=> true</h1>
-
-<p>```</p></blockquote>
-
-<p>Oh Ruby how I love you so.</p>
-
-<p><em><a href="http://www.ruby-doc.org/core-2.1.1/String.html#method-i-end_with-3F">api documentation for end_with?</a></em></p>
-]]></content>
-  </entry>
   
   <entry>
     <title type="html"><![CDATA[Gotcha: Initialising RSpec in a Rails Project]]></title>

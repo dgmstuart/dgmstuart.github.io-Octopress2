@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Development | dgms code]]></title>
+  <link href="http://dgmstuart.github.io/blog/categories/development/atom.xml" rel="self"/>
+  <link href="http://dgmstuart.github.io/"/>
+  <updated>2014-06-24T00:21:27+01:00</updated>
+  <id>http://dgmstuart.github.io/</id>
+  <author>
+    <name><![CDATA[Duncan Stuart]]></name>
+    <email><![CDATA[dgmstuart@gmail.com]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[A Better Way of Writing Commit Messages]]></title>
+    <link href="http://dgmstuart.github.io/blog/2014/06/23/a-better-way-of-writing-commit-messages/"/>
+    <updated>2014-06-23T23:52:20+01:00</updated>
+    <id>http://dgmstuart.github.io/blog/2014/06/23/a-better-way-of-writing-commit-messages</id>
+    <content type="html"><![CDATA[<p>I&rsquo;ve always tended to write commit messages by answering the question &ldquo;What did I do?&rdquo;, but I learned a different approach recently which tends to produce much more expressive commits, which are often more terse as well. Compare the following:</p>
+
+<table>
+<thead>
+<tr>
+<th></th>
+<th> &ldquo;What did I do?&rdquo; </th>
+<th> &ldquo;What do things look like now?&rdquo; </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td> &ldquo;Fixed a bug whereby active links were displaying in the wrong colour&rdquo; </td>
+<td> &ldquo;Active links now display as blue&rdquo; |</td>
+</tr>
+<tr>
+<td></td>
+<td> &ldquo;Changed the styling of the popup for clarity&rdquo; </td>
+<td> &ldquo;The popup now more clearly displays the review description&rdquo; |</td>
+</tr>
+<tr>
+<td></td>
+<td> &ldquo;Fixed styling bug in previous commit&rdquo; </td>
+<td> &ldquo;The styling added in the previous commit now only gets applied to the modal&rdquo; |</td>
+</tr>
+<tr>
+<td></td>
+<td> &ldquo;Added a list of reviewed versions with icons to the security column&rdquo; </td>
+<td> &ldquo;The security column now displays a list of reviewed versions |</td>
+</tr>
+</tbody>
+</table>
+
+
+<p>Ok, so not all of these are fantastic commit messages (they&rsquo;re all real from recent work I&rsquo;ve done). This approach isn&rsquo;t a magic formula but it helps me to focus on what&rsquo;s most relevant, and I feel like the messages on the right are more useful.</p>
+
+<p>An important insight is that although at the time the distinction between implementing a feature/fixing a bug/adding a tweak seems important, when scanning through a list of commits, it&rsquo;s probably the actual behaviour which which is going to be most useful <em>(caveat: if you have a story ID or ticket reference then it&rsquo;s probably worth including)</em>.</p>
+
+<p><em>Props for the tip go to <a href="https://twitter.com/zeeraw">zeeraw</a> &ndash; my colleague at <a href="http://www.dxw.com/">dxw</a></em></p>
+]]></content>
+  </entry>
+  
+</feed>

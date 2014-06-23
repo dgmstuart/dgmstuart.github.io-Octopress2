@@ -5,15 +5,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Matching on a Final Segment of a String - dgms code</title>
+  <title>A Better Way of Writing Commit Messages - dgms code</title>
   <meta name="author" content="Duncan Stuart">
 
   
-  <meta name="description" content="When matching on the final segment of a string, e.g for a file extension, you could use a regular expression: 1
-2
-3
-4
-&gt; &quot;foo.bar&quot &hellip;">
+  <meta name="description" content="I&rsquo;ve always tended to write commit messages by answering the question &ldquo;What did I do?&rdquo;, but I learned a different approach recently &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -22,7 +18,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://dgmstuart.github.io/blog/2014/06/04/matching-on-a-final-segment-of-a-string">
+  <link rel="canonical" href="http://dgmstuart.github.io/blog/2014/06/23/a-better-way-of-writing-commit-messages">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/atom.xml" rel="alternate" title="dgms code" type="application/atom+xml">
@@ -65,7 +61,7 @@
   
   <header>
     
-      <h1 class="entry-title">Matching on a Final Segment of a String</h1>
+      <h1 class="entry-title">A Better Way of Writing Commit Messages</h1>
     
     
       <p class="meta">
@@ -81,7 +77,7 @@
   
 
 
-<time datetime="2014-06-04T19:55:14+01:00" pubdate data-updated="true">Jun 4<span>th</span>, 2014</time>
+<time datetime="2014-06-23T23:52:20+01:00" pubdate data-updated="true">Jun 23<span>rd</span>, 2014</time>
         
            | <a href="#disqus_thread"
              data-disqus-identifier="http://dgmstuart.github.io">Comments</a>
@@ -91,44 +87,46 @@
   </header>
 
 
-<div class="entry-content"><p>When matching on the final segment of a string, e.g for a file extension, you could use a regular expression:</p>
+<div class="entry-content"><p>I&rsquo;ve always tended to write commit messages by answering the question &ldquo;What did I do?&rdquo;, but I learned a different approach recently which tends to produce much more expressive commits, which are often more terse as well. Compare the following:</p>
 
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="o">&gt;</span> <span class="s2">&quot;foo.bar&quot;</span> <span class="o">=~</span> <span class="sr">/.*\.bar$/</span>
-</span><span class='line'><span class="c1"># =&gt; 0</span>
-</span><span class='line'><span class="o">&gt;</span> <span class="s2">&quot;foo.bar.baz&quot;</span> <span class="o">=~</span> <span class="sr">/.*\.bar$/</span>
-</span><span class='line'><span class="c1">#=&gt; nil</span>
-</span></code></pre></td></tr></table></div></figure>
+<table>
+<thead>
+<tr>
+<th></th>
+<th> &ldquo;What did I do?&rdquo; </th>
+<th> &ldquo;What do things look like now?&rdquo; </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td> &ldquo;Fixed a bug whereby active links were displaying in the wrong colour&rdquo; </td>
+<td> &ldquo;Active links now display as blue&rdquo; |</td>
+</tr>
+<tr>
+<td></td>
+<td> &ldquo;Changed the styling of the popup for clarity&rdquo; </td>
+<td> &ldquo;The popup now more clearly displays the review description&rdquo; |</td>
+</tr>
+<tr>
+<td></td>
+<td> &ldquo;Fixed styling bug in previous commit&rdquo; </td>
+<td> &ldquo;The styling added in the previous commit now only gets applied to the modal&rdquo; |</td>
+</tr>
+<tr>
+<td></td>
+<td> &ldquo;Added a list of reviewed versions with icons to the security column&rdquo; </td>
+<td> &ldquo;The security column now displays a list of reviewed versions |</td>
+</tr>
+</tbody>
+</table>
 
 
-<p>But of course in ruby there&rsquo;s a much more expressive way</p>
+<p>Ok, so not all of these are fantastic commit messages (they&rsquo;re all real from recent work I&rsquo;ve done). This approach isn&rsquo;t a magic formula but it helps me to focus on what&rsquo;s most relevant, and I feel like the messages on the right are more useful.</p>
 
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="o">&gt;</span> <span class="s2">&quot;foo.bar&quot;</span><span class="o">.</span><span class="n">end_with?</span><span class="p">(</span><span class="s2">&quot;.bar&quot;</span><span class="p">)</span>
-</span><span class='line'><span class="c1">#=&gt; true</span>
-</span><span class='line'><span class="o">&gt;</span> <span class="s2">&quot;foo.bar.baz&quot;</span><span class="o">.</span><span class="n">end_with?</span><span class="p">(</span><span class="s2">&quot;.bar&quot;</span><span class="p">)</span>
-</span><span class='line'><span class="c1">#=&gt; false</span>
-</span></code></pre></td></tr></table></div></figure>
+<p>An important insight is that although at the time the distinction between implementing a feature/fixing a bug/adding a tweak seems important, when scanning through a list of commits, it&rsquo;s probably the actual behaviour which which is going to be most useful <em>(caveat: if you have a story ID or ticket reference then it&rsquo;s probably worth including)</em>.</p>
 
-
-<p>You can even pass multiple suffixes as arguments:</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="o">&gt;</span> <span class="s2">&quot;foo.qux&quot;</span><span class="o">.</span><span class="n">end_with?</span><span class="p">(</span><span class="s2">&quot;bar&quot;</span><span class="p">,</span> <span class="s2">&quot;baz&quot;</span><span class="p">,</span> <span class="s2">&quot;qux&quot;</span><span class="p">)</span>
-</span><span class='line'><span class="c1">#=&gt; true</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Oh Ruby how I love you so.</p>
-
-<p><em><a href="http://www.ruby-doc.org/core-2.1.1/String.html#method-i-end_with-3F">api documentation for end_with?</a></em></p>
+<p><em>Props for the tip go to <a href="https://twitter.com/zeeraw">zeeraw</a> &ndash; my colleague at <a href="http://www.dxw.com/">dxw</a></em></p>
 </div>
 
 
@@ -151,12 +149,12 @@
   
 
 
-<time datetime="2014-06-04T19:55:14+01:00" pubdate data-updated="true">Jun 4<span>th</span>, 2014</time>
+<time datetime="2014-06-23T23:52:20+01:00" pubdate data-updated="true">Jun 23<span>rd</span>, 2014</time>
       
 
 <span class="categories">
   
-    <a class='category' href='/blog/categories/ruby/'>Ruby</a>
+    <a class='category' href='/blog/categories/development/'>Development</a>
   
 </span>
 
@@ -165,7 +163,7 @@
     
       <div class="sharing">
   
-  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://dgmstuart.github.io/blog/2014/06/04/matching-on-a-final-segment-of-a-string/" data-via="dgmstuart" data-counturl="http://dgmstuart.github.io/blog/2014/06/04/matching-on-a-final-segment-of-a-string/" >Tweet</a>
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://dgmstuart.github.io/blog/2014/06/23/a-better-way-of-writing-commit-messages/" data-via="dgmstuart" data-counturl="http://dgmstuart.github.io/blog/2014/06/23/a-better-way-of-writing-commit-messages/" >Tweet</a>
   
   
   
@@ -174,10 +172,8 @@
     
     <p class="meta">
       
-        <a class="basic-alignment left" href="/blog/2014/02/10/initialising-rspec-in-a-rails-project/" title="Previous Post: Gotcha: Initialising RSpec in a rails project">&laquo; Gotcha: Initialising RSpec in a rails project</a>
+        <a class="basic-alignment left" href="/blog/2014/06/15/useful-rake-tasks-in-rails/" title="Previous Post: Useful rake tasks in Rails">&laquo; Useful rake tasks in Rails</a>
       
-      
-        <a class="basic-alignment right" href="/blog/2014/06/15/useful-rake-tasks-in-rails/" title="Next Post: Useful rake tasks in Rails">Useful rake tasks in Rails &raquo;</a>
       
     </p>
   </footer>
@@ -281,8 +277,8 @@
       
         
         // var disqus_developer = 1;
-        var disqus_identifier = 'http://dgmstuart.github.io/blog/2014/06/04/matching-on-a-final-segment-of-a-string/';
-        var disqus_url = 'http://dgmstuart.github.io/blog/2014/06/04/matching-on-a-final-segment-of-a-string/';
+        var disqus_identifier = 'http://dgmstuart.github.io/blog/2014/06/23/a-better-way-of-writing-commit-messages/';
+        var disqus_url = 'http://dgmstuart.github.io/blog/2014/06/23/a-better-way-of-writing-commit-messages/';
         var disqus_script = 'embed.js';
       
     (function () {
