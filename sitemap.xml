@@ -2,44 +2,44 @@
 <urlset xmlns='http://www.sitemaps.org/schemas/sitemap/0.9'>
     <url>
         <loc>http://dgmstuart.github.io/blog/2014/02/07/getting-to-grips-with-postgres/</loc>
-        <lastmod>2014-06-23T23:58:07+01:00</lastmod>
+        <lastmod>2014-06-24T01:44:09+01:00</lastmod>
     </url>
     <url>
         <loc>
             http://dgmstuart.github.io/blog/2014/02/10/initialising-rspec-in-a-rails-project/
         </loc>
-        <lastmod>2014-06-23T23:57:49+01:00</lastmod>
+        <lastmod>2014-06-24T01:44:09+01:00</lastmod>
     </url>
     <url>
         <loc>
             http://dgmstuart.github.io/blog/2014/06/04/matching-on-a-final-segment-of-a-string/
         </loc>
-        <lastmod>2014-06-23T23:59:05+01:00</lastmod>
+        <lastmod>2014-06-24T01:44:09+01:00</lastmod>
     </url>
     <url>
         <loc>http://dgmstuart.github.io/blog/2014/06/15/useful-rake-tasks-in-rails/</loc>
-        <lastmod>2014-06-23T23:58:27+01:00</lastmod>
+        <lastmod>2014-06-24T01:44:09+01:00</lastmod>
     </url>
     <url>
         <loc>
             http://dgmstuart.github.io/blog/2014/06/23/a-better-way-of-writing-commit-messages/
         </loc>
-        <lastmod>2014-06-24T00:19:56+01:00</lastmod>
+        <lastmod>2014-06-24T01:44:09+01:00</lastmod>
     </url>
     <url>
         <loc>http://dgmstuart.github.io/blog/archives/</loc>
-        <lastmod>2014-06-24T00:19:56+01:00</lastmod>
+        <lastmod>2014-06-24T01:44:09+01:00</lastmod>
     </url>
     <url>
         <loc>http://dgmstuart.github.io/blog/categories/</loc>
-        <lastmod>2014-06-15T18:01:43+01:00</lastmod>
+        <lastmod>2014-06-24T01:44:09+01:00</lastmod>
     </url>
     <url>
         <loc>http://dgmstuart.github.io/</loc>
-        <lastmod>2014-06-24T00:19:56+01:00</lastmod>
+        <lastmod>2014-06-24T01:44:09+01:00</lastmod>
     </url>
     <url>
         <loc>http://dgmstuart.github.io/robots.txt</loc>
-        <lastmod>2014-06-15T18:01:43+01:00</lastmod>
+        <lastmod>2014-06-24T01:44:09+01:00</lastmod>
     </url>
 </urlset>
