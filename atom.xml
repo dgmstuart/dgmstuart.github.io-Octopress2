@@ -4,7 +4,7 @@
   <title><![CDATA[dgms code]]></title>
   <link href="http://dgmstuart.github.io/atom.xml" rel="self"/>
   <link href="http://dgmstuart.github.io/"/>
-  <updated>2014-06-24T03:08:53+01:00</updated>
+  <updated>2014-08-15T15:25:51+01:00</updated>
   <id>http://dgmstuart.github.io/</id>
   <author>
     <name><![CDATA[Duncan Stuart]]></name>
@@ -12,6 +12,33 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Creating a New App on Heroku Really Is Stupidly Easy]]></title>
+    <link href="http://dgmstuart.github.io/blog/2014/08/15/creating-a-new-app-on-heroku-is-stupidly-easy/"/>
+    <updated>2014-08-15T13:49:11+01:00</updated>
+    <id>http://dgmstuart.github.io/blog/2014/08/15/creating-a-new-app-on-heroku-is-stupidly-easy</id>
+    <content type="html"><![CDATA[<pre><code>heroku apps:create swingoutlondon2 --region eu
+git push heroku master
+heroku run rake db:migrate
+</code></pre>
+
+<p>Done *. <a href="https://swingoutlondon2.herokuapp.com">https://swingoutlondon2.herokuapp.com</a> exists.</p>
+
+<p>I know it&rsquo;s been around for ages, but it really is amazing how simple it is.</p>
+
+<p><em>* Actually not quite done &ndash; I still needed to:</em></p>
+
+<ul>
+<li><em>set up my <a href="https://devcenter.heroku.com/changelog-items/426">secret tokens</a></em></li>
+<li><em>jump through a couple of hoops to get Devise&rsquo;s key to be recognised because <a href="https://stackoverflow.com/questions/19832218/failing-to-find-envsecret-key-in-devise-setup-on-heroku#comment35154876_19833145">Heroku doesn&rsquo;t have access to the Rails environment when deploying</a></em></li>
+<li><em><a href="http://stackoverflow.com/a/17082720/1035431">tweak my production.rb</a> to get it to compile assets</em></li>
+</ul>
+
+
+<p><em>But whatever. Hush.</em></p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[A Better Way of Writing Commit Messages]]></title>

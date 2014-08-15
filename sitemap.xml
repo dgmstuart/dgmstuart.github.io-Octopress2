@@ -2,44 +2,50 @@
 <urlset xmlns='http://www.sitemaps.org/schemas/sitemap/0.9'>
     <url>
         <loc>http://dgmstuart.github.io/blog/2014/02/07/getting-to-grips-with-postgres/</loc>
-        <lastmod>2014-06-24T03:07:44+01:00</lastmod>
+        <lastmod>2014-08-15T13:50:02+01:00</lastmod>
     </url>
     <url>
         <loc>
             http://dgmstuart.github.io/blog/2014/02/10/initialising-rspec-in-a-rails-project/
         </loc>
-        <lastmod>2014-06-24T03:07:44+01:00</lastmod>
+        <lastmod>2014-08-15T13:50:02+01:00</lastmod>
     </url>
     <url>
         <loc>
             http://dgmstuart.github.io/blog/2014/06/04/matching-on-a-final-segment-of-a-string/
         </loc>
-        <lastmod>2014-06-24T03:07:44+01:00</lastmod>
+        <lastmod>2014-08-15T13:50:02+01:00</lastmod>
     </url>
     <url>
         <loc>http://dgmstuart.github.io/blog/2014/06/15/useful-rake-tasks-in-rails/</loc>
-        <lastmod>2014-06-24T03:07:44+01:00</lastmod>
+        <lastmod>2014-08-15T13:50:02+01:00</lastmod>
     </url>
     <url>
         <loc>
             http://dgmstuart.github.io/blog/2014/06/23/a-better-way-of-writing-commit-messages/
         </loc>
-        <lastmod>2014-06-24T03:07:44+01:00</lastmod>
+        <lastmod>2014-08-15T13:50:02+01:00</lastmod>
+    </url>
+    <url>
+        <loc>
+            http://dgmstuart.github.io/blog/2014/08/15/creating-a-new-app-on-heroku-is-stupidly-easy/
+        </loc>
+        <lastmod>2014-08-15T15:24:45+01:00</lastmod>
     </url>
     <url>
         <loc>http://dgmstuart.github.io/blog/archives/</loc>
-        <lastmod>2014-06-24T03:07:44+01:00</lastmod>
+        <lastmod>2014-08-15T15:24:45+01:00</lastmod>
     </url>
     <url>
         <loc>http://dgmstuart.github.io/blog/categories/</loc>
-        <lastmod>2014-06-24T03:07:44+01:00</lastmod>
+        <lastmod>2014-08-15T13:50:02+01:00</lastmod>
     </url>
     <url>
         <loc>http://dgmstuart.github.io/</loc>
-        <lastmod>2014-06-24T03:07:44+01:00</lastmod>
+        <lastmod>2014-08-15T15:24:45+01:00</lastmod>
     </url>
     <url>
         <loc>http://dgmstuart.github.io/robots.txt</loc>
-        <lastmod>2014-06-24T03:07:44+01:00</lastmod>
+        <lastmod>2014-06-05T14:10:15+01:00</lastmod>
     </url>
 </urlset>

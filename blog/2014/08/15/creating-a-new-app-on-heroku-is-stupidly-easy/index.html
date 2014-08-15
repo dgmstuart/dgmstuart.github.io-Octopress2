@@ -5,11 +5,13 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Category: RSpec - dgms code</title>
+  <title>Creating a New App on Heroku Really Is Stupidly Easy - dgms code</title>
   <meta name="author" content="Duncan Stuart">
 
   
-  <meta name="description" content="Category: RSpec">
+  <meta name="description" content="heroku apps:create swingoutlondon2 --region eu
+git push heroku master
+heroku run rake db:migrate Done *. https://swingoutlondon2.herokuapp.com exists &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -18,7 +20,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://dgmstuart.github.ioblog/categories/rspec">
+  <link rel="canonical" href="http://dgmstuart.github.io/blog/2014/08/15/creating-a-new-app-on-heroku-is-stupidly-easy">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/atom.xml" rel="alternate" title="dgms code" type="application/atom+xml">
@@ -57,36 +59,112 @@
   <div id="main">
     <div id="content">
       <div>
-<article role="article">
+<article class="hentry" role="article">
   
   <header>
-    <h1 class="entry-title">Category: RSpec</h1>
+    
+      <h1 class="entry-title">Creating a New App on Heroku Really Is Stupidly Easy</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-08-15T13:49:11+01:00" pubdate data-updated="true">Aug 15<span>th</span>, 2014</time>
+        
+           | <a href="#disqus_thread"
+             data-disqus-identifier="http://dgmstuart.github.io">Comments</a>
+        
+      </p>
     
   </header>
-  
-  <div id="blog-archives" class="category">
 
 
+<div class="entry-content"><pre><code>heroku apps:create swingoutlondon2 --region eu
+git push heroku master
+heroku run rake db:migrate
+</code></pre>
 
-  
-  <h2>2014</h2>
+<p>Done *. <a href="https://swingoutlondon2.herokuapp.com">https://swingoutlondon2.herokuapp.com</a> exists.</p>
 
-<article>
-  
-<h1><a href="/blog/2014/02/10/initialising-rspec-in-a-rails-project/">Gotcha: Initialising RSpec in a Rails Project</a></h1>
-<time datetime="2014-02-10T07:50:09+00:00" pubdate><span class='month'>Feb</span> <span class='day'>10</span> <span class='year'>2014</span></time>
+<p>I know it&rsquo;s been around for ages, but it really is amazing how simple it is.</p>
 
-<footer>
-  <span class="categories">posted in <a class='category' href='/blog/categories/rspec/'>RSpec</a>, <a class='category' href='/blog/categories/rails/'>Rails</a>, <a class='category' href='/blog/categories/ruby/'>Ruby</a>, <a class='category' href='/blog/categories/testing/'>Testing</a></span>
-</footer>
+<p><em>* Actually not quite done &ndash; I still needed to:</em></p>
+
+<ul>
+<li><em>set up my <a href="https://devcenter.heroku.com/changelog-items/426">secret tokens</a></em></li>
+<li><em>jump through a couple of hoops to get Devise&rsquo;s key to be recognised because <a href="https://stackoverflow.com/questions/19832218/failing-to-find-envsecret-key-in-devise-setup-on-heroku#comment35154876_19833145">Heroku doesn&rsquo;t have access to the Rails environment when deploying</a></em></li>
+<li><em><a href="http://stackoverflow.com/a/17082720/1035431">tweak my production.rb</a> to get it to compile assets</em></li>
+</ul>
 
 
-</article>
-
+<p><em>But whatever. Hush.</em></p>
 </div>
 
+
+  <footer>
+    <p class="meta">
+      
   
+
+<span class="byline author vcard">Posted by <span class="fn">Duncan Stuart</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-08-15T13:49:11+01:00" pubdate data-updated="true">Aug 15<span>th</span>, 2014</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/heroku/'>Heroku</a>, <a class='category' href='/blog/categories/rails/'>Rails</a>, <a class='category' href='/blog/categories/ruby/'>Ruby</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://dgmstuart.github.io/blog/2014/08/15/creating-a-new-app-on-heroku-is-stupidly-easy/" data-via="dgmstuart" data-counturl="http://dgmstuart.github.io/blog/2014/08/15/creating-a-new-app-on-heroku-is-stupidly-easy/" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2014/06/23/a-better-way-of-writing-commit-messages/" title="Previous Post: A better way of writing commit messages">&laquo; A better way of writing commit messages</a>
+      
+      
+    </p>
+  </footer>
 </article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
 
 </div>
 
@@ -179,7 +257,10 @@
       var disqus_shortname = 'dgmscode';
       
         
-        var disqus_script = 'count.js';
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://dgmstuart.github.io/blog/2014/08/15/creating-a-new-app-on-heroku-is-stupidly-easy/';
+        var disqus_url = 'http://dgmstuart.github.io/blog/2014/08/15/creating-a-new-app-on-heroku-is-stupidly-easy/';
+        var disqus_script = 'embed.js';
       
     (function () {
       var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
