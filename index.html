@@ -9,7 +9,8 @@
   <meta name="author" content="Duncan Stuart">
 
   
-  <meta name="description" content="I&rsquo;ve always tended to write commit messages by answering the question &ldquo;What did I do?&rdquo;, but I learned a different approach recently &hellip;">
+  <meta name="description" content="TL;DR &ndash; this was my approach: create migrations on the old project to transform the data into the new schema structure
+run these migrations on &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -58,6 +59,282 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2014/08/20/migrating-postgres-data-from-an-old-rails-project-to-a-new-one/">Migrating Postgres Data From an Old Rails Project to a New One</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-08-20T23:29:31+01:00" pubdate data-updated="true">Aug 20<span>th</span>, 2014</time>
+        
+           | <a href="/blog/2014/08/20/migrating-postgres-data-from-an-old-rails-project-to-a-new-one/#disqus_thread"
+             data-disqus-identifier="http://dgmstuart.github.io/blog/2014/08/20/migrating-postgres-data-from-an-old-rails-project-to-a-new-one/">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>TL;DR &ndash; this was my approach:</p>
+
+<ol>
+<li>create migrations on the old project to transform the data into the new schema structure</li>
+<li>run these migrations on a dump of the live database</li>
+<li>dump just the data of the tables you care about from the migrated database with pg_dump</li>
+<li>import this dump into the new database with psql</li>
+</ol>
+
+
+<p>Once I worked through a few kinks, it was all remarkably straightforward.</p>
+
+<h2>Background</h2>
+
+<ul>
+<li><a href="https://github.com/dgmstuart/Swing-Out-London">Swing Out London</a> is a cms for managing swing events</li>
+<li>I&rsquo;m rebuilding it from scratch as <a href="https://github.com/dgmstuart/swingoutlondon2">a totally new project</a></li>
+<li>In particular the <a href="https://github.com/dgmstuart/Swing-Out-London/blob/274f64e1d635bcd8d2678eb6a0dfa50516ef64ba/db/schema.rb">old data model</a> was insane and the <a href="https://github.com/dgmstuart/swingoutlondon2/blob/daa4397f1e9d772a5b5302cdd369b81201c8ec84/db/schema.rb">new one</a>  is turning out much cleaner</li>
+<li>The current live system is Rails 3 and hosted on Heroku &ndash; so uses postgres for the live database, but uses sqlite for the development database</li>
+<li>The new system is Rails 4 and uses postgres for the development database</li>
+</ul>
+
+
+<p>I want to be able to import data from the current live site into my work-in-progress new schema as I go along, for a few reasons:</p>
+
+<ol>
+<li>Doing the migration incrementally will hopefully be easier than doing it all in one go at the end</li>
+<li>Working with real data will help me make better design decisions earlier</li>
+<li>Being able to see what is missing between the old and new schemas will help to make sure I don&rsquo;t miss anything</li>
+</ol>
+
+
+<h2>The challenge</h2>
+
+<p>Data which in the old app exists in one god object (<code>event</code>) needs to be divided between three tables in the new app (<code>events</code>, <code>event_seeds</code>, <code>event_generators</code>).</p>
+
+<p>In particular, in the new app, events with individual dates are modelled by having:</p>
+
+<ul>
+<li>an <code>event_generator</code> with a date, which belongs to&hellip;</li>
+<li>an <code>event_seed</code> (which holds the main data) and belongs to&hellip;</li>
+<li>an <code>event</code> which groups <code>event_seed</code>s together.</li>
+</ul>
+
+
+<p>In the old app, dates are stored in a <code>swing_dates</code> table (which has unique entries)
+and associated with <code>events</code> via a join table: <code>event_swing_dates</code> <em>(Don&rsquo;t do this. If you can believe it, this was done in an attempt to speed up database queries)</em>.</p>
+
+<p>In the old app this complexity is hidden under the hood and events just have a <code>#dates</code> method which pulls out the relevant list. For the sake of sanity, my import solution needs to take advantage of that method.</p>
+
+<h2>Step 0: Convert the old app to use postgres</h2>
+
+<p>I had never gotten around to updating the old app to use posgres in development, so the first step was to sort that out. Luckily this is pretty easy:</p>
+
+<ol>
+<li>In the <code>Gemfile</code>, remove the <code>sqlite3</code> gem and move the <code>pg</code> gem out of the production group.</li>
+<li>In <code>database.yml</code>, change the sqlite config to a posgres config</li>
+</ol>
+
+
+<h2>Step 1: Create migrations</h2>
+
+<p>I used a number of migrations to do the data transformation. Since some of them are irreversible, there&rsquo;s no real reason to separate them out, other than organising the code:</p>
+
+<h3>ChangeVenuesToNewFormat</h3>
+
+<p>The venues table isn&rsquo;t changing much so this just involved renaming a column, adding some not-null constraints (probably not necessary) and dropping the columns which aren&rsquo;t being imported yet (<a href="https://github.com/dgmstuart/Swing-Out-London/blob/01df37393444e4d3e217c870d6b3164e001288f0/db/migrate/20140820003740_change_venues_to_new_format.rb">source</a>)</p>
+
+<h3>CreateNewEventsTables</h3>
+
+<p>This involved copying the section of the schema in the new app which creates the tables for the <code>event_seeds</code> and <code>event_generators</code> tables. This way the tables are exactly the same as the new schema. (<a href="https://github.com/dgmstuart/Swing-Out-London/blob/9069b2d1b4103b781a7b3e9951317c40c1d3fb2b/db/migrate/20140820082042_create_new_events_tables.rb">source</a>)</p>
+
+<h3>MoveDataToNewEventTables</h3>
+
+<p>This is where the gnarly stuff happens. First I need a way of putting data into the new tables. I could go and create full models in the app, but it&rsquo;s possible to just create lightweight classes right in the migration:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">class</span> <span class="nc">EventSeed</span> <span class="o">&lt;</span>  <span class="ss">ActiveRecord</span><span class="p">:</span><span class="ss">:Base</span>
+</span><span class='line'>  <span class="n">belongs_to</span> <span class="ss">:event</span>
+</span><span class='line'>  <span class="n">belongs_to</span> <span class="ss">:venue</span>
+</span><span class='line'><span class="k">end</span>
+</span><span class='line'><span class="k">class</span> <span class="nc">EventGenerator</span> <span class="o">&lt;</span> <span class="ss">ActiveRecord</span><span class="p">:</span><span class="ss">:Base</span>
+</span><span class='line'>  <span class="n">belongs_to</span> <span class="ss">:event_seed</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>I guess I should maybe also have included all of the validations here, but I&rsquo;m fairly confident that the validations are basically equivalent between the two apps, and in any case, the relevant fields have <code>null: false</code> constraints on them in the database, so I&rsquo;m not going to sweat it.</p>
+
+<p>Now we can actually create the new records:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">def</span> <span class="nf">change</span>
+</span><span class='line'>  <span class="no">Event</span><span class="o">.</span><span class="n">all</span><span class="o">.</span><span class="n">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">event</span><span class="o">|</span>
+</span><span class='line'>    <span class="n">event_seed</span> <span class="o">=</span> <span class="n">create_event_seed</span><span class="p">(</span><span class="n">event</span><span class="p">)</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="k">if</span> <span class="n">event</span><span class="o">.</span><span class="n">frequency</span> <span class="o">==</span> <span class="mi">1</span>
+</span><span class='line'>      <span class="n">start_date</span> <span class="o">=</span> <span class="n">event</span><span class="o">.</span><span class="n">first_date</span> <span class="o">||</span> <span class="no">Date</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="mi">2001</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+</span><span class='line'>      <span class="n">create_event_generator</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">start_date</span><span class="p">,</span> <span class="n">event</span><span class="p">,</span> <span class="n">event_seed</span><span class="p">)</span>
+</span><span class='line'>    <span class="k">else</span>
+</span><span class='line'>      <span class="n">event</span><span class="o">.</span><span class="n">dates</span><span class="o">.</span><span class="n">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">date</span><span class="o">|</span>
+</span><span class='line'>        <span class="n">create_event_generator</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">date</span><span class="p">,</span> <span class="n">event</span><span class="p">,</span> <span class="n">event_seed</span><span class="p">)</span> <span class="k">if</span> <span class="n">date</span> <span class="o">&gt;</span> <span class="no">Date</span><span class="o">.</span><span class="n">today</span>
+</span><span class='line'>      <span class="k">end</span>
+</span><span class='line'>    <span class="k">end</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="c1"># ...</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Note the use of <code>event.dates</code>.</p>
+
+<p><code>create_event_seed</code> and <code>create_event_generator</code> are just wrappers around
+<code>EventGenerator.create</code> and <code>EventSeed.create</code> for convenience.</p>
+
+<p>This migration also dropped most of the fields on <code>events</code> but kept the original ids intact &ndash; I have a feeling that will turn out to be useful later on. (<a href="https://github.com/dgmstuart/Swing-Out-London/blob/01df37393444e4d3e217c870d6b3164e001288f0/db/migrate/20140820082444_move_data_to_new_event_tables.rb">source</a>)</p>
+
+<h3>CreateNonMigrationTables and DropUnusedTables</h3>
+
+<p>These migrations create the remaining missing tables (like Users, which we&rsquo;re not going to import data into) and drop the tables which don&rsquo;t yet have any counterpart in the new app. (<a href="https://github.com/dgmstuart/Swing-Out-London/blob/01df37393444e4d3e217c870d6b3164e001288f0/db/migrate/20140820210352_create_non_migration_tables.rb">source 1</a>, <a href="https://github.com/dgmstuart/Swing-Out-London/blob/01df37393444e4d3e217c870d6b3164e001288f0/db/migrate/20140820210653_drop_unused_tables.rb">source 2</a>)</p>
+
+<p>Given that in the end I only migrated data from specific tables, this probably wasn&rsquo;t necessary, but it&rsquo;s handy to be able to verify that the schemas between the old and new app exactly match, and to see what hasn&rsquo;t been migrated yet.</p>
+
+<h2>Step 2: Run the migrations on the live database</h2>
+
+<p>So we&rsquo;ve now got a set of migrations which convert the old schema into the latest version of the new schema. Time to test it out on some real data.</p>
+
+<p>Getting a database dump from heroku is easy. You first need to drop the existing development database with <code>dbdrop soldn1_dev</code> and then you can create a new one as a copy of the live database. For me that looks like this:</p>
+
+<pre><code>heroku pg:pull HEROKU_POSTGRESQL_GRAY soldn1_dev
+</code></pre>
+
+<p>Then it&rsquo;s just a case of <code>rake db:migrate</code> and cross your fingers. If it&rsquo;s successful then the <code>schema.rb</code> files should match between the old and new app (perhaps modulo some indexes).</p>
+
+<h2>Step 3: Dump the data</h2>
+
+<p>So now we&rsquo;ve got our data into the form we want it, how do we actually move it into the new database?</p>
+
+<p>Dumping the whole database would mean we&rsquo;d carry over the <code>schema_migrations</code> table as well. <code>schema_migrations</code> consists of a list of identifiers which match up to an app&rsquo;s migration files &ndash; it&rsquo;s what Rails uses to track which migrations have been run, which is important for e.g. <code>rake db</code> commands, so we don&rsquo;t want to modify it.</p>
+
+<p>The simplest approach seems to be to dump only the tables which actually contain data which we want to migrate:</p>
+
+<pre><code>pg_dump soldn1_dev -a -t event_generators -t event_seeds -t events -t venues &gt; dump
+</code></pre>
+
+<p><code>pg_dump</code> actually writes to <code>stdout</code>, so that <code>&gt; dump</code> creates a file from the output.</p>
+
+<p>The <code>-a</code> flag tells <code>pg_dump</code> to dump only the data. Although we&rsquo;ve engineered a state where the migrations on the old site and the new site both result in the same schema, it seems cleaner to only move across the data rather than recreating the tables.</p>
+
+<h2>Step 4: Import the data</h2>
+
+<p>If there are any records already in the relevant tables with IDs which would clash with data in the import then this would need to be resolved somehow before importing. I don&rsquo;t care about any existing data, so I&rsquo;m happy to resolve it by clearing out any existing records with <code>rake db:reset</code>.</p>
+
+<p>To load the data from the dump file:</p>
+
+<pre><code>psql soldn2_dev &lt; dump
+</code></pre>
+
+<p>And that&rsquo;s it: the data is now in the new database. Job done.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2014/08/15/creating-a-new-app-on-heroku-is-stupidly-easy/">Creating a New App on Heroku Really Is Stupidly Easy</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-08-15T13:49:11+01:00" pubdate data-updated="true">Aug 15<span>th</span>, 2014</time>
+        
+           | <a href="/blog/2014/08/15/creating-a-new-app-on-heroku-is-stupidly-easy/#disqus_thread"
+             data-disqus-identifier="http://dgmstuart.github.io/blog/2014/08/15/creating-a-new-app-on-heroku-is-stupidly-easy/">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><pre><code>heroku apps:create swingoutlondon2 --region eu
+git push heroku master
+heroku run rake db:migrate
+</code></pre>
+
+<p>Done *. <a href="https://swingoutlondon2.herokuapp.com">https://swingoutlondon2.herokuapp.com</a> exists.</p>
+
+<p>I know it&rsquo;s been around for ages, but it really is amazing how simple it is.</p>
+
+<p><em>* Actually not quite done &ndash; I still needed to:</em></p>
+
+<ul>
+<li><em>set up my <a href="https://devcenter.heroku.com/changelog-items/426">secret tokens</a></em></li>
+<li><em>jump through a couple of hoops to get Devise&rsquo;s key to be recognised because <a href="https://stackoverflow.com/questions/19832218/failing-to-find-envsecret-key-in-devise-setup-on-heroku#comment35154876_19833145">Heroku doesn&rsquo;t have access to the Rails environment when deploying</a></em></li>
+<li><em><a href="http://stackoverflow.com/a/17082720/1035431">tweak my production.rb</a> to get it to compile assets</em></li>
+</ul>
+
+
+<p><em>But whatever. Hush.</em></p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -555,6 +832,14 @@ Shall the new role be allowed to create more new roles? (y/n) n
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2014/08/20/migrating-postgres-data-from-an-old-rails-project-to-a-new-one/">Migrating Postgres Data From an Old Rails Project to a New One</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/08/15/creating-a-new-app-on-heroku-is-stupidly-easy/">Creating a New App on Heroku Really Is Stupidly Easy</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2014/06/23/a-better-way-of-writing-commit-messages/">A Better Way of Writing Commit Messages</a>
       </li>
     
@@ -564,14 +849,6 @@ Shall the new role be allowed to create more new roles? (y/n) n
     
       <li class="post">
         <a href="/blog/2014/06/04/matching-on-a-final-segment-of-a-string/">Matching on a Final Segment of a String</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2014/02/10/initialising-rspec-in-a-rails-project/">Gotcha: Initialising RSpec in a Rails Project</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2014/02/07/getting-to-grips-with-postgres/">Getting to Grips With Postgres</a>
       </li>
     
   </ul>
