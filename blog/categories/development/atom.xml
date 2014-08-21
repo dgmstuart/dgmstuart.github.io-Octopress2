@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Development | dgms code]]></title>
   <link href="http://dgmstuart.github.io/blog/categories/development/atom.xml" rel="self"/>
   <link href="http://dgmstuart.github.io/"/>
-  <updated>2014-08-21T10:53:05+01:00</updated>
+  <updated>2014-08-21T14:22:01+01:00</updated>
   <id>http://dgmstuart.github.io/</id>
   <author>
     <name><![CDATA[Duncan Stuart]]></name>
@@ -23,7 +23,7 @@
 <table>
 <thead>
 <tr>
-<th> &ldquo;What did I do?&rdquo; </th>
+<th>&ldquo;What did I do?&rdquo; </th>
 <th> &ldquo;What do things look like now?&rdquo;</th>
 </tr>
 </thead>
@@ -52,7 +52,7 @@
 
 <p>An important insight is that although at the time the distinction between implementing a feature/fixing a bug/adding a tweak seems important, when scanning through a list of commits, it&rsquo;s probably the actual behaviour which which is going to be most useful <em>(caveat: if you have a story ID or ticket reference then it&rsquo;s probably worth including)</em>.</p>
 
-<p><em>Props for the tip go to <a href="https://twitter.com/zeeraw">zeeraw</a> &ndash; my colleague at <a href="http://www.dxw.com/">dxw</a></em></p>
+<p><em>Props for the tip go to <a href="https://twitter.com/zeeraw">zeeraw</a> - my colleague at <a href="http://www.dxw.com/">dxw</a></em></p>
 ]]></content>
   </entry>
   

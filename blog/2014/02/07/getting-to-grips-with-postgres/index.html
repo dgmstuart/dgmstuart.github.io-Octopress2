@@ -77,7 +77,7 @@
   
 
 
-<time datetime="2014-02-07T12:10:20+00:00" pubdate data-updated="true">Feb 7<span>th</span>, 2014</time>
+<time datetime="2014-02-07T12:10:20+00:00" pubdate data-updated="true"></time>
         
            | <a href="#disqus_thread"
              data-disqus-identifier="http://dgmstuart.github.io">Comments</a>
@@ -98,7 +98,7 @@
 <ul>
 <li>Install postgres with homebrew: <code>brew install postgres</code></li>
 <li>Start the postgres server according to the instructions in <code>brew info postgres</code></li>
-<li>Create a database user with <code>createuser [username]</code> &ndash; making sure to give it database creation privelleges</li>
+<li>Create a database user with <code>createuser [username]</code> - making sure to give it database creation privelleges</li>
 <li>Run rake db:create</li>
 </ul>
 
@@ -125,7 +125,7 @@
 % ln -sfv /usr/local/opt/postgresql/*.plist ~/Library/LaunchAgents
 </code></pre>
 
-<p>So that created a database with a user of duncanstuart &ndash; not sure if that&rsquo;s right. Is that like a box for my application DB&rsquo;s to go in, or is it a single database in itself?</p>
+<p>So that created a database with a user of duncanstuart - not sure if that&rsquo;s right. Is that like a box for my application DB&rsquo;s to go in, or is it a single database in itself?</p>
 
 <h2>Database config</h2>
 
@@ -137,7 +137,7 @@ FATAL:  role "myapp" does not exist
 
 <p>Looking at my <code>database.yml</code>, it seemed that the application generator had set up several &lsquo;myapp&rsquo; databases:</p>
 
-<figure class='code'><figcaption><span>database.yml </span></figcaption>
+<div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span>database.yml </span></figcaption>
 <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
@@ -160,7 +160,7 @@ FATAL:  role "myapp" does not exist
 </span><span class='line'>  <span class="l-Scalar-Plain">template</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">template0</span>
 </span><span class='line'>
 </span><span class='line'>  <span class="l-Scalar-Plain">...</span>
-</span></code></pre></td></tr></table></div></figure>
+</span></code></pre></td></tr></table></div></figure></notextile></div>
 
 
 <p>Replacing myapp with swingoutlondon, I dared to hope that running <code>rake db:create</code> would just create these databases for me&hellip;</p>
@@ -240,12 +240,12 @@ Shall the new role be allowed to create more new roles? (y/n) n
   
 
 
-<time datetime="2014-02-07T12:10:20+00:00" pubdate data-updated="true">Feb 7<span>th</span>, 2014</time>
+<time datetime="2014-02-07T12:10:20+00:00" pubdate data-updated="true"></time>
       
 
 <span class="categories">
   
-    <a class='category' href='/blog/categories/postgres/'>Postgres</a>, <a class='category' href='/blog/categories/rails/'>Rails</a>, <a class='category' href='/blog/categories/soldn/'>SOLDN</a>
+    <a class='category' href='/blog/categories/postgres/'>postgres</a>, <a class='category' href='/blog/categories/rails/'>rails</a>, <a class='category' href='/blog/categories/soldn/'>soldn</a>
   
 </span>
 

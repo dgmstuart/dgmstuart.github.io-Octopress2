@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Heroku | dgms code]]></title>
   <link href="http://dgmstuart.github.io/blog/categories/heroku/atom.xml" rel="self"/>
   <link href="http://dgmstuart.github.io/"/>
-  <updated>2014-08-21T10:53:05+01:00</updated>
+  <updated>2014-08-21T14:22:01+01:00</updated>
   <id>http://dgmstuart.github.io/</id>
   <author>
     <name><![CDATA[Duncan Stuart]]></name>
@@ -18,7 +18,7 @@
     <link href="http://dgmstuart.github.io/blog/2014/08/20/migrating-postgres-data-from-an-old-rails-project-to-a-new-one/"/>
     <updated>2014-08-20T23:29:31+01:00</updated>
     <id>http://dgmstuart.github.io/blog/2014/08/20/migrating-postgres-data-from-an-old-rails-project-to-a-new-one</id>
-    <content type="html"><![CDATA[<p>TL;DR &ndash; this was my approach:</p>
+    <content type="html"><![CDATA[<p>TL;DR - this was my approach:</p>
 
 <ol>
 <li>create migrations on the old project to transform the data into the new schema structure</li>
@@ -36,7 +36,7 @@
 <li><a href="https://github.com/dgmstuart/Swing-Out-London">Swing Out London</a> is a cms for managing swing events</li>
 <li>I&rsquo;m rebuilding it from scratch as <a href="https://github.com/dgmstuart/swingoutlondon2">a totally new project</a></li>
 <li>In particular the <a href="https://github.com/dgmstuart/Swing-Out-London/blob/274f64e1d635bcd8d2678eb6a0dfa50516ef64ba/db/schema.rb">old data model</a> was insane and the <a href="https://github.com/dgmstuart/swingoutlondon2/blob/daa4397f1e9d772a5b5302cdd369b81201c8ec84/db/schema.rb">new one</a>  is turning out much cleaner</li>
-<li>The current live system is Rails 3 and hosted on Heroku &ndash; so uses postgres for the live database, but uses sqlite for the development database</li>
+<li>The current live system is Rails 3 and hosted on Heroku - so uses postgres for the live database, but uses sqlite for the development database</li>
 <li>The new system is Rails 4 and uses postgres for the development database</li>
 </ul>
 
@@ -66,7 +66,7 @@
 <p>In the old app, dates are stored in a <code>swing_dates</code> table (which has unique entries)
 and associated with <code>events</code> via a join table: <code>event_swing_dates</code> <em>(Don&rsquo;t do this. If you can believe it, this was done in an attempt to speed up database queries)</em>.</p>
 
-<p>The thought of transforming this data at the SQL level gives me a headache. Fortunately in the old app this complexity is hidden under the hood and events just have a <code>#dates</code> method which pulls out the relevant list. For the sake of sanity, my import solution needs to take advantage of that method &ndash; hence doing the transformation at the application level using migrations.</p>
+<p>The thought of transforming this data at the SQL level gives me a headache. Fortunately in the old app this complexity is hidden under the hood and events just have a <code>#dates</code> method which pulls out the relevant list. For the sake of sanity, my import solution needs to take advantage of that method - hence doing the transformation at the application level using migrations.</p>
 
 <h2>Step 0: Convert the old app to use postgres</h2>
 
@@ -94,46 +94,43 @@ and associated with <code>events</code> via a join table: <code>event_swing_date
 
 <p>This is where the gnarly stuff happens. First I need a way of putting data into the new tables. I could go and create full models in the app, but it&rsquo;s possible to just create lightweight classes right in the migration:</p>
 
-<p><code>ruby
-class EventSeed &lt;  ActiveRecord::Base
+<pre><code class="ruby">class EventSeed &lt;  ActiveRecord::Base
   belongs_to :event
   belongs_to :venue
 end
 class EventGenerator &lt; ActiveRecord::Base
   belongs_to :event_seed
 end
-</code>
-I guess I should maybe also have included all of the validations here, but I&rsquo;m fairly confident that the validations are basically equivalent between the two apps, and in any case, the relevant fields have <code>null: false</code> constraints on them in the database, so I&rsquo;m not going to sweat it.</p>
+</code></pre>
+
+<p>I guess I should maybe also have included all of the validations here, but I&rsquo;m fairly confident that the validations are basically equivalent between the two apps, and in any case, the relevant fields have <code>null: false</code> constraints on them in the database, so I&rsquo;m not going to sweat it.</p>
 
 <p>Now we can actually create the new records:</p>
 
-<p>```ruby
-def change
-  Event.all.each do |event|</p>
+<pre><code class="ruby">def change
+  Event.all.each do |event|
+    event_seed = create_event_seed(event)
 
-<pre><code>event_seed = create_event_seed(event)
-
-if event.frequency == 1
-  start_date = event.first_date || Date.new(2001,1,1)
-  create_event_generator(1, start_date, event, event_seed)
-else
-  event.dates.each do |date|
-    create_event_generator(0, date, event, event_seed) if date &gt; Date.today
+    if event.frequency == 1
+      start_date = event.first_date || Date.new(2001,1,1)
+      create_event_generator(1, start_date, event, event_seed)
+    else
+      event.dates.each do |date|
+        create_event_generator(0, date, event, event_seed) if date &gt; Date.today
+      end
+    end
   end
+
+  # ...
 end
 </code></pre>
 
-<p>  end</p>
-
-<p>  # &hellip;
-end
-<code>``
-Note the use of</code>event.dates`.</p>
+<p>Note the use of <code>event.dates</code>.</p>
 
 <p><code>create_event_seed</code> and <code>create_event_generator</code> are just wrappers around
 <code>EventGenerator.create</code> and <code>EventSeed.create</code> for convenience.</p>
 
-<p>This migration also dropped most of the fields on <code>events</code> but kept the original ids intact &ndash; I have a feeling that will turn out to be useful later on. (<a href="https://github.com/dgmstuart/Swing-Out-London/blob/01df37393444e4d3e217c870d6b3164e001288f0/db/migrate/20140820082444_move_data_to_new_event_tables.rb">source</a>)</p>
+<p>This migration also dropped most of the fields on <code>events</code> but kept the original ids intact - I have a feeling that will turn out to be useful later on. (<a href="https://github.com/dgmstuart/Swing-Out-London/blob/01df37393444e4d3e217c870d6b3164e001288f0/db/migrate/20140820082444_move_data_to_new_event_tables.rb">source</a>)</p>
 
 <h3>CreateNonMigrationTables and DropUnusedTables</h3>
 
@@ -156,7 +153,7 @@ Note the use of</code>event.dates`.</p>
 
 <p>So now we&rsquo;ve got our data into the form we want it, how do we actually move it into the new database?</p>
 
-<p>Dumping the whole database would mean we&rsquo;d carry over the <code>schema_migrations</code> table as well. <code>schema_migrations</code> consists of a list of identifiers which match up to an app&rsquo;s migration files &ndash; it&rsquo;s what Rails uses to track which migrations have been run, which is important for e.g. <code>rake db</code> commands, so we don&rsquo;t want to modify it.</p>
+<p>Dumping the whole database would mean we&rsquo;d carry over the <code>schema_migrations</code> table as well. <code>schema_migrations</code> consists of a list of identifiers which match up to an app&rsquo;s migration files - it&rsquo;s what Rails uses to track which migrations have been run, which is important for e.g. <code>rake db</code> commands, so we don&rsquo;t want to modify it.</p>
 
 <p>The simplest approach seems to be to dump only the tables which actually contain data which we want to migrate:</p>
 
@@ -196,7 +193,7 @@ heroku run rake db:migrate
 
 <p>I know it&rsquo;s been around for ages, but it really is amazing how simple it is.</p>
 
-<p><em>* Actually not quite done &ndash; I still needed to:</em></p>
+<p><em>* Actually not quite done - I still needed to:</em></p>
 
 <ul>
 <li><em>set up my <a href="https://devcenter.heroku.com/changelog-items/426">secret tokens</a></em></li>

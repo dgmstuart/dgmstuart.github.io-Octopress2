@@ -4,7 +4,7 @@
   <title><![CDATA[dgms code]]></title>
   <link href="http://dgmstuart.github.io/atom.xml" rel="self"/>
   <link href="http://dgmstuart.github.io/"/>
-  <updated>2014-08-21T10:53:05+01:00</updated>
+  <updated>2014-08-21T14:22:01+01:00</updated>
   <id>http://dgmstuart.github.io/</id>
   <author>
     <name><![CDATA[Duncan Stuart]]></name>
@@ -18,7 +18,7 @@
     <link href="http://dgmstuart.github.io/blog/2014/08/20/migrating-postgres-data-from-an-old-rails-project-to-a-new-one/"/>
     <updated>2014-08-20T23:29:31+01:00</updated>
     <id>http://dgmstuart.github.io/blog/2014/08/20/migrating-postgres-data-from-an-old-rails-project-to-a-new-one</id>
-    <content type="html"><![CDATA[<p>TL;DR &ndash; this was my approach:</p>
+    <content type="html"><![CDATA[<p>TL;DR - this was my approach:</p>
 
 <ol>
 <li>create migrations on the old project to transform the data into the new schema structure</li>
@@ -36,7 +36,7 @@
 <li><a href="https://github.com/dgmstuart/Swing-Out-London">Swing Out London</a> is a cms for managing swing events</li>
 <li>I&rsquo;m rebuilding it from scratch as <a href="https://github.com/dgmstuart/swingoutlondon2">a totally new project</a></li>
 <li>In particular the <a href="https://github.com/dgmstuart/Swing-Out-London/blob/274f64e1d635bcd8d2678eb6a0dfa50516ef64ba/db/schema.rb">old data model</a> was insane and the <a href="https://github.com/dgmstuart/swingoutlondon2/blob/daa4397f1e9d772a5b5302cdd369b81201c8ec84/db/schema.rb">new one</a>  is turning out much cleaner</li>
-<li>The current live system is Rails 3 and hosted on Heroku &ndash; so uses postgres for the live database, but uses sqlite for the development database</li>
+<li>The current live system is Rails 3 and hosted on Heroku - so uses postgres for the live database, but uses sqlite for the development database</li>
 <li>The new system is Rails 4 and uses postgres for the development database</li>
 </ul>
 
@@ -66,7 +66,7 @@
 <p>In the old app, dates are stored in a <code>swing_dates</code> table (which has unique entries)
 and associated with <code>events</code> via a join table: <code>event_swing_dates</code> <em>(Don&rsquo;t do this. If you can believe it, this was done in an attempt to speed up database queries)</em>.</p>
 
-<p>The thought of transforming this data at the SQL level gives me a headache. Fortunately in the old app this complexity is hidden under the hood and events just have a <code>#dates</code> method which pulls out the relevant list. For the sake of sanity, my import solution needs to take advantage of that method &ndash; hence doing the transformation at the application level using migrations.</p>
+<p>The thought of transforming this data at the SQL level gives me a headache. Fortunately in the old app this complexity is hidden under the hood and events just have a <code>#dates</code> method which pulls out the relevant list. For the sake of sanity, my import solution needs to take advantage of that method - hence doing the transformation at the application level using migrations.</p>
 
 <h2>Step 0: Convert the old app to use postgres</h2>
 
@@ -155,7 +155,7 @@ and associated with <code>events</code> via a join table: <code>event_swing_date
 <p><code>create_event_seed</code> and <code>create_event_generator</code> are just wrappers around
 <code>EventGenerator.create</code> and <code>EventSeed.create</code> for convenience.</p>
 
-<p>This migration also dropped most of the fields on <code>events</code> but kept the original ids intact &ndash; I have a feeling that will turn out to be useful later on. (<a href="https://github.com/dgmstuart/Swing-Out-London/blob/01df37393444e4d3e217c870d6b3164e001288f0/db/migrate/20140820082444_move_data_to_new_event_tables.rb">source</a>)</p>
+<p>This migration also dropped most of the fields on <code>events</code> but kept the original ids intact - I have a feeling that will turn out to be useful later on. (<a href="https://github.com/dgmstuart/Swing-Out-London/blob/01df37393444e4d3e217c870d6b3164e001288f0/db/migrate/20140820082444_move_data_to_new_event_tables.rb">source</a>)</p>
 
 <h3>CreateNonMigrationTables and DropUnusedTables</h3>
 
@@ -178,7 +178,7 @@ and associated with <code>events</code> via a join table: <code>event_swing_date
 
 <p>So now we&rsquo;ve got our data into the form we want it, how do we actually move it into the new database?</p>
 
-<p>Dumping the whole database would mean we&rsquo;d carry over the <code>schema_migrations</code> table as well. <code>schema_migrations</code> consists of a list of identifiers which match up to an app&rsquo;s migration files &ndash; it&rsquo;s what Rails uses to track which migrations have been run, which is important for e.g. <code>rake db</code> commands, so we don&rsquo;t want to modify it.</p>
+<p>Dumping the whole database would mean we&rsquo;d carry over the <code>schema_migrations</code> table as well. <code>schema_migrations</code> consists of a list of identifiers which match up to an app&rsquo;s migration files - it&rsquo;s what Rails uses to track which migrations have been run, which is important for e.g. <code>rake db</code> commands, so we don&rsquo;t want to modify it.</p>
 
 <p>The simplest approach seems to be to dump only the tables which actually contain data which we want to migrate:</p>
 
@@ -218,7 +218,7 @@ heroku run rake db:migrate
 
 <p>I know it&rsquo;s been around for ages, but it really is amazing how simple it is.</p>
 
-<p><em>* Actually not quite done &ndash; I still needed to:</em></p>
+<p><em>* Actually not quite done - I still needed to:</em></p>
 
 <ul>
 <li><em>set up my <a href="https://devcenter.heroku.com/changelog-items/426">secret tokens</a></em></li>
@@ -241,7 +241,7 @@ heroku run rake db:migrate
 <table>
 <thead>
 <tr>
-<th> &ldquo;What did I do?&rdquo; </th>
+<th>&ldquo;What did I do?&rdquo; </th>
 <th> &ldquo;What do things look like now?&rdquo;</th>
 </tr>
 </thead>
@@ -270,7 +270,7 @@ heroku run rake db:migrate
 
 <p>An important insight is that although at the time the distinction between implementing a feature/fixing a bug/adding a tweak seems important, when scanning through a list of commits, it&rsquo;s probably the actual behaviour which which is going to be most useful <em>(caveat: if you have a story ID or ticket reference then it&rsquo;s probably worth including)</em>.</p>
 
-<p><em>Props for the tip go to <a href="https://twitter.com/zeeraw">zeeraw</a> &ndash; my colleague at <a href="http://www.dxw.com/">dxw</a></em></p>
+<p><em>Props for the tip go to <a href="https://twitter.com/zeeraw">zeeraw</a> - my colleague at <a href="http://www.dxw.com/">dxw</a></em></p>
 ]]></content>
   </entry>
   
@@ -284,11 +284,11 @@ heroku run rake db:migrate
 <p>In <a href="http://rubyonrails.org/">Rails</a> projects everyone is used to running rake tasks related to database migration and asset management, but here are some tasks I&rsquo;ve found useful which you might not be aware of:</p>
 
 <ul>
-<li><code>rake notes</code> &ndash; Lists all the comments in your application beginning with annotations like <code># TODO</code> and <code># FIXME</code></li>
-<li><code>rake log:clear</code> &ndash; Clears out all of your log files (which can tend to get rather large if you&rsquo;re regularly developing and running tests)</li>
-<li><code>rake routes</code> &ndash; Prints out all the routes defined by your <code>config/routes.rb</code> file. Very useful for debugging</li>
-<li><code>rake tmp:clear</code>/<code>rake tmp:create</code> &ndash; Clear out all your tempfiles (sessions, caches etc.) / create the folders for those tempfiles.</li>
-<li><code>rake secret</code> &ndash; &ldquo;Generate a cryptographically secure secret key&rdquo; &ndash; the recommended way to generate the secret token for your applications, but useful anywhere you need a long random key</li>
+<li><code>rake notes</code> - Lists all the comments in your application beginning with annotations like <code># TODO</code> and <code># FIXME</code></li>
+<li><code>rake log:clear</code> - Clears out all of your log files (which can tend to get rather large if you&rsquo;re regularly developing and running tests)</li>
+<li><code>rake routes</code> - Prints out all the routes defined by your <code>config/routes.rb</code> file. Very useful for debugging</li>
+<li><code>rake tmp:clear</code>/<code>rake tmp:create</code> - Clear out all your tempfiles (sessions, caches etc.) / create the folders for those tempfiles.</li>
+<li><code>rake secret</code> - &ldquo;Generate a cryptographically secure secret key&rdquo; - the recommended way to generate the secret token for your applications, but useful anywhere you need a long random key</li>
 </ul>
 
 ]]></content>
@@ -433,7 +433,7 @@ heroku run rake db:migrate
 <ul>
 <li>Install postgres with homebrew: <code>brew install postgres</code></li>
 <li>Start the postgres server according to the instructions in <code>brew info postgres</code></li>
-<li>Create a database user with <code>createuser [username]</code> &ndash; making sure to give it database creation privelleges</li>
+<li>Create a database user with <code>createuser [username]</code> - making sure to give it database creation privelleges</li>
 <li>Run rake db:create</li>
 </ul>
 
@@ -460,7 +460,7 @@ heroku run rake db:migrate
 % ln -sfv /usr/local/opt/postgresql/*.plist ~/Library/LaunchAgents
 </code></pre>
 
-<p>So that created a database with a user of duncanstuart &ndash; not sure if that&rsquo;s right. Is that like a box for my application DB&rsquo;s to go in, or is it a single database in itself?</p>
+<p>So that created a database with a user of duncanstuart - not sure if that&rsquo;s right. Is that like a box for my application DB&rsquo;s to go in, or is it a single database in itself?</p>
 
 <h2>Database config</h2>
 

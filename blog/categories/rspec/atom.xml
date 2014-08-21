@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: RSpec | dgms code]]></title>
+  <title><![CDATA[Category: Rspec | dgms code]]></title>
   <link href="http://dgmstuart.github.io/blog/categories/rspec/atom.xml" rel="self"/>
   <link href="http://dgmstuart.github.io/"/>
-  <updated>2014-08-21T10:53:05+01:00</updated>
+  <updated>2014-08-21T14:22:01+01:00</updated>
   <id>http://dgmstuart.github.io/</id>
   <author>
     <name><![CDATA[Duncan Stuart]]></name>
@@ -77,11 +77,10 @@
 
 <p>Interestingly this leaves out the <code>focus</code> config options, which allow you to select specific specs to run, e.g:</p>
 
-<p><code>ruby
-it "does a thing", :focus do
+<pre><code class="ruby">it "does a thing", :focus do
   #...
 end
-</code></p>
+</code></pre>
 ]]></content>
   </entry>
   

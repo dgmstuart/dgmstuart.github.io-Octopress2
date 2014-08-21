@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: SOLDN | dgms code]]></title>
+  <title><![CDATA[Category: Soldn | dgms code]]></title>
   <link href="http://dgmstuart.github.io/blog/categories/soldn/atom.xml" rel="self"/>
   <link href="http://dgmstuart.github.io/"/>
-  <updated>2014-08-21T10:53:05+01:00</updated>
+  <updated>2014-08-21T14:22:01+01:00</updated>
   <id>http://dgmstuart.github.io/</id>
   <author>
     <name><![CDATA[Duncan Stuart]]></name>
@@ -29,7 +29,7 @@
 <ul>
 <li>Install postgres with homebrew: <code>brew install postgres</code></li>
 <li>Start the postgres server according to the instructions in <code>brew info postgres</code></li>
-<li>Create a database user with <code>createuser [username]</code> &ndash; making sure to give it database creation privelleges</li>
+<li>Create a database user with <code>createuser [username]</code> - making sure to give it database creation privelleges</li>
 <li>Run rake db:create</li>
 </ul>
 
@@ -56,7 +56,7 @@
 % ln -sfv /usr/local/opt/postgresql/*.plist ~/Library/LaunchAgents
 </code></pre>
 
-<p>So that created a database with a user of duncanstuart &ndash; not sure if that&rsquo;s right. Is that like a box for my application DB&rsquo;s to go in, or is it a single database in itself?</p>
+<p>So that created a database with a user of duncanstuart - not sure if that&rsquo;s right. Is that like a box for my application DB&rsquo;s to go in, or is it a single database in itself?</p>
 
 <h2>Database config</h2>
 
