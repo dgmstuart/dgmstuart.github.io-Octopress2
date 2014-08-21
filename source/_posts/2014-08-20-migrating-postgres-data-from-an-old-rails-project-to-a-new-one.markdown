@@ -42,7 +42,7 @@ In particular, in the new app, events with individual dates are modelled by havi
 In the old app, dates are stored in a `swing_dates` table (which has unique entries)
 and associated with `events` via a join table: `event_swing_dates` _(Don't do this. If you can believe it, this was done in an attempt to speed up database queries)_.
 
-In the old app this complexity is hidden under the hood and events just have a `#dates` method which pulls out the relevant list. For the sake of sanity, my import solution needs to take advantage of that method.
+The thought of transforming this data at the SQL level gives me a headache. Fortunately in the old app this complexity is hidden under the hood and events just have a `#dates` method which pulls out the relevant list. For the sake of sanity, my import solution needs to take advantage of that method - hence doing the transformation at the application level using migrations.
 
 
 Step 0: Convert the old app to use postgres
@@ -141,3 +141,5 @@ To load the data from the dump file:
     psql soldn2_dev < dump
 
 And that's it: the data is now in the new database. Job done.
+
+_Thanks to [@zeeraw](https://twitter.com/zeeraw) for the suggestion to use Rails migrations_
