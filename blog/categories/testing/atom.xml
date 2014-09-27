@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Testing | dgms code]]></title>
   <link href="http://dgmstuart.github.io/blog/categories/testing/atom.xml" rel="self"/>
   <link href="http://dgmstuart.github.io/"/>
-  <updated>2014-08-21T14:22:01+01:00</updated>
+  <updated>2014-09-27T10:10:02+03:00</updated>
   <id>http://dgmstuart.github.io/</id>
   <author>
     <name><![CDATA[Duncan Stuart]]></name>
@@ -16,7 +16,7 @@
   <entry>
     <title type="html"><![CDATA[Gotcha: Initialising RSpec in a Rails Project]]></title>
     <link href="http://dgmstuart.github.io/blog/2014/02/10/initialising-rspec-in-a-rails-project/"/>
-    <updated>2014-02-10T07:50:09+00:00</updated>
+    <updated>2014-02-10T09:50:09+02:00</updated>
     <id>http://dgmstuart.github.io/blog/2014/02/10/initialising-rspec-in-a-rails-project</id>
     <content type="html"><![CDATA[<p>I use RSpec for doing TDD, and the rspec-rails gem for integration in Rails projects. On initialising RSpec for SOLDN2, with <code>rspec init</code> it generated the following spec helper (comments removed):</p>
 

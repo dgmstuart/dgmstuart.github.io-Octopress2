@@ -5,11 +5,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Category: Ruby - dgms code</title>
+  <title>A Better Way of Writing Commit Messages - dgms code</title>
   <meta name="author" content="Duncan Stuart">
 
   
-  <meta name="description" content="Category: ruby">
+  <meta name="description" content="I&rsquo;ve always tended to write commit messages by answering the question &ldquo;What did I do?&rdquo;, but I learned a different approach recently &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -18,7 +18,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://dgmstuart.github.io/blog/categories/ruby">
+  <link rel="canonical" href="http://dgmstuart.github.io/blog/2014/06/24/a-better-way-of-writing-commit-messages">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/atom.xml" rel="alternate" title="dgms code" type="application/atom+xml">
@@ -57,92 +57,130 @@
   <div id="main">
     <div id="content">
       <div>
-<article role="article">
+<article class="hentry" role="article">
   
   <header>
-    <h1 class="entry-title">Category: Ruby</h1>
+    
+      <h1 class="entry-title">A Better Way of Writing Commit Messages</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-06-24T01:52:20+03:00" pubdate data-updated="true"></time>
+        
+           | <a href="#disqus_thread"
+             data-disqus-identifier="http://dgmstuart.github.io">Comments</a>
+        
+      </p>
     
   </header>
-  
-  <div id="blog-archives" class="category">
 
 
+<div class="entry-content"><p>I&rsquo;ve always tended to write commit messages by answering the question &ldquo;What did I do?&rdquo;, but I learned a different approach recently which tends to produce much more expressive commits, which are often more terse as well. Compare the following:</p>
 
-  
-  <h2>2014</h2>
-
-<article>
-  
-<h1><a href="/blog/2014/08/21/migrating-postgres-data-from-an-old-rails-project-to-a-new-one/">Migrating Postgres Data From an Old Rails Project to a New One</a></h1>
-<time datetime="2014-08-21T01:29:31+03:00" pubdate><span class='month'>Aug</span> <span class='day'>21</span> <span class='year'>2014</span></time>
-
-<footer>
-  <span class="categories">posted in <a class='category' href='/blog/categories/heroku/'>heroku</a>, <a class='category' href='/blog/categories/postgres/'>postgres</a>, <a class='category' href='/blog/categories/rails/'>rails</a>, <a class='category' href='/blog/categories/ruby/'>ruby</a></span>
-</footer>
-
-
-</article>
-
-
-
-<article>
-  
-<h1><a href="/blog/2014/08/15/creating-a-new-app-on-heroku-is-stupidly-easy/">Creating a New App on Heroku Really Is Stupidly Easy</a></h1>
-<time datetime="2014-08-15T15:49:11+03:00" pubdate><span class='month'>Aug</span> <span class='day'>15</span> <span class='year'>2014</span></time>
-
-<footer>
-  <span class="categories">posted in <a class='category' href='/blog/categories/heroku/'>heroku</a>, <a class='category' href='/blog/categories/rails/'>rails</a>, <a class='category' href='/blog/categories/ruby/'>ruby</a></span>
-</footer>
-
-
-</article>
-
+<table>
+<thead>
+<tr>
+<th>&ldquo;What did I do?&rdquo; </th>
+<th> &ldquo;What do things look like now?&rdquo;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Fixed a bug whereby active links were displaying in the wrong colour </td>
+<td> Active links now display as blue</td>
+</tr>
+<tr>
+<td>Changed the styling of the popup for clarity </td>
+<td> The popup now more clearly displays the review description</td>
+</tr>
+<tr>
+<td>Fixed styling bug in previous commit </td>
+<td> The styling added in the previous commit now only gets applied to the modal</td>
+</tr>
+<tr>
+<td>Added a list of reviewed versions with icons to the security column </td>
+<td> The security column now displays a list of reviewed versions</td>
+</tr>
+</tbody>
+</table>
 
 
-<article>
-  
-<h1><a href="/blog/2014/06/15/useful-rake-tasks-in-rails/">Useful Rake Tasks in Rails</a></h1>
-<time datetime="2014-06-15T17:55:16+03:00" pubdate><span class='month'>Jun</span> <span class='day'>15</span> <span class='year'>2014</span></time>
+<p>Ok, so not all of these are fantastic commit messages (they&rsquo;re all real from recent work I&rsquo;ve done). This approach isn&rsquo;t a magic formula but it helps me to focus on what&rsquo;s most relevant, and I feel like the messages on the right are more useful.</p>
 
-<footer>
-  <span class="categories">posted in <a class='category' href='/blog/categories/rails/'>rails</a>, <a class='category' href='/blog/categories/ruby/'>ruby</a></span>
-</footer>
+<p>An important insight is that although at the time the distinction between implementing a feature/fixing a bug/adding a tweak seems important, when scanning through a list of commits, it&rsquo;s probably the actual behaviour which which is going to be most useful <em>(caveat: if you have a story ID or ticket reference then it&rsquo;s probably worth including)</em>.</p>
 
-
-</article>
-
-
-
-<article>
-  
-<h1><a href="/blog/2014/06/04/matching-on-a-final-segment-of-a-string/">Matching on a Final Segment of a String</a></h1>
-<time datetime="2014-06-04T21:55:14+03:00" pubdate><span class='month'>Jun</span> <span class='day'>04</span> <span class='year'>2014</span></time>
-
-<footer>
-  <span class="categories">posted in <a class='category' href='/blog/categories/ruby/'>ruby</a></span>
-</footer>
-
-
-</article>
-
-
-
-<article>
-  
-<h1><a href="/blog/2014/02/10/initialising-rspec-in-a-rails-project/">Gotcha: Initialising RSpec in a Rails Project</a></h1>
-<time datetime="2014-02-10T09:50:09+02:00" pubdate><span class='month'>Feb</span> <span class='day'>10</span> <span class='year'>2014</span></time>
-
-<footer>
-  <span class="categories">posted in <a class='category' href='/blog/categories/rails/'>rails</a>, <a class='category' href='/blog/categories/rspec/'>rspec</a>, <a class='category' href='/blog/categories/ruby/'>ruby</a>, <a class='category' href='/blog/categories/testing/'>testing</a></span>
-</footer>
-
-
-</article>
-
+<p><em>Props for the tip go to <a href="https://twitter.com/zeeraw">zeeraw</a> - my colleague at <a href="http://www.dxw.com/">dxw</a></em></p>
 </div>
 
+
+  <footer>
+    <p class="meta">
+      
   
+
+<span class="byline author vcard">Posted by <span class="fn">Duncan Stuart</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-06-24T01:52:20+03:00" pubdate data-updated="true"></time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/development/'>development</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://dgmstuart.github.io/blog/2014/06/24/a-better-way-of-writing-commit-messages/" data-via="dgmstuart" data-counturl="http://dgmstuart.github.io/blog/2014/06/24/a-better-way-of-writing-commit-messages/" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2014/06/15/useful-rake-tasks-in-rails/" title="Previous Post: Useful rake tasks in Rails">&laquo; Useful rake tasks in Rails</a>
+      
+      
+        <a class="basic-alignment right" href="/blog/2014/08/15/creating-a-new-app-on-heroku-is-stupidly-easy/" title="Next Post: Creating a new app on heroku really is stupidly easy">Creating a new app on heroku really is stupidly easy &raquo;</a>
+      
+    </p>
+  </footer>
 </article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
 
 </div>
 
@@ -235,7 +273,10 @@
       var disqus_shortname = 'dgmscode';
       
         
-        var disqus_script = 'count.js';
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://dgmstuart.github.io/blog/2014/06/24/a-better-way-of-writing-commit-messages/';
+        var disqus_url = 'http://dgmstuart.github.io/blog/2014/06/24/a-better-way-of-writing-commit-messages/';
+        var disqus_script = 'embed.js';
       
     (function () {
       var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
