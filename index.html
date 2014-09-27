@@ -9,7 +9,8 @@
   <meta name="author" content="Duncan Stuart">
 
   
-  <meta name="description" content="I&rsquo;m at WordCamp Europe in Sofia - taking rough notes on some of the talks Andrew Nacin: http://2014.europe.wordcamp.org/session/andrew-nacin/ &hellip;">
+  <meta name="description" content="Used dynamic style guide - one page in the prototype
+Started in the browser right from the beginning - speed benefits but also: responsiveness from &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -58,6 +59,85 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2014/09/27/wordcamp-europe-2014-notes-7-interactive-prototyping/">WordCamp Europe 2014 Notes - 7: Interactive Prototyping</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-09-27T16:40:38+03:00" pubdate data-updated="true"></time>
+        
+           | <a href="/blog/2014/09/27/wordcamp-europe-2014-notes-7-interactive-prototyping/#disqus_thread"
+             data-disqus-identifier="http://dgmstuart.github.io/blog/2014/09/27/wordcamp-europe-2014-notes-7-interactive-prototyping/">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><ul>
+<li>Used dynamic style guide - one page in the prototype</li>
+<li>Started in the browser right from the beginning - speed benefits but also:
+
+<ul>
+<li>responsiveness from the beginning</li>
+<li>easy reference for the existing styles</li>
+<li>visual specification - communication tool</li>
+</ul>
+</li>
+<li>Prototypes = a basis for a specification for user testing</li>
+<li>php doesn&rsquo;t work for dynamic prototypes - just html/css</li>
+<li>Made a prototype Generator (in js?)
+
+<ul>
+<li>Installs quickly</li>
+<li>Dynamic content without php (how??)</li>
+<li>Benefit: less noise from php</li>
+</ul>
+</li>
+<li><a href="http://vuejs.org/">http://vuejs.org/</a>
+
+<ul>
+<li>Adds attributes which can be added to markup which can e.g. optionally show and hide elements based on url query params</li>
+</ul>
+</li>
+<li><p>Closing comment: &ldquo;The modern prototype is a living playground, not a project milestone&rdquo;</p></li>
+<li><p>Audience question - if you&rsquo;re using wp - why don&rsquo;t you just jump into wp? Why go to the effort of generating content in JS?</p>
+
+<ul>
+<li>Answer: the project example was for a complex back-end which didn&rsquo;t exist yet. With WP their process is slightly different: start off designing in the browser (test there?), then port over to WP (once it&rsquo;s validated?)</li>
+</ul>
+</li>
+<li><p>My question - how do you deal with responsive elements when you don&rsquo;t know what the context will be: media queries only work with the whole size of the page.</p>
+
+<ul>
+<li>Answer: we design in context</li>
+</ul>
+</li>
+</ul>
+
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -861,82 +941,6 @@ heroku run rake db:migrate
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2014/06/04/matching-on-a-final-segment-of-a-string/">Matching on a Final Segment of a String</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2014-06-04T21:55:14+03:00" pubdate data-updated="true"></time>
-        
-           | <a href="/blog/2014/06/04/matching-on-a-final-segment-of-a-string/#disqus_thread"
-             data-disqus-identifier="http://dgmstuart.github.io/blog/2014/06/04/matching-on-a-final-segment-of-a-string/">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>When matching on the final segment of a string, e.g for a file extension, you could use a regular expression:</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="o">&gt;</span> <span class="s2">&quot;foo.bar&quot;</span> <span class="o">=~</span> <span class="sr">/.*\.bar$/</span>
-</span><span class='line'><span class="c1"># =&gt; 0</span>
-</span><span class='line'><span class="o">&gt;</span> <span class="s2">&quot;foo.bar.baz&quot;</span> <span class="o">=~</span> <span class="sr">/.*\.bar$/</span>
-</span><span class='line'><span class="c1">#=&gt; nil</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>But of course in ruby there&rsquo;s a much more expressive way</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="o">&gt;</span> <span class="s2">&quot;foo.bar&quot;</span><span class="o">.</span><span class="n">end_with?</span><span class="p">(</span><span class="s2">&quot;.bar&quot;</span><span class="p">)</span>
-</span><span class='line'><span class="c1">#=&gt; true</span>
-</span><span class='line'><span class="o">&gt;</span> <span class="s2">&quot;foo.bar.baz&quot;</span><span class="o">.</span><span class="n">end_with?</span><span class="p">(</span><span class="s2">&quot;.bar&quot;</span><span class="p">)</span>
-</span><span class='line'><span class="c1">#=&gt; false</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>You can even pass multiple suffixes as arguments:</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="o">&gt;</span> <span class="s2">&quot;foo.qux&quot;</span><span class="o">.</span><span class="n">end_with?</span><span class="p">(</span><span class="s2">&quot;bar&quot;</span><span class="p">,</span> <span class="s2">&quot;baz&quot;</span><span class="p">,</span> <span class="s2">&quot;qux&quot;</span><span class="p">)</span>
-</span><span class='line'><span class="c1">#=&gt; true</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Oh Ruby how I love you so.</p>
-
-<p><em><a href="http://www.ruby-doc.org/core-2.1.1/String.html#method-i-end_with-3F">api documentation for end_with?</a></em></p>
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="2">&larr; Older</a>
@@ -960,6 +964,10 @@ heroku run rake db:migrate
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2014/09/27/wordcamp-europe-2014-notes-7-interactive-prototyping/">WordCamp Europe 2014 Notes - 7: Interactive Prototyping</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2014/09/27/wordcamp-europe-2014-notes-5-postmodern-wordpress/">WordCamp Europe 2014 Notes - 5: Postmodern Wordpress</a>
       </li>
     
@@ -973,10 +981,6 @@ heroku run rake db:migrate
     
       <li class="post">
         <a href="/blog/2014/09/27/wordcamp-europe-2014-notes-2-why-sometimes-happiness-requires-effort-depression-in-it/">WordCamp Europe 2014 Notes - 2: Why Sometimes Happiness Requires Effort: Depression in IT</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2014/09/27/wordcamp-europe-2014-notes-1-beyond-the-code/">WordCamp Europe 2014 Notes - 1: Beyond the Code</a>
       </li>
     
   </ul>

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Prototyping | dgms code]]></title>
+  <link href="http://dgmstuart.github.io/blog/categories/prototyping/atom.xml" rel="self"/>
+  <link href="http://dgmstuart.github.io/"/>
+  <updated>2014-09-27T17:02:30+03:00</updated>
+  <id>http://dgmstuart.github.io/</id>
+  <author>
+    <name><![CDATA[Duncan Stuart]]></name>
+    <email><![CDATA[dgmstuart@gmail.com]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[WordCamp Europe 2014 Notes - 7: Interactive Prototyping]]></title>
+    <link href="http://dgmstuart.github.io/blog/2014/09/27/wordcamp-europe-2014-notes-7-interactive-prototyping/"/>
+    <updated>2014-09-27T16:40:38+03:00</updated>
+    <id>http://dgmstuart.github.io/blog/2014/09/27/wordcamp-europe-2014-notes-7-interactive-prototyping</id>
+    <content type="html"><![CDATA[<ul>
+<li>Used dynamic style guide - one page in the prototype</li>
+<li>Started in the browser right from the beginning - speed benefits but also:
+
+<ul>
+<li>responsiveness from the beginning</li>
+<li>easy reference for the existing styles</li>
+<li>visual specification - communication tool</li>
+</ul>
+</li>
+<li>Prototypes = a basis for a specification for user testing</li>
+<li>php doesn&rsquo;t work for dynamic prototypes - just html/css</li>
+<li>Made a prototype Generator (in js?)
+
+<ul>
+<li>Installs quickly</li>
+<li>Dynamic content without php (how??)</li>
+<li>Benefit: less noise from php</li>
+</ul>
+</li>
+<li><a href="http://vuejs.org/">http://vuejs.org/</a>
+
+<ul>
+<li>Adds attributes which can be added to markup which can e.g. optionally show and hide elements based on url query params</li>
+</ul>
+</li>
+<li><p>Closing comment: &ldquo;The modern prototype is a living playground, not a project milestone&rdquo;</p></li>
+<li><p>Audience question - if you&rsquo;re using wp - why don&rsquo;t you just jump into wp? Why go to the effort of generating content in JS?</p>
+
+<ul>
+<li>Answer: the project example was for a complex back-end which didn&rsquo;t exist yet. With WP their process is slightly different: start off designing in the browser (test there?), then port over to WP (once it&rsquo;s validated?)</li>
+</ul>
+</li>
+<li><p>My question - how do you deal with responsive elements when you don&rsquo;t know what the context will be: media queries only work with the whole size of the page.</p>
+
+<ul>
+<li>Answer: we design in context</li>
+</ul>
+</li>
+</ul>
+
+]]></content>
+  </entry>
+  
+</feed>

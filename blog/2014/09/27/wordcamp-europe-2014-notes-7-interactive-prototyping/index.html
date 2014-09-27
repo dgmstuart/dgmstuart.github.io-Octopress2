@@ -5,15 +5,12 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Matching on a Final Segment of a String - dgms code</title>
+  <title>WordCamp Europe 2014 Notes - 7: Interactive Prototyping - dgms code</title>
   <meta name="author" content="Duncan Stuart">
 
   
-  <meta name="description" content="When matching on the final segment of a string, e.g for a file extension, you could use a regular expression: 1
-2
-3
-4
-&gt; &quot;foo.bar&quot &hellip;">
+  <meta name="description" content="Used dynamic style guide - one page in the prototype
+Started in the browser right from the beginning - speed benefits but also: responsiveness from &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -22,7 +19,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://dgmstuart.github.io/blog/2014/06/04/matching-on-a-final-segment-of-a-string">
+  <link rel="canonical" href="http://dgmstuart.github.io/blog/2014/09/27/wordcamp-europe-2014-notes-7-interactive-prototyping">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/atom.xml" rel="alternate" title="dgms code" type="application/atom+xml">
@@ -65,7 +62,7 @@
   
   <header>
     
-      <h1 class="entry-title">Matching on a Final Segment of a String</h1>
+      <h1 class="entry-title">WordCamp Europe 2014 Notes - 7: Interactive Prototyping</h1>
     
     
       <p class="meta">
@@ -81,7 +78,7 @@
   
 
 
-<time datetime="2014-06-04T21:55:14+03:00" pubdate data-updated="true"></time>
+<time datetime="2014-09-27T16:40:38+03:00" pubdate data-updated="true"></time>
         
            | <a href="#disqus_thread"
              data-disqus-identifier="http://dgmstuart.github.io">Comments</a>
@@ -91,44 +88,47 @@
   </header>
 
 
-<div class="entry-content"><p>When matching on the final segment of a string, e.g for a file extension, you could use a regular expression:</p>
+<div class="entry-content"><ul>
+<li>Used dynamic style guide - one page in the prototype</li>
+<li>Started in the browser right from the beginning - speed benefits but also:
 
-<div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="o">&gt;</span> <span class="s2">&quot;foo.bar&quot;</span> <span class="o">=~</span> <span class="sr">/.*\.bar$/</span>
-</span><span class='line'><span class="c1"># =&gt; 0</span>
-</span><span class='line'><span class="o">&gt;</span> <span class="s2">&quot;foo.bar.baz&quot;</span> <span class="o">=~</span> <span class="sr">/.*\.bar$/</span>
-</span><span class='line'><span class="c1">#=&gt; nil</span>
-</span></code></pre></td></tr></table></div></figure></notextile></div>
+<ul>
+<li>responsiveness from the beginning</li>
+<li>easy reference for the existing styles</li>
+<li>visual specification - communication tool</li>
+</ul>
+</li>
+<li>Prototypes = a basis for a specification for user testing</li>
+<li>php doesn&rsquo;t work for dynamic prototypes - just html/css</li>
+<li>Made a prototype Generator (in js?)
 
+<ul>
+<li>Installs quickly</li>
+<li>Dynamic content without php (how??)</li>
+<li>Benefit: less noise from php</li>
+</ul>
+</li>
+<li><a href="http://vuejs.org/">http://vuejs.org/</a>
 
-<p>But of course in ruby there&rsquo;s a much more expressive way</p>
+<ul>
+<li>Adds attributes which can be added to markup which can e.g. optionally show and hide elements based on url query params</li>
+</ul>
+</li>
+<li><p>Closing comment: &ldquo;The modern prototype is a living playground, not a project milestone&rdquo;</p></li>
+<li><p>Audience question - if you&rsquo;re using wp - why don&rsquo;t you just jump into wp? Why go to the effort of generating content in JS?</p>
 
-<div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="o">&gt;</span> <span class="s2">&quot;foo.bar&quot;</span><span class="o">.</span><span class="n">end_with?</span><span class="p">(</span><span class="s2">&quot;.bar&quot;</span><span class="p">)</span>
-</span><span class='line'><span class="c1">#=&gt; true</span>
-</span><span class='line'><span class="o">&gt;</span> <span class="s2">&quot;foo.bar.baz&quot;</span><span class="o">.</span><span class="n">end_with?</span><span class="p">(</span><span class="s2">&quot;.bar&quot;</span><span class="p">)</span>
-</span><span class='line'><span class="c1">#=&gt; false</span>
-</span></code></pre></td></tr></table></div></figure></notextile></div>
+<ul>
+<li>Answer: the project example was for a complex back-end which didn&rsquo;t exist yet. With WP their process is slightly different: start off designing in the browser (test there?), then port over to WP (once it&rsquo;s validated?)</li>
+</ul>
+</li>
+<li><p>My question - how do you deal with responsive elements when you don&rsquo;t know what the context will be: media queries only work with the whole size of the page.</p>
 
+<ul>
+<li>Answer: we design in context</li>
+</ul>
+</li>
+</ul>
 
-<p>You can even pass multiple suffixes as arguments:</p>
-
-<div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="o">&gt;</span> <span class="s2">&quot;foo.qux&quot;</span><span class="o">.</span><span class="n">end_with?</span><span class="p">(</span><span class="s2">&quot;bar&quot;</span><span class="p">,</span> <span class="s2">&quot;baz&quot;</span><span class="p">,</span> <span class="s2">&quot;qux&quot;</span><span class="p">)</span>
-</span><span class='line'><span class="c1">#=&gt; true</span>
-</span></code></pre></td></tr></table></div></figure></notextile></div>
-
-
-<p>Oh Ruby how I love you so.</p>
-
-<p><em><a href="http://www.ruby-doc.org/core-2.1.1/String.html#method-i-end_with-3F">api documentation for end_with?</a></em></p>
 </div>
 
 
@@ -151,12 +151,12 @@
   
 
 
-<time datetime="2014-06-04T21:55:14+03:00" pubdate data-updated="true"></time>
+<time datetime="2014-09-27T16:40:38+03:00" pubdate data-updated="true"></time>
       
 
 <span class="categories">
   
-    <a class='category' href='/blog/categories/ruby/'>ruby</a>
+    <a class='category' href='/blog/categories/prototyping/'>prototyping</a>, <a class='category' href='/blog/categories/wordcampeurope/'>wordcampeurope</a>
   
 </span>
 
@@ -165,7 +165,7 @@
     
       <div class="sharing">
   
-  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://dgmstuart.github.io/blog/2014/06/04/matching-on-a-final-segment-of-a-string/" data-via="dgmstuart" data-counturl="http://dgmstuart.github.io/blog/2014/06/04/matching-on-a-final-segment-of-a-string/" >Tweet</a>
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://dgmstuart.github.io/blog/2014/09/27/wordcamp-europe-2014-notes-7-interactive-prototyping/" data-via="dgmstuart" data-counturl="http://dgmstuart.github.io/blog/2014/09/27/wordcamp-europe-2014-notes-7-interactive-prototyping/" >Tweet</a>
   
   
   
@@ -174,10 +174,8 @@
     
     <p class="meta">
       
-        <a class="basic-alignment left" href="/blog/2014/02/10/initialising-rspec-in-a-rails-project/" title="Previous Post: Gotcha: Initialising RSpec in a rails project">&laquo; Gotcha: Initialising RSpec in a rails project</a>
+        <a class="basic-alignment left" href="/blog/2014/09/27/wordcamp-europe-2014-notes-5-postmodern-wordpress/" title="Previous Post: WordCamp Europe 2014 notes - 5: Postmodern Wordpress">&laquo; WordCamp Europe 2014 notes - 5: Postmodern Wordpress</a>
       
-      
-        <a class="basic-alignment right" href="/blog/2014/06/15/useful-rake-tasks-in-rails/" title="Next Post: Useful rake tasks in Rails">Useful rake tasks in Rails &raquo;</a>
       
     </p>
   </footer>
@@ -281,8 +279,8 @@
       
         
         // var disqus_developer = 1;
-        var disqus_identifier = 'http://dgmstuart.github.io/blog/2014/06/04/matching-on-a-final-segment-of-a-string/';
-        var disqus_url = 'http://dgmstuart.github.io/blog/2014/06/04/matching-on-a-final-segment-of-a-string/';
+        var disqus_identifier = 'http://dgmstuart.github.io/blog/2014/09/27/wordcamp-europe-2014-notes-7-interactive-prototyping/';
+        var disqus_url = 'http://dgmstuart.github.io/blog/2014/09/27/wordcamp-europe-2014-notes-7-interactive-prototyping/';
         var disqus_script = 'embed.js';
       
     (function () {
