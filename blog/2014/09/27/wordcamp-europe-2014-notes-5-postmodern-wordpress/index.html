@@ -5,13 +5,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Creating a New App on Heroku Really Is Stupidly Easy - dgms code</title>
+  <title>WordCamp Europe 2014 Notes - 5: Postmodern Wordpress - dgms code</title>
   <meta name="author" content="Duncan Stuart">
 
   
-  <meta name="description" content="heroku apps:create swingoutlondon2 --region eu
-git push heroku master
-heroku run rake db:migrate Done *. https://swingoutlondon2.herokuapp.com exists &hellip;">
+  <meta name="description" content="I&rsquo;m at WordCamp Europe in Sofia - taking rough notes on some of the talks Andrew Nacin: http://2014.europe.wordcamp.org/session/andrew-nacin/ &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -20,7 +18,7 @@ heroku run rake db:migrate Done *. https://swingoutlondon2.herokuapp.com exists 
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://dgmstuart.github.io/blog/2014/08/15/creating-a-new-app-on-heroku-is-stupidly-easy">
+  <link rel="canonical" href="http://dgmstuart.github.io/blog/2014/09/27/wordcamp-europe-2014-notes-5-postmodern-wordpress">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/atom.xml" rel="alternate" title="dgms code" type="application/atom+xml">
@@ -63,7 +61,7 @@ heroku run rake db:migrate Done *. https://swingoutlondon2.herokuapp.com exists 
   
   <header>
     
-      <h1 class="entry-title">Creating a New App on Heroku Really Is Stupidly Easy</h1>
+      <h1 class="entry-title">WordCamp Europe 2014 Notes - 5: Postmodern Wordpress</h1>
     
     
       <p class="meta">
@@ -79,7 +77,7 @@ heroku run rake db:migrate Done *. https://swingoutlondon2.herokuapp.com exists 
   
 
 
-<time datetime="2014-08-15T15:49:11+03:00" pubdate data-updated="true"></time>
+<time datetime="2014-09-27T14:32:07+03:00" pubdate data-updated="true"></time>
         
            | <a href="#disqus_thread"
              data-disqus-identifier="http://dgmstuart.github.io">Comments</a>
@@ -89,25 +87,67 @@ heroku run rake db:migrate Done *. https://swingoutlondon2.herokuapp.com exists 
   </header>
 
 
-<div class="entry-content"><pre><code>heroku apps:create swingoutlondon2 --region eu
-git push heroku master
-heroku run rake db:migrate
-</code></pre>
+<div class="entry-content"><p><em>I&rsquo;m at <a href="http://2014.europe.wordcamp.org/">WordCamp Europe</a> in Sofia - taking rough notes on some of the talks</em></p>
 
-<p>Done *. <a href="https://swingoutlondon2.herokuapp.com">https://swingoutlondon2.herokuapp.com</a> exists.</p>
-
-<p>I know it&rsquo;s been around for ages, but it really is amazing how simple it is.</p>
-
-<p><em>* Actually not quite done - I still needed to:</em></p>
+<p>Andrew Nacin: <a href="http://2014.europe.wordcamp.org/session/andrew-nacin/">http://2014.europe.wordcamp.org/session/andrew-nacin/</a></p>
 
 <ul>
-<li><em>set up my <a href="https://devcenter.heroku.com/changelog-items/426">secret tokens</a></em></li>
-<li><em>jump through a couple of hoops to get Devise&rsquo;s key to be recognised because <a href="https://stackoverflow.com/questions/19832218/failing-to-find-envsecret-key-in-devise-setup-on-heroku#comment35154876_19833145">Heroku doesn&rsquo;t have access to the Rails environment when deploying</a></em></li>
-<li><em><a href="http://stackoverflow.com/a/17082720/1035431">tweak my production.rb</a> to get it to compile assets</em></li>
+<li>WP enables non-devs to do dev
+
+<ul>
+<li>Low barrier to entry</li>
+<li>gateway drug</li>
+</ul>
+</li>
+<li>WP is increasing in complexity
+
+<ul>
+<li>Part of it is about migrating functionality into js</li>
+</ul>
+</li>
+<li>The world of web dev is getting more complicated: html5, css3 - (Raises barrier to entry??)</li>
+<li>&ldquo;We&rsquo;re really good at managing backwards compatibility&rdquo;</li>
+<li>Dev focus is on improving the UX: source of complexity</li>
+<li>Improving docs for devs is important - experienced devs forget that it&rsquo;s an issue.</li>
+<li>Complexity needs to not come at the cost of the philosophies: trivial setup etc.</li>
+<li>&hellip;balanced against drawing the experienced</li>
+<li>&ldquo;you know what? I&rsquo;ll build this site in WP, because WP doesn&rsquo;t make me want to tear my hair out any more&rdquo;</li>
+<li>WP needs to be more consistent: decrease the time spent searching through docs/trying to work out what an argument means
+
+<ul>
+<li>inconsistencies trip people up</li>
+<li>struggle - can&rsquo;t break backwards-compatability</li>
+</ul>
+</li>
+<li>Objects should (/will have?) implementations of <a href="http://php.net/manual/en/class.jsonserializable.php">http://php.net/manual/en/class.jsonserializable.php</a></li>
+<li>A lot of people don&rsquo;t actually know they&rsquo;re writing php (!)</li>
+<li>“ I really can’t wait to have [these features] because it’s, like, <em>Sanity</em> and that’s a good thing to have”</li>
+<li>WP uses objects but in a functional way - actually going OO wouldn&rsquo;t make sense (?)</li>
+<li><a href="http://backpress.org/">http://backpress.org/</a></li>
+<li>WP should only load the necessary files - not 120.</li>
+<li>Also you should be able to pull individual files out and use them in non-wp projects.
+
+<ul>
+<li>The way you do that is by decoupling -> this also makes debugging easier</li>
+</ul>
+</li>
+<li><p>You shouldn&rsquo;t need to understand what&rsquo;s going on under the hood in WP in order to build stuff which works.</p></li>
+<li><p>Audience observation - Automattic - preferred to use REST API to WP function calls (?) because the api is more consistent</p></li>
+<li><p>Audience qu - I&rsquo;m missing a debugger</p>
+
+<ul>
+<li>Use an IDE. We could be doing more to make debugging easier, but there are a bunch of tools out there which help.</li>
+</ul>
+</li>
+<li><p>Posts might end up with relationships. Terms will probably end up with metadata</p>
+
+<ul>
+<li>Post relationships now (via a plugin): <a href="https://wordpress.org/plugins/posts-to-posts/">https://wordpress.org/plugins/posts-to-posts/</a></li>
+</ul>
+</li>
+<li><p>&ldquo;It&rsquo;s not a matter of doing it, it&rsquo;s a matter of planning it out so that we don&rsquo;t have to Re-do it in a year&rdquo;</p></li>
 </ul>
 
-
-<p><em>But whatever. Hush.</em></p>
 </div>
 
 
@@ -130,12 +170,12 @@ heroku run rake db:migrate
   
 
 
-<time datetime="2014-08-15T15:49:11+03:00" pubdate data-updated="true"></time>
+<time datetime="2014-09-27T14:32:07+03:00" pubdate data-updated="true"></time>
       
 
 <span class="categories">
   
-    <a class='category' href='/blog/categories/heroku/'>heroku</a>, <a class='category' href='/blog/categories/rails/'>rails</a>, <a class='category' href='/blog/categories/ruby/'>ruby</a>
+    <a class='category' href='/blog/categories/wordcampeurope/'>wordcampeurope</a>, <a class='category' href='/blog/categories/wordpress/'>wordpress</a>
   
 </span>
 
@@ -144,7 +184,7 @@ heroku run rake db:migrate
     
       <div class="sharing">
   
-  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://dgmstuart.github.io/blog/2014/08/15/creating-a-new-app-on-heroku-is-stupidly-easy/" data-via="dgmstuart" data-counturl="http://dgmstuart.github.io/blog/2014/08/15/creating-a-new-app-on-heroku-is-stupidly-easy/" >Tweet</a>
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://dgmstuart.github.io/blog/2014/09/27/wordcamp-europe-2014-notes-5-postmodern-wordpress/" data-via="dgmstuart" data-counturl="http://dgmstuart.github.io/blog/2014/09/27/wordcamp-europe-2014-notes-5-postmodern-wordpress/" >Tweet</a>
   
   
   
@@ -153,10 +193,8 @@ heroku run rake db:migrate
     
     <p class="meta">
       
-        <a class="basic-alignment left" href="/blog/2014/06/24/a-better-way-of-writing-commit-messages/" title="Previous Post: A better way of writing commit messages">&laquo; A better way of writing commit messages</a>
+        <a class="basic-alignment left" href="/blog/2014/09/27/wordcamp-europe-2014-notes-4-how-come-every-time-dot-dot-dot/" title="Previous Post: WordCamp Europe 2014 notes - 4: How come every time...">&laquo; WordCamp Europe 2014 notes - 4: How come every time...</a>
       
-      
-        <a class="basic-alignment right" href="/blog/2014/08/21/migrating-postgres-data-from-an-old-rails-project-to-a-new-one/" title="Next Post: Migrating Postgres data from an old Rails project to a new one">Migrating Postgres data from an old Rails project to a new one &raquo;</a>
       
     </p>
   </footer>
@@ -260,8 +298,8 @@ heroku run rake db:migrate
       
         
         // var disqus_developer = 1;
-        var disqus_identifier = 'http://dgmstuart.github.io/blog/2014/08/15/creating-a-new-app-on-heroku-is-stupidly-easy/';
-        var disqus_url = 'http://dgmstuart.github.io/blog/2014/08/15/creating-a-new-app-on-heroku-is-stupidly-easy/';
+        var disqus_identifier = 'http://dgmstuart.github.io/blog/2014/09/27/wordcamp-europe-2014-notes-5-postmodern-wordpress/';
+        var disqus_url = 'http://dgmstuart.github.io/blog/2014/09/27/wordcamp-europe-2014-notes-5-postmodern-wordpress/';
         var disqus_script = 'embed.js';
       
     (function () {

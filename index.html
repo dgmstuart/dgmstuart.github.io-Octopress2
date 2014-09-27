@@ -9,7 +9,7 @@
   <meta name="author" content="Duncan Stuart">
 
   
-  <meta name="description" content="I&rsquo;m at WordCamp Europe in Sofia - taking rough notes on some of the talks How come every time I get stabbed in the back, my fingerprints are on &hellip;">
+  <meta name="description" content="I&rsquo;m at WordCamp Europe in Sofia - taking rough notes on some of the talks Andrew Nacin: http://2014.europe.wordcamp.org/session/andrew-nacin/ &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -58,6 +58,105 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2014/09/27/wordcamp-europe-2014-notes-5-postmodern-wordpress/">WordCamp Europe 2014 Notes - 5: Postmodern Wordpress</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-09-27T14:32:07+03:00" pubdate data-updated="true"></time>
+        
+           | <a href="/blog/2014/09/27/wordcamp-europe-2014-notes-5-postmodern-wordpress/#disqus_thread"
+             data-disqus-identifier="http://dgmstuart.github.io/blog/2014/09/27/wordcamp-europe-2014-notes-5-postmodern-wordpress/">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><em>I&rsquo;m at <a href="http://2014.europe.wordcamp.org/">WordCamp Europe</a> in Sofia - taking rough notes on some of the talks</em></p>
+
+<p>Andrew Nacin: <a href="http://2014.europe.wordcamp.org/session/andrew-nacin/">http://2014.europe.wordcamp.org/session/andrew-nacin/</a></p>
+
+<ul>
+<li>WP enables non-devs to do dev
+
+<ul>
+<li>Low barrier to entry</li>
+<li>gateway drug</li>
+</ul>
+</li>
+<li>WP is increasing in complexity
+
+<ul>
+<li>Part of it is about migrating functionality into js</li>
+</ul>
+</li>
+<li>The world of web dev is getting more complicated: html5, css3 - (Raises barrier to entry??)</li>
+<li>&ldquo;We&rsquo;re really good at managing backwards compatibility&rdquo;</li>
+<li>Dev focus is on improving the UX: source of complexity</li>
+<li>Improving docs for devs is important - experienced devs forget that it&rsquo;s an issue.</li>
+<li>Complexity needs to not come at the cost of the philosophies: trivial setup etc.</li>
+<li>&hellip;balanced against drawing the experienced</li>
+<li>&ldquo;you know what? I&rsquo;ll build this site in WP, because WP doesn&rsquo;t make me want to tear my hair out any more&rdquo;</li>
+<li>WP needs to be more consistent: decrease the time spent searching through docs/trying to work out what an argument means
+
+<ul>
+<li>inconsistencies trip people up</li>
+<li>struggle - can&rsquo;t break backwards-compatability</li>
+</ul>
+</li>
+<li>Objects should (/will have?) implementations of <a href="http://php.net/manual/en/class.jsonserializable.php">http://php.net/manual/en/class.jsonserializable.php</a></li>
+<li>A lot of people don&rsquo;t actually know they&rsquo;re writing php (!)</li>
+<li>“ I really can’t wait to have [these features] because it’s, like, <em>Sanity</em> and that’s a good thing to have”</li>
+<li>WP uses objects but in a functional way - actually going OO wouldn&rsquo;t make sense (?)</li>
+<li><a href="http://backpress.org/">http://backpress.org/</a></li>
+<li>WP should only load the necessary files - not 120.</li>
+<li>Also you should be able to pull individual files out and use them in non-wp projects.
+
+<ul>
+<li>The way you do that is by decoupling -> this also makes debugging easier</li>
+</ul>
+</li>
+<li><p>You shouldn&rsquo;t need to understand what&rsquo;s going on under the hood in WP in order to build stuff which works.</p></li>
+<li><p>Audience observation - Automattic - preferred to use REST API to WP function calls (?) because the api is more consistent</p></li>
+<li><p>Audience qu - I&rsquo;m missing a debugger</p>
+
+<ul>
+<li>Use an IDE. We could be doing more to make debugging easier, but there are a bunch of tools out there which help.</li>
+</ul>
+</li>
+<li><p>Posts might end up with relationships. Terms will probably end up with metadata</p>
+
+<ul>
+<li>Post relationships now (via a plugin): <a href="https://wordpress.org/plugins/posts-to-posts/">https://wordpress.org/plugins/posts-to-posts/</a></li>
+</ul>
+</li>
+<li><p>&ldquo;It&rsquo;s not a matter of doing it, it&rsquo;s a matter of planning it out so that we don&rsquo;t have to Re-do it in a year&rdquo;</p></li>
+</ul>
+
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -838,113 +937,6 @@ heroku run rake db:migrate
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2014/02/10/initialising-rspec-in-a-rails-project/">Gotcha: Initialising RSpec in a Rails Project</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2014-02-10T09:50:09+02:00" pubdate data-updated="true"></time>
-        
-           | <a href="/blog/2014/02/10/initialising-rspec-in-a-rails-project/#disqus_thread"
-             data-disqus-identifier="http://dgmstuart.github.io/blog/2014/02/10/initialising-rspec-in-a-rails-project/">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>I use RSpec for doing TDD, and the rspec-rails gem for integration in Rails projects. On initialising RSpec for SOLDN2, with <code>rspec init</code> it generated the following spec helper (comments removed):</p>
-
-<figure class='code'><figcaption><span>spec/spec_helper.rb </span></figcaption>
-<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-</pre></td><td class='code'><pre><code class='rb'><span class='line'><span class="no">RSpec</span><span class="o">.</span><span class="n">configure</span> <span class="k">do</span> <span class="o">|</span><span class="n">config</span><span class="o">|</span>
-</span><span class='line'>  <span class="n">config</span><span class="o">.</span><span class="n">treat_symbols_as_metadata_keys_with_true_values</span> <span class="o">=</span> <span class="kp">true</span>
-</span><span class='line'>  <span class="n">config</span><span class="o">.</span><span class="n">run_all_when_everything_filtered</span> <span class="o">=</span> <span class="kp">true</span>
-</span><span class='line'>  <span class="n">config</span><span class="o">.</span><span class="n">filter_run</span> <span class="ss">:focus</span>
-</span><span class='line'>  <span class="n">config</span><span class="o">.</span><span class="n">order</span> <span class="o">=</span> <span class="s1">&#39;random&#39;</span>
-</span><span class='line'><span class="k">end</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>This seemed to be missing some things, notably the loading of the Rails environment. Looking at the readme of the rspec-rails gem, I found that the correct command is actually:</p>
-
-<pre><code>rails generate rspec:install
-</code></pre>
-
-<p>The file this command generates is much more verbose with instructive comments:</p>
-
-<figure class='code'><figcaption><span>spec/spec_helper.rb </span></figcaption>
-<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-</pre></td><td class='code'><pre><code class='rb'><span class='line'><span class="no">ENV</span><span class="o">[</span><span class="s2">&quot;RAILS_ENV&quot;</span><span class="o">]</span> <span class="o">||=</span> <span class="s1">&#39;test&#39;</span>
-</span><span class='line'><span class="nb">require</span> <span class="no">File</span><span class="o">.</span><span class="n">expand_path</span><span class="p">(</span><span class="s2">&quot;../../config/environment&quot;</span><span class="p">,</span> <span class="bp">__FILE__</span><span class="p">)</span>
-</span><span class='line'><span class="nb">require</span> <span class="s1">&#39;rspec/rails&#39;</span>
-</span><span class='line'><span class="nb">require</span> <span class="s1">&#39;rspec/autorun&#39;</span>
-</span><span class='line'>
-</span><span class='line'><span class="no">Dir</span><span class="o">[</span><span class="no">Rails</span><span class="o">.</span><span class="n">root</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s2">&quot;spec/support/**/*.rb&quot;</span><span class="p">)</span><span class="o">].</span><span class="n">each</span> <span class="p">{</span> <span class="o">|</span><span class="n">f</span><span class="o">|</span> <span class="nb">require</span> <span class="n">f</span> <span class="p">}</span>
-</span><span class='line'>
-</span><span class='line'><span class="ss">ActiveRecord</span><span class="p">:</span><span class="ss">:Migration</span><span class="o">.</span><span class="n">check_pending!</span> <span class="k">if</span> <span class="n">defined?</span><span class="p">(</span><span class="ss">ActiveRecord</span><span class="p">:</span><span class="ss">:Migration</span><span class="p">)</span>
-</span><span class='line'>
-</span><span class='line'><span class="no">RSpec</span><span class="o">.</span><span class="n">configure</span> <span class="k">do</span> <span class="o">|</span><span class="n">config</span><span class="o">|</span>
-</span><span class='line'>  <span class="n">config</span><span class="o">.</span><span class="n">fixture_path</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="si">#{</span><span class="o">::</span><span class="no">Rails</span><span class="o">.</span><span class="n">root</span><span class="si">}</span><span class="s2">/spec/fixtures&quot;</span>
-</span><span class='line'>  <span class="n">config</span><span class="o">.</span><span class="n">use_transactional_fixtures</span> <span class="o">=</span> <span class="kp">true</span>
-</span><span class='line'>  <span class="n">config</span><span class="o">.</span><span class="n">infer_base_class_for_anonymous_controllers</span> <span class="o">=</span> <span class="kp">false</span>
-</span><span class='line'>  <span class="n">config</span><span class="o">.</span><span class="n">order</span> <span class="o">=</span> <span class="s2">&quot;random&quot;</span>
-</span><span class='line'><span class="k">end</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Interestingly this leaves out the <code>focus</code> config options, which allow you to select specific specs to run, e.g:</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">it</span> <span class="s2">&quot;does a thing&quot;</span><span class="p">,</span> <span class="ss">:focus</span> <span class="k">do</span>
-</span><span class='line'>  <span class="c1">#...</span>
-</span><span class='line'><span class="k">end</span>
-</span></code></pre></td></tr></table></div></figure>
-
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="2">&larr; Older</a>
@@ -968,6 +960,10 @@ heroku run rake db:migrate
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2014/09/27/wordcamp-europe-2014-notes-5-postmodern-wordpress/">WordCamp Europe 2014 Notes - 5: Postmodern Wordpress</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2014/09/27/wordcamp-europe-2014-notes-4-how-come-every-time-dot-dot-dot/">WordCamp Europe 2014 Notes - 4: How Come Every Time...</a>
       </li>
     
@@ -981,10 +977,6 @@ heroku run rake db:migrate
     
       <li class="post">
         <a href="/blog/2014/09/27/wordcamp-europe-2014-notes-1-beyond-the-code/">WordCamp Europe 2014 Notes - 1: Beyond the Code</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2014/08/21/migrating-postgres-data-from-an-old-rails-project-to-a-new-one/">Migrating Postgres Data From an Old Rails Project to a New One</a>
       </li>
     
   </ul>

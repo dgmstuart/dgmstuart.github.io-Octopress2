@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Wordpress | dgms code]]></title>
   <link href="http://dgmstuart.github.io/blog/categories/wordpress/atom.xml" rel="self"/>
   <link href="http://dgmstuart.github.io/"/>
-  <updated>2014-09-27T12:50:23+03:00</updated>
+  <updated>2014-09-27T15:11:18+03:00</updated>
   <id>http://dgmstuart.github.io/</id>
   <author>
     <name><![CDATA[Duncan Stuart]]></name>
@@ -12,6 +12,75 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[WordCamp Europe 2014 Notes - 5: Postmodern Wordpress]]></title>
+    <link href="http://dgmstuart.github.io/blog/2014/09/27/wordcamp-europe-2014-notes-5-postmodern-wordpress/"/>
+    <updated>2014-09-27T14:32:07+03:00</updated>
+    <id>http://dgmstuart.github.io/blog/2014/09/27/wordcamp-europe-2014-notes-5-postmodern-wordpress</id>
+    <content type="html"><![CDATA[<p><em>I&rsquo;m at <a href="http://2014.europe.wordcamp.org/">WordCamp Europe</a> in Sofia - taking rough notes on some of the talks</em></p>
+
+<p>Andrew Nacin: <a href="http://2014.europe.wordcamp.org/session/andrew-nacin/">http://2014.europe.wordcamp.org/session/andrew-nacin/</a></p>
+
+<ul>
+<li>WP enables non-devs to do dev
+
+<ul>
+<li>Low barrier to entry</li>
+<li>gateway drug</li>
+</ul>
+</li>
+<li>WP is increasing in complexity
+
+<ul>
+<li>Part of it is about migrating functionality into js</li>
+</ul>
+</li>
+<li>The world of web dev is getting more complicated: html5, css3 - (Raises barrier to entry??)</li>
+<li>&ldquo;We&rsquo;re really good at managing backwards compatibility&rdquo;</li>
+<li>Dev focus is on improving the UX: source of complexity</li>
+<li>Improving docs for devs is important - experienced devs forget that it&rsquo;s an issue.</li>
+<li>Complexity needs to not come at the cost of the philosophies: trivial setup etc.</li>
+<li>&hellip;balanced against drawing the experienced</li>
+<li>&ldquo;you know what? I&rsquo;ll build this site in WP, because WP doesn&rsquo;t make me want to tear my hair out any more&rdquo;</li>
+<li>WP needs to be more consistent: decrease the time spent searching through docs/trying to work out what an argument means
+
+<ul>
+<li>inconsistencies trip people up</li>
+<li>struggle - can&rsquo;t break backwards-compatability</li>
+</ul>
+</li>
+<li>Objects should (/will have?) implementations of <a href="http://php.net/manual/en/class.jsonserializable.php">http://php.net/manual/en/class.jsonserializable.php</a></li>
+<li>A lot of people don&rsquo;t actually know they&rsquo;re writing php (!)</li>
+<li>“ I really can’t wait to have [these features] because it’s, like, <em>Sanity</em> and that’s a good thing to have”</li>
+<li>WP uses objects but in a functional way - actually going OO wouldn&rsquo;t make sense (?)</li>
+<li><a href="http://backpress.org/">http://backpress.org/</a></li>
+<li>WP should only load the necessary files - not 120.</li>
+<li>Also you should be able to pull individual files out and use them in non-wp projects.
+
+<ul>
+<li>The way you do that is by decoupling -> this also makes debugging easier</li>
+</ul>
+</li>
+<li><p>You shouldn&rsquo;t need to understand what&rsquo;s going on under the hood in WP in order to build stuff which works.</p></li>
+<li><p>Audience observation - Automattic - preferred to use REST API to WP function calls (?) because the api is more consistent</p></li>
+<li><p>Audience qu - I&rsquo;m missing a debugger</p>
+
+<ul>
+<li>Use an IDE. We could be doing more to make debugging easier, but there are a bunch of tools out there which help.</li>
+</ul>
+</li>
+<li><p>Posts might end up with relationships. Terms will probably end up with metadata</p>
+
+<ul>
+<li>Post relationships now (via a plugin): <a href="https://wordpress.org/plugins/posts-to-posts/">https://wordpress.org/plugins/posts-to-posts/</a></li>
+</ul>
+</li>
+<li><p>&ldquo;It&rsquo;s not a matter of doing it, it&rsquo;s a matter of planning it out so that we don&rsquo;t have to Re-do it in a year&rdquo;</p></li>
+</ul>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[WordCamp Europe 2014 Notes - 3: Styling the WordPress Admin]]></title>
