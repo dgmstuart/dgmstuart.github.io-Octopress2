@@ -82,4 +82,8 @@ belongs_to :event_seed
 has_one :event, through: :event_seed
 ```
 
+
 [new one](https://github.com/dgmstuart/swingoutlondon2/blob/daa4397f1e9d772a5b5302cdd369b81201c8ec84/db/schema.rb)
+
+Approach 3a: Instances: create one-offs, generate repeating
+
