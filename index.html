@@ -9,7 +9,7 @@
   <meta name="author" content="Duncan Stuart">
 
   
-  <meta name="description" content="I&rsquo;m at WordCamp Europe in Sofia - taking rough notes on some of the talks Konstantin Dankov http://2014.europe.wordcamp.org/session/konstantin- &hellip;">
+  <meta name="description" content="I&rsquo;m at WordCamp Europe in Sofia - taking rough notes on some of the talks How come every time I get stabbed in the back, my fingerprints are on &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -58,6 +58,80 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2014/09/27/wordcamp-europe-2014-notes-4-how-come-every-time-dot-dot-dot/">WordCamp Europe 2014 Notes - 4: How Come Every Time...</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-09-27T12:21:08+03:00" pubdate data-updated="true"></time>
+        
+           | <a href="/blog/2014/09/27/wordcamp-europe-2014-notes-4-how-come-every-time-dot-dot-dot/#disqus_thread"
+             data-disqus-identifier="http://dgmstuart.github.io/blog/2014/09/27/wordcamp-europe-2014-notes-4-how-come-every-time-dot-dot-dot/">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><em>I&rsquo;m at <a href="http://2014.europe.wordcamp.org/">WordCamp Europe</a> in Sofia - taking rough notes on some of the talks</em></p>
+
+<h2>How come every time I get stabbed in the back, my fingerprints are on the knife?</h2>
+
+<p>Jenny Beaumont <a href="http://2014.europe.wordcamp.org/session/jenny-beaumont/">http://2014.europe.wordcamp.org/session/jenny-beaumont/</a></p>
+
+<ul>
+<li>Your business plan might be fine, but are you prepared for when things go horribly wrong?</li>
+<li>When bad things happen we&rsquo;re ultimately responsible</li>
+<li>&ldquo;Taking responsibility can be a blessing as well as a burden&rdquo;</li>
+<li>&ldquo;It&rsquo;s up to you to not only choose who you work with, but to devise communicate and enforce the rules of your profession&rdquo;</li>
+<li>This is about being professional.</li>
+<li>You need to be in charge, not the client</li>
+<li>You don&rsquo;t know what&rsquo;s going on with the client - they may be taking out on you something going on with their personal life</li>
+<li>&ldquo;Sometimes people are dicks&rdquo; :) need to blow off steam sometimes</li>
+<li>&ldquo;People don&rsquo;t always read the fine print&rdquo; or even the large print. Or contracts. Rather than getting frustrated by this, we need to recognise that it&rsquo;s a thing and deal with it.
+
+<ul>
+<li>Don&rsquo;t just assume it&rsquo;s been read and absolve responsibility - you need to continuously reinforce things throughout a project</li>
+</ul>
+</li>
+<li>&ldquo;You can&rsquo;t change people or their behaviour: you can only change your own&rdquo;</li>
+<li>Audience question - how do you filter out clients who you shouldn&rsquo;t be working with
+
+<ul>
+<li>Answer - it&rsquo;s tricky. Ask a lot of questions</li>
+</ul>
+</li>
+<li>Audience question - how much do you bend your rules when times are tough and you can&rsquo;t afford to turn work away
+
+<ul>
+<li>Really tricky. No good answer. Communicate a LOT. Let your clients know that you&rsquo;re needy: you&rsquo;ll need a lot from them - particularly availability for communication.</li>
+</ul>
+</li>
+</ul>
+
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -871,176 +945,9 @@ heroku run rake db:migrate
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2014/02/07/getting-to-grips-with-postgres/">Getting to Grips With Postgres</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2014-02-07T14:10:20+02:00" pubdate data-updated="true"></time>
-        
-           | <a href="/blog/2014/02/07/getting-to-grips-with-postgres/#disqus_thread"
-             data-disqus-identifier="http://dgmstuart.github.io/blog/2014/02/07/getting-to-grips-with-postgres/">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>So, having generated my Rails app and selected postgres as the development database, I&rsquo;m now faced with getting the damn thing running. On a Eurostar train (under the English channel) i.e. with no internet.</p>
-
-<p>In the process I learned some things about using documentation without an internet connection, and about postgres.</p>
-
-<h2>TL;DR</h2>
-
-<p>Steps to get postgres working with Rails on OSX:</p>
-
-<ul>
-<li>Install postgres with homebrew: <code>brew install postgres</code></li>
-<li>Start the postgres server according to the instructions in <code>brew info postgres</code></li>
-<li>Create a database user with <code>createuser [username]</code> - making sure to give it database creation privelleges</li>
-<li>Run rake db:create</li>
-</ul>
-
-
-<h2>Why postgres?</h2>
-
-<p>Previously I&rsquo;d always just used sqlite for development (which is pretty much zero-configuration) and at work we historically used MySQL because the ops guys are mostly supporting WordPress sites (MySQL is the default database for WordPress). The current version of Swing Out London uses postgres in production(Heroku), but if I recall correctly heroku handled all the setup, so I&rsquo;ve never really had to work with postgres before.</p>
-
-<p>For SOLDN2 I want to start using postgres locally as well as on production to try and avoid any issues e.g. when copying the prod database locally.</p>
-
-<h2>Running the postgres server</h2>
-
-<p>I&rsquo;m using Zeus, so the first thing I tried was starting up the rails server (<code>zeus s</code>). I got some sort of error about not being able to connect to the database</p>
-
-<p>I&rsquo;d previously installed postgres using homebrew (<code>brew install postgres</code>), but it seems I hadn&rsquo;t actually set it up properly, so there was no server running. <code>brew info postgres</code> told me I needed to run a few commands:</p>
-
-<pre><code># Create a database running with a user named after my system user:
-% initdb /usr/local/var/postgres -E utf8
-
-# Run the database server in the background
-% pg_ctl -D /usr/local/var/postgres -l logfile start
-
-# Set up the postgres server to start at login:
-% ln -sfv /usr/local/opt/postgresql/*.plist ~/Library/LaunchAgents
-</code></pre>
-
-<p>So that created a database with a user of duncanstuart - not sure if that&rsquo;s right. Is that like a box for my application DB&rsquo;s to go in, or is it a single database in itself?</p>
-
-<h2>Database config</h2>
-
-<p>So now on restarting zeus and running the rails sever I get this error:</p>
-
-<pre><code>PG::ConnectionBad at /
-FATAL:  role "myapp" does not exist
-</code></pre>
-
-<p>Looking at my <code>database.yml</code>, it seemed that the application generator had set up several &lsquo;myapp&rsquo; databases:</p>
-
-<figure class='code'><figcaption><span>database.yml </span></figcaption>
-<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-</pre></td><td class='code'><pre><code class='yaml'><span class='line'><span class="l-Scalar-Plain">development</span><span class="p-Indicator">:</span>
-</span><span class='line'>  <span class="l-Scalar-Plain">adapter</span><span class="p-Indicator">:</span>  <span class="l-Scalar-Plain">postgresql</span>
-</span><span class='line'>  <span class="l-Scalar-Plain">host</span><span class="p-Indicator">:</span>     <span class="l-Scalar-Plain">localhost</span>
-</span><span class='line'>  <span class="l-Scalar-Plain">encoding</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">unicode</span>
-</span><span class='line'>  <span class="l-Scalar-Plain">database</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">myapp_development</span>
-</span><span class='line'>  <span class="l-Scalar-Plain">pool</span><span class="p-Indicator">:</span>     <span class="l-Scalar-Plain">5</span>
-</span><span class='line'>  <span class="l-Scalar-Plain">username</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">myapp</span>
-</span><span class='line'>  <span class="l-Scalar-Plain">password</span><span class="p-Indicator">:</span>
-</span><span class='line'>  <span class="l-Scalar-Plain">template</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">template0</span>
-</span><span class='line'>
-</span><span class='line'>  <span class="l-Scalar-Plain">...</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Replacing myapp with swingoutlondon, I dared to hope that running <code>rake db:create</code> would just create these databases for me&hellip;</p>
-
-<h2>Getting at the docs</h2>
-
-<p>No such luck:</p>
-
-<pre><code>FATAL:  role "swingoutlondon" does not exist
-</code></pre>
-
-<p>I haven&rsquo;t come across the term &lsquo;role&rsquo; before, but given that it&rsquo;s from the username field in the database.yml, I guess that&rsquo;s what postgres calls its db users? Somehow I need to create that role manually.</p>
-
-<p>Needing some documentation: how do you get a console up in postgres? for MySQL it&rsquo;s just <code>mysql</code>, but just <code>postgres</code> (or actually postgres -D /usr/local/var/postgres) seems to be the command for starting the server.</p>
-
-<p><code>postgres --help</code> wasn&rsquo;t much help. In the install directory for postgres (in my case <code>/usr/local/Cellar/postgresql/9.1.2/</code>) there&rsquo;s a <code>share</code> directory contain man and lib. <code>lib postgres</code> wasn&rsquo;t much help either, but looking at <code>/usr/local/Cellar/postgresql/9.1.2/share/doc/postgresql/html/index.html</code> in my browser brings up an html view of some long-form docs. Now we&rsquo;re cooking.</p>
-
-<h2>Postgres console</h2>
-
-<p>The postgres console command is <code>psql</code>:</p>
-
-<pre><code>psql: FATAL:  database "duncanstuart" does not exist
-</code></pre>
-
-<p>OK, so I guess the default looks for a database named after my system user, and I guess this means I hadn&rsquo;t created a database in the steps above. So let&rsquo;s create a dev database:</p>
-
-<pre><code>% createdb swingoutlondon_development
-% psql swingoutlondon_development
-</code></pre>
-
-<p>Bingo! I&rsquo;m in the (pretty odd looking postgres console). <code>\h</code> brings up a list of commands. Let&rsquo;s create the role:</p>
-
-<pre><code>&gt; CREATE ROLE swingoutlondon;
-</code></pre>
-
-<p>That didn&rsquo;t return any output. Looking at the list of commands I can&rsquo;t see how to list the roles, but running the command a second time complains that the role already exists, so I guess it&rsquo;s OK.</p>
-
-<h2>Actually, screw the postgres console</h2>
-
-<p>Looking back at the html docs to find out more about roles it seems like a better way to do this is from the command line:</p>
-
-<pre><code>% createuser swingoutlondon
-</code></pre>
-
-<p>This gives me a few options;</p>
-
-<pre><code>Shall the new role be a superuser? (y/n)
-#=&gt; n
-Shall the new role be allowed to create databases? (y/n) y
-#=&gt; y
-Shall the new role be allowed to create more new roles? (y/n) n
-#=&gt; n
-</code></pre>
-
-<p>Not sure about those options, but my rationale is, there&rsquo;s no need for the user to have any special privelliges, but perhaps if I let it create databases then my <code>rake db:create</code> will work(?).</p>
-
-<p>&hellip;and indeed it does! Restarting zeus I get the familiar Rails &ldquo;Welcome Aboard&rdquo; page</p>
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
+    
+      <a class="prev" href="2">&larr; Older</a>
     
     <a href="/blog/archives">Blog Archives</a>
     
@@ -1061,6 +968,10 @@ Shall the new role be allowed to create more new roles? (y/n) n
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2014/09/27/wordcamp-europe-2014-notes-4-how-come-every-time-dot-dot-dot/">WordCamp Europe 2014 Notes - 4: How Come Every Time...</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2014/09/27/wordcamp-europe-2014-notes-3-styling-the-wordpress-admin/">WordCamp Europe 2014 Notes - 3: Styling the WordPress Admin</a>
       </li>
     
@@ -1074,10 +985,6 @@ Shall the new role be allowed to create more new roles? (y/n) n
     
       <li class="post">
         <a href="/blog/2014/08/21/migrating-postgres-data-from-an-old-rails-project-to-a-new-one/">Migrating Postgres Data From an Old Rails Project to a New One</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2014/08/15/creating-a-new-app-on-heroku-is-stupidly-easy/">Creating a New App on Heroku Really Is Stupidly Easy</a>
       </li>
     
   </ul>

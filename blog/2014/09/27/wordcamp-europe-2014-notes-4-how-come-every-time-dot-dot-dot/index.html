@@ -5,15 +5,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Matching on a Final Segment of a String - dgms code</title>
+  <title>WordCamp Europe 2014 Notes - 4: How Come Every Time... - dgms code</title>
   <meta name="author" content="Duncan Stuart">
 
   
-  <meta name="description" content="When matching on the final segment of a string, e.g for a file extension, you could use a regular expression: 1
-2
-3
-4
-&gt; &quot;foo.bar&quot &hellip;">
+  <meta name="description" content="I&rsquo;m at WordCamp Europe in Sofia - taking rough notes on some of the talks How come every time I get stabbed in the back, my fingerprints are on &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -22,7 +18,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://dgmstuart.github.io/blog/2014/06/04/matching-on-a-final-segment-of-a-string">
+  <link rel="canonical" href="http://dgmstuart.github.io/blog/2014/09/27/wordcamp-europe-2014-notes-4-how-come-every-time-dot-dot-dot">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/atom.xml" rel="alternate" title="dgms code" type="application/atom+xml">
@@ -65,7 +61,7 @@
   
   <header>
     
-      <h1 class="entry-title">Matching on a Final Segment of a String</h1>
+      <h1 class="entry-title">WordCamp Europe 2014 Notes - 4: How Come Every Time...</h1>
     
     
       <p class="meta">
@@ -81,7 +77,7 @@
   
 
 
-<time datetime="2014-06-04T21:55:14+03:00" pubdate data-updated="true"></time>
+<time datetime="2014-09-27T12:21:08+03:00" pubdate data-updated="true"></time>
         
            | <a href="#disqus_thread"
              data-disqus-identifier="http://dgmstuart.github.io">Comments</a>
@@ -91,44 +87,42 @@
   </header>
 
 
-<div class="entry-content"><p>When matching on the final segment of a string, e.g for a file extension, you could use a regular expression:</p>
+<div class="entry-content"><p><em>I&rsquo;m at <a href="http://2014.europe.wordcamp.org/">WordCamp Europe</a> in Sofia - taking rough notes on some of the talks</em></p>
 
-<div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="o">&gt;</span> <span class="s2">&quot;foo.bar&quot;</span> <span class="o">=~</span> <span class="sr">/.*\.bar$/</span>
-</span><span class='line'><span class="c1"># =&gt; 0</span>
-</span><span class='line'><span class="o">&gt;</span> <span class="s2">&quot;foo.bar.baz&quot;</span> <span class="o">=~</span> <span class="sr">/.*\.bar$/</span>
-</span><span class='line'><span class="c1">#=&gt; nil</span>
-</span></code></pre></td></tr></table></div></figure></notextile></div>
+<h2>How come every time I get stabbed in the back, my fingerprints are on the knife?</h2>
 
+<p>Jenny Beaumont <a href="http://2014.europe.wordcamp.org/session/jenny-beaumont/">http://2014.europe.wordcamp.org/session/jenny-beaumont/</a></p>
 
-<p>But of course in ruby there&rsquo;s a much more expressive way</p>
+<ul>
+<li>Your business plan might be fine, but are you prepared for when things go horribly wrong?</li>
+<li>When bad things happen we&rsquo;re ultimately responsible</li>
+<li>&ldquo;Taking responsibility can be a blessing as well as a burden&rdquo;</li>
+<li>&ldquo;It&rsquo;s up to you to not only choose who you work with, but to devise communicate and enforce the rules of your profession&rdquo;</li>
+<li>This is about being professional.</li>
+<li>You need to be in charge, not the client</li>
+<li>You don&rsquo;t know what&rsquo;s going on with the client - they may be taking out on you something going on with their personal life</li>
+<li>&ldquo;Sometimes people are dicks&rdquo; :) need to blow off steam sometimes</li>
+<li>&ldquo;People don&rsquo;t always read the fine print&rdquo; or even the large print. Or contracts. Rather than getting frustrated by this, we need to recognise that it&rsquo;s a thing and deal with it.
 
-<div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="o">&gt;</span> <span class="s2">&quot;foo.bar&quot;</span><span class="o">.</span><span class="n">end_with?</span><span class="p">(</span><span class="s2">&quot;.bar&quot;</span><span class="p">)</span>
-</span><span class='line'><span class="c1">#=&gt; true</span>
-</span><span class='line'><span class="o">&gt;</span> <span class="s2">&quot;foo.bar.baz&quot;</span><span class="o">.</span><span class="n">end_with?</span><span class="p">(</span><span class="s2">&quot;.bar&quot;</span><span class="p">)</span>
-</span><span class='line'><span class="c1">#=&gt; false</span>
-</span></code></pre></td></tr></table></div></figure></notextile></div>
+<ul>
+<li>Don&rsquo;t just assume it&rsquo;s been read and absolve responsibility - you need to continuously reinforce things throughout a project</li>
+</ul>
+</li>
+<li>&ldquo;You can&rsquo;t change people or their behaviour: you can only change your own&rdquo;</li>
+<li>Audience question - how do you filter out clients who you shouldn&rsquo;t be working with
 
+<ul>
+<li>Answer - it&rsquo;s tricky. Ask a lot of questions</li>
+</ul>
+</li>
+<li>Audience question - how much do you bend your rules when times are tough and you can&rsquo;t afford to turn work away
 
-<p>You can even pass multiple suffixes as arguments:</p>
+<ul>
+<li>Really tricky. No good answer. Communicate a LOT. Let your clients know that you&rsquo;re needy: you&rsquo;ll need a lot from them - particularly availability for communication.</li>
+</ul>
+</li>
+</ul>
 
-<div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="o">&gt;</span> <span class="s2">&quot;foo.qux&quot;</span><span class="o">.</span><span class="n">end_with?</span><span class="p">(</span><span class="s2">&quot;bar&quot;</span><span class="p">,</span> <span class="s2">&quot;baz&quot;</span><span class="p">,</span> <span class="s2">&quot;qux&quot;</span><span class="p">)</span>
-</span><span class='line'><span class="c1">#=&gt; true</span>
-</span></code></pre></td></tr></table></div></figure></notextile></div>
-
-
-<p>Oh Ruby how I love you so.</p>
-
-<p><em><a href="http://www.ruby-doc.org/core-2.1.1/String.html#method-i-end_with-3F">api documentation for end_with?</a></em></p>
 </div>
 
 
@@ -151,12 +145,12 @@
   
 
 
-<time datetime="2014-06-04T21:55:14+03:00" pubdate data-updated="true"></time>
+<time datetime="2014-09-27T12:21:08+03:00" pubdate data-updated="true"></time>
       
 
 <span class="categories">
   
-    <a class='category' href='/blog/categories/ruby/'>ruby</a>
+    <a class='category' href='/blog/categories/wordcampeurope/'>wordcampeurope</a>
   
 </span>
 
@@ -165,7 +159,7 @@
     
       <div class="sharing">
   
-  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://dgmstuart.github.io/blog/2014/06/04/matching-on-a-final-segment-of-a-string/" data-via="dgmstuart" data-counturl="http://dgmstuart.github.io/blog/2014/06/04/matching-on-a-final-segment-of-a-string/" >Tweet</a>
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://dgmstuart.github.io/blog/2014/09/27/wordcamp-europe-2014-notes-4-how-come-every-time-dot-dot-dot/" data-via="dgmstuart" data-counturl="http://dgmstuart.github.io/blog/2014/09/27/wordcamp-europe-2014-notes-4-how-come-every-time-dot-dot-dot/" >Tweet</a>
   
   
   
@@ -174,10 +168,8 @@
     
     <p class="meta">
       
-        <a class="basic-alignment left" href="/blog/2014/02/10/initialising-rspec-in-a-rails-project/" title="Previous Post: Gotcha: Initialising RSpec in a rails project">&laquo; Gotcha: Initialising RSpec in a rails project</a>
+        <a class="basic-alignment left" href="/blog/2014/09/27/wordcamp-europe-2014-notes-3-styling-the-wordpress-admin/" title="Previous Post: WordCamp Europe 2014 notes - 3: Styling the WordPress admin">&laquo; WordCamp Europe 2014 notes - 3: Styling the WordPress admin</a>
       
-      
-        <a class="basic-alignment right" href="/blog/2014/06/15/useful-rake-tasks-in-rails/" title="Next Post: Useful rake tasks in Rails">Useful rake tasks in Rails &raquo;</a>
       
     </p>
   </footer>
@@ -281,8 +273,8 @@
       
         
         // var disqus_developer = 1;
-        var disqus_identifier = 'http://dgmstuart.github.io/blog/2014/06/04/matching-on-a-final-segment-of-a-string/';
-        var disqus_url = 'http://dgmstuart.github.io/blog/2014/06/04/matching-on-a-final-segment-of-a-string/';
+        var disqus_identifier = 'http://dgmstuart.github.io/blog/2014/09/27/wordcamp-europe-2014-notes-4-how-come-every-time-dot-dot-dot/';
+        var disqus_url = 'http://dgmstuart.github.io/blog/2014/09/27/wordcamp-europe-2014-notes-4-how-come-every-time-dot-dot-dot/';
         var disqus_script = 'embed.js';
       
     (function () {

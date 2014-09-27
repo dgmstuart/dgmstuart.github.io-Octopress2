@@ -3,6 +3,12 @@
   
   
   <url>
+    <loc>http://dgmstuart.github.io/blog/2014/09/27/wordcamp-europe-2014-notes-4-how-come-every-time-dot-dot-dot/</loc>
+    <lastmod>2014-09-27T12:21:08+03:00</lastmod>
+    <priority>0.8</priority>
+  </url>
+  
+  <url>
     <loc>http://dgmstuart.github.io/blog/2014/09/27/wordcamp-europe-2014-notes-3-styling-the-wordpress-admin/</loc>
     <lastmod>2014-09-27T11:32:55+03:00</lastmod>
     <priority>0.8</priority>
@@ -65,21 +71,21 @@
   
   <url>
     <loc>http://dgmstuart.github.io/blog/archives/</loc>
-    <lastmod>2014-09-27T12:07:34+03:00</lastmod>
+    <lastmod>2014-09-27T12:50:23+03:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   
   <url>
     <loc>http://dgmstuart.github.io/</loc>
-    <lastmod>2014-09-27T12:07:34+03:00</lastmod>
+    <lastmod>2014-09-27T12:50:23+03:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   
   <url>
     <loc>http://dgmstuart.github.io/blog/categories/</loc>
-    <lastmod>2014-09-27T12:07:34+03:00</lastmod>
+    <lastmod>2014-09-27T12:50:23+03:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>

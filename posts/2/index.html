@@ -5,7 +5,7 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Getting to Grips With Postgres - dgms code</title>
+  <title>dgms code</title>
   <meta name="author" content="Duncan Stuart">
 
   
@@ -18,7 +18,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://dgmstuart.github.io/blog/2014/02/07/getting-to-grips-with-postgres">
+  <link rel="canonical" href="http://dgmstuart.github.io/posts/2">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/atom.xml" rel="alternate" title="dgms code" type="application/atom+xml">
@@ -56,12 +56,15 @@
 </nav>
   <div id="main">
     <div id="content">
-      <div>
-<article class="hentry" role="article">
+      <div class="blog-index">
   
+  
+  
+    <article>
+      
   <header>
     
-      <h1 class="entry-title">Getting to Grips With Postgres</h1>
+      <h1 class="entry-title"><a href="/blog/2014/02/07/getting-to-grips-with-postgres/">Getting to Grips With Postgres</a></h1>
     
     
       <p class="meta">
@@ -79,15 +82,15 @@
 
 <time datetime="2014-02-07T14:10:20+02:00" pubdate data-updated="true"></time>
         
-           | <a href="#disqus_thread"
-             data-disqus-identifier="http://dgmstuart.github.io">Comments</a>
+           | <a href="/blog/2014/02/07/getting-to-grips-with-postgres/#disqus_thread"
+             data-disqus-identifier="http://dgmstuart.github.io/blog/2014/02/07/getting-to-grips-with-postgres/">Comments</a>
         
       </p>
     
   </header>
 
 
-<div class="entry-content"><p>So, having generated my Rails app and selected postgres as the development database, I&rsquo;m now faced with getting the damn thing running. On a Eurostar train (under the English channel) i.e. with no internet.</p>
+  <div class="entry-content"><p>So, having generated my Rails app and selected postgres as the development database, I&rsquo;m now faced with getting the damn thing running. On a Eurostar train (under the English channel) i.e. with no internet.</p>
 
 <p>In the process I learned some things about using documentation without an internet connection, and about postgres.</p>
 
@@ -137,7 +140,7 @@ FATAL:  role "myapp" does not exist
 
 <p>Looking at my <code>database.yml</code>, it seemed that the application generator had set up several &lsquo;myapp&rsquo; databases:</p>
 
-<div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span>database.yml </span></figcaption>
+<figure class='code'><figcaption><span>database.yml </span></figcaption>
 <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
@@ -160,7 +163,7 @@ FATAL:  role "myapp" does not exist
 </span><span class='line'>  <span class="l-Scalar-Plain">template</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">template0</span>
 </span><span class='line'>
 </span><span class='line'>  <span class="l-Scalar-Plain">...</span>
-</span></code></pre></td></tr></table></div></figure></notextile></div>
+</span></code></pre></td></tr></table></div></figure>
 
 
 <p>Replacing myapp with swingoutlondon, I dared to hope that running <code>rake db:create</code> would just create these databases for me&hellip;</p>
@@ -219,66 +222,21 @@ Shall the new role be allowed to create more new roles? (y/n) n
 
 <p>&hellip;and indeed it does! Restarting zeus I get the familiar Rails &ldquo;Welcome Aboard&rdquo; page</p>
 </div>
-
-
-  <footer>
-    <p class="meta">
-      
   
-
-<span class="byline author vcard">Posted by <span class="fn">Duncan Stuart</span></span>
-
-      
-
-
-
-
-
-
-
-
   
 
 
-<time datetime="2014-02-07T14:10:20+02:00" pubdate data-updated="true"></time>
-      
-
-<span class="categories">
+    </article>
   
-    <a class='category' href='/blog/categories/postgres/'>postgres</a>, <a class='category' href='/blog/categories/rails/'>rails</a>, <a class='category' href='/blog/categories/soldn/'>soldn</a>
-  
-</span>
-
-
-    </p>
+  <div class="pagination">
     
-      <div class="sharing">
-  
-  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://dgmstuart.github.io/blog/2014/02/07/getting-to-grips-with-postgres/" data-via="dgmstuart" data-counturl="http://dgmstuart.github.io/blog/2014/02/07/getting-to-grips-with-postgres/" >Tweet</a>
-  
-  
-  
-</div>
-
+    <a href="/blog/archives">Blog Archives</a>
     
-    <p class="meta">
-      
-      
-        <a class="basic-alignment right" href="/blog/2014/02/10/initialising-rspec-in-a-rails-project/" title="Next Post: Gotcha: Initialising RSpec in a rails project">Gotcha: Initialising RSpec in a rails project &raquo;</a>
-      
-    </p>
-  </footer>
-</article>
-
-  <section>
-    <h1>Comments</h1>
-    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <a class="next" href="1">Newer &rarr;</a>
+    
+  </div>
 </div>
-  </section>
-
-</div>
-
-  <aside class="sidebar">
+<aside class="sidebar">
    
 <form action="https://www.google.com/search" method="get">
   <fieldset role="search">
@@ -352,7 +310,6 @@ Shall the new role be allowed to create more new roles? (y/n) n
 </aside>
 
 
-
     </div>
   </div>
   <footer role="contentinfo"><p>
@@ -367,10 +324,7 @@ Shall the new role be allowed to create more new roles? (y/n) n
       var disqus_shortname = 'dgmscode';
       
         
-        // var disqus_developer = 1;
-        var disqus_identifier = 'http://dgmstuart.github.io/blog/2014/02/07/getting-to-grips-with-postgres/';
-        var disqus_url = 'http://dgmstuart.github.io/blog/2014/02/07/getting-to-grips-with-postgres/';
-        var disqus_script = 'embed.js';
+        var disqus_script = 'count.js';
       
     (function () {
       var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
