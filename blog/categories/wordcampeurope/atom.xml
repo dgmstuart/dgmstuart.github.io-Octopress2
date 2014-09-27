@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Wordcampeurope | dgms code]]></title>
   <link href="http://dgmstuart.github.io/blog/categories/wordcampeurope/atom.xml" rel="self"/>
   <link href="http://dgmstuart.github.io/"/>
-  <updated>2014-09-27T10:10:02+03:00</updated>
+  <updated>2014-09-27T10:52:58+03:00</updated>
   <id>http://dgmstuart.github.io/</id>
   <author>
     <name><![CDATA[Duncan Stuart]]></name>
@@ -12,6 +12,43 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[WordCamp Europe 2014 Notes - 2: Why Sometimes Happiness Requires Effort: Depression in IT]]></title>
+    <link href="http://dgmstuart.github.io/blog/2014/09/27/wordcamp-europe-2014-notes-2-why-sometimes-happiness-requires-effort-depression-in-it/"/>
+    <updated>2014-09-27T10:27:35+03:00</updated>
+    <id>http://dgmstuart.github.io/blog/2014/09/27/wordcamp-europe-2014-notes-2-why-sometimes-happiness-requires-effort-depression-in-it</id>
+    <content type="html"><![CDATA[<p><em>I&rsquo;m at <a href="http://2014.europe.wordcamp.org/">WordCamp Europe</a> in Sofia - taking rough notes on some of the talks</em></p>
+
+<p>Yana Petrova <a href="http://2014.europe.wordcamp.org/session/yana-petrova/">http://2014.europe.wordcamp.org/session/yana-petrova/</a></p>
+
+<ul>
+<li><p>Recipes for tackling depression</p>
+
+<ul>
+<li>Breathing exercises</li>
+<li>Make lists of things you want to do - force yourself to pick something off the list and do it</li>
+<li>Engineer opportunities for small wins</li>
+<li>Learn how to listen: helps to realise realities - stops you getting stuck on false ideas bouncing around inside your own head</li>
+</ul>
+</li>
+<li><p>Audience question - how do you convince the client that they&rsquo;re working with People who need to not be driven into the ground (and need time to sort things out properly? Squashing technical debt for happiness and satisifaction?)</p></li>
+<li><p>Pedometer - gamifying being active - helps to break patterns of always working. An example of making a small win.</p></li>
+<li><p>Audience question - keeping good mental health in the face of difficult clients</p></li>
+<li><p>Audience recipes:</p>
+
+<ul>
+<li>Cycling - not just for the riding, but for meeting people</li>
+<li>Yoga</li>
+<li>Ringfence smartphone use</li>
+<li>Remember - If you fail, nobody is going to die!!</li>
+</ul>
+</li>
+<li><p>Closing comment: If something is really important it will come back to you. Don&rsquo;t stress about your inbox and don&rsquo;t check your email at 1pm.</p></li>
+</ul>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[WordCamp Europe 2014 Notes - 1: Beyond the Code]]></title>
