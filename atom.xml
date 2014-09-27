@@ -4,7 +4,7 @@
   <title><![CDATA[dgms code]]></title>
   <link href="http://dgmstuart.github.io/atom.xml" rel="self"/>
   <link href="http://dgmstuart.github.io/"/>
-  <updated>2014-09-27T17:02:30+03:00</updated>
+  <updated>2014-09-27T17:41:08+03:00</updated>
   <id>http://dgmstuart.github.io/</id>
   <author>
     <name><![CDATA[Duncan Stuart]]></name>
@@ -14,11 +14,57 @@
 
   
   <entry>
+    <title type="html"><![CDATA[WordCamp Europe 2014 Notes - 8: Usability Testing]]></title>
+    <link href="http://dgmstuart.github.io/blog/2014/09/27/wordcamp-europe-2014-notes-8-usability-testing/"/>
+    <updated>2014-09-27T17:15:07+03:00</updated>
+    <id>http://dgmstuart.github.io/blog/2014/09/27/wordcamp-europe-2014-notes-8-usability-testing</id>
+    <content type="html"><![CDATA[<p><em>I&rsquo;m at <a href="http://2014.europe.wordcamp.org/">WordCamp Europe</a> in Sofia - taking rough notes on some of the talks</em></p>
+
+<p>Dario Jazbec Hrvatin - <a href="http://2014.europe.wordcamp.org/session/dario-jazbec-hrvatin/">http://2014.europe.wordcamp.org/session/dario-jazbec-hrvatin/</a></p>
+
+<ul>
+<li>Remote user testing</li>
+<li>Google hangouts or Skype
+
+<ul>
+<li>Important to make sure that your users are comfortable with the tech before officially starting the test</li>
+</ul>
+</li>
+<li>Beginners or Experts as your users: depends what you&rsquo;re testing</li>
+<li><p>Have a 5 minute chat to screen them: make sure that they meet your profile - that they will provide useful data</p></li>
+<li><p>Scenarios: Start with the test (specific task that they need to do) then work it up into a scenario</p></li>
+<li>Start off with a script</li>
+<li>after that - relax them: get them talking by asking some simple questions:
+
+<ul>
+<li>&ldquo;what are your favourite themes and plugins&rdquo;</li>
+</ul>
+</li>
+<li>Don&rsquo;t be afraid to just skip a step if they&rsquo;re struggling</li>
+<li><p>To close off the session:</p>
+
+<ul>
+<li>Ask any addition questions</li>
+<li>answer any questions they have</li>
+<li>thank them (!!)</li>
+</ul>
+</li>
+<li><p>Throughout: Keep a poker face</p></li>
+</ul>
+
+]]></content>
+  </entry>
+  
+  <entry>
     <title type="html"><![CDATA[WordCamp Europe 2014 Notes - 7: Interactive Prototyping]]></title>
     <link href="http://dgmstuart.github.io/blog/2014/09/27/wordcamp-europe-2014-notes-7-interactive-prototyping/"/>
     <updated>2014-09-27T16:40:38+03:00</updated>
     <id>http://dgmstuart.github.io/blog/2014/09/27/wordcamp-europe-2014-notes-7-interactive-prototyping</id>
-    <content type="html"><![CDATA[<ul>
+    <content type="html"><![CDATA[<p><em>I&rsquo;m at <a href="http://2014.europe.wordcamp.org/">WordCamp Europe</a> in Sofia - taking rough notes on some of the talks</em></p>
+
+<p>Karin Christen <a href="http://2014.europe.wordcamp.org/session/karin-christen/">http://2014.europe.wordcamp.org/session/karin-christen/</a></p>
+
+<ul>
 <li>Used dynamic style guide - one page in the prototype</li>
 <li>Started in the browser right from the beginning - speed benefits but also:
 

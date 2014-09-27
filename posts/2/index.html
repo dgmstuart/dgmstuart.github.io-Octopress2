@@ -9,11 +9,7 @@
   <meta name="author" content="Duncan Stuart">
 
   
-  <meta name="description" content="When matching on the final segment of a string, e.g for a file extension, you could use a regular expression: 1
-2
-3
-4
-&gt; &quot;foo.bar&quot &hellip;">
+  <meta name="description" content="When inside any directory with a Rakefile, you can bring up the list of available rake tasks with rake -T In Rails projects everyone is used to &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -62,6 +58,56 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2014/06/15/useful-rake-tasks-in-rails/">Useful Rake Tasks in Rails</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-06-15T17:55:16+03:00" pubdate data-updated="true"></time>
+        
+           | <a href="/blog/2014/06/15/useful-rake-tasks-in-rails/#disqus_thread"
+             data-disqus-identifier="http://dgmstuart.github.io/blog/2014/06/15/useful-rake-tasks-in-rails/">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>When inside any directory with a <a href="https://github.com/jimweirich/rake">Rakefile</a>, you can bring up the list of available rake tasks with <code>rake -T</code></p>
+
+<p>In <a href="http://rubyonrails.org/">Rails</a> projects everyone is used to running rake tasks related to database migration and asset management, but here are some tasks I&rsquo;ve found useful which you might not be aware of:</p>
+
+<ul>
+<li><code>rake notes</code> - Lists all the comments in your application beginning with annotations like <code># TODO</code> and <code># FIXME</code></li>
+<li><code>rake log:clear</code> - Clears out all of your log files (which can tend to get rather large if you&rsquo;re regularly developing and running tests)</li>
+<li><code>rake routes</code> - Prints out all the routes defined by your <code>config/routes.rb</code> file. Very useful for debugging</li>
+<li><code>rake tmp:clear</code>/<code>rake tmp:create</code> - Clear out all your tempfiles (sessions, caches etc.) / create the folders for those tempfiles.</li>
+<li><code>rake secret</code> - &ldquo;Generate a cryptographically secure secret key&rdquo; - the recommended way to generate the secret token for your applications, but useful anywhere you need a long random key</li>
+</ul>
+
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -438,6 +484,10 @@ Shall the new role be allowed to create more new roles? (y/n) n
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2014/09/27/wordcamp-europe-2014-notes-8-usability-testing/">WordCamp Europe 2014 Notes - 8: Usability Testing</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2014/09/27/wordcamp-europe-2014-notes-7-interactive-prototyping/">WordCamp Europe 2014 Notes - 7: Interactive Prototyping</a>
       </li>
     
@@ -451,10 +501,6 @@ Shall the new role be allowed to create more new roles? (y/n) n
     
       <li class="post">
         <a href="/blog/2014/09/27/wordcamp-europe-2014-notes-3-styling-the-wordpress-admin/">WordCamp Europe 2014 Notes - 3: Styling the WordPress Admin</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2014/09/27/wordcamp-europe-2014-notes-2-why-sometimes-happiness-requires-effort-depression-in-it/">WordCamp Europe 2014 Notes - 2: Why Sometimes Happiness Requires Effort: Depression in IT</a>
       </li>
     
   </ul>
