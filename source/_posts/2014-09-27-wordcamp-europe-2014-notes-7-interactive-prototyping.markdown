@@ -6,6 +6,10 @@ comments: true
 categories: [WordCampEurope, Prototyping]
 ---
 
+_I'm at [WordCamp Europe](http://2014.europe.wordcamp.org/) in Sofia - taking rough notes on some of the talks_
+
+Karin Christen http://2014.europe.wordcamp.org/session/karin-christen/
+
 * Used dynamic style guide - one page in the prototype
 * Started in the browser right from the beginning - speed benefits but also:
   * responsiveness from the beginning
