@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Wordcampeurope | dgms code]]></title>
   <link href="http://dgmstuart.github.io/blog/categories/wordcampeurope/atom.xml" rel="self"/>
   <link href="http://dgmstuart.github.io/"/>
-  <updated>2014-09-27T10:52:58+03:00</updated>
+  <updated>2014-09-27T12:07:34+03:00</updated>
   <id>http://dgmstuart.github.io/</id>
   <author>
     <name><![CDATA[Duncan Stuart]]></name>
@@ -12,6 +12,63 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[WordCamp Europe 2014 Notes - 3: Styling the WordPress Admin]]></title>
+    <link href="http://dgmstuart.github.io/blog/2014/09/27/wordcamp-europe-2014-notes-3-styling-the-wordpress-admin/"/>
+    <updated>2014-09-27T11:32:55+03:00</updated>
+    <id>http://dgmstuart.github.io/blog/2014/09/27/wordcamp-europe-2014-notes-3-styling-the-wordpress-admin</id>
+    <content type="html"><![CDATA[<p><em>I&rsquo;m at <a href="http://2014.europe.wordcamp.org/">WordCamp Europe</a> in Sofia - taking rough notes on some of the talks</em></p>
+
+<p>Konstantin Dankov <a href="http://2014.europe.wordcamp.org/session/konstantin-dankov/">http://2014.europe.wordcamp.org/session/konstantin-dankov/</a></p>
+
+<ul>
+<li><p>Why style the admin?</p>
+
+<ul>
+<li>make things simpler for the user</li>
+<li>save time by optimising workflows - supporting power users - removing unnecessary steps: e.g. jump straight to a particular page.</li>
+<li>Branding - sometimes larger organisations would like their own branding inside
+
+<ul>
+<li>Important to not go overboard! Use a little to do a lot.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Why NOT to do it</p>
+
+<ul>
+<li>There&rsquo;s a large cost to supporting it:
+
+<ul>
+<li>There&rsquo;s a lot of it!</li>
+</ul>
+</li>
+<li>Clashes with plugin styles: can cause plugins to break</li>
+</ul>
+</li>
+<li><p>Consider the experience of editors vs admins</p></li>
+<li><p>Adding a custom post type</p>
+
+<ul>
+<li>Defaults (all overridable when registering the post type)
+
+<ul>
+<li>It goes to the bottom of the list</li>
+<li>It has the same icon as other post</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Using filters the order of menu items can be managed in a more coherent way: explicitly naming the order rather than using index numbers.</p></li>
+<li><p>Preference: When the custom post type is specific to that project then this menu-modifying code should be in the theme, along with the post type itself: moving it out into a plugin just adds complexity.</p></li>
+<li><p>Removing the dashboard to jump straight to the posts: useful if your primary thing is generating new content</p></li>
+<li><p>There&rsquo;s a lot of complexity in the WP admin css: responsive styles, Right->Left styles. Making modifications are a lot more work than they look</p></li>
+</ul>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[WordCamp Europe 2014 Notes - 2: Why Sometimes Happiness Requires Effort: Depression in IT]]></title>

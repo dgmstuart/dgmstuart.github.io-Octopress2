@@ -5,11 +5,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Categories - dgms code</title>
+  <title>WordCamp Europe 2014 Notes - 3: Styling the WordPress Admin - dgms code</title>
   <meta name="author" content="Duncan Stuart">
 
   
-  <meta name="description" content="Categories Rails [ 5 ] Postgres [ 2 ] Soldn [ 1 ] Ruby [ 5 ] Rspec [ 1 ] Testing [ 1 ] Development [ 1 ] Heroku [ 2 ] Wordcampeurope [ 3 ] Wordpress &hellip;">
+  <meta name="description" content="I&rsquo;m at WordCamp Europe in Sofia - taking rough notes on some of the talks Konstantin Dankov http://2014.europe.wordcamp.org/session/konstantin- &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -18,7 +18,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://dgmstuart.github.io/blog/categories">
+  <link rel="canonical" href="http://dgmstuart.github.io/blog/2014/09/27/wordcamp-europe-2014-notes-3-styling-the-wordpress-admin">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/atom.xml" rel="alternate" title="dgms code" type="application/atom+xml">
@@ -57,55 +57,15 @@
   <div id="main">
     <div id="content">
       <div>
-<article role="article">
+<article class="hentry" role="article">
   
   <header>
-    <h1 class="entry-title">Categories</h1>
-    <p class="meta">
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2013-07-28T23:11:00+03:00" pubdate data-updated="true"></time></p>
-  </header>
-  
-  <ul>
-
-    <li><a href="/blog/categories/rails/">Rails</a> [ 5 ]</li>
-
-    <li><a href="/blog/categories/postgres/">Postgres</a> [ 2 ]</li>
-
-    <li><a href="/blog/categories/soldn/">Soldn</a> [ 1 ]</li>
-
-    <li><a href="/blog/categories/ruby/">Ruby</a> [ 5 ]</li>
-
-    <li><a href="/blog/categories/rspec/">Rspec</a> [ 1 ]</li>
-
-    <li><a href="/blog/categories/testing/">Testing</a> [ 1 ]</li>
-
-    <li><a href="/blog/categories/development/">Development</a> [ 1 ]</li>
-
-    <li><a href="/blog/categories/heroku/">Heroku</a> [ 2 ]</li>
-
-    <li><a href="/blog/categories/wordcampeurope/">Wordcampeurope</a> [ 3 ]</li>
-
-    <li><a href="/blog/categories/wordpress/">Wordpress</a> [ 1 ]</li>
-
-</ul>
-
-
-  
-    <footer>
+    
+      <h1 class="entry-title">WordCamp Europe 2014 Notes - 3: Styling the WordPress Admin</h1>
+    
+    
       <p class="meta">
         
-        
 
 
 
@@ -117,12 +77,115 @@
   
 
 
-<time datetime="2013-07-28T23:11:00+03:00" pubdate data-updated="true"></time>
+<time datetime="2014-09-27T11:32:55+03:00" pubdate data-updated="true"></time>
+        
+           | <a href="#disqus_thread"
+             data-disqus-identifier="http://dgmstuart.github.io">Comments</a>
         
       </p>
+    
+  </header>
+
+
+<div class="entry-content"><p><em>I&rsquo;m at <a href="http://2014.europe.wordcamp.org/">WordCamp Europe</a> in Sofia - taking rough notes on some of the talks</em></p>
+
+<p>Konstantin Dankov <a href="http://2014.europe.wordcamp.org/session/konstantin-dankov/">http://2014.europe.wordcamp.org/session/konstantin-dankov/</a></p>
+
+<ul>
+<li><p>Why style the admin?</p>
+
+<ul>
+<li>make things simpler for the user</li>
+<li>save time by optimising workflows - supporting power users - removing unnecessary steps: e.g. jump straight to a particular page.</li>
+<li>Branding - sometimes larger organisations would like their own branding inside
+
+<ul>
+<li>Important to not go overboard! Use a little to do a lot.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Why NOT to do it</p>
+
+<ul>
+<li>There&rsquo;s a large cost to supporting it:
+
+<ul>
+<li>There&rsquo;s a lot of it!</li>
+</ul>
+</li>
+<li>Clashes with plugin styles: can cause plugins to break</li>
+</ul>
+</li>
+<li><p>Consider the experience of editors vs admins</p></li>
+<li><p>Adding a custom post type</p>
+
+<ul>
+<li>Defaults (all overridable when registering the post type)
+
+<ul>
+<li>It goes to the bottom of the list</li>
+<li>It has the same icon as other post</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Using filters the order of menu items can be managed in a more coherent way: explicitly naming the order rather than using index numbers.</p></li>
+<li><p>Preference: When the custom post type is specific to that project then this menu-modifying code should be in the theme, along with the post type itself: moving it out into a plugin just adds complexity.</p></li>
+<li><p>Removing the dashboard to jump straight to the posts: useful if your primary thing is generating new content</p></li>
+<li><p>There&rsquo;s a lot of complexity in the WP admin css: responsive styles, Right->Left styles. Making modifications are a lot more work than they look</p></li>
+</ul>
+
+</div>
+
+
+  <footer>
+    <p class="meta">
       
-    </footer>
   
+
+<span class="byline author vcard">Posted by <span class="fn">Duncan Stuart</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-09-27T11:32:55+03:00" pubdate data-updated="true"></time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/wordcampeurope/'>wordcampeurope</a>, <a class='category' href='/blog/categories/wordpress/'>wordpress</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://dgmstuart.github.io/blog/2014/09/27/wordcamp-europe-2014-notes-3-styling-the-wordpress-admin/" data-via="dgmstuart" data-counturl="http://dgmstuart.github.io/blog/2014/09/27/wordcamp-europe-2014-notes-3-styling-the-wordpress-admin/" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2014/09/27/wordcamp-europe-2014-notes-2-why-sometimes-happiness-requires-effort-depression-in-it/" title="Previous Post: WordCamp Europe 2014 notes - 2: Why sometimes happiness requires effort: depression in IT">&laquo; WordCamp Europe 2014 notes - 2: Why sometimes happiness requires effort: depression in IT</a>
+      
+      
+    </p>
+  </footer>
 </article>
 
   <section>
@@ -223,8 +286,8 @@
       
         
         // var disqus_developer = 1;
-        var disqus_identifier = 'http://dgmstuart.github.io/blog/categories/index.html';
-        var disqus_url = 'http://dgmstuart.github.io/blog/categories/index.html';
+        var disqus_identifier = 'http://dgmstuart.github.io/blog/2014/09/27/wordcamp-europe-2014-notes-3-styling-the-wordpress-admin/';
+        var disqus_url = 'http://dgmstuart.github.io/blog/2014/09/27/wordcamp-europe-2014-notes-3-styling-the-wordpress-admin/';
         var disqus_script = 'embed.js';
       
     (function () {
