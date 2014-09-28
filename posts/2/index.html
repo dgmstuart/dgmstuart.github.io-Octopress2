@@ -9,7 +9,9 @@
   <meta name="author" content="Duncan Stuart">
 
   
-  <meta name="description" content="I&rsquo;ve always tended to write commit messages by answering the question &ldquo;What did I do?&rdquo;, but I learned a different approach recently &hellip;">
+  <meta name="description" content="heroku apps:create swingoutlondon2 --region eu
+git push heroku master
+heroku run rake db:migrate Done *. https://swingoutlondon2.herokuapp.com exists &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -58,6 +60,63 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2014/08/15/creating-a-new-app-on-heroku-is-stupidly-easy/">Creating a New App on Heroku Really Is Stupidly Easy</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-08-15T15:49:11+03:00" pubdate data-updated="true"></time>
+        
+           | <a href="/blog/2014/08/15/creating-a-new-app-on-heroku-is-stupidly-easy/#disqus_thread"
+             data-disqus-identifier="http://dgmstuart.github.io/blog/2014/08/15/creating-a-new-app-on-heroku-is-stupidly-easy/">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><pre><code>heroku apps:create swingoutlondon2 --region eu
+git push heroku master
+heroku run rake db:migrate
+</code></pre>
+
+<p>Done *. <a href="https://swingoutlondon2.herokuapp.com">https://swingoutlondon2.herokuapp.com</a> exists.</p>
+
+<p>I know it&rsquo;s been around for ages, but it really is amazing how simple it is.</p>
+
+<p><em>* Actually not quite done - I still needed to:</em></p>
+
+<ul>
+<li><em>set up my <a href="https://devcenter.heroku.com/changelog-items/426">secret tokens</a></em></li>
+<li><em>jump through a couple of hoops to get Devise&rsquo;s key to be recognised because <a href="https://stackoverflow.com/questions/19832218/failing-to-find-envsecret-key-in-devise-setup-on-heroku#comment35154876_19833145">Heroku doesn&rsquo;t have access to the Rails environment when deploying</a></em></li>
+<li><em><a href="http://stackoverflow.com/a/17082720/1035431">tweak my production.rb</a> to get it to compile assets</em></li>
+</ul>
+
+
+<p><em>But whatever. Hush.</em></p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -557,6 +616,10 @@ Shall the new role be allowed to create more new roles? (y/n) n
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2014/09/28/wordcamp-europe-2014-notes-2-dot-4-code-deodorant/">WordCamp Europe 2014 Notes - 2.4: Code Deodorant</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2014/09/28/wordcamp-europe-2014-notes-2-dot-3-the-next-generation-hosting-stack/">WordCamp Europe 2014 Notes - 2.3: The Next Generation Hosting Stack</a>
       </li>
     
@@ -570,10 +633,6 @@ Shall the new role be allowed to create more new roles? (y/n) n
     
       <li class="post">
         <a href="/blog/2014/09/27/wordcamp-europe-2014-notes-5-postmodern-wordpress/">WordCamp Europe 2014 Notes - 1.5: Postmodern Wordpress</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2014/09/27/wordcamp-europe-2014-notes-4-how-come-every-time-dot-dot-dot/">WordCamp Europe 2014 Notes - 1.4: How Come Every Time...</a>
       </li>
     
   </ul>

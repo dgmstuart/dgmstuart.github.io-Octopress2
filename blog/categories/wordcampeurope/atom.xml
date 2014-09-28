@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Wordcampeurope | dgms code]]></title>
   <link href="http://dgmstuart.github.io/blog/categories/wordcampeurope/atom.xml" rel="self"/>
   <link href="http://dgmstuart.github.io/"/>
-  <updated>2014-09-28T12:17:34+03:00</updated>
+  <updated>2014-09-28T12:59:45+03:00</updated>
   <id>http://dgmstuart.github.io/</id>
   <author>
     <name><![CDATA[Duncan Stuart]]></name>
@@ -12,6 +12,48 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[WordCamp Europe 2014 Notes - 2.4: Code Deodorant]]></title>
+    <link href="http://dgmstuart.github.io/blog/2014/09/28/wordcamp-europe-2014-notes-2-dot-4-code-deodorant/"/>
+    <updated>2014-09-28T12:27:07+03:00</updated>
+    <id>http://dgmstuart.github.io/blog/2014/09/28/wordcamp-europe-2014-notes-2-dot-4-code-deodorant</id>
+    <content type="html"><![CDATA[<p><em>I&rsquo;m at <a href="http://2014.europe.wordcamp.org/">WordCamp Europe</a> in Sofia - taking rough notes on some of the talks</em></p>
+
+<p>Tom Nowell (cftp) <a href="http://2014.europe.wordcamp.org/session/tom-nowell/">http://2014.europe.wordcamp.org/session/tom-nowell/</a></p>
+
+<ul>
+<li>Now when running vanilla WP without plugins you shouldn&rsquo;t see any warnings, so all warnings are things you should pay attention to</li>
+<li>&lsquo;@&rsquo; swallows errors - hides them.</li>
+<li><a href="http://codex.wordpress.org/Plugin_API/Action_Reference/pre_get_posts">pre_get_posts action</a> - useful for removing complexity: modifying queries before they get run</li>
+<li>Law of Demeter &ldquo;if you&rsquo;re talking to something, only talk to the things directly adjacent to you&rdquo;</li>
+<li>No global variables - random ordering of tests can help to show up issues.</li>
+<li>Tools for code quality:
+
+<ul>
+<li>php syntax checking - if your editor isn&rsquo;t doing this you&rsquo;re doing it wrong. PHP Storm does this</li>
+<li><a href="https://github.com/squizlabs/PHP_CodeSniffer">php code sniffer</a> - give it coding standards - it&rsquo;ll check them</li>
+<li><a href="https://github.com/Halleck45/PhpMetrics">php Metrics</a></li>
+<li>phpLOC - tells you how many lines, classes, namespaces, measure of code complexity</li>
+<li><a href="https://github.com/phpmd/phpmd">php Mess detector</a> - fuzzy matching: helps detect typos and join up e.g. misspelled variables which might be the same thing</li>
+<li>NPath &amp; Cyclomatic complexity - Cycl = number of points at which code may diverge, NPath is number of execution paths through the code.
+
+<ul>
+<li>NPath complexity is roughly equivalent to the number of unit tests that you need to have to fully test the function</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Lots of WP functions have incredibly large npath complexity - WP_Query::get_posts is insanely large. Even larger in WP 4.0
+
+<ul>
+<li><a href="http://www.tomjn.com/390/wp_queryget_posts/">http://www.tomjn.com/390/wp_queryget_posts/</a></li>
+</ul>
+</li>
+</ul>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[WordCamp Europe 2014 Notes - 2.3: The Next Generation Hosting Stack]]></title>
@@ -80,7 +122,7 @@
 <h2>Database</h2>
 
 <ul>
-<li>MySQL is not the only option: MariaDB Percona</li>
+<li>MySQL is not the only option: MariaDB, Percona</li>
 <li>HyperDB - project for providing a layer to manage lots of database instances</li>
 </ul>
 
@@ -301,50 +343,6 @@
 </ul>
 </li>
 <li><p>&ldquo;It&rsquo;s not a matter of doing it, it&rsquo;s a matter of planning it out so that we don&rsquo;t have to Re-do it in a year&rdquo;</p></li>
-</ul>
-
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[WordCamp Europe 2014 Notes - 1.4: How Come Every Time...]]></title>
-    <link href="http://dgmstuart.github.io/blog/2014/09/27/wordcamp-europe-2014-notes-4-how-come-every-time-dot-dot-dot/"/>
-    <updated>2014-09-27T12:21:08+03:00</updated>
-    <id>http://dgmstuart.github.io/blog/2014/09/27/wordcamp-europe-2014-notes-4-how-come-every-time-dot-dot-dot</id>
-    <content type="html"><![CDATA[<p><em>I&rsquo;m at <a href="http://2014.europe.wordcamp.org/">WordCamp Europe</a> in Sofia - taking rough notes on some of the talks</em></p>
-
-<h2>How come every time I get stabbed in the back, my fingerprints are on the knife?</h2>
-
-<p>Jenny Beaumont <a href="http://2014.europe.wordcamp.org/session/jenny-beaumont/">http://2014.europe.wordcamp.org/session/jenny-beaumont/</a></p>
-
-<ul>
-<li>Your business plan might be fine, but are you prepared for when things go horribly wrong?</li>
-<li>When bad things happen we&rsquo;re ultimately responsible</li>
-<li>&ldquo;Taking responsibility can be a blessing as well as a burden&rdquo;</li>
-<li>&ldquo;It&rsquo;s up to you to not only choose who you work with, but to devise communicate and enforce the rules of your profession&rdquo;</li>
-<li>This is about being professional.</li>
-<li>You need to be in charge, not the client</li>
-<li>You don&rsquo;t know what&rsquo;s going on with the client - they may be taking out on you something going on with their personal life</li>
-<li>&ldquo;Sometimes people are dicks&rdquo; :) need to blow off steam sometimes</li>
-<li>&ldquo;People don&rsquo;t always read the fine print&rdquo; or even the large print. Or contracts. Rather than getting frustrated by this, we need to recognise that it&rsquo;s a thing and deal with it.
-
-<ul>
-<li>Don&rsquo;t just assume it&rsquo;s been read and absolve responsibility - you need to continuously reinforce things throughout a project</li>
-</ul>
-</li>
-<li>&ldquo;You can&rsquo;t change people or their behaviour: you can only change your own&rdquo;</li>
-<li>Audience question - how do you filter out clients who you shouldn&rsquo;t be working with
-
-<ul>
-<li>Answer - it&rsquo;s tricky. Ask a lot of questions</li>
-</ul>
-</li>
-<li>Audience question - how much do you bend your rules when times are tough and you can&rsquo;t afford to turn work away
-
-<ul>
-<li>Really tricky. No good answer. Communicate a LOT. Let your clients know that you&rsquo;re needy: you&rsquo;ll need a lot from them - particularly availability for communication.</li>
-</ul>
-</li>
 </ul>
 
 ]]></content>
