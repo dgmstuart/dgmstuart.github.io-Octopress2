@@ -24,7 +24,7 @@ Matt Mullenweg, Om Malik http://2014.europe.wordcamp.org/session/matt-mullenweg/
 
 ![Photo of Matt Mullenweg Q&A by @Joan_Artes on twitter](https://pbs.twimg.com/media/BynhzoPIMAAwoDT.jpg)
 
-* Photo by [@Joan_Artes](https://twitter.com/Joan_Artes/status/516191909656920065/photo/1) *
+_Photo by [@Joan_Artes](https://twitter.com/Joan_Artes/status/516191909656920065/photo/1)_
 
 ## Q&A
 * What are your thoughts about entrepreneurship in Europe, particularly eastern europe?

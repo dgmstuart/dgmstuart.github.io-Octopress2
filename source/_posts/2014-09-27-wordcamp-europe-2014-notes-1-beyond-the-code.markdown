@@ -15,7 +15,7 @@ http://2014.europe.wordcamp.org/session/noel-tock/
 
 ![sketchnotes by @studionetting](http://photos-a.ak.instagram.com/hphotos-ak-xpf1/1723763_309422682576104_171479899_n.jpg)
 
-*Awesome sketchnotes by [@studionetting](http://instagram.com/p/tcUpBuNkEl/)*
+_Awesome sketchnotes by [@studionetting](http://instagram.com/p/tcUpBuNkEl/)_
 
 * Getting stuck in cycles of task completion - head down - "daily execution".
 * This time next year wp will be 1/5 of the internet.

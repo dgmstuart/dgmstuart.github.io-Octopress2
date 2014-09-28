@@ -12,7 +12,7 @@ Dario Jazbec Hrvatin - http://2014.europe.wordcamp.org/session/dario-jazbec-hrva
 
 ![sketchnotes by @studionetting](http://photos-e.ak.instagram.com/hphotos-ak-xaf1/10665594_1562716813952100_214832350_n.jpg)
 
-*Awesome sketchnotes by [@studionetting](http://instagram.com/p/tc-b8atkPN/)*
+_Awesome sketchnotes by [@studionetting](http://instagram.com/p/tc-b8atkPN/)_
 
 * Remote user testing
 * Google hangouts or Skype
