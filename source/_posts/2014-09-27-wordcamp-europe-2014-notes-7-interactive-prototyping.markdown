@@ -10,6 +10,10 @@ _I'm at [WordCamp Europe](http://2014.europe.wordcamp.org/) in Sofia - taking ro
 
 Karin Christen http://2014.europe.wordcamp.org/session/karin-christen/
 
+![sketchnotes by @studionetting](http://photos-e.ak.instagram.com/hphotos-ak-xaf1/10665594_1562716813952100_214832350_n.jpg)
+
+*Awesome sketchnotes by [@studionetting](http://instagram.com/p/tc-b8atkPN/)*
+
 * Used dynamic style guide - one page in the prototype
 * Started in the browser right from the beginning - speed benefits but also:
   * responsiveness from the beginning

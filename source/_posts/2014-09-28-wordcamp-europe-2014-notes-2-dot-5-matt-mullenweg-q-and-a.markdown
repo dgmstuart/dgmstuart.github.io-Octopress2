@@ -10,6 +10,8 @@ _I'm at [WordCamp Europe](http://2014.europe.wordcamp.org/) in Sofia - taking ro
 
 Matt Mullenweg, Om Malik http://2014.europe.wordcamp.org/session/matt-mullenweg/
 
+![Matt Mullenweg in conversation with Om Malik](https://pbs.twimg.com/media/Byng_nfIgAErGt4.jpg)
+
 ## In conversation with Om Malik:
 * Biggest learning in the last 11 years?
   * The community makes it what it is - not the feature set. Lots of other software checks the same boxes that WordPress checks, but it doesn't have what we have in this room
@@ -19,6 +21,10 @@ Matt Mullenweg, Om Malik http://2014.europe.wordcamp.org/session/matt-mullenweg/
 * How do we structure WP so that it can adapt to what the trends are over the coming years?
   * more and more access is on closed proprietary devices (iphones etc.)
   * Wp wasn't designed with touch interaction in mind. WP apps haven't had a ton of community involvement
+
+![Photo of Matt Mullenweg Q&A by @Joan_Artes on twitter](https://pbs.twimg.com/media/BynhzoPIMAAwoDT.jpg)
+
+* Photo by [@Joan_Artes](https://twitter.com/Joan_Artes/status/516191909656920065/photo/1) *
 
 ## Q&A
 * What are your thoughts about entrepreneurship in Europe, particularly eastern europe?

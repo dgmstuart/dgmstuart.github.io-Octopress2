@@ -10,6 +10,10 @@ _I'm at [WordCamp Europe](http://2014.europe.wordcamp.org/) in Sofia - taking ro
 
 Dario Jazbec Hrvatin - http://2014.europe.wordcamp.org/session/dario-jazbec-hrvatin/
 
+![sketchnotes by @studionetting](http://photos-e.ak.instagram.com/hphotos-ak-xaf1/10665594_1562716813952100_214832350_n.jpg)
+
+*Awesome sketchnotes by [@studionetting](http://instagram.com/p/tc-b8atkPN/)*
+
 * Remote user testing
 * Google hangouts or Skype
   * Important to make sure that your users are comfortable with the tech before officially starting the test

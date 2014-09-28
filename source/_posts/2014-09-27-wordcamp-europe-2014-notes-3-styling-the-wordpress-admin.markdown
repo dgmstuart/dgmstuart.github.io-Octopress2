@@ -10,6 +10,10 @@ _I'm at [WordCamp Europe](http://2014.europe.wordcamp.org/) in Sofia - taking ro
 
 Konstantin Dankov http://2014.europe.wordcamp.org/session/konstantin-dankov/
 
+![sketchnotes by @studionetting](http://photos-a.ak.instagram.com/hphotos-ak-xfp1/1742413_291384914397664_162274686_n.jpg)
+
+*Awesome sketchnotes by [@studionetting](http://instagram.com/p/tcl0LKNkJp)*
+
 * Why style the admin?
   * make things simpler for the user
   * save time by optimising workflows - supporting power users - removing unnecessary steps: e.g. jump straight to a particular page.
