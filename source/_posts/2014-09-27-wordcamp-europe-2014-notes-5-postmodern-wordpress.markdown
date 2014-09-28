@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "WordCamp Europe 2014 notes - 5: Postmodern Wordpress"
+title: "WordCamp Europe 2014 notes - 1.5: Postmodern Wordpress"
 date: 2014-09-27 14:32:07 +0300
 comments: true
 categories: [WordPress, WordCampEurope]

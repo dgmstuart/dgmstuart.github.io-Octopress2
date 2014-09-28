@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "WordCamp Europe 2014 notes - 8: Usability Testing"
+title: "WordCamp Europe 2014 notes - 1.8: Usability Testing"
 date: 2014-09-27 17:15:07 +0300
 comments: true
 categories: [WordCampEurope, UserTesting]

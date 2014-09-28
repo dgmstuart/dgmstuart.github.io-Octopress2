@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "WordCamp Europe 2014 notes - 7: Interactive prototyping"
+title: "WordCamp Europe 2014 notes - 1.7: Interactive prototyping"
 date: 2014-09-27 16:40:38 +0300
 comments: true
 categories: [WordCampEurope, Prototyping]

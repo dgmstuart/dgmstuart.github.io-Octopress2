@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "WordCamp Europe 2014 notes - 1: Beyond the code"
+title: "WordCamp Europe 2014 notes - 1.1: Beyond the code"
 date: 2014-09-27 10:03:07 +0300
 comments: true
 categories: [WordCampEurope]

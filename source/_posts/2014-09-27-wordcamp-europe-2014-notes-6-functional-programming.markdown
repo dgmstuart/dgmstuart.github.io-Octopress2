@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "WordCamp Europe 2014 notes - 6: Functional Programming"
+title: "WordCamp Europe 2014 notes - 1.6: Functional Programming"
 date: 2014-09-27 15:20:12 +0300
 comments: true
 categories:

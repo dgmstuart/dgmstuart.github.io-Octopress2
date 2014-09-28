@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "WordCamp Europe 2014 notes - 2: Why sometimes happiness requires effort: depression in IT"
+title: "WordCamp Europe 2014 notes - 1.2: Why sometimes happiness requires effort: depression in IT"
 date: 2014-09-27 10:27:35 +0300
 comments: true
 categories: [WordCampEurope]

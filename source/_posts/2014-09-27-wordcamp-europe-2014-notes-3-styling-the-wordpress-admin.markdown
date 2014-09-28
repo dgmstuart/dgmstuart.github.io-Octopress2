@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "WordCamp Europe 2014 notes - 3: Styling the WordPress admin"
+title: "WordCamp Europe 2014 notes - 1.3: Styling the WordPress admin"
 date: 2014-09-27 11:32:55 +0300
 comments: true
 categories: [WordPress, WordCampEurope]
