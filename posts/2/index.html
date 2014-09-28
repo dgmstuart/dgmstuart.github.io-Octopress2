@@ -9,7 +9,7 @@
   <meta name="author" content="Duncan Stuart">
 
   
-  <meta name="description" content="When inside any directory with a Rakefile, you can bring up the list of available rake tasks with rake -T In Rails projects everyone is used to &hellip;">
+  <meta name="description" content="I&rsquo;ve always tended to write commit messages by answering the question &ldquo;What did I do?&rdquo;, but I learned a different approach recently &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -58,6 +58,79 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2014/06/24/a-better-way-of-writing-commit-messages/">A Better Way of Writing Commit Messages</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-06-24T01:52:20+03:00" pubdate data-updated="true"></time>
+        
+           | <a href="/blog/2014/06/24/a-better-way-of-writing-commit-messages/#disqus_thread"
+             data-disqus-identifier="http://dgmstuart.github.io/blog/2014/06/24/a-better-way-of-writing-commit-messages/">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>I&rsquo;ve always tended to write commit messages by answering the question &ldquo;What did I do?&rdquo;, but I learned a different approach recently which tends to produce much more expressive commits, which are often more terse as well. Compare the following:</p>
+
+<table>
+<thead>
+<tr>
+<th>&ldquo;What did I do?&rdquo; </th>
+<th> &ldquo;What do things look like now?&rdquo;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Fixed a bug whereby active links were displaying in the wrong colour </td>
+<td> Active links now display as blue</td>
+</tr>
+<tr>
+<td>Changed the styling of the popup for clarity </td>
+<td> The popup now more clearly displays the review description</td>
+</tr>
+<tr>
+<td>Fixed styling bug in previous commit </td>
+<td> The styling added in the previous commit now only gets applied to the modal</td>
+</tr>
+<tr>
+<td>Added a list of reviewed versions with icons to the security column </td>
+<td> The security column now displays a list of reviewed versions</td>
+</tr>
+</tbody>
+</table>
+
+
+<p>Ok, so not all of these are fantastic commit messages (they&rsquo;re all real from recent work I&rsquo;ve done). This approach isn&rsquo;t a magic formula but it helps me to focus on what&rsquo;s most relevant, and I feel like the messages on the right are more useful.</p>
+
+<p>An important insight is that although at the time the distinction between implementing a feature/fixing a bug/adding a tweak seems important, when scanning through a list of commits, it&rsquo;s probably the actual behaviour which which is going to be most useful <em>(caveat: if you have a story ID or ticket reference then it&rsquo;s probably worth including)</em>.</p>
+
+<p><em>Props for the tip go to <a href="https://twitter.com/zeeraw">zeeraw</a> - my colleague at <a href="http://www.dxw.com/">dxw</a></em></p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -484,23 +557,23 @@ Shall the new role be allowed to create more new roles? (y/n) n
   <ul id="recent_posts">
     
       <li class="post">
-        <a href="/blog/2014/09/27/wordcamp-europe-2014-notes-8-usability-testing/">WordCamp Europe 2014 Notes - 8: Usability Testing</a>
+        <a href="/blog/2014/09/28/wordcamp-europe-2014-notes-2-dot-3-the-next-generation-hosting-stack/">WordCamp Europe 2014 Notes - 2.3: The Next Generation Hosting Stack</a>
       </li>
     
       <li class="post">
-        <a href="/blog/2014/09/27/wordcamp-europe-2014-notes-7-interactive-prototyping/">WordCamp Europe 2014 Notes - 7: Interactive Prototyping</a>
+        <a href="/blog/2014/09/27/wordcamp-europe-2014-notes-8-usability-testing/">WordCamp Europe 2014 Notes - 1.8: Usability Testing</a>
       </li>
     
       <li class="post">
-        <a href="/blog/2014/09/27/wordcamp-europe-2014-notes-5-postmodern-wordpress/">WordCamp Europe 2014 Notes - 5: Postmodern Wordpress</a>
+        <a href="/blog/2014/09/27/wordcamp-europe-2014-notes-7-interactive-prototyping/">WordCamp Europe 2014 Notes - 1.7: Interactive Prototyping</a>
       </li>
     
       <li class="post">
-        <a href="/blog/2014/09/27/wordcamp-europe-2014-notes-4-how-come-every-time-dot-dot-dot/">WordCamp Europe 2014 Notes - 4: How Come Every Time...</a>
+        <a href="/blog/2014/09/27/wordcamp-europe-2014-notes-5-postmodern-wordpress/">WordCamp Europe 2014 Notes - 1.5: Postmodern Wordpress</a>
       </li>
     
       <li class="post">
-        <a href="/blog/2014/09/27/wordcamp-europe-2014-notes-3-styling-the-wordpress-admin/">WordCamp Europe 2014 Notes - 3: Styling the WordPress Admin</a>
+        <a href="/blog/2014/09/27/wordcamp-europe-2014-notes-4-how-come-every-time-dot-dot-dot/">WordCamp Europe 2014 Notes - 1.4: How Come Every Time...</a>
       </li>
     
   </ul>

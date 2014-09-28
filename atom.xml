@@ -4,7 +4,7 @@
   <title><![CDATA[dgms code]]></title>
   <link href="http://dgmstuart.github.io/atom.xml" rel="self"/>
   <link href="http://dgmstuart.github.io/"/>
-  <updated>2014-09-27T17:46:55+03:00</updated>
+  <updated>2014-09-28T12:17:34+03:00</updated>
   <id>http://dgmstuart.github.io/</id>
   <author>
     <name><![CDATA[Duncan Stuart]]></name>
@@ -14,7 +14,136 @@
 
   
   <entry>
-    <title type="html"><![CDATA[WordCamp Europe 2014 Notes - 8: Usability Testing]]></title>
+    <title type="html"><![CDATA[WordCamp Europe 2014 Notes - 2.3: The Next Generation Hosting Stack]]></title>
+    <link href="http://dgmstuart.github.io/blog/2014/09/28/wordcamp-europe-2014-notes-2-dot-3-the-next-generation-hosting-stack/"/>
+    <updated>2014-09-28T11:33:02+03:00</updated>
+    <id>http://dgmstuart.github.io/blog/2014/09/28/wordcamp-europe-2014-notes-2-dot-3-the-next-generation-hosting-stack</id>
+    <content type="html"><![CDATA[<p><em>I&rsquo;m at <a href="http://2014.europe.wordcamp.org/">WordCamp Europe</a> in Sofia - taking rough notes on some of the talks</em></p>
+
+<p>Mark Jaquith (@markjaquith) <a href="http://2014.europe.wordcamp.org/session/mark-jaquith/">http://2014.europe.wordcamp.org/session/mark-jaquith/</a></p>
+
+<ul>
+<li>Why is performance important?
+
+<ul>
+<li>It&rsquo;s not about overall speed - it&rsquo;s about the frustration of being interrupted</li>
+<li>Everyone hates Lag</li>
+</ul>
+</li>
+<li>WP has a bad rep for speed
+
+<ul>
+<li>no matter what wp core do, WP DB&rsquo;s are getting bigger, lots of functionality, lots of plugins</li>
+</ul>
+</li>
+<li>WP is dynamic - everything is built on the fly
+
+<ul>
+<li>Why don&rsquo;t we just generate static files? - No persistent caching in core. Pages are so dynamic: search results etc. Only a small number of pages can be cached</li>
+</ul>
+</li>
+<li>For the purposes of this talk: speed = speed of download of just the html page (not css or other assets)</li>
+<li>3+ seconds = EMERGENCY</li>
+<li>1-3 seconds = Slow</li>
+<li>100-250ms = fast</li>
+<li>&lt;100ms = instant</li>
+<li>Many hosts don&rsquo;t help with static caching</li>
+<li>Virtual server hosting - what to look for
+
+<ul>
+<li>Are they going to be around for a while?</li>
+<li>What&rsquo;s their raw performance - lots of people have done hardcore speed tests - easily googleable</li>
+<li>Value for money</li>
+<li>Tool support - provisioning scripts, auto backup</li>
+<li>Recommended: Linode, Digital Ocean</li>
+</ul>
+</li>
+</ul>
+
+
+<h2>Web Server</h2>
+
+<ul>
+<li>&ldquo;Nginx is the best thing to happen to web servers ever&rdquo;</li>
+<li>Apache approach - php is baked in. That means there&rsquo;s an overhead for each request</li>
+<li>Nginx approach - can&rsquo;t have php baked in. PHP-FPM runs php</li>
+<li>PHP 5.5 has significant performance improvements over previous versions</li>
+<li>HHVM - facebook project: transcodes php into machine code on the fly, with caching = crazy fast
+
+<ul>
+<li>Might not be production stable - need monitoring to catch when it crashes</li>
+</ul>
+</li>
+</ul>
+
+
+<h2>Database</h2>
+
+<ul>
+<li>MySQL is not the only option: MariaDB Percona</li>
+<li>HyperDB - project for providing a layer to manage lots of database instances</li>
+</ul>
+
+
+<h2>Caching</h2>
+
+<h3>Page caching:</h3>
+
+<ul>
+<li>Questions - who, what, how long. Answers: Anonymous???, front of site, minutes, maybe hours???.</li>
+<li>Nginx has a cache</li>
+<li>Varnish is another option, but is another moving part</li>
+<li>Plugins are tightly integrated with WP, but run in php so are much slower</li>
+</ul>
+
+
+<h3>Object caching:</h3>
+
+<ul>
+<li>Recommend using Redis (Pantheon uses it)</li>
+<li>Memcached - used to be a recommendation. Restarting flushes the data - can cause massive spikes in load</li>
+<li>Mark&rsquo;s wrappers:
+
+<ul>
+<li>TLC Tranients <a href="http://bitly/tlc-transients">http://bitly/tlc-transients</a></li>
+<li>Fragment caching: <a href="http://bitly/fragment-cache">http://bitly/fragment-cache</a></li>
+</ul>
+</li>
+</ul>
+
+
+<h3>The next generation stack</h3>
+
+<p><img src="https://pbs.twimg.com/media/Bym-26pCcAAyPVd.jpg:large" alt="The next generation WordPress hosting stack" /></p>
+
+<ul>
+<li><p>Audience qu Hyper db - works with MariaDB &amp; Percona?</p>
+
+<ul>
+<li>AFAIK yes</li>
+</ul>
+</li>
+<li><p>My qu - can you make core use Redis for your object cache or is that just for your own caching</p>
+
+<ul>
+<li>Yes - you configure an object cache and core will use it to cache posts, taxonomies, a bunch of other things.</li>
+</ul>
+</li>
+<li><p>Audience qu: What do you use for performance monitoring</p>
+
+<ul>
+<li>NewRelic: very expensive, but gives you amazing insights</li>
+</ul>
+</li>
+</ul>
+
+
+<p>*</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[WordCamp Europe 2014 Notes - 1.8: Usability Testing]]></title>
     <link href="http://dgmstuart.github.io/blog/2014/09/27/wordcamp-europe-2014-notes-8-usability-testing/"/>
     <updated>2014-09-27T17:15:07+03:00</updated>
     <id>http://dgmstuart.github.io/blog/2014/09/27/wordcamp-europe-2014-notes-8-usability-testing</id>
@@ -56,7 +185,7 @@
   </entry>
   
   <entry>
-    <title type="html"><![CDATA[WordCamp Europe 2014 Notes - 7: Interactive Prototyping]]></title>
+    <title type="html"><![CDATA[WordCamp Europe 2014 Notes - 1.7: Interactive Prototyping]]></title>
     <link href="http://dgmstuart.github.io/blog/2014/09/27/wordcamp-europe-2014-notes-7-interactive-prototyping/"/>
     <updated>2014-09-27T16:40:38+03:00</updated>
     <id>http://dgmstuart.github.io/blog/2014/09/27/wordcamp-europe-2014-notes-7-interactive-prototyping</id>
@@ -109,7 +238,7 @@
   </entry>
   
   <entry>
-    <title type="html"><![CDATA[WordCamp Europe 2014 Notes - 5: Postmodern Wordpress]]></title>
+    <title type="html"><![CDATA[WordCamp Europe 2014 Notes - 1.5: Postmodern Wordpress]]></title>
     <link href="http://dgmstuart.github.io/blog/2014/09/27/wordcamp-europe-2014-notes-5-postmodern-wordpress/"/>
     <updated>2014-09-27T14:32:07+03:00</updated>
     <id>http://dgmstuart.github.io/blog/2014/09/27/wordcamp-europe-2014-notes-5-postmodern-wordpress</id>
@@ -178,7 +307,7 @@
   </entry>
   
   <entry>
-    <title type="html"><![CDATA[WordCamp Europe 2014 Notes - 4: How Come Every Time...]]></title>
+    <title type="html"><![CDATA[WordCamp Europe 2014 Notes - 1.4: How Come Every Time...]]></title>
     <link href="http://dgmstuart.github.io/blog/2014/09/27/wordcamp-europe-2014-notes-4-how-come-every-time-dot-dot-dot/"/>
     <updated>2014-09-27T12:21:08+03:00</updated>
     <id>http://dgmstuart.github.io/blog/2014/09/27/wordcamp-europe-2014-notes-4-how-come-every-time-dot-dot-dot</id>
@@ -222,7 +351,7 @@
   </entry>
   
   <entry>
-    <title type="html"><![CDATA[WordCamp Europe 2014 Notes - 3: Styling the WordPress Admin]]></title>
+    <title type="html"><![CDATA[WordCamp Europe 2014 Notes - 1.3: Styling the WordPress Admin]]></title>
     <link href="http://dgmstuart.github.io/blog/2014/09/27/wordcamp-europe-2014-notes-3-styling-the-wordpress-admin/"/>
     <updated>2014-09-27T11:32:55+03:00</updated>
     <id>http://dgmstuart.github.io/blog/2014/09/27/wordcamp-europe-2014-notes-3-styling-the-wordpress-admin</id>
@@ -279,7 +408,7 @@
   </entry>
   
   <entry>
-    <title type="html"><![CDATA[WordCamp Europe 2014 Notes - 2: Why Sometimes Happiness Requires Effort: Depression in IT]]></title>
+    <title type="html"><![CDATA[WordCamp Europe 2014 Notes - 1.2: Why Sometimes Happiness Requires Effort: Depression in IT]]></title>
     <link href="http://dgmstuart.github.io/blog/2014/09/27/wordcamp-europe-2014-notes-2-why-sometimes-happiness-requires-effort-depression-in-it/"/>
     <updated>2014-09-27T10:27:35+03:00</updated>
     <id>http://dgmstuart.github.io/blog/2014/09/27/wordcamp-europe-2014-notes-2-why-sometimes-happiness-requires-effort-depression-in-it</id>
@@ -316,7 +445,7 @@
   </entry>
   
   <entry>
-    <title type="html"><![CDATA[WordCamp Europe 2014 Notes - 1: Beyond the Code]]></title>
+    <title type="html"><![CDATA[WordCamp Europe 2014 Notes - 1.1: Beyond the Code]]></title>
     <link href="http://dgmstuart.github.io/blog/2014/09/27/wordcamp-europe-2014-notes-1-beyond-the-code/"/>
     <updated>2014-09-27T10:03:07+03:00</updated>
     <id>http://dgmstuart.github.io/blog/2014/09/27/wordcamp-europe-2014-notes-1-beyond-the-code</id>
