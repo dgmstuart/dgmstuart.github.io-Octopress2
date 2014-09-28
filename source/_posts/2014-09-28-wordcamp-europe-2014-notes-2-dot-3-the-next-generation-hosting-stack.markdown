@@ -3,7 +3,7 @@ layout: post
 title: "WordCamp Europe 2014 notes - 2.3: The Next Generation Hosting Stack"
 date: 2014-09-28 11:33:02 +0300
 comments: true
-categories: [WordPress, WordCampEurope]
+categories: [WordPress, PHP, WordCampEurope]
 ---
 
 _I'm at [WordCamp Europe](http://2014.europe.wordcamp.org/) in Sofia - taking rough notes on some of the talks_
@@ -41,7 +41,7 @@ Mark Jaquith (@markjaquith) http://2014.europe.wordcamp.org/session/mark-jaquith
 
 ## Database
 
-* MySQL is not the only option: MariaDB Percona
+* MySQL is not the only option: MariaDB, Percona
 * HyperDB - project for providing a layer to manage lots of database instances
 
 ## Caching
