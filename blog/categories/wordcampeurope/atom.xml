@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Wordcampeurope | dgms code]]></title>
   <link href="http://dgmstuart.github.io/blog/categories/wordcampeurope/atom.xml" rel="self"/>
   <link href="http://dgmstuart.github.io/"/>
-  <updated>2014-09-28T12:59:45+03:00</updated>
+  <updated>2014-09-28T15:37:14+03:00</updated>
   <id>http://dgmstuart.github.io/</id>
   <author>
     <name><![CDATA[Duncan Stuart]]></name>
@@ -12,6 +12,107 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[WordCamp Europe 2014 Notes - 2.5: Matt Mullenweg Q&amp;A]]></title>
+    <link href="http://dgmstuart.github.io/blog/2014/09/28/wordcamp-europe-2014-notes-2-dot-5-matt-mullenweg-q-and-a/"/>
+    <updated>2014-09-28T14:28:13+03:00</updated>
+    <id>http://dgmstuart.github.io/blog/2014/09/28/wordcamp-europe-2014-notes-2-dot-5-matt-mullenweg-q-and-a</id>
+    <content type="html"><![CDATA[<p><em>I&rsquo;m at <a href="http://2014.europe.wordcamp.org/">WordCamp Europe</a> in Sofia - taking rough notes on some of the talks</em></p>
+
+<p>Matt Mullenweg, Om Malik <a href="http://2014.europe.wordcamp.org/session/matt-mullenweg/">http://2014.europe.wordcamp.org/session/matt-mullenweg/</a></p>
+
+<h2>In conversation with Om Malik:</h2>
+
+<ul>
+<li>Biggest learning in the last 11 years?
+
+<ul>
+<li>The community makes it what it is - not the feature set. Lots of other software checks the same boxes that WordPress checks, but it doesn&rsquo;t have what we have in this room</li>
+</ul>
+</li>
+<li>For-profits have a limit in their vision. Non-profits have difficulty making connections with enough/the right people. Working together they can achieve more.</li>
+<li>&ldquo;I&rsquo;d rather put things into the world under moral licences than immoral ones&rdquo; - GPL is the &ldquo;Most moral licence&rdquo; that you can put software out under</li>
+<li>&ldquo;I&rsquo;d be skeptical of an open source company that kept everyone in the same office&rdquo; - that&rsquo;s missing part of the benefit: Open source works when people are all around the world.</li>
+<li>How do we structure WP so that it can adapt to what the trends are over the coming years?
+
+<ul>
+<li>more and more access is on closed proprietary devices (iphones etc.)</li>
+<li>Wp wasn&rsquo;t designed with touch interaction in mind. WP apps haven&rsquo;t had a ton of community involvement</li>
+</ul>
+</li>
+</ul>
+
+
+<h2>Q&amp;A</h2>
+
+<ul>
+<li><p>What are your thoughts about entrepreneurship in Europe, particularly eastern europe?</p>
+
+<ul>
+<li>@om - Local laws in Europe favour local investors over international investors: a challenge for entrepreneurship</li>
+<li>&ldquo;The best thing European companies can do is to stop comparing themselves to American companies&rdquo;</li>
+</ul>
+</li>
+<li><p>CFTP Wheatley: &ldquo;You&rsquo;ve scaled up 1800 people - what do those people actually do&rdquo;</p>
+
+<ul>
+<li>Lots on support</li>
+<li>Design and development: allows us to contribute much much more to WP Core</li>
+<li>&ldquo;I want to scale that as far as it can go&rdquo;</li>
+<li>Wants it to be an exemplar of a mixed nonprofit/for profit: prove to the world that it <em>Can</em> be done.</li>
+</ul>
+</li>
+<li><p>Once we have APIs it will enable a whole new class of application - e.g. front-ends which talk to something which isn&rsquo;t WP but implements the WP API.</p>
+
+<ul>
+<li>A Cambrian explosion for WordPress - comparable to when plugins were introduced</li>
+</ul>
+</li>
+<li><p>&ldquo;We&rsquo;ve found the search in WP isn&rsquo;t very good&rdquo;</p>
+
+<ul>
+<li>&ldquo;No it&rsquo;s terrible&rdquo;</li>
+<li>If you&rsquo;re serious about search you should use a plugin that indexes your content in lucene or elasticsearch</li>
+</ul>
+</li>
+<li><p>No plans now or in the future to have paid plugins - or a paid app store.</p>
+
+<ul>
+<li>Could make things more discoverable: look at what you&rsquo;ve got installed and suggest things you might find useful</li>
+</ul>
+</li>
+<li><p>This year there were more non-english downloads than english downloads</p>
+
+<ul>
+<li>More translations will be the biggest driver of increases in WP usage</li>
+</ul>
+</li>
+<li><p>How much should WP businesses be contributing to the WP community?</p>
+
+<ul>
+<li>Maybe 5%, so if you have 100 employees, 5 of them could be contributing to core.</li>
+</ul>
+</li>
+<li><p>Can we get rid of Backwards compatibility</p>
+
+<ul>
+<li>I don&rsquo;t buy that we should break backwards compatibility for architectural purity. More inclined to do it for reasons that will mean more people use WP</li>
+</ul>
+</li>
+<li><p>Lots of plugins aren&rsquo;t maintained - some maintainers may even have died. Can we get these just removed from the directory?</p>
+
+<ul>
+<li>Plugins over 2 years old will stop showing up in search results</li>
+<li>Plugin search is going to be optimised towards putting the most popular, best supported ones at the top.</li>
+<li>Factor in the compatibility between plugins - plugins which work well together</li>
+<li>Plugins are the most open area for innovation - it&rsquo;s an open market</li>
+</ul>
+</li>
+</ul>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[WordCamp Europe 2014 Notes - 2.4: Code Deodorant]]></title>
@@ -274,75 +375,6 @@
 <li>Answer: we design in context</li>
 </ul>
 </li>
-</ul>
-
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[WordCamp Europe 2014 Notes - 1.5: Postmodern Wordpress]]></title>
-    <link href="http://dgmstuart.github.io/blog/2014/09/27/wordcamp-europe-2014-notes-5-postmodern-wordpress/"/>
-    <updated>2014-09-27T14:32:07+03:00</updated>
-    <id>http://dgmstuart.github.io/blog/2014/09/27/wordcamp-europe-2014-notes-5-postmodern-wordpress</id>
-    <content type="html"><![CDATA[<p><em>I&rsquo;m at <a href="http://2014.europe.wordcamp.org/">WordCamp Europe</a> in Sofia - taking rough notes on some of the talks</em></p>
-
-<p>Andrew Nacin: <a href="http://2014.europe.wordcamp.org/session/andrew-nacin/">http://2014.europe.wordcamp.org/session/andrew-nacin/</a></p>
-
-<ul>
-<li>WP enables non-devs to do dev
-
-<ul>
-<li>Low barrier to entry</li>
-<li>gateway drug</li>
-</ul>
-</li>
-<li>WP is increasing in complexity
-
-<ul>
-<li>Part of it is about migrating functionality into js</li>
-</ul>
-</li>
-<li>The world of web dev is getting more complicated: html5, css3 - (Raises barrier to entry??)</li>
-<li>&ldquo;We&rsquo;re really good at managing backwards compatibility&rdquo;</li>
-<li>Dev focus is on improving the UX: source of complexity</li>
-<li>Improving docs for devs is important - experienced devs forget that it&rsquo;s an issue.</li>
-<li>Complexity needs to not come at the cost of the philosophies: trivial setup etc.</li>
-<li>&hellip;balanced against drawing the experienced</li>
-<li>&ldquo;you know what? I&rsquo;ll build this site in WP, because WP doesn&rsquo;t make me want to tear my hair out any more&rdquo;</li>
-<li>WP needs to be more consistent: decrease the time spent searching through docs/trying to work out what an argument means
-
-<ul>
-<li>inconsistencies trip people up</li>
-<li>struggle - can&rsquo;t break backwards-compatability</li>
-</ul>
-</li>
-<li>Objects should (/will have?) implementations of <a href="http://php.net/manual/en/class.jsonserializable.php">http://php.net/manual/en/class.jsonserializable.php</a></li>
-<li>A lot of people don&rsquo;t actually know they&rsquo;re writing php (!)</li>
-<li>“ I really can’t wait to have [these features] because it’s, like, <em>Sanity</em> and that’s a good thing to have”</li>
-<li>WP uses objects but in a functional way - actually going OO wouldn&rsquo;t make sense (?)</li>
-<li><a href="http://backpress.org/">http://backpress.org/</a></li>
-<li>WP should only load the necessary files - not 120.</li>
-<li>Also you should be able to pull individual files out and use them in non-wp projects.
-
-<ul>
-<li>The way you do that is by decoupling -> this also makes debugging easier</li>
-</ul>
-</li>
-<li><p>You shouldn&rsquo;t need to understand what&rsquo;s going on under the hood in WP in order to build stuff which works.</p></li>
-<li><p>Audience observation - Automattic - preferred to use REST API to WP function calls (?) because the api is more consistent</p></li>
-<li><p>Audience qu - I&rsquo;m missing a debugger</p>
-
-<ul>
-<li>Use an IDE. We could be doing more to make debugging easier, but there are a bunch of tools out there which help.</li>
-</ul>
-</li>
-<li><p>Posts might end up with relationships. Terms will probably end up with metadata</p>
-
-<ul>
-<li>Post relationships now (via a plugin): <a href="https://wordpress.org/plugins/posts-to-posts/">https://wordpress.org/plugins/posts-to-posts/</a></li>
-</ul>
-</li>
-<li><p>&ldquo;It&rsquo;s not a matter of doing it, it&rsquo;s a matter of planning it out so that we don&rsquo;t have to Re-do it in a year&rdquo;</p></li>
 </ul>
 
 ]]></content>
