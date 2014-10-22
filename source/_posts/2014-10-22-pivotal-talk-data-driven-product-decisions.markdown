@@ -7,7 +7,7 @@ categories: [Talk, Products, Pivotal Talk]
 ---
 http://www.meetup.com/Pivotal-Labs-Tech-Talks/events/213571202/
 
-Marc Abraham
+Marc Abraham. [Slides](http://www.slideshare.net/abrahammarc1/102214-pivotal-labs-tech-talk)
 
 * First thing is to ask the right questions
 * Book - Lean Analytics
