@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Ruby | dgms code]]></title>
   <link href="http://dgmstuart.github.io/blog/categories/ruby/atom.xml" rel="self"/>
   <link href="http://dgmstuart.github.io/"/>
-  <updated>2014-09-28T16:24:46+03:00</updated>
+  <updated>2014-10-22T13:57:48+01:00</updated>
   <id>http://dgmstuart.github.io/</id>
   <author>
     <name><![CDATA[Duncan Stuart]]></name>
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Migrating Postgres Data From an Old Rails Project to a New One]]></title>
-    <link href="http://dgmstuart.github.io/blog/2014/08/21/migrating-postgres-data-from-an-old-rails-project-to-a-new-one/"/>
-    <updated>2014-08-21T01:29:31+03:00</updated>
-    <id>http://dgmstuart.github.io/blog/2014/08/21/migrating-postgres-data-from-an-old-rails-project-to-a-new-one</id>
+    <link href="http://dgmstuart.github.io/blog/2014/08/20/migrating-postgres-data-from-an-old-rails-project-to-a-new-one/"/>
+    <updated>2014-08-20T23:29:31+01:00</updated>
+    <id>http://dgmstuart.github.io/blog/2014/08/20/migrating-postgres-data-from-an-old-rails-project-to-a-new-one</id>
     <content type="html"><![CDATA[<p>TL;DR - this was my approach:</p>
 
 <ol>
@@ -182,7 +182,7 @@ end
   <entry>
     <title type="html"><![CDATA[Creating a New App on Heroku Really Is Stupidly Easy]]></title>
     <link href="http://dgmstuart.github.io/blog/2014/08/15/creating-a-new-app-on-heroku-is-stupidly-easy/"/>
-    <updated>2014-08-15T15:49:11+03:00</updated>
+    <updated>2014-08-15T13:49:11+01:00</updated>
     <id>http://dgmstuart.github.io/blog/2014/08/15/creating-a-new-app-on-heroku-is-stupidly-easy</id>
     <content type="html"><![CDATA[<pre><code>heroku apps:create swingoutlondon2 --region eu
 git push heroku master
@@ -209,7 +209,7 @@ heroku run rake db:migrate
   <entry>
     <title type="html"><![CDATA[Useful Rake Tasks in Rails]]></title>
     <link href="http://dgmstuart.github.io/blog/2014/06/15/useful-rake-tasks-in-rails/"/>
-    <updated>2014-06-15T17:55:16+03:00</updated>
+    <updated>2014-06-15T15:55:16+01:00</updated>
     <id>http://dgmstuart.github.io/blog/2014/06/15/useful-rake-tasks-in-rails</id>
     <content type="html"><![CDATA[<p>When inside any directory with a <a href="https://github.com/jimweirich/rake">Rakefile</a>, you can bring up the list of available rake tasks with <code>rake -T</code></p>
 
@@ -229,7 +229,7 @@ heroku run rake db:migrate
   <entry>
     <title type="html"><![CDATA[Matching on a Final Segment of a String]]></title>
     <link href="http://dgmstuart.github.io/blog/2014/06/04/matching-on-a-final-segment-of-a-string/"/>
-    <updated>2014-06-04T21:55:14+03:00</updated>
+    <updated>2014-06-04T19:55:14+01:00</updated>
     <id>http://dgmstuart.github.io/blog/2014/06/04/matching-on-a-final-segment-of-a-string</id>
     <content type="html"><![CDATA[<p>When matching on the final segment of a string, e.g for a file extension, you could use a regular expression:</p>
 
@@ -270,7 +270,7 @@ heroku run rake db:migrate
   <entry>
     <title type="html"><![CDATA[Gotcha: Initialising RSpec in a Rails Project]]></title>
     <link href="http://dgmstuart.github.io/blog/2014/02/10/initialising-rspec-in-a-rails-project/"/>
-    <updated>2014-02-10T09:50:09+02:00</updated>
+    <updated>2014-02-10T07:50:09+00:00</updated>
     <id>http://dgmstuart.github.io/blog/2014/02/10/initialising-rspec-in-a-rails-project</id>
     <content type="html"><![CDATA[<p>I use RSpec for doing TDD, and the rspec-rails gem for integration in Rails projects. On initialising RSpec for SOLDN2, with <code>rspec init</code> it generated the following spec helper (comments removed):</p>
 

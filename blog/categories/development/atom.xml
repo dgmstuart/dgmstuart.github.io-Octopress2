@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Development | dgms code]]></title>
   <link href="http://dgmstuart.github.io/blog/categories/development/atom.xml" rel="self"/>
   <link href="http://dgmstuart.github.io/"/>
-  <updated>2014-09-28T16:24:46+03:00</updated>
+  <updated>2014-10-22T13:57:48+01:00</updated>
   <id>http://dgmstuart.github.io/</id>
   <author>
     <name><![CDATA[Duncan Stuart]]></name>
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[A Better Way of Writing Commit Messages]]></title>
-    <link href="http://dgmstuart.github.io/blog/2014/06/24/a-better-way-of-writing-commit-messages/"/>
-    <updated>2014-06-24T01:52:20+03:00</updated>
-    <id>http://dgmstuart.github.io/blog/2014/06/24/a-better-way-of-writing-commit-messages</id>
+    <link href="http://dgmstuart.github.io/blog/2014/06/23/a-better-way-of-writing-commit-messages/"/>
+    <updated>2014-06-23T23:52:20+01:00</updated>
+    <id>http://dgmstuart.github.io/blog/2014/06/23/a-better-way-of-writing-commit-messages</id>
     <content type="html"><![CDATA[<p>I&rsquo;ve always tended to write commit messages by answering the question &ldquo;What did I do?&rdquo;, but I learned a different approach recently which tends to produce much more expressive commits, which are often more terse as well. Compare the following:</p>
 
 <table>

@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Postgres | dgms code]]></title>
   <link href="http://dgmstuart.github.io/blog/categories/postgres/atom.xml" rel="self"/>
   <link href="http://dgmstuart.github.io/"/>
-  <updated>2014-09-28T16:24:46+03:00</updated>
+  <updated>2014-10-22T13:57:48+01:00</updated>
   <id>http://dgmstuart.github.io/</id>
   <author>
     <name><![CDATA[Duncan Stuart]]></name>
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Migrating Postgres Data From an Old Rails Project to a New One]]></title>
-    <link href="http://dgmstuart.github.io/blog/2014/08/21/migrating-postgres-data-from-an-old-rails-project-to-a-new-one/"/>
-    <updated>2014-08-21T01:29:31+03:00</updated>
-    <id>http://dgmstuart.github.io/blog/2014/08/21/migrating-postgres-data-from-an-old-rails-project-to-a-new-one</id>
+    <link href="http://dgmstuart.github.io/blog/2014/08/20/migrating-postgres-data-from-an-old-rails-project-to-a-new-one/"/>
+    <updated>2014-08-20T23:29:31+01:00</updated>
+    <id>http://dgmstuart.github.io/blog/2014/08/20/migrating-postgres-data-from-an-old-rails-project-to-a-new-one</id>
     <content type="html"><![CDATA[<p>TL;DR - this was my approach:</p>
 
 <ol>
@@ -182,7 +182,7 @@ end
   <entry>
     <title type="html"><![CDATA[Getting to Grips With Postgres]]></title>
     <link href="http://dgmstuart.github.io/blog/2014/02/07/getting-to-grips-with-postgres/"/>
-    <updated>2014-02-07T14:10:20+02:00</updated>
+    <updated>2014-02-07T12:10:20+00:00</updated>
     <id>http://dgmstuart.github.io/blog/2014/02/07/getting-to-grips-with-postgres</id>
     <content type="html"><![CDATA[<p>So, having generated my Rails app and selected postgres as the development database, I&rsquo;m now faced with getting the damn thing running. On a Eurostar train (under the English channel) i.e. with no internet.</p>
 

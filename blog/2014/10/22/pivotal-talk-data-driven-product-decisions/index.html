@@ -5,13 +5,12 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Creating a New App on Heroku Really Is Stupidly Easy - dgms code</title>
+  <title>Pivotal Talk: Data-informed Product Decisions - dgms code</title>
   <meta name="author" content="Duncan Stuart">
 
   
-  <meta name="description" content="heroku apps:create swingoutlondon2 --region eu
-git push heroku master
-heroku run rake db:migrate Done *. https://swingoutlondon2.herokuapp.com exists &hellip;">
+  <meta name="description" content="http://www.meetup.com/Pivotal-Labs-Tech-Talks/events/213571202/ Marc Abraham First thing is to ask the right questions
+Book - Lean Analytics &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -20,7 +19,7 @@ heroku run rake db:migrate Done *. https://swingoutlondon2.herokuapp.com exists 
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://dgmstuart.github.io/blog/2014/08/15/creating-a-new-app-on-heroku-is-stupidly-easy">
+  <link rel="canonical" href="http://dgmstuart.github.io/blog/2014/10/22/pivotal-talk-data-driven-product-decisions">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/atom.xml" rel="alternate" title="dgms code" type="application/atom+xml">
@@ -63,7 +62,7 @@ heroku run rake db:migrate Done *. https://swingoutlondon2.herokuapp.com exists 
   
   <header>
     
-      <h1 class="entry-title">Creating a New App on Heroku Really Is Stupidly Easy</h1>
+      <h1 class="entry-title">Pivotal Talk: Data-informed Product Decisions</h1>
     
     
       <p class="meta">
@@ -79,7 +78,7 @@ heroku run rake db:migrate Done *. https://swingoutlondon2.herokuapp.com exists 
   
 
 
-<time datetime="2014-08-15T13:49:11+01:00" pubdate data-updated="true"></time>
+<time datetime="2014-10-22T12:48:38+01:00" pubdate data-updated="true"></time>
         
            | <a href="#disqus_thread"
              data-disqus-identifier="http://dgmstuart.github.io">Comments</a>
@@ -89,25 +88,81 @@ heroku run rake db:migrate Done *. https://swingoutlondon2.herokuapp.com exists 
   </header>
 
 
-<div class="entry-content"><pre><code>heroku apps:create swingoutlondon2 --region eu
-git push heroku master
-heroku run rake db:migrate
-</code></pre>
+<div class="entry-content"><p><a href="http://www.meetup.com/Pivotal-Labs-Tech-Talks/events/213571202/">http://www.meetup.com/Pivotal-Labs-Tech-Talks/events/213571202/</a></p>
 
-<p>Done *. <a href="https://swingoutlondon2.herokuapp.com">https://swingoutlondon2.herokuapp.com</a> exists.</p>
-
-<p>I know it&rsquo;s been around for ages, but it really is amazing how simple it is.</p>
-
-<p><em>* Actually not quite done - I still needed to:</em></p>
+<p>Marc Abraham</p>
 
 <ul>
-<li><em>set up my <a href="https://devcenter.heroku.com/changelog-items/426">secret tokens</a></em></li>
-<li><em>jump through a couple of hoops to get Devise&rsquo;s key to be recognised because <a href="https://stackoverflow.com/questions/19832218/failing-to-find-envsecret-key-in-devise-setup-on-heroku#comment35154876_19833145">Heroku doesn&rsquo;t have access to the Rails environment when deploying</a></em></li>
-<li><em><a href="http://stackoverflow.com/a/17082720/1035431">tweak my production.rb</a> to get it to compile assets</em></li>
+<li>First thing is to ask the right questions</li>
+<li>Book - Lean Analytics</li>
+<li>Articulate Assumptions about the benefits of your product,</li>
+<li>Define Hypothesis: how will we know (in terms of hard metrics) if our assumptions are validated? What does success look like?</li>
+<li>To start with, focus on one key metric</li>
+<li>Behavioural plan - what do you want users to do - both to achieve user needs and business needs</li>
+<li><p>You have a live product:</p>
+
+<ul>
+<li>Is it meeting the hypothesis</li>
+</ul>
+</li>
+<li><p>Product retrospectives: how are we doing with the product - what does the data tell us about how well it&rsquo;s going?</p></li>
+<li><p>Data-Driven vs Data Informed approaches</p>
+
+<ul>
+<li>Data Driven:
+
+<ul>
+<li>Focus on one metric - collect lots of data (A/B, Multivariate tests etc. and understand whether what you&rsquo;re doing is impacting that metric)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Data Informed</p>
+
+<ul>
+<li>Data might not tell you whether it&rsquo;s a good product idea full stop: might be a leap of faith
+
+<ul>
+<li>When you actually have an MVP, <em>then</em> you can start gathering data</li>
+</ul>
+</li>
+<li>Plurality is the key: data is often just one aspect in data decisions</li>
+<li>Talk - Adam Osiri (?) on Facebook&rsquo;s data-informed approach</li>
+<li>Data is important, bit other factors come into play: resources, competition, regulation, brand.</li>
+<li>You can&rsquo;t replace intuition or creative ideas with data</li>
+</ul>
+</li>
+<li><p>5 key points:</p>
+
+<ol>
+<li>Focus on the right questions</li>
+<li>Data can&rsquo;t replace intuition</li>
+<li>Listen to the data and act accordingly
+
+<ul>
+<li>This is hard</li>
+<li>e.g. data might say that your idea or your variation isn&rsquo;t actually effective.</li>
+</ul>
+</li>
+<li>Build and launch with data in mind
+
+<ul>
+<li>Include analytics in the user stories</li>
+<li>Start thinking about your assumptions and hypotheses at the beginning of the product life cycle</li>
+<li>as soon as you start working on the product you should be working with the analytics team/building data in from the ground up.</li>
+</ul>
+</li>
+<li>Be clear about your hypotheses, sample size and timing.
+
+<ul>
+<li>how large a sample do you need before you can claim that your results are significant.</li>
+</ul>
+</li>
+</ol>
+</li>
+<li><p>Final statement &ldquo;Embrace the data - don&rsquo;t fear it&rdquo;</p></li>
 </ul>
 
-
-<p><em>But whatever. Hush.</em></p>
 </div>
 
 
@@ -130,12 +185,12 @@ heroku run rake db:migrate
   
 
 
-<time datetime="2014-08-15T13:49:11+01:00" pubdate data-updated="true"></time>
+<time datetime="2014-10-22T12:48:38+01:00" pubdate data-updated="true"></time>
       
 
 <span class="categories">
   
-    <a class='category' href='/blog/categories/heroku/'>heroku</a>, <a class='category' href='/blog/categories/rails/'>rails</a>, <a class='category' href='/blog/categories/ruby/'>ruby</a>
+    <a class='category' href='/blog/categories/pivotal-talk/'>pivotal talk</a>, <a class='category' href='/blog/categories/products/'>products</a>, <a class='category' href='/blog/categories/talk/'>talk</a>
   
 </span>
 
@@ -144,7 +199,7 @@ heroku run rake db:migrate
     
       <div class="sharing">
   
-  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://dgmstuart.github.io/blog/2014/08/15/creating-a-new-app-on-heroku-is-stupidly-easy/" data-via="dgmstuart" data-counturl="http://dgmstuart.github.io/blog/2014/08/15/creating-a-new-app-on-heroku-is-stupidly-easy/" >Tweet</a>
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://dgmstuart.github.io/blog/2014/10/22/pivotal-talk-data-driven-product-decisions/" data-via="dgmstuart" data-counturl="http://dgmstuart.github.io/blog/2014/10/22/pivotal-talk-data-driven-product-decisions/" >Tweet</a>
   
   
   
@@ -153,10 +208,8 @@ heroku run rake db:migrate
     
     <p class="meta">
       
-        <a class="basic-alignment left" href="/blog/2014/06/23/a-better-way-of-writing-commit-messages/" title="Previous Post: A better way of writing commit messages">&laquo; A better way of writing commit messages</a>
+        <a class="basic-alignment left" href="/blog/2014/09/28/wordcamp-europe-2014-notes-2-dot-5-matt-mullenweg-q-and-a/" title="Previous Post: WordCamp Europe 2014 notes - 2.5: Matt Mullenweg Q&amp;A">&laquo; WordCamp Europe 2014 notes - 2.5: Matt Mullenweg Q&amp;A</a>
       
-      
-        <a class="basic-alignment right" href="/blog/2014/08/20/migrating-postgres-data-from-an-old-rails-project-to-a-new-one/" title="Next Post: Migrating Postgres data from an old Rails project to a new one">Migrating Postgres data from an old Rails project to a new one &raquo;</a>
       
     </p>
   </footer>
@@ -260,8 +313,8 @@ heroku run rake db:migrate
       
         
         // var disqus_developer = 1;
-        var disqus_identifier = 'http://dgmstuart.github.io/blog/2014/08/15/creating-a-new-app-on-heroku-is-stupidly-easy/';
-        var disqus_url = 'http://dgmstuart.github.io/blog/2014/08/15/creating-a-new-app-on-heroku-is-stupidly-easy/';
+        var disqus_identifier = 'http://dgmstuart.github.io/blog/2014/10/22/pivotal-talk-data-driven-product-decisions/';
+        var disqus_url = 'http://dgmstuart.github.io/blog/2014/10/22/pivotal-talk-data-driven-product-decisions/';
         var disqus_script = 'embed.js';
       
     (function () {

@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Products | dgms code]]></title>
+  <link href="http://dgmstuart.github.io/blog/categories/products/atom.xml" rel="self"/>
+  <link href="http://dgmstuart.github.io/"/>
+  <updated>2014-10-22T13:57:48+01:00</updated>
+  <id>http://dgmstuart.github.io/</id>
+  <author>
+    <name><![CDATA[Duncan Stuart]]></name>
+    <email><![CDATA[dgmstuart@gmail.com]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Pivotal Talk: Data-informed Product Decisions]]></title>
+    <link href="http://dgmstuart.github.io/blog/2014/10/22/pivotal-talk-data-driven-product-decisions/"/>
+    <updated>2014-10-22T12:48:38+01:00</updated>
+    <id>http://dgmstuart.github.io/blog/2014/10/22/pivotal-talk-data-driven-product-decisions</id>
+    <content type="html"><![CDATA[<p><a href="http://www.meetup.com/Pivotal-Labs-Tech-Talks/events/213571202/">http://www.meetup.com/Pivotal-Labs-Tech-Talks/events/213571202/</a></p>
+
+<p>Marc Abraham</p>
+
+<ul>
+<li>First thing is to ask the right questions</li>
+<li>Book - Lean Analytics</li>
+<li>Articulate Assumptions about the benefits of your product,</li>
+<li>Define Hypothesis: how will we know (in terms of hard metrics) if our assumptions are validated? What does success look like?</li>
+<li>To start with, focus on one key metric</li>
+<li>Behavioural plan - what do you want users to do - both to achieve user needs and business needs</li>
+<li><p>You have a live product:</p>
+
+<ul>
+<li>Is it meeting the hypothesis</li>
+</ul>
+</li>
+<li><p>Product retrospectives: how are we doing with the product - what does the data tell us about how well it&rsquo;s going?</p></li>
+<li><p>Data-Driven vs Data Informed approaches</p>
+
+<ul>
+<li>Data Driven:
+
+<ul>
+<li>Focus on one metric - collect lots of data (A/B, Multivariate tests etc. and understand whether what you&rsquo;re doing is impacting that metric)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Data Informed</p>
+
+<ul>
+<li>Data might not tell you whether it&rsquo;s a good product idea full stop: might be a leap of faith
+
+<ul>
+<li>When you actually have an MVP, <em>then</em> you can start gathering data</li>
+</ul>
+</li>
+<li>Plurality is the key: data is often just one aspect in data decisions</li>
+<li>Talk - Adam Osiri (?) on Facebook&rsquo;s data-informed approach</li>
+<li>Data is important, bit other factors come into play: resources, competition, regulation, brand.</li>
+<li>You can&rsquo;t replace intuition or creative ideas with data</li>
+</ul>
+</li>
+<li><p>5 key points:</p>
+
+<ol>
+<li>Focus on the right questions</li>
+<li>Data can&rsquo;t replace intuition</li>
+<li>Listen to the data and act accordingly
+
+<ul>
+<li>This is hard</li>
+<li>e.g. data might say that your idea or your variation isn&rsquo;t actually effective.</li>
+</ul>
+</li>
+<li>Build and launch with data in mind
+
+<ul>
+<li>Include analytics in the user stories</li>
+<li>Start thinking about your assumptions and hypotheses at the beginning of the product life cycle</li>
+<li>as soon as you start working on the product you should be working with the analytics team/building data in from the ground up.</li>
+</ul>
+</li>
+<li>Be clear about your hypotheses, sample size and timing.
+
+<ul>
+<li>how large a sample do you need before you can claim that your results are significant.</li>
+</ul>
+</li>
+</ol>
+</li>
+<li><p>Final statement &ldquo;Embrace the data - don&rsquo;t fear it&rdquo;</p></li>
+</ul>
+
+]]></content>
+  </entry>
+  
+</feed>
