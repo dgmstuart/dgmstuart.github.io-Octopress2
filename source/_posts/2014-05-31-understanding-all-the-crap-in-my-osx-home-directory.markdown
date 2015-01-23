@@ -63,10 +63,10 @@ drwx------   3 duncanstuart   102 10 Apr  2012 gtk-2.0
 contains only one file - .netrwhist
 As far as I can work out, netrw is a vim plugin allowing you to use vim to operate on directories (as well as files). I have a couple of config lines, plus one history line in there - probably a result of some mistake fiddling around with vim foo I didn't understand
 (sources: http://www.vim.org/scripts/script.php?script_id=1075 and http://stackoverflow.com/questions/9850360/what-is-netrwhist)
-
+UPDATE: this gets regularly regenerated so I decided to add it to my excludes
 
 .hgignore_global - The mercurial equivalent of .gitignore. When did I have a Mercurial repo on my machine???
-
+UPDATE: This gets regularly regenerated so I decided to add it to my excludes. Must be something doing updates which uses mercurial under the hood
 
 .gem/ very old - only related to ruby 1.8. Renaming it didn't seem to have any ill effects
 
