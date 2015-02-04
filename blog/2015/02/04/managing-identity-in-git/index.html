@@ -5,15 +5,12 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Matching on a Final Segment of a String - dgms code</title>
+  <title>Managing Identity in Git - dgms code</title>
   <meta name="author" content="Duncan Stuart">
 
   
-  <meta name="description" content="When matching on the final segment of a string, e.g for a file extension, you could use a regular expression: 1
-2
-3
-4
-&gt; &quot;foo.bar&quot &hellip;">
+  <meta name="description" content="When using git, your commits are labelled with your name and email address.
+These are usually based on the user.name and user.email fields in a &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -22,7 +19,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://dgmstuart.github.io/blog/2014/06/04/matching-on-a-final-segment-of-a-string">
+  <link rel="canonical" href="http://dgmstuart.github.io/blog/2015/02/04/managing-identity-in-git">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/atom.xml" rel="alternate" title="dgms code" type="application/atom+xml">
@@ -65,7 +62,7 @@
   
   <header>
     
-      <h1 class="entry-title">Matching on a Final Segment of a String</h1>
+      <h1 class="entry-title">Managing Identity in Git</h1>
     
     
       <p class="meta">
@@ -81,7 +78,7 @@
   
 
 
-<time datetime="2014-06-04T19:55:14+01:00" pubdate data-updated="true"></time>
+<time datetime="2015-02-04T00:17:21+00:00" pubdate data-updated="true"></time>
         
            | <a href="#disqus_thread"
              data-disqus-identifier="http://dgmstuart.github.io">Comments</a>
@@ -91,44 +88,56 @@
   </header>
 
 
-<div class="entry-content"><p>When matching on the final segment of a string, e.g for a file extension, you could use a regular expression:</p>
+<div class="entry-content"><p>When using git, your commits are labelled with your name and email address.
+These are usually based on the <code>user.name</code> and <code>user.email</code> fields in a global <code>.gitconfig</code> file in your home directory,
+ensuring that these values are always available.</p>
 
-<div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="o">&gt;</span> <span class="s2">&quot;foo.bar&quot;</span> <span class="o">=~</span> <span class="sr">/.*\.bar$/</span>
-</span><span class='line'><span class="c1"># =&gt; 0</span>
-</span><span class='line'><span class="o">&gt;</span> <span class="s2">&quot;foo.bar.baz&quot;</span> <span class="o">=~</span> <span class="sr">/.*\.bar$/</span>
-</span><span class='line'><span class="c1">#=&gt; nil</span>
-</span></code></pre></td></tr></table></div></figure></notextile></div>
+<p>There might be some circumstances under which these need to vary. For example, on public projects for work I like to use my work email rather than my personal one.
+There are a couple of ways to achieve this:</p>
+
+<h3>1. As an argument to the commit:</h3>
+
+<pre><code>git commit user.email duncan@work.com
+</code></pre>
+
+<p>This is useful for one-off commits but would be tedious to type every time.</p>
+
+<h3>2. In a local git config</h3>
+
+<pre><code>git config user.email duncan@work.com
+</code></pre>
+
+<p>This creates a local <code>.gitconfig</code> file. Useful in project directories - since all child directories will use settings in this file,
+or will fall back to the global settings if a setting isn&rsquo;t present in this file.</p>
+
+<h3>3. In an environment variable</h3>
+
+<pre><code>export AUTHOR_EMAIL=duncan@work.com
+export COMMITTER_EMAIL=duncan@work.com
+</code></pre>
+
+<p>These override everything - any email setting in any <code>.gitconfig</code> file.
+Useful if like me you like to <a href="https://github.com/dgmstuart/dotfiles">manage your dotfiles in git</a>
+and share them on github in order to easily copy settings between different computers.</p>
+
+<p>These could be set in a local <code>.profile</code> file to make every project on that computer use a different email to your main one, while keeping the <code>.gitconfig</code> file pristine.
+<em>To understand the difference between Author and Committer see <a href="https://stackoverflow.com/questions/18750808/difference-between-author-and-committer-in-git/18754896#18754896">this StackOverflow post</a></em></p>
+
+<h2>Bonus: What if you don&rsquo;t set anything?</h2>
+
+<p>It turns out git will try it&rsquo;s best to find a name and email address to associate with your commits even if you don&rsquo;t tell it explicitly what these are.
+Here&rsquo;s where it looks, in order, for an email address to use:</p>
+
+<ol>
+<li>An <code>EMAIL</code> local variable</li>
+<li>Your system username <code>@</code> the value in <code>/etc/mailname</code> (which only exists on Debian systems?)</li>
+<li>Your system username <code>@</code> the fully qualified hostname of the computer</li>
+</ol>
 
 
-<p>But of course in ruby there&rsquo;s a much more expressive way</p>
+<p>For more information check out the <a href="http://git-scm.com/docs/git-commit-tree.html">git documentation on the topic</a></p>
 
-<div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="o">&gt;</span> <span class="s2">&quot;foo.bar&quot;</span><span class="o">.</span><span class="n">end_with?</span><span class="p">(</span><span class="s2">&quot;.bar&quot;</span><span class="p">)</span>
-</span><span class='line'><span class="c1">#=&gt; true</span>
-</span><span class='line'><span class="o">&gt;</span> <span class="s2">&quot;foo.bar.baz&quot;</span><span class="o">.</span><span class="n">end_with?</span><span class="p">(</span><span class="s2">&quot;.bar&quot;</span><span class="p">)</span>
-</span><span class='line'><span class="c1">#=&gt; false</span>
-</span></code></pre></td></tr></table></div></figure></notextile></div>
-
-
-<p>You can even pass multiple suffixes as arguments:</p>
-
-<div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="o">&gt;</span> <span class="s2">&quot;foo.qux&quot;</span><span class="o">.</span><span class="n">end_with?</span><span class="p">(</span><span class="s2">&quot;bar&quot;</span><span class="p">,</span> <span class="s2">&quot;baz&quot;</span><span class="p">,</span> <span class="s2">&quot;qux&quot;</span><span class="p">)</span>
-</span><span class='line'><span class="c1">#=&gt; true</span>
-</span></code></pre></td></tr></table></div></figure></notextile></div>
-
-
-<p>Oh Ruby how I love you so.</p>
-
-<p><em><a href="http://www.ruby-doc.org/core-2.1.1/String.html#method-i-end_with-3F">api documentation for end_with?</a></em></p>
+<p><em>Thanks to <a href="https://twitter.com/holizz">@holizz</a> for helping me understand all this</em></p>
 </div>
 
 
@@ -151,12 +160,12 @@
   
 
 
-<time datetime="2014-06-04T19:55:14+01:00" pubdate data-updated="true"></time>
+<time datetime="2015-02-04T00:17:21+00:00" pubdate data-updated="true"></time>
       
 
 <span class="categories">
   
-    <a class='category' href='/blog/categories/ruby/'>ruby</a>
+    <a class='category' href='/blog/categories/git/'>git</a>
   
 </span>
 
@@ -165,7 +174,7 @@
     
       <div class="sharing">
   
-  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://dgmstuart.github.io/blog/2014/06/04/matching-on-a-final-segment-of-a-string/" data-via="dgmstuart" data-counturl="http://dgmstuart.github.io/blog/2014/06/04/matching-on-a-final-segment-of-a-string/" >Tweet</a>
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://dgmstuart.github.io/blog/2015/02/04/managing-identity-in-git/" data-via="dgmstuart" data-counturl="http://dgmstuart.github.io/blog/2015/02/04/managing-identity-in-git/" >Tweet</a>
   
   
   
@@ -174,10 +183,8 @@
     
     <p class="meta">
       
-        <a class="basic-alignment left" href="/blog/2014/02/10/initialising-rspec-in-a-rails-project/" title="Previous Post: Gotcha: Initialising RSpec in a rails project">&laquo; Gotcha: Initialising RSpec in a rails project</a>
+        <a class="basic-alignment left" href="/blog/2014/10/22/pivotal-talk-data-driven-product-decisions/" title="Previous Post: Pivotal talk: data-informed product decisions">&laquo; Pivotal talk: data-informed product decisions</a>
       
-      
-        <a class="basic-alignment right" href="/blog/2014/06/15/useful-rake-tasks-in-rails/" title="Next Post: Useful rake tasks in Rails">Useful rake tasks in Rails &raquo;</a>
       
     </p>
   </footer>
@@ -281,8 +288,8 @@
       
         
         // var disqus_developer = 1;
-        var disqus_identifier = 'http://dgmstuart.github.io/blog/2014/06/04/matching-on-a-final-segment-of-a-string/';
-        var disqus_url = 'http://dgmstuart.github.io/blog/2014/06/04/matching-on-a-final-segment-of-a-string/';
+        var disqus_identifier = 'http://dgmstuart.github.io/blog/2015/02/04/managing-identity-in-git/';
+        var disqus_url = 'http://dgmstuart.github.io/blog/2015/02/04/managing-identity-in-git/';
         var disqus_script = 'embed.js';
       
     (function () {

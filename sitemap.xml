@@ -3,6 +3,12 @@
   
   
   <url>
+    <loc>http://dgmstuart.github.io/blog/2015/02/04/managing-identity-in-git/</loc>
+    <lastmod>2015-02-04T00:17:21+00:00</lastmod>
+    <priority>0.8</priority>
+  </url>
+  
+  <url>
     <loc>http://dgmstuart.github.io/blog/2014/10/22/pivotal-talk-data-driven-product-decisions/</loc>
     <lastmod>2014-10-22T12:48:38+01:00</lastmod>
     <priority>0.8</priority>
@@ -113,21 +119,21 @@
   
   <url>
     <loc>http://dgmstuart.github.io/blog/archives/</loc>
-    <lastmod>2014-10-22T15:46:21+01:00</lastmod>
+    <lastmod>2015-02-04T01:20:53+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   
   <url>
     <loc>http://dgmstuart.github.io/</loc>
-    <lastmod>2014-10-22T15:46:21+01:00</lastmod>
+    <lastmod>2015-02-04T01:20:53+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   
   <url>
     <loc>http://dgmstuart.github.io/blog/categories/</loc>
-    <lastmod>2014-10-22T15:46:21+01:00</lastmod>
+    <lastmod>2015-02-04T01:20:53+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
