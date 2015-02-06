@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Wordpress | dgms code]]></title>
   <link href="http://dgmstuart.github.io/blog/categories/wordpress/atom.xml" rel="self"/>
   <link href="http://dgmstuart.github.io/"/>
-  <updated>2015-02-04T01:20:53+00:00</updated>
+  <updated>2015-02-06T00:22:47+00:00</updated>
   <id>http://dgmstuart.github.io/</id>
   <author>
     <name><![CDATA[Duncan Stuart]]></name>
@@ -12,6 +12,26 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[How to Not Break Permalinks in WordPress]]></title>
+    <link href="http://dgmstuart.github.io/blog/2015/02/06/how-to-not-break-permalinks-in-wordpress/"/>
+    <updated>2015-02-06T00:13:40+00:00</updated>
+    <id>http://dgmstuart.github.io/blog/2015/02/06/how-to-not-break-permalinks-in-wordpress</id>
+    <content type="html"><![CDATA[<p>I&rsquo;ve written a blog post for <a href="https://www.dxw.com/">work</a> about how much you can and can&rsquo;t mess around with urls in WordPress before old links stop working. It boils down to 5 rules:</p>
+
+<ol>
+<li>Editing Post slugs doesn’t break old links</li>
+<li>Editing Post url structure (the permalinks) doesn’t break old links</li>
+<li>Changing both the permalink structure and the slug will break old links</li>
+<li>Editing the parent/child relationships of pages doesn’t break old links</li>
+<li>Editing the slugs of pages will break old links</li>
+</ol>
+
+
+<p>For more details read the full post on the dxw blog: <a href="https://www.dxw.com/2015/02/keeping-traffic-flowing-to-your-wordpress-site-after-a-big-restructuring/">Keeping traffic flowing to your WordPress site after a big restructuring</a></p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[WordCamp Europe 2014 Notes - 2.4: Code Deodorant]]></title>
