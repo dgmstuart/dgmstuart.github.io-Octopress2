@@ -1,24 +1,96 @@
-<?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: Soldn | dgms code]]></title>
-  <link href="http://dgmstuart.github.io/blog/categories/soldn/atom.xml" rel="self"/>
-  <link href="http://dgmstuart.github.io/"/>
-  <updated>2015-02-23T23:42:51+00:00</updated>
-  <id>http://dgmstuart.github.io/</id>
-  <author>
-    <name><![CDATA[Duncan Stuart]]></name>
-    <email><![CDATA[dgmstuart@gmail.com]]></email>
-  </author>
-  <generator uri="http://octopress.org/">Octopress</generator>
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>dgms code</title>
+  <meta name="author" content="Duncan Stuart">
 
   
-  <entry>
-    <title type="html"><![CDATA[Getting to Grips With Postgres]]></title>
-    <link href="http://dgmstuart.github.io/blog/2014/02/07/getting-to-grips-with-postgres/"/>
-    <updated>2014-02-07T12:10:20+00:00</updated>
-    <id>http://dgmstuart.github.io/blog/2014/02/07/getting-to-grips-with-postgres</id>
-    <content type="html"><![CDATA[<p>So, having generated my Rails app and selected postgres as the development database, I&rsquo;m now faced with getting the damn thing running. On a Eurostar train (under the English channel) i.e. with no internet.</p>
+  <meta name="description" content="So, having generated my Rails app and selected postgres as the development database, I&rsquo;m now faced with getting the damn thing running. On a &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://dgmstuart.github.io/posts/3">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="dgms code" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/libs/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href='https://fonts.googleapis.com/css?family=Noto+Serif:400,700' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">dgms code</a></h1>
+  
+    <h2>A dev blog: mostly Ruby on Rails with a little WordPress</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  
+  
+</ul>
+
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div class="blog-index">
+  
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2014/02/07/getting-to-grips-with-postgres/">Getting to Grips With Postgres</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-02-07T12:10:20+00:00" pubdate data-updated="true"></time>
+        
+           | <a href="/blog/2014/02/07/getting-to-grips-with-postgres/#disqus_thread"
+             data-disqus-identifier="http://dgmstuart.github.io/blog/2014/02/07/getting-to-grips-with-postgres/">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>So, having generated my Rails app and selected postgres as the development database, I&rsquo;m now faced with getting the damn thing running. On a Eurostar train (under the English channel) i.e. with no internet.</p>
 
 <p>In the process I learned some things about using documentation without an internet connection, and about postgres.</p>
 
@@ -68,7 +140,7 @@ FATAL:  role "myapp" does not exist
 
 <p>Looking at my <code>database.yml</code>, it seemed that the application generator had set up several &lsquo;myapp&rsquo; databases:</p>
 
-<p><div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span>database.yml </span></figcaption>
+<figure class='code'><figcaption><span>database.yml </span></figcaption>
 <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
@@ -88,10 +160,11 @@ FATAL:  role "myapp" does not exist
 </span><span class='line'>  <span class="l-Scalar-Plain">pool</span><span class="p-Indicator">:</span>     <span class="l-Scalar-Plain">5</span>
 </span><span class='line'>  <span class="l-Scalar-Plain">username</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">myapp</span>
 </span><span class='line'>  <span class="l-Scalar-Plain">password</span><span class="p-Indicator">:</span>
-</span><span class='line'>  <span class="l-Scalar-Plain">template</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">template0&lt;/p&gt;</span>
+</span><span class='line'>  <span class="l-Scalar-Plain">template</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">template0</span>
 </span><span class='line'>
-</span><span class='line'><span class="l-Scalar-Plain">&lt;p&gt;  &amp;hellip;</span>
-</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+</span><span class='line'>  <span class="l-Scalar-Plain">...</span>
+</span></code></pre></td></tr></table></div></figure>
+
 
 <p>Replacing myapp with swingoutlondon, I dared to hope that running <code>rake db:create</code> would just create these databases for me&hellip;</p>
 
@@ -148,7 +221,158 @@ Shall the new role be allowed to create more new roles? (y/n) n
 <p>Not sure about those options, but my rationale is, there&rsquo;s no need for the user to have any special privelliges, but perhaps if I let it create databases then my <code>rake db:create</code> will work(?).</p>
 
 <p>&hellip;and indeed it does! Restarting zeus I get the familiar Rails &ldquo;Welcome Aboard&rdquo; page</p>
-]]></content>
-  </entry>
+</div>
   
-</feed>
+  
+
+
+    </article>
+  
+  <div class="pagination">
+    
+    <a href="/blog/archives">Blog Archives</a>
+    
+    <a class="next" href="2">Newer &rarr;</a>
+    
+  </div>
+</div>
+<aside class="sidebar">
+   
+<form action="https://www.google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:dgmstuart.github.io" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2015/02/23/how-your-base-path-gets-generated-in-osx/">How Your Base PATH Gets Generated in OSX</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2015/02/06/how-to-not-break-permalinks-in-wordpress/">How to Not Break Permalinks in WordPress</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2015/02/04/managing-identity-in-git/">Managing Identity in Git</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/10/22/pivotal-talk-data-driven-product-decisions/">Pivotal Talk: Data-informed Product Decisions</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/09/28/wordcamp-europe-2014-notes-2-dot-5-matt-mullenweg-q-and-a/">WordCamp Europe 2014 Notes - 2.5: Matt Mullenweg Q&amp;A</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section>
+  <h1>GitHub Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating...</li>
+  </ul>
+  
+  <a href="https://github.com/dgmstuart">@dgmstuart</a> on GitHub
+  
+  <script type="text/javascript">
+    $(document).ready(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'dgmstuart',
+            count: 0,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/javascripts/github.js" type="text/javascript"> </script>
+</section>
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2015 - Duncan Stuart -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'dgmscode';
+      
+        
+        var disqus_script = 'count.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = '//platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+<script>
+  $(document).ready(function() {  
+  var stickyNavTop = $('nav').offset().top;  
+    
+  var stickyNav = function(){  
+  var scrollTop = $(window).scrollTop();  
+         
+  if (scrollTop > stickyNavTop) {   
+      $('nav').addClass('sticky');  
+  } else {  
+      $('nav').removeClass('sticky');   
+  }  
+  };  
+    
+  stickyNav();  
+    
+  $(window).scroll(function() {  
+      stickyNav();  
+  });  
+  });  
+</script>
+
+
+</body>
+</html>

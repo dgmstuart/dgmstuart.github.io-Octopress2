@@ -5,11 +5,12 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Category: Testing - dgms code</title>
+  <title>How Your Base PATH Gets Generated in OSX - dgms code</title>
   <meta name="author" content="Duncan Stuart">
 
   
-  <meta name="description" content="Category: testing">
+  <meta name="description" content="It seems to be fairly common practice to totally define the PATH in a
+.profile or .bashrc file. This gives total control over the order in which &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -18,7 +19,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://dgmstuart.github.io/blog/categories/testing">
+  <link rel="canonical" href="http://dgmstuart.github.io/blog/2015/02/23/how-your-base-path-gets-generated-in-osx">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/atom.xml" rel="alternate" title="dgms code" type="application/atom+xml">
@@ -57,36 +58,126 @@
   <div id="main">
     <div id="content">
       <div>
-<article role="article">
+<article class="hentry" role="article">
   
   <header>
-    <h1 class="entry-title">Category: Testing</h1>
+    
+      <h1 class="entry-title">How Your Base PATH Gets Generated in OSX</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2015-02-23T23:03:33+00:00" pubdate data-updated="true"></time>
+        
+           | <a href="#disqus_thread"
+             data-disqus-identifier="http://dgmstuart.github.io">Comments</a>
+        
+      </p>
     
   </header>
-  
-  <div id="blog-archives" class="category">
 
 
+<div class="entry-content"><p>It seems to be fairly common practice to totally define the <code>PATH</code> in a
+<code>.profile</code> or <code>.bashrc</code> file. This gives total control over the order in which
+various locations are searched through. Here&rsquo;s the line from <a href="https://github.com/dgmstuart/dotfiles/blob/master/.profile">my .profile</a>:</p>
 
-  
-  <h2>2014</h2>
+<pre><code>export PATH=~/bin:/usr/local/bin:/usr/bin:/usr/sbin:/bin:/sbin
+</code></pre>
 
-<article>
-  
-<h1><a href="/blog/2014/02/10/initialising-rspec-in-a-rails-project/">Gotcha: Initialising RSpec in a Rails Project</a></h1>
-<time datetime="2014-02-10T07:50:09+00:00" pubdate><span class='month'>Feb</span> <span class='day'>10</span> <span class='year'>2014</span></time>
+<p>However, your <code>PATH</code> isn&rsquo;t just set through <code>profile</code> and <code>rc</code> files: if you
+don&rsquo;t build your path from scratch and you only ever append or prepend to your <code>PATH</code>
+with statements like <code>export PATH=$PATH:some/other/stuff</code> then the OS helpfully
+sets your base <code>PATH</code> to something sensible.</p>
 
-<footer>
-  <span class="categories">posted in <a class='category' href='/blog/categories/rails/'>rails</a>, <a class='category' href='/blog/categories/rspec/'>rspec</a>, <a class='category' href='/blog/categories/ruby/'>ruby</a>, <a class='category' href='/blog/categories/testing/'>testing</a></span>
-</footer>
+<p>It does this based on various files in <code>/etc</code> (at least on OSX):</p>
 
+<h2><code>/etc/paths</code></h2>
 
-</article>
+<p>This contains the list of the various binary directories which make up the core of your path:</p>
 
+<pre><code>/usr/local/bin
+/usr/bin
+/bin
+/usr/sbin
+/sbin
+</code></pre>
+
+<h2><code>/etc/paths.d</code></h2>
+
+<p>This contains a number of files which contain paths for various applications,
+again with one path element per line. I believe these are added to the <em>end</em> of
+the <code>PATH</code>. Mine includes a <code>git</code> file:</p>
+
+<pre><code>/usr/local/git/bin
+</code></pre>
 </div>
 
+
+  <footer>
+    <p class="meta">
+      
   
+
+<span class="byline author vcard">Posted by <span class="fn">Duncan Stuart</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2015-02-23T23:03:33+00:00" pubdate data-updated="true"></time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/osx/'>osx</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://dgmstuart.github.io/blog/2015/02/23/how-your-base-path-gets-generated-in-osx/" data-via="dgmstuart" data-counturl="http://dgmstuart.github.io/blog/2015/02/23/how-your-base-path-gets-generated-in-osx/" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2015/02/06/how-to-not-break-permalinks-in-wordpress/" title="Previous Post: How to not break permalinks in WordPress">&laquo; How to not break permalinks in WordPress</a>
+      
+      
+    </p>
+  </footer>
 </article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
 
 </div>
 
@@ -179,7 +270,10 @@
       var disqus_shortname = 'dgmscode';
       
         
-        var disqus_script = 'count.js';
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://dgmstuart.github.io/blog/2015/02/23/how-your-base-path-gets-generated-in-osx/';
+        var disqus_url = 'http://dgmstuart.github.io/blog/2015/02/23/how-your-base-path-gets-generated-in-osx/';
+        var disqus_script = 'embed.js';
       
     (function () {
       var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
