@@ -5,14 +5,14 @@ date: 2015-02-23 23:03:33 +0000
 comments: true
 categories: osx
 ---
-It seems to be fairly common practice to totally define the `PATH` in a
+On OSX and linux it seems to be fairly common practice to totally define the `PATH` in a
 `.profile` or `.bashrc` file. This gives total control over the order in which
 various locations are searched through. Here's the line from [my .profile](https://github.com/dgmstuart/dotfiles/blob/master/.profile):
 
     export PATH=~/bin:/usr/local/bin:/usr/bin:/usr/sbin:/bin:/sbin
 
 However, your `PATH` isn't just set through `profile` and `rc` files: if you
-don't build your path from scratch and you only ever append or prepend to your `PATH`
+don't build your path from scratch and you only ever append or prepend to it
 with statements like `export PATH=$PATH:some/other/stuff` then the OS helpfully
 sets your base `PATH` to something sensible.
 
