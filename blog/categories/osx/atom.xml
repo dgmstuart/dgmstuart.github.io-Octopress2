@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Osx | dgms code]]></title>
   <link href="http://dgmstuart.github.io/blog/categories/osx/atom.xml" rel="self"/>
   <link href="http://dgmstuart.github.io/"/>
-  <updated>2015-02-23T23:42:51+00:00</updated>
+  <updated>2015-02-24T00:03:07+00:00</updated>
   <id>http://dgmstuart.github.io/</id>
   <author>
     <name><![CDATA[Duncan Stuart]]></name>
@@ -18,7 +18,7 @@
     <link href="http://dgmstuart.github.io/blog/2015/02/23/how-your-base-path-gets-generated-in-osx/"/>
     <updated>2015-02-23T23:03:33+00:00</updated>
     <id>http://dgmstuart.github.io/blog/2015/02/23/how-your-base-path-gets-generated-in-osx</id>
-    <content type="html"><![CDATA[<p>It seems to be fairly common practice to totally define the <code>PATH</code> in a
+    <content type="html"><![CDATA[<p>On OSX and linux it seems to be fairly common practice to totally define the <code>PATH</code> in a
 <code>.profile</code> or <code>.bashrc</code> file. This gives total control over the order in which
 various locations are searched through. Here&rsquo;s the line from <a href="https://github.com/dgmstuart/dotfiles/blob/master/.profile">my .profile</a>:</p>
 
@@ -26,7 +26,7 @@ various locations are searched through. Here&rsquo;s the line from <a href="http
 </code></pre>
 
 <p>However, your <code>PATH</code> isn&rsquo;t just set through <code>profile</code> and <code>rc</code> files: if you
-don&rsquo;t build your path from scratch and you only ever append or prepend to your <code>PATH</code>
+don&rsquo;t build your path from scratch and you only ever append or prepend to it
 with statements like <code>export PATH=$PATH:some/other/stuff</code> then the OS helpfully
 sets your base <code>PATH</code> to something sensible.</p>
 
