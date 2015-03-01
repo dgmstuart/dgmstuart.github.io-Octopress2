@@ -24,6 +24,7 @@ But of course in ruby there's a much more expressive way
 ```
 
 You can even pass multiple suffixes as arguments:
+
 ```ruby
 > "foo.qux".end_with?("bar", "baz", "qux")
 #=> true
