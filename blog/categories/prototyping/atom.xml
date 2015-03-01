@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Prototyping | dgms code]]></title>
   <link href="http://dgmstuart.github.io/blog/categories/prototyping/atom.xml" rel="self"/>
   <link href="http://dgmstuart.github.io/"/>
-  <updated>2015-03-01T04:07:06+00:00</updated>
+  <updated>2015-03-01T04:27:33+00:00</updated>
   <id>http://dgmstuart.github.io/</id>
   <author>
     <name><![CDATA[Duncan Stuart]]></name>
@@ -53,14 +53,14 @@
 <h2>Q&amp;A</h2>
 
 <ul>
-<li><p>What are your thoughts about entrepreneurship in Europe, particularly eastern europe?</p>
+<li>What are your thoughts about entrepreneurship in Europe, particularly eastern europe?
 
 <ul>
 <li>@om - Local laws in Europe favour local investors over international investors: a challenge for entrepreneurship</li>
 <li>&ldquo;The best thing European companies can do is to stop comparing themselves to American companies&rdquo;</li>
 </ul>
 </li>
-<li><p>CFTP Wheatley: &ldquo;You&rsquo;ve scaled up 1800 people - what do those people actually do&rdquo;</p>
+<li>CFTP Wheatley: &ldquo;You&rsquo;ve scaled up 1800 people - what do those people actually do&rdquo;
 
 <ul>
 <li>Lots on support</li>
@@ -69,44 +69,44 @@
 <li>Wants it to be an exemplar of a mixed nonprofit/for profit: prove to the world that it <em>Can</em> be done.</li>
 </ul>
 </li>
-<li><p>Once we have APIs it will enable a whole new class of application - e.g. front-ends which talk to something which isn&rsquo;t WP but implements the WP API.</p>
+<li>Once we have APIs it will enable a whole new class of application - e.g. front-ends which talk to something which isn&rsquo;t WP but implements the WP API.
 
 <ul>
 <li>A Cambrian explosion for WordPress - comparable to when plugins were introduced</li>
 </ul>
 </li>
-<li><p>&ldquo;We&rsquo;ve found the search in WP isn&rsquo;t very good&rdquo;</p>
+<li>&ldquo;We&rsquo;ve found the search in WP isn&rsquo;t very good&rdquo;
 
 <ul>
 <li>&ldquo;No it&rsquo;s terrible&rdquo;</li>
 <li>If you&rsquo;re serious about search you should use a plugin that indexes your content in lucene or elasticsearch</li>
 </ul>
 </li>
-<li><p>No plans now or in the future to have paid plugins - or a paid app store.</p>
+<li>No plans now or in the future to have paid plugins - or a paid app store.
 
 <ul>
 <li>Could make things more discoverable: look at what you&rsquo;ve got installed and suggest things you might find useful</li>
 </ul>
 </li>
-<li><p>This year there were more non-english downloads than english downloads</p>
+<li>This year there were more non-english downloads than english downloads
 
 <ul>
 <li>More translations will be the biggest driver of increases in WP usage</li>
 </ul>
 </li>
-<li><p>How much should WP businesses be contributing to the WP community?</p>
+<li>How much should WP businesses be contributing to the WP community?
 
 <ul>
 <li>Maybe 5%, so if you have 100 employees, 5 of them could be contributing to core.</li>
 </ul>
 </li>
-<li><p>Can we get rid of Backwards compatibility</p>
+<li>Can we get rid of Backwards compatibility
 
 <ul>
 <li>I don&rsquo;t buy that we should break backwards compatibility for architectural purity. More inclined to do it for reasons that will mean more people use WP</li>
 </ul>
 </li>
-<li><p>Lots of plugins aren&rsquo;t maintained - some maintainers may even have died. Can we get these just removed from the directory?</p>
+<li>Lots of plugins aren&rsquo;t maintained - some maintainers may even have died. Can we get these just removed from the directory?
 
 <ul>
 <li>Plugins over 2 years old will stop showing up in search results</li>
