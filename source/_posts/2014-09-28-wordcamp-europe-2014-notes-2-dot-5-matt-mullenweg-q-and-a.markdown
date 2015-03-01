@@ -24,38 +24,31 @@ Matt Mullenweg, Om Malik http://2014.europe.wordcamp.org/session/matt-mullenweg/
 
 ![Photo of Matt Mullenweg Q&A by @Joan_Artes on twitter](https://pbs.twimg.com/media/BynhzoPIMAAwoDT.jpg)
 
-_Photo by [@Joan_Artes](https://twitter.com/Joan_Artes/status/516191909656920065/photo/1)_
+_Photo by [@Joan\_Artes](https://twitter.com/Joan_Artes/status/516191909656920065/photo/1)_
 
 ## Q&A
+
 * What are your thoughts about entrepreneurship in Europe, particularly eastern europe?
   * @om - Local laws in Europe favour local investors over international investors: a challenge for entrepreneurship
   * "The best thing European companies can do is to stop comparing themselves to American companies"
-
 * CFTP Wheatley: "You've scaled up 1800 people - what do those people actually do"
   * Lots on support
   * Design and development: allows us to contribute much much more to WP Core
   * "I want to scale that as far as it can go"
   * Wants it to be an exemplar of a mixed nonprofit/for profit: prove to the world that it _Can_ be done.
-
 * Once we have APIs it will enable a whole new class of application - e.g. front-ends which talk to something which isn't WP but implements the WP API.
   * A Cambrian explosion for WordPress - comparable to when plugins were introduced
-
 * "We've found the search in WP isn't very good"
   * "No it's terrible"
   * If you're serious about search you should use a plugin that indexes your content in lucene or elasticsearch
-
 * No plans now or in the future to have paid plugins - or a paid app store.
   * Could make things more discoverable: look at what you've got installed and suggest things you might find useful
-
 * This year there were more non-english downloads than english downloads
   * More translations will be the biggest driver of increases in WP usage
-
 * How much should WP businesses be contributing to the WP community?
   * Maybe 5%, so if you have 100 employees, 5 of them could be contributing to core.
-
 * Can we get rid of Backwards compatibility
   * I don't buy that we should break backwards compatibility for architectural purity. More inclined to do it for reasons that will mean more people use WP
-
 * Lots of plugins aren't maintained - some maintainers may even have died. Can we get these just removed from the directory?
   * Plugins over 2 years old will stop showing up in search results
   * Plugin search is going to be optimised towards putting the most popular, best supported ones at the top.
