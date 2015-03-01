@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Rspec | dgms code]]></title>
   <link href="http://dgmstuart.github.io/blog/categories/rspec/atom.xml" rel="self"/>
   <link href="http://dgmstuart.github.io/"/>
-  <updated>2015-02-24T00:03:07+00:00</updated>
+  <updated>2015-03-01T04:00:15+00:00</updated>
   <id>http://dgmstuart.github.io/</id>
   <author>
     <name><![CDATA[Duncan Stuart]]></name>
@@ -20,7 +20,7 @@
     <id>http://dgmstuart.github.io/blog/2014/02/10/initialising-rspec-in-a-rails-project</id>
     <content type="html"><![CDATA[<p>I use RSpec for doing TDD, and the rspec-rails gem for integration in Rails projects. On initialising RSpec for SOLDN2, with <code>rspec init</code> it generated the following spec helper (comments removed):</p>
 
-<p><div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span>spec/spec_helper.rb </span></figcaption>
+<p><figure class='code'><figcaption><span>spec/spec_helper.rb </span></figcaption>
 <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
@@ -33,7 +33,7 @@
 </span><span class='line'>  <span class="n">config</span><span class="o">.</span><span class="n">filter_run</span> <span class="ss">:focus</span>
 </span><span class='line'>  <span class="n">config</span><span class="o">.</span><span class="n">order</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">lsquo</span><span class="p">;</span><span class="n">random</span><span class="o">&amp;</span><span class="n">rsquo</span><span class="p">;</span>
 </span><span class='line'><span class="k">end</span>
-</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+</span></code></pre></td></tr></table></div></figure></p>
 
 <p>This seemed to be missing some things, notably the loading of the Rails environment. Looking at the readme of the rspec-rails gem, I found that the correct command is actually:</p>
 
@@ -42,7 +42,7 @@
 
 <p>The file this command generates is much more verbose with instructive comments:</p>
 
-<p><div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span>spec/spec_helper.rb </span></figcaption>
+<p><figure class='code'><figcaption><span>spec/spec_helper.rb </span></figcaption>
 <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
@@ -73,7 +73,7 @@
 </span><span class='line'>  <span class="n">config</span><span class="o">.</span><span class="n">infer_base_class_for_anonymous_controllers</span> <span class="o">=</span> <span class="kp">false</span>
 </span><span class='line'>  <span class="n">config</span><span class="o">.</span><span class="n">order</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">ldquo</span><span class="p">;</span><span class="n">random</span><span class="o">&amp;</span><span class="n">rdquo</span><span class="p">;</span>
 </span><span class='line'><span class="k">end</span>
-</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+</span></code></pre></td></tr></table></div></figure></p>
 
 <p>Interestingly this leaves out the <code>focus</code> config options, which allow you to select specific specs to run, e.g:</p>
 

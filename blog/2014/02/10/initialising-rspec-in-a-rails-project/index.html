@@ -77,7 +77,8 @@
   
 
 
-<time datetime="2014-02-10T07:50:09+00:00" pubdate data-updated="true"></time>
+
+<time datetime="2014-02-10T07:50:09+00:00" pubdate data-updated="true">Feb 10th, 2014</time>
         
            | <a href="#disqus_thread"
              data-disqus-identifier="http://dgmstuart.github.io">Comments</a>
@@ -89,7 +90,7 @@
 
 <div class="entry-content"><p>I use RSpec for doing TDD, and the rspec-rails gem for integration in Rails projects. On initialising RSpec for SOLDN2, with <code>rspec init</code> it generated the following spec helper (comments removed):</p>
 
-<div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span>spec/spec_helper.rb </span></figcaption>
+<figure class='code'><figcaption><span>spec/spec_helper.rb </span></figcaption>
 <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
@@ -102,7 +103,7 @@
 </span><span class='line'>  <span class="n">config</span><span class="o">.</span><span class="n">filter_run</span> <span class="ss">:focus</span>
 </span><span class='line'>  <span class="n">config</span><span class="o">.</span><span class="n">order</span> <span class="o">=</span> <span class="s1">&#39;random&#39;</span>
 </span><span class='line'><span class="k">end</span>
-</span></code></pre></td></tr></table></div></figure></notextile></div>
+</span></code></pre></td></tr></table></div></figure>
 
 
 <p>This seemed to be missing some things, notably the loading of the Rails environment. Looking at the readme of the rspec-rails gem, I found that the correct command is actually:</p>
@@ -112,7 +113,7 @@
 
 <p>The file this command generates is much more verbose with instructive comments:</p>
 
-<div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span>spec/spec_helper.rb </span></figcaption>
+<figure class='code'><figcaption><span>spec/spec_helper.rb </span></figcaption>
 <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
@@ -143,18 +144,18 @@
 </span><span class='line'>  <span class="n">config</span><span class="o">.</span><span class="n">infer_base_class_for_anonymous_controllers</span> <span class="o">=</span> <span class="kp">false</span>
 </span><span class='line'>  <span class="n">config</span><span class="o">.</span><span class="n">order</span> <span class="o">=</span> <span class="s2">&quot;random&quot;</span>
 </span><span class='line'><span class="k">end</span>
-</span></code></pre></td></tr></table></div></figure></notextile></div>
+</span></code></pre></td></tr></table></div></figure>
 
 
 <p>Interestingly this leaves out the <code>focus</code> config options, which allow you to select specific specs to run, e.g:</p>
 
-<div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 </pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">it</span> <span class="s2">&quot;does a thing&quot;</span><span class="p">,</span> <span class="ss">:focus</span> <span class="k">do</span>
 </span><span class='line'>  <span class="c1">#...</span>
 </span><span class='line'><span class="k">end</span>
-</span></code></pre></td></tr></table></div></figure></notextile></div>
+</span></code></pre></td></tr></table></div></figure>
 
 </div>
 
@@ -178,7 +179,8 @@
   
 
 
-<time datetime="2014-02-10T07:50:09+00:00" pubdate data-updated="true"></time>
+
+<time datetime="2014-02-10T07:50:09+00:00" pubdate data-updated="true">Feb 10th, 2014</time>
       
 
 <span class="categories">
@@ -258,7 +260,7 @@
 <section>
   <h1>GitHub Repos</h1>
   <ul id="gh_repos">
-    <li class="loading">Status updating...</li>
+    <li class="loading">Status updating&#8230;</li>
   </ul>
   
   <a href="https://github.com/dgmstuart">@dgmstuart</a> on GitHub

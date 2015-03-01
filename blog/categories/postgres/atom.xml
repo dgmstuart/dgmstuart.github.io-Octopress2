@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Postgres | dgms code]]></title>
   <link href="http://dgmstuart.github.io/blog/categories/postgres/atom.xml" rel="self"/>
   <link href="http://dgmstuart.github.io/"/>
-  <updated>2015-02-24T00:03:07+00:00</updated>
+  <updated>2015-03-01T04:00:15+00:00</updated>
   <id>http://dgmstuart.github.io/</id>
   <author>
     <name><![CDATA[Duncan Stuart]]></name>
@@ -234,7 +234,7 @@ FATAL:  role "myapp" does not exist
 
 <p>Looking at my <code>database.yml</code>, it seemed that the application generator had set up several &lsquo;myapp&rsquo; databases:</p>
 
-<p><div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span>database.yml </span></figcaption>
+<p><figure class='code'><figcaption><span>database.yml </span></figcaption>
 <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
@@ -257,7 +257,7 @@ FATAL:  role "myapp" does not exist
 </span><span class='line'>  <span class="l-Scalar-Plain">template</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">template0&lt;/p&gt;</span>
 </span><span class='line'>
 </span><span class='line'><span class="l-Scalar-Plain">&lt;p&gt;  &amp;hellip;</span>
-</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+</span></code></pre></td></tr></table></div></figure></p>
 
 <p>Replacing myapp with swingoutlondon, I dared to hope that running <code>rake db:create</code> would just create these databases for me&hellip;</p>
 

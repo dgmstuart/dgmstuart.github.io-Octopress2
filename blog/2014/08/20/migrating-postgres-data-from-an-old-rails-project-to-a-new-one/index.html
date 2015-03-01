@@ -78,7 +78,8 @@ run these migrations on a dump &hellip;">
   
 
 
-<time datetime="2014-08-20T23:29:31+01:00" pubdate data-updated="true"></time>
+
+<time datetime="2014-08-20T23:29:31+01:00" pubdate data-updated="true">Aug 20th, 2014</time>
         
            | <a href="#disqus_thread"
              data-disqus-identifier="http://dgmstuart.github.io">Comments</a>
@@ -164,7 +165,7 @@ and associated with <code>events</code> via a join table: <code>event_swing_date
 
 <p>This is where the gnarly stuff happens. First I need a way of putting data into the new tables. I could go and create full models in the app, but it&rsquo;s possible to just create lightweight classes right in the migration:</p>
 
-<div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -178,14 +179,14 @@ and associated with <code>events</code> via a join table: <code>event_swing_date
 </span><span class='line'><span class="k">class</span> <span class="nc">EventGenerator</span> <span class="o">&lt;</span> <span class="ss">ActiveRecord</span><span class="p">:</span><span class="ss">:Base</span>
 </span><span class='line'>  <span class="n">belongs_to</span> <span class="ss">:event_seed</span>
 </span><span class='line'><span class="k">end</span>
-</span></code></pre></td></tr></table></div></figure></notextile></div>
+</span></code></pre></td></tr></table></div></figure>
 
 
 <p>I guess I should maybe also have included all of the validations here, but I&rsquo;m fairly confident that the validations are basically equivalent between the two apps, and in any case, the relevant fields have <code>null: false</code> constraints on them in the database, so I&rsquo;m not going to sweat it.</p>
 
 <p>Now we can actually create the new records:</p>
 
-<div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -217,7 +218,7 @@ and associated with <code>events</code> via a join table: <code>event_swing_date
 </span><span class='line'>
 </span><span class='line'>  <span class="c1"># ...</span>
 </span><span class='line'><span class="k">end</span>
-</span></code></pre></td></tr></table></div></figure></notextile></div>
+</span></code></pre></td></tr></table></div></figure>
 
 
 <p>Note the use of <code>event.dates</code>.</p>
@@ -293,7 +294,8 @@ and associated with <code>events</code> via a join table: <code>event_swing_date
   
 
 
-<time datetime="2014-08-20T23:29:31+01:00" pubdate data-updated="true"></time>
+
+<time datetime="2014-08-20T23:29:31+01:00" pubdate data-updated="true">Aug 20th, 2014</time>
       
 
 <span class="categories">
@@ -373,7 +375,7 @@ and associated with <code>events</code> via a join table: <code>event_swing_date
 <section>
   <h1>GitHub Repos</h1>
   <ul id="gh_repos">
-    <li class="loading">Status updating...</li>
+    <li class="loading">Status updating&#8230;</li>
   </ul>
   
   <a href="https://github.com/dgmstuart">@dgmstuart</a> on GitHub
