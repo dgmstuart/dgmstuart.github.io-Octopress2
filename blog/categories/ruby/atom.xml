@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Ruby | dgms code]]></title>
   <link href="http://dgmstuart.github.io/blog/categories/ruby/atom.xml" rel="self"/>
   <link href="http://dgmstuart.github.io/"/>
-  <updated>2015-03-01T04:27:33+00:00</updated>
+  <updated>2015-03-04T00:54:56+00:00</updated>
   <id>http://dgmstuart.github.io/</id>
   <author>
     <name><![CDATA[Duncan Stuart]]></name>
@@ -12,6 +12,93 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Setting Up a Ruby Dev Environment on Bowery.io]]></title>
+    <link href="http://dgmstuart.github.io/blog/2015/02/28/setting-up-a-ruby-on-rails-dev-environment-on-bowery-dot-io/"/>
+    <updated>2015-02-28T01:27:44+00:00</updated>
+    <id>http://dgmstuart.github.io/blog/2015/02/28/setting-up-a-ruby-on-rails-dev-environment-on-bowery-dot-io</id>
+    <content type="html"><![CDATA[<p><a href="http://bowery.io/">Bowery.io</a> is a hosted development environment service.
+The idea is that you edit your files locally, but run your code in a cloud-hosted
+<a href="https://www.docker.com/">Docker</a> container, based on an image which can be
+shared and edited by teams.</p>
+
+<p>It looks like it used to host its own packages and allow environments to be
+set up through a gui, but now the approach is to either install everything by
+hand or use a dockerfile, which I guess makes sense as docker has become more
+and more popular and Bowery&rsquo;s main audience is going to be quite devvy devs
+who are comfortable using docker.</p>
+
+<p>I had a go at setting up an environment for ruby development and didn&rsquo;t really
+find any documentation so here&rsquo;s what I tried:</p>
+
+<h2>Approach: Use a dockerfile</h2>
+
+<p>The simplest way to start your Bowery image with ruby is to use a dockerfile
+which sets ruby up for you. This can be as simple as creating a file called
+<code>Dockerfile</code> at the root of your project, consisting of this line:</p>
+
+<pre><code>from ruby:2.2.0
+</code></pre>
+
+<p>More details about this approach can be found <a href="http://bowery.io/posts/dockerfile-support/">on the Bowery blog</a></p>
+
+<h2>Approach: Install ruby directly</h2>
+
+<p>Not having ever used docker in anger, my first attempt involved just
+installing ruby manually. The following steps are
+basically a textbook set of steps for installing ruby on a new Ubuntu machine
+(which is what Bowery instances are based on):</p>
+
+<ol>
+<li><p>Update apt-get:</p>
+
+<pre><code> apt-get update
+</code></pre></li>
+<li><p><a href="https://github.com/sstephenson/ruby-build/wiki#suggested-build-environment">Install the dependencies for ruby-build</a>
+using apt-get</p></li>
+<li><p><a href="https://github.com/sstephenson/rbenv">Install rbenv</a></p></li>
+<li><p><a href="https://github.com/sstephenson/ruby-build">Install ruby-build</a></p></li>
+<li><p>Install ruby with rbenv:</p>
+
+<pre><code> rbenv install 2.2.0
+ rbenv global 2.2.0
+</code></pre></li>
+<li><p>Install bundler:</p>
+
+<pre><code> gem install bundler
+</code></pre></li>
+</ol>
+
+
+<h2>What about Rails?</h2>
+
+<p>I <em>have</em> managed to successfully set up a Rails dev environment using Bowery,
+but it ended up being pretty fiddly and I&rsquo;m not sure I have anything coherent
+enough to blog about.</p>
+
+<p>I essentially set it up just like any other ubuntu box would be set up (but
+I&rsquo;m still pretty green at server management - hence fiddly).</p>
+
+<p>What I was hoping
+to find was a Dockerfile which at least set up Ruby and Postgres, but it seems
+like the normal approach is to run separate Docker containers and link them
+(as in <a href="http://allenwei.cn/setup-rails-development-environment-with-docker/">this tutorial</a>).
+I don&rsquo;t think this approach applies to Bowery, where a single dockerfile is
+used to initialize the image. I suppose I could run docker on Bowery though? (#meta)</p>
+
+<p>In any case, here are the additional components which need to be installed to
+run my Rails dev environment:</p>
+
+<ul>
+<li>A Javascript runtime (I installed Node.js with apt-get)</li>
+<li>A database (I installed Postgresql with apt-get but had a pain setting it up)</li>
+<li>A headless browser for javascript specs (I <a href="http://phantomjs.org/build.html">built phantom.js from
+scratch</a></li>
+</ul>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Migrating Postgres Data From an Old Rails Project to a New One]]></title>
@@ -261,77 +348,6 @@ heroku run rake db:migrate
 <p>Oh Ruby how I love you so.</p>
 
 <p><em><a href="http://www.ruby-doc.org/core-2.1.1/String.html#method-i-end_with-3F">api documentation for end_with?</a></em></p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Gotcha: Initialising RSpec in a Rails Project]]></title>
-    <link href="http://dgmstuart.github.io/blog/2014/02/10/initialising-rspec-in-a-rails-project/"/>
-    <updated>2014-02-10T07:50:09+00:00</updated>
-    <id>http://dgmstuart.github.io/blog/2014/02/10/initialising-rspec-in-a-rails-project</id>
-    <content type="html"><![CDATA[<p>I use RSpec for doing TDD, and the rspec-rails gem for integration in Rails projects. On initialising RSpec for SOLDN2, with <code>rspec init</code> it generated the following spec helper (comments removed):</p>
-
-<p><figure class='code'><figcaption><span>spec/spec_helper.rb </span></figcaption>
-<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-</pre></td><td class='code'><pre><code class='rb'><span class='line'><span class="no">RSpec</span><span class="o">.</span><span class="n">configure</span> <span class="k">do</span> <span class="o">|</span><span class="n">config</span><span class="o">|</span>
-</span><span class='line'>  <span class="n">config</span><span class="o">.</span><span class="n">treat_symbols_as_metadata_keys_with_true_values</span> <span class="o">=</span> <span class="kp">true</span>
-</span><span class='line'>  <span class="n">config</span><span class="o">.</span><span class="n">run_all_when_everything_filtered</span> <span class="o">=</span> <span class="kp">true</span>
-</span><span class='line'>  <span class="n">config</span><span class="o">.</span><span class="n">filter_run</span> <span class="ss">:focus</span>
-</span><span class='line'>  <span class="n">config</span><span class="o">.</span><span class="n">order</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">lsquo</span><span class="p">;</span><span class="n">random</span><span class="o">&amp;</span><span class="n">rsquo</span><span class="p">;</span>
-</span><span class='line'><span class="k">end</span>
-</span></code></pre></td></tr></table></div></figure></p>
-
-<p>This seemed to be missing some things, notably the loading of the Rails environment. Looking at the readme of the rspec-rails gem, I found that the correct command is actually:</p>
-
-<pre><code>rails generate rspec:install
-</code></pre>
-
-<p>The file this command generates is much more verbose with instructive comments:</p>
-
-<p><figure class='code'><figcaption><span>spec/spec_helper.rb </span></figcaption>
-<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-</pre></td><td class='code'><pre><code class='rb'><span class='line'><span class="no">ENV</span><span class="o">[&amp;</span><span class="n">ldquo</span><span class="p">;</span><span class="no">RAILS_ENV</span><span class="o">&amp;</span><span class="n">rdquo</span><span class="p">;</span><span class="o">]</span> <span class="o">||=</span> <span class="o">&amp;</span><span class="n">lsquo</span><span class="p">;</span><span class="nb">test</span><span class="o">&amp;</span><span class="n">rsquo</span><span class="p">;</span>
-</span><span class='line'><span class="nb">require</span> <span class="no">File</span><span class="o">.</span><span class="n">expand_path</span><span class="p">(</span><span class="o">&amp;</span><span class="n">ldquo</span><span class="p">;</span><span class="o">.</span><span class="n">.</span><span class="o">/.</span><span class="n">.</span><span class="o">/</span><span class="n">config</span><span class="o">/</span><span class="n">environment</span><span class="o">&amp;</span><span class="n">rdquo</span><span class="p">;,</span> <span class="o">&lt;</span><span class="n">strong</span><span class="o">&gt;</span><span class="no">FILE</span><span class="o">&lt;</span><span class="sr">/strong&gt;)</span>
-</span><span class='line'><span class="sr">require &amp;lsquo;rspec/</span><span class="n">rails</span><span class="o">&amp;</span><span class="n">rsquo</span><span class="p">;</span>
-</span><span class='line'><span class="nb">require</span> <span class="o">&amp;</span><span class="n">lsquo</span><span class="p">;</span><span class="n">rspec</span><span class="o">/</span><span class="n">autorun</span><span class="o">&amp;</span><span class="n">rsquo</span><span class="p">;</span><span class="o">&lt;</span><span class="sr">/p&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="sr">&lt;p&gt;Dir[Rails.root.join(&amp;ldquo;spec/su</span><span class="n">pport</span><span class="o">/&lt;</span><span class="n">em</span><span class="o">&gt;*/&lt;</span><span class="sr">/em&gt;.rb&amp;rdquo;)].each { |f| require f }&lt;/</span><span class="nb">p</span><span class="o">&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="nb">p</span><span class="o">&gt;</span><span class="ss">ActiveRecord</span><span class="p">:</span><span class="ss">:Migration</span><span class="o">.</span><span class="n">check_pending!</span> <span class="k">if</span> <span class="n">defined?</span><span class="p">(</span><span class="ss">ActiveRecord</span><span class="p">:</span><span class="ss">:Migration</span><span class="p">)</span><span class="o">&lt;</span><span class="sr">/p&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="sr">&lt;p&gt;RSpec.configure do |config|</span>
-</span><span class='line'><span class="sr">  config.fixture_path = &amp;ldquo;</span><span class="si">#{</span><span class="o">::</span><span class="no">Rails</span><span class="o">.</span><span class="n">root</span><span class="si">}</span><span class="sr">/s</span><span class="n">pec</span><span class="o">/</span><span class="n">fixtures</span><span class="o">&amp;</span><span class="n">rdquo</span><span class="p">;</span>
-</span><span class='line'>  <span class="n">config</span><span class="o">.</span><span class="n">use_transactional_fixtures</span> <span class="o">=</span> <span class="kp">true</span>
-</span><span class='line'>  <span class="n">config</span><span class="o">.</span><span class="n">infer_base_class_for_anonymous_controllers</span> <span class="o">=</span> <span class="kp">false</span>
-</span><span class='line'>  <span class="n">config</span><span class="o">.</span><span class="n">order</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">ldquo</span><span class="p">;</span><span class="n">random</span><span class="o">&amp;</span><span class="n">rdquo</span><span class="p">;</span>
-</span><span class='line'><span class="k">end</span>
-</span></code></pre></td></tr></table></div></figure></p>
-
-<p>Interestingly this leaves out the <code>focus</code> config options, which allow you to select specific specs to run, e.g:</p>
-
-<pre><code class="ruby">it "does a thing", :focus do
-  #...
-end
-</code></pre>
 ]]></content>
   </entry>
   
