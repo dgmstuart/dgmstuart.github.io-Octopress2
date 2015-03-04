@@ -31,6 +31,12 @@ which sets ruby up for you. This can be as simple as creating a file called
 
     from ruby:2.2.0
 
+...then when you select your code directory for the first time through the
+Bowery app you can click "Yes" on this prompt to initialize your Bowery image
+based on that Dockerfile:
+
+{% img /images/content/bowery_prompt.png %}
+
 More details about this approach can be found [on the Bowery blog](http://bowery.io/posts/dockerfile-support/)
 
 Approach: Install ruby directly
