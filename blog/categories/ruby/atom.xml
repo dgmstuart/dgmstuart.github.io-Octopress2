@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Ruby | dgms code]]></title>
   <link href="http://dgmstuart.github.io/blog/categories/ruby/atom.xml" rel="self"/>
   <link href="http://dgmstuart.github.io/"/>
-  <updated>2015-03-04T00:54:56+00:00</updated>
+  <updated>2015-03-04T01:07:24+00:00</updated>
   <id>http://dgmstuart.github.io/</id>
   <author>
     <name><![CDATA[Duncan Stuart]]></name>
@@ -18,7 +18,11 @@
     <link href="http://dgmstuart.github.io/blog/2015/02/28/setting-up-a-ruby-on-rails-dev-environment-on-bowery-dot-io/"/>
     <updated>2015-02-28T01:27:44+00:00</updated>
     <id>http://dgmstuart.github.io/blog/2015/02/28/setting-up-a-ruby-on-rails-dev-environment-on-bowery-dot-io</id>
-    <content type="html"><![CDATA[<p><a href="http://bowery.io/">Bowery.io</a> is a hosted development environment service.
+    <content type="html"><![CDATA[<p><em>EDIT: Apparently it&rsquo;s not possible to run docker inside a Bowery instance
+because Bowery uses docker and docker has a hard time running inside a docker
+container - see <a href="https://groups.google.com/forum/#!topic/bowery/WsXWzWghwVc">this post on the forum</a></em></p>
+
+<p><a href="http://bowery.io/">Bowery.io</a> is a hosted development environment service.
 The idea is that you edit your files locally, but run your code in a cloud-hosted
 <a href="https://www.docker.com/">Docker</a> container, based on an image which can be
 shared and edited by teams.</p>
