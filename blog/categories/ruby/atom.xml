@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Ruby | dgms code]]></title>
   <link href="http://dgmstuart.github.io/blog/categories/ruby/atom.xml" rel="self"/>
   <link href="http://dgmstuart.github.io/"/>
-  <updated>2015-03-04T01:07:24+00:00</updated>
+  <updated>2015-03-04T17:26:48+00:00</updated>
   <id>http://dgmstuart.github.io/</id>
   <author>
     <name><![CDATA[Duncan Stuart]]></name>
@@ -44,6 +44,12 @@ which sets ruby up for you. This can be as simple as creating a file called
 
 <pre><code>from ruby:2.2.0
 </code></pre>
+
+<p>&hellip;then when you select your code directory for the first time through the
+Bowery app you can click &ldquo;Yes&rdquo; on this prompt to initialize your Bowery image
+based on that Dockerfile:</p>
+
+<p><img src="/images/content/bowery_prompt.png"></p>
 
 <p>More details about this approach can be found <a href="http://bowery.io/posts/dockerfile-support/">on the Bowery blog</a></p>
 
