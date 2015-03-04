@@ -161,8 +161,8 @@ end
 # usage rake isolate[my-post]
 desc "Move all other posts than the one currently being worked on to a temporary stash location (stash) so regenerating the site happens much more quickly."
 task :isolate, :filename do |t, args|
-  puts ">>> !! Please provide a filename, eg. rake isolate[my_post]" unless args.filename?
-  if args.filename?
+  puts ">>> !! Please provide a filename, eg. rake isolate[my_post]" unless args.filename
+  if args.filename
     stash_dir = "#{source_dir}/#{stash_dir}"
     FileUtils.mkdir(stash_dir) unless File.exist?(stash_dir)
     Dir.glob("#{source_dir}/#{posts_dir}/*.*") do |post|
@@ -255,7 +255,7 @@ desc "deploy public directory to github pages"
 multitask :push do
   puts "## Deploying branch to Github Pages "
   puts "## Pulling any updates from Github Pages "
-  cd "#{deploy_dir}" do 
+  cd "#{deploy_dir}" do
     Bundler.with_clean_env { system "git pull" }
   end
   (Dir["#{deploy_dir}/*"]).each { |f| rm_rf(f) }
