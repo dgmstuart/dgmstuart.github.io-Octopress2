@@ -4,7 +4,6 @@ title: "Setting up a Ruby dev environment on Bowery.io"
 date: 2015-02-28 01:27:44 +0000
 comments: true
 categories: [ruby, ubuntu]
-published: false
 ---
 [Bowery.io](http://bowery.io/) is a hosted development environment service.
 The idea is that you edit your files locally, but run your code in a cloud-hosted
@@ -16,6 +15,9 @@ set up through a gui, but now the approach is to either install everything by
 hand or use a dockerfile, which I guess makes sense as docker has become more
 and more popular and Bowery's main audience is going to be quite devvy devs
 who are comfortable using docker.
+
+I had a go at setting up an environment for ruby development and didn't really
+find any documentation so here's what I tried:
 
 Approach: Use a dockerfile
 --------------------------
@@ -66,10 +68,9 @@ I'm still pretty green at server management - hence fiddly).
 What I was hoping
 to find was a Dockerfile which at least set up Ruby and Postgres, but it seems
 like the normal approach is to run separate Docker containers and link them
-(as in [this
-tutorial](http://allenwei.cn/setup-rails-development-environment-with-docker/)).
+(as in [this tutorial](http://allenwei.cn/setup-rails-development-environment-with-docker/)).
 I don't think this approach applies to Bowery, where a single dockerfile is
-used to initialize the image. I suppose I could run docker on Bowery though? #meta
+used to initialize the image. I suppose I could run docker on Bowery though? (#meta)
 
 In any case, here are the additional components which need to be installed to
 run my Rails dev environment:
