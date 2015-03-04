@@ -5,6 +5,10 @@ date: 2015-02-28 01:27:44 +0000
 comments: true
 categories: [ruby, ubuntu]
 ---
+_EDIT: Apparently it's not possible to run docker inside a Bowery instance
+because Bowery uses docker and docker has a hard time running inside a docker
+container - see [this post on the forum](https://groups.google.com/forum/#!topic/bowery/WsXWzWghwVc)_
+
 [Bowery.io](http://bowery.io/) is a hosted development environment service.
 The idea is that you edit your files locally, but run your code in a cloud-hosted
 [Docker](https://www.docker.com/) container, based on an image which can be
