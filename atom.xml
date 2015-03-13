@@ -4,7 +4,7 @@
   <title><![CDATA[dgms code]]></title>
   <link href="http://dgmstuart.github.io/atom.xml" rel="self"/>
   <link href="http://dgmstuart.github.io/"/>
-  <updated>2015-03-13T15:32:47+00:00</updated>
+  <updated>2015-03-13T17:19:13+00:00</updated>
   <id>http://dgmstuart.github.io/</id>
   <author>
     <name><![CDATA[Duncan Stuart]]></name>
@@ -12,6 +12,66 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Sandi Metz: Nothing Is Something - at BathRuby]]></title>
+    <link href="http://dgmstuart.github.io/blog/2015/03/13/sandi-metz-nothing-is-something-at-bathruby/"/>
+    <updated>2015-03-13T16:38:05+00:00</updated>
+    <id>http://dgmstuart.github.io/blog/2015/03/13/sandi-metz-nothing-is-something-at-bathruby</id>
+    <content type="html"><![CDATA[<p><em>I&rsquo;m at <a href="http://2015.bathruby.org/">Bath Ruby 2015</a>, live blogging some of the
+talks</em></p>
+
+<ul>
+<li>All of her teaching ideas have a single underlying principle</li>
+<li>Learned OO from Smalltalk - massive influence on the way she thinks about
+objects</li>
+<li><code>+</code> is just a method on <code>Fixnum</code></li>
+<li>Ruby&rsquo;s <code>if</code> is effectively a typecheck (a check of whether an object is a
+member of <code>NilClass</code>/<code>Trueclass</code> ??)
+
+<ul>
+<li><code>if</code> is very prodedural (not OO)</li>
+</ul>
+</li>
+<li>Sometimes <code>nil</code> means nothing - so just remove nils from your results (e.g.
+<code>compact</code> the array</li>
+<li><code>try</code> can effectively be a typecheck (for <code>NilClass</code>)</li>
+<li>Conditions breed: if you have one you&rsquo;ll get more. Making a change around
+them in one place may involve making changes in lots of places (&ldquo;shotgun
+surgery&rdquo;)</li>
+<li>If you return nil then calls to that object can return objects which respond
+to different Apis: The object&rsquo;s or NilClass&rsquo;s. Solution: Null Object Pattern
+(#ftw)</li>
+<li>Null Object is for when Nothing is actually a thing - for when you need to
+talk to it</li>
+<li>Null Object is a new dependency, so wrap it in a new class which returns
+either an instance of your Object, or the Null Object, then pass this new
+class around</li>
+<li>Null Object is a concrete implementation of a more general idea</li>
+<li>Single responsibilities allow you to override specific behaviours when
+inheriting</li>
+<li>Extending behaviour by inheritance makes it impossible to share multiple
+behaviours</li>
+<li>Inheritance is for specialisation (not for ??)
+
+<ul>
+<li>There&rsquo;s no such thing as just one specialisation&hellip;</li>
+</ul>
+</li>
+<li>Approach - Composition and dependecy injection:
+
+<ol>
+<li>make the original behaviour and the new behaviour look the same - this
+highlights the way they&rsquo;re different</li>
+<li>Give the new behaviour a name - this helps work out what&rsquo;s being applied
+to the original object</li>
+<li>Inject an object which represents the behaviour</li>
+</ol>
+</li>
+</ul>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Tom Stuart - 'a Lever for the Mind' at BathRuby]]></title>
@@ -1169,43 +1229,6 @@ Here&rsquo;s where it looks, in order, for an email address to use:</p>
 <li><p>Preference: When the custom post type is specific to that project then this menu-modifying code should be in the theme, along with the post type itself: moving it out into a plugin just adds complexity.</p></li>
 <li><p>Removing the dashboard to jump straight to the posts: useful if your primary thing is generating new content</p></li>
 <li><p>There&rsquo;s a lot of complexity in the WP admin css: responsive styles, Right->Left styles. Making modifications are a lot more work than they look</p></li>
-</ul>
-
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[WordCamp Europe 2014 Notes - 1.2: Why Sometimes Happiness Requires Effort: Depression in IT]]></title>
-    <link href="http://dgmstuart.github.io/blog/2014/09/27/wordcamp-europe-2014-notes-2-why-sometimes-happiness-requires-effort-depression-in-it/"/>
-    <updated>2014-09-27T08:27:35+01:00</updated>
-    <id>http://dgmstuart.github.io/blog/2014/09/27/wordcamp-europe-2014-notes-2-why-sometimes-happiness-requires-effort-depression-in-it</id>
-    <content type="html"><![CDATA[<p><em>I&rsquo;m at <a href="http://2014.europe.wordcamp.org/">WordCamp Europe</a> in Sofia - taking rough notes on some of the talks</em></p>
-
-<p>Yana Petrova <a href="http://2014.europe.wordcamp.org/session/yana-petrova/">http://2014.europe.wordcamp.org/session/yana-petrova/</a></p>
-
-<ul>
-<li><p>Recipes for tackling depression</p>
-
-<ul>
-<li>Breathing exercises</li>
-<li>Make lists of things you want to do - force yourself to pick something off the list and do it</li>
-<li>Engineer opportunities for small wins</li>
-<li>Learn how to listen: helps to realise realities - stops you getting stuck on false ideas bouncing around inside your own head</li>
-</ul>
-</li>
-<li><p>Audience question - how do you convince the client that they&rsquo;re working with People who need to not be driven into the ground (and need time to sort things out properly? Squashing technical debt for happiness and satisifaction?)</p></li>
-<li><p>Pedometer - gamifying being active - helps to break patterns of always working. An example of making a small win.</p></li>
-<li><p>Audience question - keeping good mental health in the face of difficult clients</p></li>
-<li><p>Audience recipes:</p>
-
-<ul>
-<li>Cycling - not just for the riding, but for meeting people</li>
-<li>Yoga</li>
-<li>Ringfence smartphone use</li>
-<li>Remember - If you fail, nobody is going to die!!</li>
-</ul>
-</li>
-<li><p>Closing comment: If something is really important it will come back to you. Don&rsquo;t stress about your inbox and don&rsquo;t check your email at 1pm.</p></li>
 </ul>
 
 ]]></content>

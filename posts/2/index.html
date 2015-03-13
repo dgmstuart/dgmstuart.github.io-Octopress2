@@ -9,8 +9,8 @@
   <meta name="author" content="Duncan Stuart">
 
   
-  <meta name="description" content="http://www.meetup.com/Pivotal-Labs-Tech-Talks/events/213571202/ Marc Abraham. Slides First thing is to ask the right questions
-Book - Lean Analytics &hellip;">
+  <meta name="description" content="When using git, your commits are labelled with your name and email address.
+These are usually based on the user.name and user.email fields in a &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -71,6 +71,95 @@ Book - Lean Analytics &hellip;">
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2015/02/04/managing-identity-in-git/">Managing Identity in Git</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+
+<time datetime="2015-02-04T00:17:21+00:00" pubdate data-updated="true">Feb 4th, 2015</time>
+        
+           | <a href="/blog/2015/02/04/managing-identity-in-git/#disqus_thread"
+             data-disqus-identifier="http://dgmstuart.github.io/blog/2015/02/04/managing-identity-in-git/">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>When using git, your commits are labelled with your name and email address.
+These are usually based on the <code>user.name</code> and <code>user.email</code> fields in a global <code>.gitconfig</code> file in your home directory,
+ensuring that these values are always available.</p>
+
+<p>There might be some circumstances under which these need to vary. For example, on public projects for work I like to use my work email rather than my personal one.
+There are a couple of ways to achieve this:</p>
+
+<h3>1. As an argument to the commit:</h3>
+
+<pre><code>git commit user.email duncan@work.com
+</code></pre>
+
+<p>This is useful for one-off commits but would be tedious to type every time.</p>
+
+<h3>2. In a local git config</h3>
+
+<pre><code>git config user.email duncan@work.com
+</code></pre>
+
+<p>This creates a local <code>.gitconfig</code> file. Useful in project directories - since all child directories will use settings in this file,
+or will fall back to the global settings if a setting isn&rsquo;t present in this file.</p>
+
+<h3>3. In an environment variable</h3>
+
+<pre><code>export AUTHOR_EMAIL=duncan@work.com
+export COMMITTER_EMAIL=duncan@work.com
+</code></pre>
+
+<p>These override everything - any email setting in any <code>.gitconfig</code> file.
+Useful if like me you like to <a href="https://github.com/dgmstuart/dotfiles">manage your dotfiles in git</a>
+and share them on github in order to easily copy settings between different computers.</p>
+
+<p>These could be set in a local <code>.profile</code> file to make every project on that computer use a different email to your main one, while keeping the <code>.gitconfig</code> file pristine.
+<em>To understand the difference between Author and Committer see <a href="https://stackoverflow.com/questions/18750808/difference-between-author-and-committer-in-git/18754896#18754896">this StackOverflow post</a></em></p>
+
+<h2>Bonus: What if you don&rsquo;t set anything?</h2>
+
+<p>It turns out git will try it&rsquo;s best to find a name and email address to associate with your commits even if you don&rsquo;t tell it explicitly what these are.
+Here&rsquo;s where it looks, in order, for an email address to use:</p>
+
+<ol>
+<li>An <code>EMAIL</code> local variable</li>
+<li>Your system username <code>@</code> the value in <code>/etc/mailname</code> (which only exists on Debian systems?)</li>
+<li>Your system username <code>@</code> the fully qualified hostname of the computer</li>
+</ol>
+
+
+<p>For more information check out the <a href="http://git-scm.com/docs/git-commit-tree.html">git documentation on the topic</a></p>
+
+<p><em>Thanks to <a href="https://twitter.com/holizz">@holizz</a> for helping me understand all this</em></p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -989,74 +1078,6 @@ Book - Lean Analytics &hellip;">
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2014/09/27/wordcamp-europe-2014-notes-2-why-sometimes-happiness-requires-effort-depression-in-it/">WordCamp Europe 2014 Notes - 1.2: Why Sometimes Happiness Requires Effort: Depression in IT</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-
-<time datetime="2014-09-27T08:27:35+01:00" pubdate data-updated="true">Sep 27th, 2014</time>
-        
-           | <a href="/blog/2014/09/27/wordcamp-europe-2014-notes-2-why-sometimes-happiness-requires-effort-depression-in-it/#disqus_thread"
-             data-disqus-identifier="http://dgmstuart.github.io/blog/2014/09/27/wordcamp-europe-2014-notes-2-why-sometimes-happiness-requires-effort-depression-in-it/">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p><em>I&rsquo;m at <a href="http://2014.europe.wordcamp.org/">WordCamp Europe</a> in Sofia - taking rough notes on some of the talks</em></p>
-
-<p>Yana Petrova <a href="http://2014.europe.wordcamp.org/session/yana-petrova/">http://2014.europe.wordcamp.org/session/yana-petrova/</a></p>
-
-<ul>
-<li><p>Recipes for tackling depression</p>
-
-<ul>
-<li>Breathing exercises</li>
-<li>Make lists of things you want to do - force yourself to pick something off the list and do it</li>
-<li>Engineer opportunities for small wins</li>
-<li>Learn how to listen: helps to realise realities - stops you getting stuck on false ideas bouncing around inside your own head</li>
-</ul>
-</li>
-<li><p>Audience question - how do you convince the client that they&rsquo;re working with People who need to not be driven into the ground (and need time to sort things out properly? Squashing technical debt for happiness and satisifaction?)</p></li>
-<li><p>Pedometer - gamifying being active - helps to break patterns of always working. An example of making a small win.</p></li>
-<li><p>Audience question - keeping good mental health in the face of difficult clients</p></li>
-<li><p>Audience recipes:</p>
-
-<ul>
-<li>Cycling - not just for the riding, but for meeting people</li>
-<li>Yoga</li>
-<li>Ringfence smartphone use</li>
-<li>Remember - If you fail, nobody is going to die!!</li>
-</ul>
-</li>
-<li><p>Closing comment: If something is really important it will come back to you. Don&rsquo;t stress about your inbox and don&rsquo;t check your email at 1pm.</p></li>
-</ul>
-
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="3">&larr; Older</a>
@@ -1082,6 +1103,10 @@ Book - Lean Analytics &hellip;">
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2015/03/13/sandi-metz-nothing-is-something-at-bathruby/">Sandi Metz: Nothing Is Something - at BathRuby</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2015/03/13/tom-stuart-a-lever-for-the-mind-at-bathruby/">Tom Stuart - &#8216;a Lever for the Mind&#8217; at BathRuby</a>
       </li>
     
@@ -1095,10 +1120,6 @@ Book - Lean Analytics &hellip;">
     
       <li class="post">
         <a href="/blog/2015/03/13/saron-yitbarek-learning-code-good-at-bathruby/">Saron Yitbarek - Learning Code Good (at BathRuby)</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2015/03/13/ben-orenstein-live-coding-in-the-bath-at-bathruby/">Ben Orenstein: Live Coding in the Bath at BathRuby</a>
       </li>
     
   </ul>

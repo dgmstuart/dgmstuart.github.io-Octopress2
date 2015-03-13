@@ -10,7 +10,8 @@
 
   
   <meta name="description" content="I&rsquo;m at Bath Ruby 2015, live blogging some of the
-talks Photo by @trailsuite Brains are just not very good at working with several complex ideas &hellip;">
+talks All of her teaching ideas have a single underlying principle
+Learned OO from Smalltalk &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -71,6 +72,97 @@ talks Photo by @trailsuite Brains are just not very good at working with several
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2015/03/13/sandi-metz-nothing-is-something-at-bathruby/">Sandi Metz: Nothing Is Something - at BathRuby</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+
+<time datetime="2015-03-13T16:38:05+00:00" pubdate data-updated="true">Mar 13th, 2015</time>
+        
+           | <a href="/blog/2015/03/13/sandi-metz-nothing-is-something-at-bathruby/#disqus_thread"
+             data-disqus-identifier="http://dgmstuart.github.io/blog/2015/03/13/sandi-metz-nothing-is-something-at-bathruby/">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><em>I&rsquo;m at <a href="http://2015.bathruby.org/">Bath Ruby 2015</a>, live blogging some of the
+talks</em></p>
+
+<ul>
+<li>All of her teaching ideas have a single underlying principle</li>
+<li>Learned OO from Smalltalk - massive influence on the way she thinks about
+objects</li>
+<li><code>+</code> is just a method on <code>Fixnum</code></li>
+<li>Ruby&rsquo;s <code>if</code> is effectively a typecheck (a check of whether an object is a
+member of <code>NilClass</code>/<code>Trueclass</code> ??)
+
+<ul>
+<li><code>if</code> is very prodedural (not OO)</li>
+</ul>
+</li>
+<li>Sometimes <code>nil</code> means nothing - so just remove nils from your results (e.g.
+<code>compact</code> the array</li>
+<li><code>try</code> can effectively be a typecheck (for <code>NilClass</code>)</li>
+<li>Conditions breed: if you have one you&rsquo;ll get more. Making a change around
+them in one place may involve making changes in lots of places (&ldquo;shotgun
+surgery&rdquo;)</li>
+<li>If you return nil then calls to that object can return objects which respond
+to different Apis: The object&rsquo;s or NilClass&rsquo;s. Solution: Null Object Pattern
+(#ftw)</li>
+<li>Null Object is for when Nothing is actually a thing - for when you need to
+talk to it</li>
+<li>Null Object is a new dependency, so wrap it in a new class which returns
+either an instance of your Object, or the Null Object, then pass this new
+class around</li>
+<li>Null Object is a concrete implementation of a more general idea</li>
+<li>Single responsibilities allow you to override specific behaviours when
+inheriting</li>
+<li>Extending behaviour by inheritance makes it impossible to share multiple
+behaviours</li>
+<li>Inheritance is for specialisation (not for ??)
+
+<ul>
+<li>There&rsquo;s no such thing as just one specialisation&hellip;</li>
+</ul>
+</li>
+<li>Approach - Composition and dependecy injection:
+
+<ol>
+<li>make the original behaviour and the new behaviour look the same - this
+highlights the way they&rsquo;re different</li>
+<li>Give the new behaviour a name - this helps work out what&rsquo;s being applied
+to the original object</li>
+<li>Inject an object which represents the behaviour</li>
+</ol>
+</li>
+</ul>
+
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -816,95 +908,6 @@ the <code>PATH</code>. Mine includes a <code>git</code> file:</p>
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2015/02/04/managing-identity-in-git/">Managing Identity in Git</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-
-<time datetime="2015-02-04T00:17:21+00:00" pubdate data-updated="true">Feb 4th, 2015</time>
-        
-           | <a href="/blog/2015/02/04/managing-identity-in-git/#disqus_thread"
-             data-disqus-identifier="http://dgmstuart.github.io/blog/2015/02/04/managing-identity-in-git/">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>When using git, your commits are labelled with your name and email address.
-These are usually based on the <code>user.name</code> and <code>user.email</code> fields in a global <code>.gitconfig</code> file in your home directory,
-ensuring that these values are always available.</p>
-
-<p>There might be some circumstances under which these need to vary. For example, on public projects for work I like to use my work email rather than my personal one.
-There are a couple of ways to achieve this:</p>
-
-<h3>1. As an argument to the commit:</h3>
-
-<pre><code>git commit user.email duncan@work.com
-</code></pre>
-
-<p>This is useful for one-off commits but would be tedious to type every time.</p>
-
-<h3>2. In a local git config</h3>
-
-<pre><code>git config user.email duncan@work.com
-</code></pre>
-
-<p>This creates a local <code>.gitconfig</code> file. Useful in project directories - since all child directories will use settings in this file,
-or will fall back to the global settings if a setting isn&rsquo;t present in this file.</p>
-
-<h3>3. In an environment variable</h3>
-
-<pre><code>export AUTHOR_EMAIL=duncan@work.com
-export COMMITTER_EMAIL=duncan@work.com
-</code></pre>
-
-<p>These override everything - any email setting in any <code>.gitconfig</code> file.
-Useful if like me you like to <a href="https://github.com/dgmstuart/dotfiles">manage your dotfiles in git</a>
-and share them on github in order to easily copy settings between different computers.</p>
-
-<p>These could be set in a local <code>.profile</code> file to make every project on that computer use a different email to your main one, while keeping the <code>.gitconfig</code> file pristine.
-<em>To understand the difference between Author and Committer see <a href="https://stackoverflow.com/questions/18750808/difference-between-author-and-committer-in-git/18754896#18754896">this StackOverflow post</a></em></p>
-
-<h2>Bonus: What if you don&rsquo;t set anything?</h2>
-
-<p>It turns out git will try it&rsquo;s best to find a name and email address to associate with your commits even if you don&rsquo;t tell it explicitly what these are.
-Here&rsquo;s where it looks, in order, for an email address to use:</p>
-
-<ol>
-<li>An <code>EMAIL</code> local variable</li>
-<li>Your system username <code>@</code> the value in <code>/etc/mailname</code> (which only exists on Debian systems?)</li>
-<li>Your system username <code>@</code> the fully qualified hostname of the computer</li>
-</ol>
-
-
-<p>For more information check out the <a href="http://git-scm.com/docs/git-commit-tree.html">git documentation on the topic</a></p>
-
-<p><em>Thanks to <a href="https://twitter.com/holizz">@holizz</a> for helping me understand all this</em></p>
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="2">&larr; Older</a>
@@ -928,6 +931,10 @@ Here&rsquo;s where it looks, in order, for an email address to use:</p>
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2015/03/13/sandi-metz-nothing-is-something-at-bathruby/">Sandi Metz: Nothing Is Something - at BathRuby</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2015/03/13/tom-stuart-a-lever-for-the-mind-at-bathruby/">Tom Stuart - &#8216;a Lever for the Mind&#8217; at BathRuby</a>
       </li>
     
@@ -941,10 +948,6 @@ Here&rsquo;s where it looks, in order, for an email address to use:</p>
     
       <li class="post">
         <a href="/blog/2015/03/13/saron-yitbarek-learning-code-good-at-bathruby/">Saron Yitbarek - Learning Code Good (at BathRuby)</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2015/03/13/ben-orenstein-live-coding-in-the-bath-at-bathruby/">Ben Orenstein: Live Coding in the Bath at BathRuby</a>
       </li>
     
   </ul>
