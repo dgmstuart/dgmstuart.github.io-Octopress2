@@ -5,11 +5,13 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>How to Not Break Permalinks in WordPress - dgms code</title>
+  <title>Katrina Owen at BathRuby: Here Be Dragons - dgms code</title>
   <meta name="author" content="Duncan Stuart">
 
   
-  <meta name="description" content="I&rsquo;ve written a blog post for work about how much you can and can&rsquo;t mess around with urls in WordPress before old links stop working. It &hellip;">
+  <meta name="description" content="I&rsquo;m at Bath Ruby 2015, live blogging some of the
+talks Some bugs are admirable. Squashing them makes you feel victorious
+Squashing the bug isn& &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -18,7 +20,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://dgmstuart.github.io/blog/2015/02/06/how-to-not-break-permalinks-in-wordpress">
+  <link rel="canonical" href="http://dgmstuart.github.io/blog/2015/03/13/katrina-owen-at-bathruby-here-be-dragons">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/atom.xml" rel="alternate" title="dgms code" type="application/atom+xml">
@@ -73,7 +75,7 @@
   
   <header>
     
-      <h1 class="entry-title">How to Not Break Permalinks in WordPress</h1>
+      <h1 class="entry-title">Katrina Owen at BathRuby: Here Be Dragons</h1>
     
     
       <p class="meta">
@@ -90,7 +92,7 @@
 
 
 
-<time datetime="2015-02-06T00:13:40+00:00" pubdate data-updated="true">Feb 6th, 2015</time>
+<time datetime="2015-03-13T14:00:28+00:00" pubdate data-updated="true">Mar 13th, 2015</time>
         
            | <a href="#disqus_thread"
              data-disqus-identifier="http://dgmstuart.github.io">Comments</a>
@@ -100,18 +102,31 @@
   </header>
 
 
-<div class="entry-content"><p>I&rsquo;ve written a blog post for <a href="https://www.dxw.com/">work</a> about how much you can and can&rsquo;t mess around with urls in WordPress before old links stop working. It boils down to 5 rules:</p>
+<div class="entry-content"><p><em>I&rsquo;m at <a href="http://2015.bathruby.org/">Bath Ruby 2015</a>, live blogging some of the
+talks</em></p>
 
-<ol>
-<li>Editing Post slugs doesn’t break old links</li>
-<li>Editing Post url structure (the permalinks) doesn’t break old links</li>
-<li>Changing both the permalink structure and the slug will break old links</li>
-<li>Editing the parent/child relationships of pages doesn’t break old links</li>
-<li>Editing the slugs of pages will break old links</li>
-</ol>
+<ul>
+<li>Some bugs are admirable. Squashing them makes you feel victorious</li>
+<li>Squashing the bug isn&rsquo;t enough: if you don&rsquo;t clear up the root issues, it
+will just cause you future pain - cleaning up the mess.</li>
+<li>Fundamental attribution error: assume that bad code means a bad
+person/unskilled developer (other people), or assume that they were having a bad day (our
+friends)</li>
+<li>Prisoner&rsquo;s dilemna as a metaphor for the choice of whether to follow good
+practices
 
+<ul>
+<li>The rational choice is to always &lsquo;defect&rsquo; - but everyone loses.</li>
+<li>The way to maximise the overall result for people is for everyone to
+cooperate (add tests, improve error handling, extract responsibilities)</li>
+<li>only works if everyone is on board: one person &lsquo;defecting&rsquo; will mess it up
+for everyone</li>
+</ul>
+</li>
+<li>Every commit we make tips the balance in one direction or the other: towards
+entropy or order</li>
+</ul>
 
-<p>For more details read the full post on the dxw blog: <a href="https://www.dxw.com/2015/02/keeping-traffic-flowing-to-your-wordpress-site-after-a-big-restructuring/">Keeping traffic flowing to your WordPress site after a big restructuring</a></p>
 </div>
 
 
@@ -135,12 +150,12 @@
 
 
 
-<time datetime="2015-02-06T00:13:40+00:00" pubdate data-updated="true">Feb 6th, 2015</time>
+<time datetime="2015-03-13T14:00:28+00:00" pubdate data-updated="true">Mar 13th, 2015</time>
       
 
 <span class="categories">
   
-    <a class='category' href='/blog/categories/wordpress/'>wordpress</a>
+    <a class='category' href='/blog/categories/bathruby/'>bathruby</a>
   
 </span>
 
@@ -149,7 +164,7 @@
     
       <div class="sharing">
   
-  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://dgmstuart.github.io/blog/2015/02/06/how-to-not-break-permalinks-in-wordpress/" data-via="dgmstuart" data-counturl="http://dgmstuart.github.io/blog/2015/02/06/how-to-not-break-permalinks-in-wordpress/" >Tweet</a>
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://dgmstuart.github.io/blog/2015/03/13/katrina-owen-at-bathruby-here-be-dragons/" data-via="dgmstuart" data-counturl="http://dgmstuart.github.io/blog/2015/03/13/katrina-owen-at-bathruby-here-be-dragons/" >Tweet</a>
   
   
   
@@ -158,10 +173,8 @@
     
     <p class="meta">
       
-        <a class="basic-alignment left" href="/blog/2015/02/04/managing-identity-in-git/" title="Previous Post: Managing identity in git">&laquo; Managing identity in git</a>
+        <a class="basic-alignment left" href="/blog/2015/03/13/live-coding-music-at-bathruby/" title="Previous Post: Live-coding music at BathRuby">&laquo; Live-coding music at BathRuby</a>
       
-      
-        <a class="basic-alignment right" href="/blog/2015/02/23/how-your-base-path-gets-generated-in-osx/" title="Next Post: How your base PATH gets generated in OSX">How your base PATH gets generated in OSX &raquo;</a>
       
     </p>
   </footer>
@@ -265,8 +278,8 @@
       
         
         // var disqus_developer = 1;
-        var disqus_identifier = 'http://dgmstuart.github.io/blog/2015/02/06/how-to-not-break-permalinks-in-wordpress/';
-        var disqus_url = 'http://dgmstuart.github.io/blog/2015/02/06/how-to-not-break-permalinks-in-wordpress/';
+        var disqus_identifier = 'http://dgmstuart.github.io/blog/2015/03/13/katrina-owen-at-bathruby-here-be-dragons/';
+        var disqus_url = 'http://dgmstuart.github.io/blog/2015/03/13/katrina-owen-at-bathruby-here-be-dragons/';
         var disqus_script = 'embed.js';
       
     (function () {
