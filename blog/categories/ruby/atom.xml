@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Ruby | dgms code]]></title>
   <link href="http://dgmstuart.github.io/blog/categories/ruby/atom.xml" rel="self"/>
   <link href="http://dgmstuart.github.io/"/>
-  <updated>2015-03-04T17:26:48+00:00</updated>
+  <updated>2015-03-13T10:15:37+00:00</updated>
   <id>http://dgmstuart.github.io/</id>
   <author>
     <name><![CDATA[Duncan Stuart]]></name>
@@ -12,6 +12,62 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Bath Ruby: Linda Liukas - Principles of Play]]></title>
+    <link href="http://dgmstuart.github.io/blog/2015/03/13/bath-ruby-linda-liukas-principles-of-play/"/>
+    <updated>2015-03-13T09:42:26+00:00</updated>
+    <id>http://dgmstuart.github.io/blog/2015/03/13/bath-ruby-linda-liukas-principles-of-play</id>
+    <content type="html"><![CDATA[<p><em>I&rsquo;m at <a href="http://2015.bathruby.org/">Bath Ruby 2015</a>, live blogging some of the
+talks</em></p>
+
+<ul>
+<li>Railsgirls in over 277(?) cities
+
+<ul>
+<li>Started in Helsinki</li>
+</ul>
+</li>
+<li>&ldquo;The most scalable change in the world happens when you&rsquo;re 4 years old&rdquo;</li>
+<li>&ldquo;If you draw 1000 circles eventually your circles will get better&rdquo;</li>
+<li>Realtity distortion: being in the community allowed her to think &ldquo;Hey I can
+write a children&rsquo;s book, even though I don&rsquo;t know how to draw, or write a
+book, or program very well</li>
+<li>3 principles of learning: Playfulness, Curiosity, Rules</li>
+<li>Learning Real-world languages (Finnish) by reading other people&rsquo;s texts, not
+by learning grammar rules first</li>
+<li>&ldquo;Little girls don&rsquo;t know the are not supposed to like computers&rdquo;</li>
+<li>Two joys of programming: 1. Building beautiful elegant proper things 2.
+trying things which you&rsquo;re not sure will work and thrilling when it actually
+works. This second one is the playfulness (what she&rsquo;s focussing on&#8221;</li>
+<li>3 components of learning: Achievement, Social and Immersion. Traditional
+learning mainly just focusses on the first</li>
+<li>Rules: <em>how</em> do things work. &ldquo;Imposing logic on something otherwise hard to
+understand&rdquo;</li>
+<li>Teaching through metaphors: baking cupcakes - if you change the recipe
+you&rsquo;ll get different cupcakes.</li>
+<li>Curiosity: Asking <em>why</em>
+
+<ul>
+<li>Introduce 5 year olds to the idea that any object (cars, dogs, toilets)
+could have a computer in it</li>
+<li>Opening up to asking questions: &ldquo;what <em>happens</em> when I press play&rdquo;, &ldquo;is
+the internet a place&rdquo; - these sort of questions which many adults don&rsquo;t
+really
+ask</li>
+<li>Making computers out of paper - totally open thinking: this button prints
+out lego - that button makes breakfast.</li>
+</ul>
+</li>
+<li>__why&rsquo;s poignant guide etc. - opens up to this idea that people in
+programming can be whimsical, human - not what an initial picture of
+programming might be like</li>
+<li>Programmers have found the loophole: we are the world-builders: making
+something out of nothing using just words: Programming as Storytelling</li>
+</ul>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Setting Up a Ruby Dev Environment on Bowery.io]]></title>
@@ -320,44 +376,6 @@ heroku run rake db:migrate
 <li><code>rake secret</code> - &ldquo;Generate a cryptographically secure secret key&rdquo; - the recommended way to generate the secret token for your applications, but useful anywhere you need a long random key</li>
 </ul>
 
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Matching on a Final Segment of a String]]></title>
-    <link href="http://dgmstuart.github.io/blog/2014/06/04/matching-on-a-final-segment-of-a-string/"/>
-    <updated>2014-06-04T19:55:14+01:00</updated>
-    <id>http://dgmstuart.github.io/blog/2014/06/04/matching-on-a-final-segment-of-a-string</id>
-    <content type="html"><![CDATA[<p>When matching on the final segment of a string, e.g for a file extension, you could use a regular expression:</p>
-
-<pre><code class="ruby">&gt; "foo.bar" =~ /.*\.bar$/
-# =&gt; 0
-&gt; "foo.bar.baz" =~ /.*\.bar$/
-#=&gt; nil
-</code></pre>
-
-<p>But of course in ruby there&rsquo;s a much more expressive way
-&#8220;`ruby</p>
-
-<blockquote><p>&ldquo;foo.bar&rdquo;.end_with?(&ldquo;.bar&rdquo;)</p>
-
-<h1>=> true</h1>
-
-<p>&ldquo;foo.bar.baz&rdquo;.end_with?(&ldquo;.bar&rdquo;)</p>
-
-<h1>=> false</h1>
-
-<p>&#8220;`</p></blockquote>
-
-<p>You can even pass multiple suffixes as arguments:</p>
-
-<pre><code class="ruby">&gt; "foo.qux".end_with?("bar", "baz", "qux")
-#=&gt; true
-</code></pre>
-
-<p>Oh Ruby how I love you so.</p>
-
-<p><em><a href="http://www.ruby-doc.org/core-2.1.1/String.html#method-i-end_with-3F">api documentation for end_with?</a></em></p>
 ]]></content>
   </entry>
   
