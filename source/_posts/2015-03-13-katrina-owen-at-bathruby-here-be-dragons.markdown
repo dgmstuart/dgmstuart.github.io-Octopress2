@@ -9,6 +9,11 @@ categories: bathruby
 _I'm at [Bath Ruby 2015](http://2015.bathruby.org/), live blogging some of the
 talks_
 
+![photo by
+@Naomi\_Freeman](https://pbs.twimg.com/media/B_-97ueWAAAnsGS.jpg)
+
+_Photo by [@Naomi\_Freeman](https://twitter.com/Naomi_Freeman)_
+
 * Some bugs are admirable. Squashing them makes you feel victorious
 * Squashing the bug isn't enough: if you don't clear up the root issues, it
   will just cause you future pain - cleaning up the mess.
