@@ -5,11 +5,14 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Category: Postgres - dgms code</title>
+  <title>Ben Orenstein: Live Coding in the Bath at BathRuby - dgms code</title>
   <meta name="author" content="Duncan Stuart">
 
   
-  <meta name="description" content="Category: postgres">
+  <meta name="description" content="I&rsquo;m at Bath Ruby 2015, live blogging some of the
+talks Live coding!
+Code for sending mail to a list of recipients based on a csv
+Problems: Will &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -18,7 +21,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://dgmstuart.github.io/blog/categories/postgres">
+  <link rel="canonical" href="http://dgmstuart.github.io/blog/2015/03/13/ben-orenstein-live-coding-in-the-bath-at-bathruby">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/atom.xml" rel="alternate" title="dgms code" type="application/atom+xml">
@@ -69,50 +72,172 @@
   <div id="main">
     <div id="content">
       <div>
-<article role="article">
+<article class="hentry" role="article">
   
   <header>
-    <h1 class="entry-title">Category: Postgres</h1>
+    
+      <h1 class="entry-title">Ben Orenstein: Live Coding in the Bath at BathRuby</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+
+<time datetime="2015-03-13T10:34:52+00:00" pubdate data-updated="true">Mar 13th, 2015</time>
+        
+           | <a href="#disqus_thread"
+             data-disqus-identifier="http://dgmstuart.github.io">Comments</a>
+        
+      </p>
     
   </header>
-  
-  <div id="blog-archives" class="category">
 
 
+<div class="entry-content"><p><em>I&rsquo;m at <a href="http://2015.bathruby.org/">Bath Ruby 2015</a>, live blogging some of the
+talks</em></p>
 
-  
-  <h2>2014</h2>
+<ul>
+<li>Live coding!</li>
+<li>Code for sending mail to a list of recipients based on a csv</li>
+<li>Problems:
 
-<article>
-  
-<h1><a href="/blog/2014/08/20/migrating-postgres-data-from-an-old-rails-project-to-a-new-one/">Migrating Postgres Data From an Old Rails Project to a New One</a></h1>
-<time datetime="2014-08-20T23:29:31+01:00" pubdate><span class='month'>Aug</span> <span class='day'>20</span> <span class='year'>2014</span></time>
+<ul>
+<li>Will fail if one of the recipients fails to get parsed</li>
+<li>CSV should get injected as a dependency rather than bring parsed in this
+class.</li>
+<li>Class has multiple responsibilities: parsing and mailing</li>
+</ul>
+</li>
+<li>TDD: Should take very little time and effort to run tests (his are two
+keystrokes and no time)</li>
+<li><p>an &lsquo;extract class&rsquo; refactoring:</p>
 
-<footer>
-  <span class="categories">posted in <a class='category' href='/blog/categories/heroku/'>heroku</a>, <a class='category' href='/blog/categories/postgres/'>postgres</a>, <a class='category' href='/blog/categories/rails/'>rails</a>, <a class='category' href='/blog/categories/ruby/'>ruby</a></span>
-</footer>
+<ol>
+<li>add the class we  want in the initialiser</li>
+<li>create an empty spec</li>
+<li>create the class</li>
+</ol>
+</li>
+<li><p><code>CSV::strip_heredoc</code> - Look up</p></li>
+<li>Don&rsquo;t write specs for private methods - test them implicitly through the
+public methods</li>
+<li>Spec style for parsing output:
 
+<ol>
+<li>create a csv string</li>
+<li>create an output hash</li>
+<li>expect parsing the csv string to equal the output hash</li>
+</ol>
+</li>
+<li>TDD approach - do only the smalles thing to get the message to change: e.g.
+create initializer with no args, then add one arg, then start to define
+behaviour</li>
+<li>Now actually use the parser.</li>
+<li>Tests green = OVERWHELMING INSTINCT TO COMMIT!</li>
+<li>&ldquo;Component test&rdquo; = integration test just covering a selection of components
+(?)</li>
+<li>Test refactoring: extract methods! (e.g. to do repeated stubbing and other
+setup)
 
-</article>
+<ul>
+<li>could use <code>before</code>, but tends to do this later or not at all. Makes specs
+harder to read and maintain (?): each spec is different. Extracting method is definitely the first
+step.</li>
+</ul>
+</li>
+<li>&ldquo;We make a mess first, then we clean it up&rdquo;</li>
+<li>Invert control: it&rsquo;s odd that we pass the csv into the Invitations class
 
+<ul>
+<li>Instead, &ldquo;build dependencies at higher level and pass it down to lower
+levels&rdquo; (??)</li>
+<li>Instead of passing the csv to invitations and creating a parser based on
+it, let&rsquo;s send invitations to the parser (!)</li>
+</ul>
+</li>
+<li>Inverting control benefits:
 
+<ul>
+<li>Easier to follow Open/Closed principle</li>
+<li>Shorter specs</li>
+</ul>
+</li>
+<li>Question &ldquo;The specs passed from the beginning, so weren&rsquo;t you done?&rdquo;
 
-<article>
-  
-<h1><a href="/blog/2014/02/07/getting-to-grips-with-postgres/">Getting to Grips With Postgres</a></h1>
-<time datetime="2014-02-07T12:10:20+00:00" pubdate><span class='month'>Feb</span> <span class='day'>07</span> <span class='year'>2014</span></time>
-
-<footer>
-  <span class="categories">posted in <a class='category' href='/blog/categories/postgres/'>postgres</a>, <a class='category' href='/blog/categories/rails/'>rails</a>, <a class='category' href='/blog/categories/soldn/'>soldn</a></span>
-</footer>
-
-
-</article>
+<ul>
+<li>Answer: Refactoring makes more flexible maintainable code</li>
+</ul>
+</li>
+</ul>
 
 </div>
 
+
+  <footer>
+    <p class="meta">
+      
   
+
+<span class="byline author vcard">Posted by <span class="fn">Duncan Stuart</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+
+<time datetime="2015-03-13T10:34:52+00:00" pubdate data-updated="true">Mar 13th, 2015</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/ruby/'>ruby</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://dgmstuart.github.io/blog/2015/03/13/ben-orenstein-live-coding-in-the-bath-at-bathruby/" data-via="dgmstuart" data-counturl="http://dgmstuart.github.io/blog/2015/03/13/ben-orenstein-live-coding-in-the-bath-at-bathruby/" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2015/03/13/bath-ruby-linda-liukas-principles-of-play/" title="Previous Post: Bath Ruby: Linda Liukas - principles of play">&laquo; Bath Ruby: Linda Liukas - principles of play</a>
+      
+      
+    </p>
+  </footer>
 </article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
 
 </div>
 
@@ -205,7 +330,10 @@
       var disqus_shortname = 'dgmscode';
       
         
-        var disqus_script = 'count.js';
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://dgmstuart.github.io/blog/2015/03/13/ben-orenstein-live-coding-in-the-bath-at-bathruby/';
+        var disqus_url = 'http://dgmstuart.github.io/blog/2015/03/13/ben-orenstein-live-coding-in-the-bath-at-bathruby/';
+        var disqus_script = 'embed.js';
       
     (function () {
       var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
