@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Bathruby | dgms code]]></title>
   <link href="http://dgmstuart.github.io/blog/categories/bathruby/atom.xml" rel="self"/>
   <link href="http://dgmstuart.github.io/"/>
-  <updated>2015-03-13T14:42:04+00:00</updated>
+  <updated>2015-03-13T15:32:47+00:00</updated>
   <id>http://dgmstuart.github.io/</id>
   <author>
     <name><![CDATA[Duncan Stuart]]></name>
@@ -12,6 +12,53 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Tom Stuart - 'a Lever for the Mind' at BathRuby]]></title>
+    <link href="http://dgmstuart.github.io/blog/2015/03/13/tom-stuart-a-lever-for-the-mind-at-bathruby/"/>
+    <updated>2015-03-13T14:53:54+00:00</updated>
+    <id>http://dgmstuart.github.io/blog/2015/03/13/tom-stuart-a-lever-for-the-mind-at-bathruby</id>
+    <content type="html"><![CDATA[<p><em>I&rsquo;m at <a href="http://2015.bathruby.org/">Bath Ruby 2015</a>, live blogging some of the
+talks</em></p>
+
+<p><img src="https://pbs.twimg.com/media/B__KM61WQAAyEr9.jpg:medium" alt="Slide photo by @trailsuite" /></p>
+
+<p><em>Photo by <a href="https://twitter.com/trailsuite">@trailsuite</a></em></p>
+
+<ul>
+<li>Brains are just not very good at working with several complex ideas
+concurrently</li>
+<li>Abstraction is our solution to this</li>
+<li>Numbers are a <em>property</em> of sets (?) of things. It doesn&rsquo;t matter how we
+arrange the things, or how big they are</li>
+<li>We build other concepts on top of our idea of number: e.g. successor - a way
+to generate new numbers. gt/lt can be built from the idea of successors</li>
+<li>These abstractions allow us to predict what would happen in reality when
+certain actions occur: we can do the &lsquo;work&rsquo; in the &lsquo;abstract world&rsquo; rather
+than doing it in the real world and observing the result.</li>
+<li>Recognise patterns. Some patterns can be generalised to apply to whole
+classes of items (e.g. all natural numbers)</li>
+<li>You don&rsquo;t need to remember the details of <em>why</em> a particular formula works:
+it doesn&rsquo;t matter: you can use it without understanding why it&rsquo;s true</li>
+<li>A <em>walk</em> across a graph is a sequence of visits from node to node along
+their adjacent edges</li>
+<li>A <em>connected graph</em> is one where there exists a walk between any pair of notes</li>
+<li>A <em>trail</em> is a walk which doesn&rsquo;t repeat traversing edges</li>
+<li>An <em>Euleurian trail</em> is a walk which visits every node and uses every edge</li>
+<li>Mathematics: &ldquo;spot patterns, build reusable abstractions&rdquo;</li>
+<li>Abstractions help us take complex things from the real world and reconstruct
+them in our heads so that we cal (?reason about them?)</li>
+<li>Idea of the <em>honest</em> abstraction - the one which &lsquo;honestly&rsquo; models your
+problem.</li>
+<li>The <em>minimal</em> abstraction: start from nothing and only add the
+behaviours/ideas/operations which are strictly necessary</li>
+<li>&ldquo;the most exciting thing you can do with your brain is to strap it into the
+hulking exoskeleton of mathematics&rdquo;</li>
+<li>If you can write a program, you&rsquo;re good at mathematics</li>
+</ul>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Katrina Owen at BathRuby: Here Be Dragons]]></title>
