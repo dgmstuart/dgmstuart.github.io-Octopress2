@@ -5,6 +5,8 @@ date: 2015-03-13 11:27:15 +0000
 comments: true
 categories: [bathruby, learning]
 ---
+_I'm at [Bath Ruby 2015](http://2015.bathruby.org/), live blogging some of the
+talks_
 ![photo by
 @Naiomi\_Freeman](https://pbs.twimg.com/media/B_-Xi25W8AAKFwW.jpg:medium)
 
