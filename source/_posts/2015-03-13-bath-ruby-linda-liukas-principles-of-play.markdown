@@ -8,6 +8,11 @@ categories: [ruby, bathruby]
 _I'm at [Bath Ruby 2015](http://2015.bathruby.org/), live blogging some of the
 talks_
 
+![Photo of Linda Liukas by
+@Naomi_Freeman](https://pbs.twimg.com/media/B_-CEvAWEAA1Fqu.jpg:large)
+
+_photo by [@Naomi\_Freeman](https://twitter.com/naomi\_freeman/)_
+
 * Railsgirls in over 277(?) cities
     * Started in Helsinki
 * "The most scalable change in the world happens when you're 4 years old"
