@@ -8,9 +8,9 @@ categories: [bathruby, learning]
 _I'm at [Bath Ruby 2015](http://2015.bathruby.org/), live blogging some of the
 talks_
 ![photo by
-@Naiomi\_Freeman](https://pbs.twimg.com/media/B_-Xi25W8AAKFwW.jpg:medium)
+@Naomi\_Freeman](https://pbs.twimg.com/media/B_-Xi25W8AAKFwW.jpg:medium)
 
-_Photo by [@Naiomi\_Freeman](https://twitter.com/Naomi_Freeman)_
+_Photo by [@Naomi\_Freeman](https://twitter.com/Naomi_Freeman)_
 
 * Dreyfus model of skill acquisition - LOOK UP
 * Advice she got for going from novice to expert: "Read code"
