@@ -9,7 +9,7 @@
   <meta name="author" content="Duncan Stuart">
 
   
-  <meta name="description" content="I&rsquo;m at WordCamp Europe in Sofia - taking rough notes on some of the talks Mark Jaquith (@markjaquith) http://2014.europe.wordcamp.org/session/ &hellip;">
+  <meta name="description" content="I&rsquo;m at WordCamp Europe in Sofia - taking rough notes on some of the talks Tom Nowell (cftp) http://2014.europe.wordcamp.org/session/tom-nowell &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -70,6 +70,79 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2014/09/28/wordcamp-europe-2014-notes-2-dot-4-code-deodorant/">WordCamp Europe 2014 Notes - 2.4: Code Deodorant</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+
+<time datetime="2014-09-28T10:27:07+01:00" pubdate data-updated="true">Sep 28th, 2014</time>
+        
+           | <a href="/blog/2014/09/28/wordcamp-europe-2014-notes-2-dot-4-code-deodorant/#disqus_thread"
+             data-disqus-identifier="http://dgmstuart.github.io/blog/2014/09/28/wordcamp-europe-2014-notes-2-dot-4-code-deodorant/">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><em>I&rsquo;m at <a href="http://2014.europe.wordcamp.org/">WordCamp Europe</a> in Sofia - taking rough notes on some of the talks</em></p>
+
+<p>Tom Nowell (cftp) <a href="http://2014.europe.wordcamp.org/session/tom-nowell/">http://2014.europe.wordcamp.org/session/tom-nowell/</a></p>
+
+<ul>
+<li>Now when running vanilla WP without plugins you shouldn&rsquo;t see any warnings, so all warnings are things you should pay attention to</li>
+<li>&lsquo;@&rsquo; swallows errors - hides them.</li>
+<li><a href="http://codex.wordpress.org/Plugin_API/Action_Reference/pre_get_posts">pre_get_posts action</a> - useful for removing complexity: modifying queries before they get run</li>
+<li>Law of Demeter &ldquo;if you&rsquo;re talking to something, only talk to the things directly adjacent to you&rdquo;</li>
+<li>No global variables - random ordering of tests can help to show up issues.</li>
+<li>Tools for code quality:
+
+<ul>
+<li>php syntax checking - if your editor isn&rsquo;t doing this you&rsquo;re doing it wrong. PHP Storm does this</li>
+<li><a href="https://github.com/squizlabs/PHP_CodeSniffer">php code sniffer</a> - give it coding standards - it&rsquo;ll check them</li>
+<li><a href="https://github.com/Halleck45/PhpMetrics">php Metrics</a></li>
+<li>phpLOC - tells you how many lines, classes, namespaces, measure of code complexity</li>
+<li><a href="https://github.com/phpmd/phpmd">php Mess detector</a> - fuzzy matching: helps detect typos and join up e.g. misspelled variables which might be the same thing</li>
+<li>NPath &amp; Cyclomatic complexity - Cycl = number of points at which code may diverge, NPath is number of execution paths through the code.
+
+<ul>
+<li>NPath complexity is roughly equivalent to the number of unit tests that you need to have to fully test the function</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Lots of WP functions have incredibly large npath complexity - WP_Query::get_posts is insanely large. Even larger in WP 4.0
+
+<ul>
+<li><a href="http://www.tomjn.com/390/wp_queryget_posts/">http://www.tomjn.com/390/wp_queryget_posts/</a></li>
+</ul>
+</li>
+</ul>
+
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -1032,64 +1105,6 @@ and associated with <code>events</code> via a join table: <code>event_swing_date
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2014/08/15/creating-a-new-app-on-heroku-is-stupidly-easy/">Creating a New App on Heroku Really Is Stupidly Easy</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-
-<time datetime="2014-08-15T13:49:11+01:00" pubdate data-updated="true">Aug 15th, 2014</time>
-        
-           | <a href="/blog/2014/08/15/creating-a-new-app-on-heroku-is-stupidly-easy/#disqus_thread"
-             data-disqus-identifier="http://dgmstuart.github.io/blog/2014/08/15/creating-a-new-app-on-heroku-is-stupidly-easy/">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><pre><code>heroku apps:create swingoutlondon2 --region eu
-git push heroku master
-heroku run rake db:migrate
-</code></pre>
-
-<p>Done *. <a href="https://swingoutlondon2.herokuapp.com">https://swingoutlondon2.herokuapp.com</a> exists.</p>
-
-<p>I know it&rsquo;s been around for ages, but it really is amazing how simple it is.</p>
-
-<p><em>* Actually not quite done - I still needed to:</em></p>
-
-<ul>
-<li><em>set up my <a href="https://devcenter.heroku.com/changelog-items/426">secret tokens</a></em></li>
-<li><em>jump through a couple of hoops to get Devise&rsquo;s key to be recognised because <a href="https://stackoverflow.com/questions/19832218/failing-to-find-envsecret-key-in-devise-setup-on-heroku#comment35154876_19833145">Heroku doesn&rsquo;t have access to the Rails environment when deploying</a></em></li>
-<li><em><a href="http://stackoverflow.com/a/17082720/1035431">tweak my production.rb</a> to get it to compile assets</em></li>
-</ul>
-
-
-<p><em>But whatever. Hush.</em></p>
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="3">&larr; Older</a>
@@ -1115,6 +1130,10 @@ heroku run rake db:migrate
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2015/03/13/live-coding-music-at-bathruby/">Live-coding Music at BathRuby</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2015/03/13/saron-yitbarek-learning-code-good-at-bathruby/">Saron Yitbarek - Learning Code Good (at BathRuby)</a>
       </li>
     
@@ -1128,10 +1147,6 @@ heroku run rake db:migrate
     
       <li class="post">
         <a href="/blog/2015/02/28/setting-up-a-ruby-on-rails-dev-environment-on-bowery-dot-io/">Setting Up a Ruby Dev Environment on Bowery.io</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2015/02/23/how-your-base-path-gets-generated-in-osx/">How Your Base PATH Gets Generated in OSX</a>
       </li>
     
   </ul>
