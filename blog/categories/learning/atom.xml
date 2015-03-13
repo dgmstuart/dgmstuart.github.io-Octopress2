@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Learning | dgms code]]></title>
+  <link href="http://dgmstuart.github.io/blog/categories/learning/atom.xml" rel="self"/>
+  <link href="http://dgmstuart.github.io/"/>
+  <updated>2015-03-13T11:52:40+00:00</updated>
+  <id>http://dgmstuart.github.io/</id>
+  <author>
+    <name><![CDATA[Duncan Stuart]]></name>
+    <email><![CDATA[dgmstuart@gmail.com]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Saron Yitbarek - Learning Code Good (at BathRuby)]]></title>
+    <link href="http://dgmstuart.github.io/blog/2015/03/13/saron-yitbarek-learning-code-good-at-bathruby/"/>
+    <updated>2015-03-13T11:27:15+00:00</updated>
+    <id>http://dgmstuart.github.io/blog/2015/03/13/saron-yitbarek-learning-code-good-at-bathruby</id>
+    <content type="html"><![CDATA[<p><img src="https://pbs.twimg.com/media/B_-Xi25W8AAKFwW.jpg:medium" alt="photo by
+@Naiomi_Freeman" /></p>
+
+<p><em>Photo by <a href="https://twitter.com/Naomi_Freeman">@Naiomi_Freeman</a></em></p>
+
+<ul>
+<li>Dreyfus model of skill acquisition - LOOK UP</li>
+<li>Advice she got for going from novice to expert: &ldquo;Read code&rdquo;</li>
+<li>Codeclub: sunday morning reading group</li>
+<li>Rules for what to read: Exemplary code: popular, documented, well maintained</li>
+<li>Starting point: Sinatra&rsquo;s <code>get</code> method</li>
+<li>&ldquo;A huge fan of remote working: Any excuse to not wear pants is great&rdquo; :)</li>
+<li>Met on google hangouts</li>
+<li>Did a retrospective on the sessions:
+
+<ul>
+<li>Decided to pick only small things: &lt; 100 lines of code: gives space to ask
+questions, reasearch etc.</li>
+</ul>
+</li>
+<li>Understanding: it&rsquo;s not really about reading the code: it&rsquo;s about the
+convesations it starts.</li>
+<li>Keeping it small - 5 consistent people - helps to keep it engaged</li>
+<li>Important to have a &lsquo;tour guide&rsquo; making sure everyone is engaged and
+contributing (?)</li>
+<li>Asking the question of crappy methods &ldquo;how would we have written it?&rdquo; is
+really interesting.
+
+<ul>
+<li>Therefore it&rsquo;s not necessary for the code to be exemplary: lots of benefit
+in reading shonky code</li>
+</ul>
+</li>
+<li>Drawing out knowledge gaps: the things you think you understand but actually
+have no idea about</li>
+<li>Reading something you actually need to use is a totally different
+experience: you&rsquo;re much more invested in it</li>
+<li>Look at organisation of the code, not just the detail (how code is organised
+into files, what they&rsquo;re called etc)</li>
+<li>Learning on your own is possible but really tiring.</li>
+<li>Learning in a bootcamp is very expensive and time-consuming</li>
+<li>Solution: <a href="http://www.codenewbie.org/">codenewbie</a> - connecting new developers with each other</li>
+<li>&ldquo;The learning happens in the digressions&rdquo;</li>
+<li>Knowledge = connecting the &lsquo;dots&rsquo; of information</li>
+</ul>
+
+]]></content>
+  </entry>
+  
+</feed>

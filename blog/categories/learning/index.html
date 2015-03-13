@@ -5,15 +5,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Matching on a Final Segment of a String - dgms code</title>
+  <title>Category: Learning - dgms code</title>
   <meta name="author" content="Duncan Stuart">
 
   
-  <meta name="description" content="When matching on the final segment of a string, e.g for a file extension, you could use a regular expression: 1
-2
-3
-4
-&gt; &quot;foo.bar&quot &hellip;">
+  <meta name="description" content="Category: learning">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -22,7 +18,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://dgmstuart.github.io/blog/2014/06/04/matching-on-a-final-segment-of-a-string">
+  <link rel="canonical" href="http://dgmstuart.github.io/blog/categories/learning">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/atom.xml" rel="alternate" title="dgms code" type="application/atom+xml">
@@ -73,135 +69,36 @@
   <div id="main">
     <div id="content">
       <div>
-<article class="hentry" role="article">
+<article role="article">
   
   <header>
-    
-      <h1 class="entry-title">Matching on a Final Segment of a String</h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-
-<time datetime="2014-06-04T19:55:14+01:00" pubdate data-updated="true">Jun 4th, 2014</time>
-        
-           | <a href="#disqus_thread"
-             data-disqus-identifier="http://dgmstuart.github.io">Comments</a>
-        
-      </p>
+    <h1 class="entry-title">Category: Learning</h1>
     
   </header>
-
-
-<div class="entry-content"><p>When matching on the final segment of a string, e.g for a file extension, you could use a regular expression:</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="o">&gt;</span> <span class="s2">&quot;foo.bar&quot;</span> <span class="o">=~</span> <span class="sr">/.*\.bar$/</span>
-</span><span class='line'><span class="c1"># =&gt; 0</span>
-</span><span class='line'><span class="o">&gt;</span> <span class="s2">&quot;foo.bar.baz&quot;</span> <span class="o">=~</span> <span class="sr">/.*\.bar$/</span>
-</span><span class='line'><span class="c1">#=&gt; nil</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>But of course in ruby there&rsquo;s a much more expressive way</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="o">&gt;</span> <span class="s2">&quot;foo.bar&quot;</span><span class="o">.</span><span class="n">end_with?</span><span class="p">(</span><span class="s2">&quot;.bar&quot;</span><span class="p">)</span>
-</span><span class='line'><span class="c1">#=&gt; true</span>
-</span><span class='line'><span class="o">&gt;</span> <span class="s2">&quot;foo.bar.baz&quot;</span><span class="o">.</span><span class="n">end_with?</span><span class="p">(</span><span class="s2">&quot;.bar&quot;</span><span class="p">)</span>
-</span><span class='line'><span class="c1">#=&gt; false</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>You can even pass multiple suffixes as arguments:</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="o">&gt;</span> <span class="s2">&quot;foo.qux&quot;</span><span class="o">.</span><span class="n">end_with?</span><span class="p">(</span><span class="s2">&quot;bar&quot;</span><span class="p">,</span> <span class="s2">&quot;baz&quot;</span><span class="p">,</span> <span class="s2">&quot;qux&quot;</span><span class="p">)</span>
-</span><span class='line'><span class="c1">#=&gt; true</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Oh Ruby how I love you so.</p>
-
-<p><em><a href="http://www.ruby-doc.org/core-2.1.1/String.html#method-i-end_with-3F">api documentation for end_with?</a></em></p>
-</div>
-
-
-  <footer>
-    <p class="meta">
-      
   
-
-<span class="byline author vcard">Posted by <span class="fn">Duncan Stuart</span></span>
-
-      
-
-
-
-
-
+  <div id="blog-archives" class="category">
 
 
 
   
+  <h2>2015</h2>
 
-
-
-<time datetime="2014-06-04T19:55:14+01:00" pubdate data-updated="true">Jun 4th, 2014</time>
-      
-
-<span class="categories">
+<article>
   
-    <a class='category' href='/blog/categories/ruby/'>ruby</a>
-  
-</span>
+<h1><a href="/blog/2015/03/13/saron-yitbarek-learning-code-good-at-bathruby/">Saron Yitbarek - Learning Code Good (at BathRuby)</a></h1>
+<time datetime="2015-03-13T11:27:15+00:00" pubdate><span class='month'>Mar</span> <span class='day'>13</span> <span class='year'>2015</span></time>
+
+<footer>
+  <span class="categories">posted in <a class='category' href='/blog/categories/bathruby/'>bathruby</a>, <a class='category' href='/blog/categories/learning/'>learning</a></span>
+</footer>
 
 
-    </p>
-    
-      <div class="sharing">
-  
-  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://dgmstuart.github.io/blog/2014/06/04/matching-on-a-final-segment-of-a-string/" data-via="dgmstuart" data-counturl="http://dgmstuart.github.io/blog/2014/06/04/matching-on-a-final-segment-of-a-string/" >Tweet</a>
-  
-  
-  
-</div>
-
-    
-    <p class="meta">
-      
-        <a class="basic-alignment left" href="/blog/2014/02/10/initialising-rspec-in-a-rails-project/" title="Previous Post: Gotcha: Initialising RSpec in a rails project">&laquo; Gotcha: Initialising RSpec in a rails project</a>
-      
-      
-        <a class="basic-alignment right" href="/blog/2014/06/15/useful-rake-tasks-in-rails/" title="Next Post: Useful rake tasks in Rails">Useful rake tasks in Rails &raquo;</a>
-      
-    </p>
-  </footer>
 </article>
 
-  <section>
-    <h1>Comments</h1>
-    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 </div>
-  </section>
+
+  
+</article>
 
 </div>
 
@@ -294,10 +191,7 @@
       var disqus_shortname = 'dgmscode';
       
         
-        // var disqus_developer = 1;
-        var disqus_identifier = 'http://dgmstuart.github.io/blog/2014/06/04/matching-on-a-final-segment-of-a-string/';
-        var disqus_url = 'http://dgmstuart.github.io/blog/2014/06/04/matching-on-a-final-segment-of-a-string/';
-        var disqus_script = 'embed.js';
+        var disqus_script = 'count.js';
       
     (function () {
       var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;

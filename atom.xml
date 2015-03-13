@@ -4,7 +4,7 @@
   <title><![CDATA[dgms code]]></title>
   <link href="http://dgmstuart.github.io/atom.xml" rel="self"/>
   <link href="http://dgmstuart.github.io/"/>
-  <updated>2015-03-13T11:14:29+00:00</updated>
+  <updated>2015-03-13T11:52:40+00:00</updated>
   <id>http://dgmstuart.github.io/</id>
   <author>
     <name><![CDATA[Duncan Stuart]]></name>
@@ -12,6 +12,60 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Saron Yitbarek - Learning Code Good (at BathRuby)]]></title>
+    <link href="http://dgmstuart.github.io/blog/2015/03/13/saron-yitbarek-learning-code-good-at-bathruby/"/>
+    <updated>2015-03-13T11:27:15+00:00</updated>
+    <id>http://dgmstuart.github.io/blog/2015/03/13/saron-yitbarek-learning-code-good-at-bathruby</id>
+    <content type="html"><![CDATA[<p><img src="https://pbs.twimg.com/media/B_-Xi25W8AAKFwW.jpg:medium" alt="photo by
+@Naiomi_Freeman" /></p>
+
+<p><em>Photo by <a href="https://twitter.com/Naomi_Freeman">@Naiomi_Freeman</a></em></p>
+
+<ul>
+<li>Dreyfus model of skill acquisition - LOOK UP</li>
+<li>Advice she got for going from novice to expert: &ldquo;Read code&rdquo;</li>
+<li>Codeclub: sunday morning reading group</li>
+<li>Rules for what to read: Exemplary code: popular, documented, well maintained</li>
+<li>Starting point: Sinatra&rsquo;s <code>get</code> method</li>
+<li>&ldquo;A huge fan of remote working: Any excuse to not wear pants is great&rdquo; :)</li>
+<li>Met on google hangouts</li>
+<li>Did a retrospective on the sessions:
+
+<ul>
+<li>Decided to pick only small things: &lt; 100 lines of code: gives space to ask
+questions, reasearch etc.</li>
+</ul>
+</li>
+<li>Understanding: it&rsquo;s not really about reading the code: it&rsquo;s about the
+convesations it starts.</li>
+<li>Keeping it small - 5 consistent people - helps to keep it engaged</li>
+<li>Important to have a &lsquo;tour guide&rsquo; making sure everyone is engaged and
+contributing (?)</li>
+<li>Asking the question of crappy methods &ldquo;how would we have written it?&rdquo; is
+really interesting.
+
+<ul>
+<li>Therefore it&rsquo;s not necessary for the code to be exemplary: lots of benefit
+in reading shonky code</li>
+</ul>
+</li>
+<li>Drawing out knowledge gaps: the things you think you understand but actually
+have no idea about</li>
+<li>Reading something you actually need to use is a totally different
+experience: you&rsquo;re much more invested in it</li>
+<li>Look at organisation of the code, not just the detail (how code is organised
+into files, what they&rsquo;re called etc)</li>
+<li>Learning on your own is possible but really tiring.</li>
+<li>Learning in a bootcamp is very expensive and time-consuming</li>
+<li>Solution: <a href="http://www.codenewbie.org/">codenewbie</a> - connecting new developers with each other</li>
+<li>&ldquo;The learning happens in the digressions&rdquo;</li>
+<li>Knowledge = connecting the &lsquo;dots&rsquo; of information</li>
+</ul>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Ben Orenstein: Live Coding in the Bath at BathRuby]]></title>
@@ -1313,49 +1367,6 @@ heroku run rake db:migrate
 
 
 <p><em>But whatever. Hush.</em></p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[A Better Way of Writing Commit Messages]]></title>
-    <link href="http://dgmstuart.github.io/blog/2014/06/23/a-better-way-of-writing-commit-messages/"/>
-    <updated>2014-06-23T23:52:20+01:00</updated>
-    <id>http://dgmstuart.github.io/blog/2014/06/23/a-better-way-of-writing-commit-messages</id>
-    <content type="html"><![CDATA[<p>I&rsquo;ve always tended to write commit messages by answering the question &ldquo;What did I do?&rdquo;, but I learned a different approach recently which tends to produce much more expressive commits, which are often more terse as well. Compare the following:</p>
-
-<table>
-<thead>
-<tr>
-<th>&ldquo;What did I do?&rdquo; </th>
-<th> &ldquo;What do things look like now?&rdquo;</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Fixed a bug whereby active links were displaying in the wrong colour </td>
-<td> Active links now display as blue</td>
-</tr>
-<tr>
-<td>Changed the styling of the popup for clarity </td>
-<td> The popup now more clearly displays the review description</td>
-</tr>
-<tr>
-<td>Fixed styling bug in previous commit </td>
-<td> The styling added in the previous commit now only gets applied to the modal</td>
-</tr>
-<tr>
-<td>Added a list of reviewed versions with icons to the security column </td>
-<td> The security column now displays a list of reviewed versions</td>
-</tr>
-</tbody>
-</table>
-
-
-<p>Ok, so not all of these are fantastic commit messages (they&rsquo;re all real from recent work I&rsquo;ve done). This approach isn&rsquo;t a magic formula but it helps me to focus on what&rsquo;s most relevant, and I feel like the messages on the right are more useful.</p>
-
-<p>An important insight is that although at the time the distinction between implementing a feature/fixing a bug/adding a tweak seems important, when scanning through a list of commits, it&rsquo;s probably the actual behaviour which which is going to be most useful <em>(caveat: if you have a story ID or ticket reference then it&rsquo;s probably worth including)</em>.</p>
-
-<p><em>Props for the tip go to <a href="https://twitter.com/zeeraw">zeeraw</a> - my colleague at <a href="http://www.dxw.com/">dxw</a></em></p>
 ]]></content>
   </entry>
   
