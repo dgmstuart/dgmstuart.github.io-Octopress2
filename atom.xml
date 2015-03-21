@@ -4,7 +4,7 @@
   <title><![CDATA[dgms code]]></title>
   <link href="http://dgmstuart.github.io/atom.xml" rel="self"/>
   <link href="http://dgmstuart.github.io/"/>
-  <updated>2015-03-14T01:05:07+00:00</updated>
+  <updated>2015-03-21T15:59:08+00:00</updated>
   <id>http://dgmstuart.github.io/</id>
   <author>
     <name><![CDATA[Duncan Stuart]]></name>
@@ -12,6 +12,115 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[WP London - Bruce Lawson - Responsive Images]]></title>
+    <link href="http://dgmstuart.github.io/blog/2015/03/21/wp-london-bruce-lawson-responsive-images/"/>
+    <updated>2015-03-21T15:18:00+00:00</updated>
+    <id>http://dgmstuart.github.io/blog/2015/03/21/wp-london-bruce-lawson-responsive-images</id>
+    <content type="html"><![CDATA[<p><em>I&rsquo;m at <a href="http://london.wordcamp.org/2015/">WordCamp London</a> - live-blogging
+some of the talks</em></p>
+
+<p><a href="http://www.brucelawson.co.uk/">Bruce Lawson</a></p>
+
+<ul>
+<li>Responsiveness includes speed of loading</li>
+<li>0.5 second delay is a 20% drop in traffic</li>
+<li>Images are a major cause of slowing down pages</li>
+<li>Av web page is 1.9MB - of which 1.2MB are images</li>
+<li>Number of images loaded is static over time, but the size of images
+increases significantly over time</li>
+<li>How can I send huge images to retina devices, but smaller images for
+rendering on smaller screens? Answer: HARD.</li>
+<li>First try: use css to swap in images based on page width:
+
+<ul>
+<li>Fail: loads the retina image THEN the smaller image - i.e. downloads
+both - the opposite of what we want</li>
+<li>This is because CSS and JS get applied to the DOM, so the DOM needs to
+get loaded first (?)</li>
+<li>Browsers can create the DOM tree in whatever way they like</li>
+<li>Because of preloading (&ldquo;the single greatest performance improvement
+that browsers have ever made&rdquo;) The whole of the source is read before the DOM tree is loaded - as soon
+as an image is spotted in the DOM, a request is sent off to fetch that
+image (i.e. before the DOM tree gets constructed)</li>
+<li>therefore doing things in the  CSS is too late</li>
+</ul>
+</li>
+<li>Therefore it needs to be the markup - Media Queries have been around a long
+time</li>
+<li>Respimg - responsive images community group</li>
+<li>First time a group of web developers wrote part of the standard and got it
+into the spec</li>
+<li>Now in Opera and Chrome and soon to be in Webkit</li>
+<li>First use case - optimise for high dpi screeens:
+
+<ul>
+<li>srcset attribute: specify images for particular pixel densities: a
+candidate list which the browser can use to select an optimal image</li>
+<li>The browser gets to choose - this is so that e.g. the user can choose what
+sort of image quality they wnat to have</li>
+</ul>
+</li>
+</ul>
+
+
+<p><img src="https://igcdn-photos-b-a.akamaihd.net/hphotos-ak-xaf1/t51.2885-15/11023186_1799356763623801_1327635725_n.jpg" alt="@Brucel talking responsive images" /></p>
+
+<ul>
+<li>Second use case - stretchy images
+
+<ul>
+<li>Can be done straightforwardly with css, but involves sending massive
+images down the wire and putting a lot of CPU load on the browser</li>
+<li>Slows things down for the user!</li>
+<li>solution: w descriptor - use in src set to tell the browser which image
+is more suitable for a particular page width</li>
+</ul>
+</li>
+<li>All this requires a lot of cruft to add in all the clauses to make this work, but
+there&rsquo;s a plugin from Respimg which does it for you</li>
+<li>Third use case - new image formats
+
+<ul>
+<li>JPG/PNG/GIF are ubiquitous, but there are more modern, better
+compression alternatives: smaller files, better quality - e.g. WebP</li>
+<li>Traditionally the logic is you can&rsquo;t use this in the wild because only
+Chrome and Opera support it</li>
+<li>with the <code>&lt;picture&gt;</code> element you can supply different image formats with
+fallbacks - so e.g. you can use WebP and fall back to img (actually
+browsers will force you to do progressive enhancement (supply an image)</li>
+</ul>
+</li>
+<li>Last use case - art direction
+
+<ul>
+<li>Choose a different aspect of the image to display on different devices:
+zoom in on a different bit of the image for different viewport sizes</li>
+<li>Use media queries within the <code>&lt;picture&gt;</code> element to display different
+versions of an image at different widths</li>
+</ul>
+</li>
+<li>Release dates:
+
+<ul>
+<li>in OPera and Chrome now</li>
+<li>FF in may</li>
+<li>IE &ldquo;under consideration&rdquo; &hellip;</li>
+<li>Safari already implement <code>srcset</code> - havent talked about <code>&lt;picture&gt;</code></li>
+</ul>
+</li>
+<li>YOU CAN USE THIS NOW
+
+<ul>
+<li>It&rsquo;s designed to force progressive enhancement - nobody gets a worse
+experience than they do now</li>
+</ul>
+</li>
+</ul>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Sandi Metz: Nothing Is Something - at BathRuby]]></title>
@@ -1168,67 +1277,6 @@ Here&rsquo;s where it looks, in order, for an email address to use:</p>
 <li>Really tricky. No good answer. Communicate a LOT. Let your clients know that you&rsquo;re needy: you&rsquo;ll need a lot from them - particularly availability for communication.</li>
 </ul>
 </li>
-</ul>
-
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[WordCamp Europe 2014 Notes - 1.3: Styling the WordPress Admin]]></title>
-    <link href="http://dgmstuart.github.io/blog/2014/09/27/wordcamp-europe-2014-notes-3-styling-the-wordpress-admin/"/>
-    <updated>2014-09-27T09:32:55+01:00</updated>
-    <id>http://dgmstuart.github.io/blog/2014/09/27/wordcamp-europe-2014-notes-3-styling-the-wordpress-admin</id>
-    <content type="html"><![CDATA[<p><em>I&rsquo;m at <a href="http://2014.europe.wordcamp.org/">WordCamp Europe</a> in Sofia - taking rough notes on some of the talks</em></p>
-
-<p>Konstantin Dankov <a href="http://2014.europe.wordcamp.org/session/konstantin-dankov/">http://2014.europe.wordcamp.org/session/konstantin-dankov/</a></p>
-
-<p><img src="http://photos-a.ak.instagram.com/hphotos-ak-xfp1/1742413_291384914397664_162274686_n.jpg" alt="sketchnotes by @studionetting" /></p>
-
-<p><em>Awesome sketchnotes by <a href="http://instagram.com/p/tcl0LKNkJp">@studionetting</a></em></p>
-
-<ul>
-<li><p>Why style the admin?</p>
-
-<ul>
-<li>make things simpler for the user</li>
-<li>save time by optimising workflows - supporting power users - removing unnecessary steps: e.g. jump straight to a particular page.</li>
-<li>Branding - sometimes larger organisations would like their own branding inside
-
-<ul>
-<li>Important to not go overboard! Use a little to do a lot.</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>Why NOT to do it</p>
-
-<ul>
-<li>There&rsquo;s a large cost to supporting it:
-
-<ul>
-<li>There&rsquo;s a lot of it!</li>
-</ul>
-</li>
-<li>Clashes with plugin styles: can cause plugins to break</li>
-</ul>
-</li>
-<li><p>Consider the experience of editors vs admins</p></li>
-<li><p>Adding a custom post type</p>
-
-<ul>
-<li>Defaults (all overridable when registering the post type)
-
-<ul>
-<li>It goes to the bottom of the list</li>
-<li>It has the same icon as other post</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>Using filters the order of menu items can be managed in a more coherent way: explicitly naming the order rather than using index numbers.</p></li>
-<li><p>Preference: When the custom post type is specific to that project then this menu-modifying code should be in the theme, along with the post type itself: moving it out into a plugin just adds complexity.</p></li>
-<li><p>Removing the dashboard to jump straight to the posts: useful if your primary thing is generating new content</p></li>
-<li><p>There&rsquo;s a lot of complexity in the WP admin css: responsive styles, Right->Left styles. Making modifications are a lot more work than they look</p></li>
 </ul>
 
 ]]></content>
