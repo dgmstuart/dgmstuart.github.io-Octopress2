@@ -14,8 +14,6 @@ twitter](https://pbs.twimg.com/media/CAs0AgdWEAApTMb.jpg)
 
 _photo of [Mark Jaquith](https://twitter.com/markjaquith) by [Dave Pullig](https://twitter.com/davepullig/)_
 
-
-
 * Ultimately failing to cache could take your site down: run out of connections
 * Caching principles:
     * Do less work - By default WP is Totally dynamic - there's a lot of
@@ -67,8 +65,7 @@ _photo of [Mark Jaquith](https://twitter.com/markjaquith) by [Dave Pullig](https
     * Use cookies: by default WP renders user-specific content using php, but
       that's very odd
     * Set JS-readable cookies and use them to populate the content
-    * He's just written [Cache
-      Buddy](https://github.com/markjaquith/cache-buddy) - a plugin to do this
+    * He's just written [Cache Buddy](https://github.com/markjaquith/cache-buddy) - a plugin to do this
 * Object Caching
     * APCu, Memcache, or (recommended:) Redis
     * put them in `object-cache.php` - they need to be loaded before plugins
