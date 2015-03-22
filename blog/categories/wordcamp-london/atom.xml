@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Wordcamp London | dgms code]]></title>
   <link href="http://dgmstuart.github.io/blog/categories/wordcamp-london/atom.xml" rel="self"/>
   <link href="http://dgmstuart.github.io/"/>
-  <updated>2015-03-22T12:42:17+00:00</updated>
+  <updated>2015-03-22T12:54:16+00:00</updated>
   <id>http://dgmstuart.github.io/</id>
   <author>
     <name><![CDATA[Duncan Stuart]]></name>
@@ -32,7 +32,7 @@ php testing framework</li>
 <li>Acceptance testing: commands like <code>amOnPage</code>, <code>see</code>, <code>fillField</code></li>
 <li>Define scenarios: login, fill in form and submit etc.</li>
 <li>Generates reports in: console, html, xml (Ick!)</li>
-<li>Can use different drivers: WebDriver (fast, headless, no js), Selenium (Slow, but drives the actual browser: can be hard to set up), PhantomJS (headless, runs js)</li>
+<li>Can use different drivers: WebDriver (fast, headless, no js, basically does the equivalend of cURL), Selenium (Slow, but drives the actual browser: can be hard to set up), PhantomJS (headless, runs js)</li>
 <li>Functional testing: sits alongside acceptance testing
 
 <ul>
@@ -62,6 +62,15 @@ setup and teardown</li>
 </li>
 <li>Refactoring strategy: Acceptance tests allow you to refactor your unit tests
 with confidence, (which allows you to refactor your code with confidence)</li>
+<li>Question: How to not couple the tests to e.g. the names of field names
+
+<ul>
+<li>Strategy: create a page object which wraps up those IDs, so that you
+only have one point where you need to change these</li>
+<li>Makes it slightly harder for non-developers to do the changes <em>(does it though??)</em>,
+but makes it much more maintainable</li>
+</ul>
+</li>
 </ul>
 
 ]]></content>
