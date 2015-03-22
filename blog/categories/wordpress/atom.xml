@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Wordpress | dgms code]]></title>
   <link href="http://dgmstuart.github.io/blog/categories/wordpress/atom.xml" rel="self"/>
   <link href="http://dgmstuart.github.io/"/>
-  <updated>2015-03-21T15:59:08+00:00</updated>
+  <updated>2015-03-22T12:01:21+00:00</updated>
   <id>http://dgmstuart.github.io/</id>
   <author>
     <name><![CDATA[Duncan Stuart]]></name>
@@ -12,6 +12,146 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Mark Jaquith at WordCamp London - Cache Money Business]]></title>
+    <link href="http://dgmstuart.github.io/blog/2015/03/22/mark-jaquith-at-wordcamp-london-cache-money-business/"/>
+    <updated>2015-03-22T11:31:06+00:00</updated>
+    <id>http://dgmstuart.github.io/blog/2015/03/22/mark-jaquith-at-wordcamp-london-cache-money-business</id>
+    <content type="html"><![CDATA[<p><em>I&rsquo;m at <a href="http://london.wordcamp.org/2015/">WordCamp London</a> - live-blogging
+some of the talks</em></p>
+
+<p><a href="https://twitter.com/markjaquith">Mark Jaquith</a></p>
+
+<ul>
+<li>Ultimately failing to cache could take your site down: run out of connections</li>
+<li>Caching principles:
+
+<ul>
+<li>Do less work - By default WP is Totally dynamic - there&rsquo;s a lot of
+complex stuff going on and it all gets done on every single request</li>
+<li>Hold onto data as long as it makes sense to do so: this is very specific
+to each individual site (at least for certain kinds of content)</li>
+<li>Make output generic: the more specific it is to a particular user, the
+less cachable it is</li>
+</ul>
+</li>
+<li>Page caching:
+
+<ul>
+<li>Batcache - if a page gets requested more than 3 times in 3 mins it
+caches that whole page for 6 mins</li>
+<li>Used by WP.com</li>
+<li>Unobtrusive - only caches the most frequently requested stuff</li>
+<li>low-configuration</li>
+</ul>
+</li>
+<li>W3TotalCache
+
+<ul>
+<li>Extremely complex, lots of layers</li>
+</ul>
+</li>
+<li>WPSuperCache
+
+<ul>
+<li>Somewhere in-between</li>
+</ul>
+</li>
+<li>Varnish or Nginx
+
+<ul>
+<li>Cache before it hits the webserver</li>
+</ul>
+</li>
+<li>CDN
+
+<ul>
+<li>geographically distributed caches: people access the cache closest to
+them</li>
+<li>Very popular for media files, but can be used for the whole site.</li>
+<li>Will obey cache headers</li>
+</ul>
+</li>
+<li>Nginx Cache Purging
+
+<ul>
+<li>This is tricky</li>
+<li>There&rsquo;s a third party package which can be compiled from source which
+enables this. But :-P</li>
+<li>Approach: Configure a &lsquo;magic header&rsquo; ;) - when it&rsquo;s passed with a
+request, it skips getting, but not setting, so overwrites whatever is
+currently in the cache</li>
+</ul>
+</li>
+<li>Variable cache lengths + proactive cache refreshing:
+
+<ul>
+<li>Warm the cache (on cron) more frequently than it&rsquo;s getting expired, to
+make sure that your content is always cached</li>
+</ul>
+</li>
+<li>Does being logged-in mean you can&rsquo;t cache the page?
+
+<ul>
+<li>It&rsquo;s a pain if you have 1000&rsquo;s of logged in users/active commenters etc.</li>
+<li>Think about how the page varies based on who you are logged in as:
+toolbar, private posts - etc.</li>
+<li>Choice: remove those things OR make them generic</li>
+<li>Comment forms: hide them by default, show them with ajax - either when
+hitting a button, or when scrolling to the bottom of the page (!)</li>
+<li>Remove toolbar for subscribers etc. - it&rsquo;s not very useful!</li>
+<li>Remove private post fucntionality if it&rsquo;s not used: it makes the queries
+much more complicated anyway</li>
+<li>Replace moderated comments with a generic &ldquo;your comment is being
+moderated&rdquo; message</li>
+</ul>
+</li>
+<li>Approach if you really need to show logged-in data:
+
+<ul>
+<li>Use cookies: by default WP renders user-specific content using php, but
+that&rsquo;s very odd</li>
+<li>Set JS-readable cookies and use them to populate the content</li>
+<li>He&rsquo;s just written <a href="https://github.com/markjaquith/cache-buddy">Cache
+Buddy</a> - a plugin to do this</li>
+</ul>
+</li>
+<li>Object Caching
+
+<ul>
+<li>APCu, Memcache, or (recommended:) Redis</li>
+<li>put them in <code>object-cache.php</code> - they need to be loaded before plugins</li>
+</ul>
+</li>
+<li>Transients + Object Cache
+
+<ul>
+<li>Store transients in the object cache rather than the options table</li>
+<li>Object cache can organise cache keys into groups</li>
+</ul>
+</li>
+<li>Cache stampedes: What happens when cache expires?
+
+<ul>
+<li>One user triggers the remote request</li>
+<li>then the next user also triggers it (before it&rsquo;s completed)</li>
+<li>and another&hellip; STAMPEDE!</li>
+<li><code>tlc_transient</code> - handles this problem: soft expiration - data gets
+marked as expired but not deleted until the new data is available (!)</li>
+</ul>
+</li>
+<li>Html fragment caching
+
+<ul>
+<li>e.g. A complex footer that&rsquo;s the same on every page</li>
+<li><code>CWS_Fragment_Cache</code></li>
+</ul>
+</li>
+</ul>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[How to Not Break Permalinks in WordPress]]></title>
@@ -268,67 +408,6 @@
 </ul>
 </li>
 <li><p>&ldquo;It&rsquo;s not a matter of doing it, it&rsquo;s a matter of planning it out so that we don&rsquo;t have to Re-do it in a year&rdquo;</p></li>
-</ul>
-
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[WordCamp Europe 2014 Notes - 1.3: Styling the WordPress Admin]]></title>
-    <link href="http://dgmstuart.github.io/blog/2014/09/27/wordcamp-europe-2014-notes-3-styling-the-wordpress-admin/"/>
-    <updated>2014-09-27T09:32:55+01:00</updated>
-    <id>http://dgmstuart.github.io/blog/2014/09/27/wordcamp-europe-2014-notes-3-styling-the-wordpress-admin</id>
-    <content type="html"><![CDATA[<p><em>I&rsquo;m at <a href="http://2014.europe.wordcamp.org/">WordCamp Europe</a> in Sofia - taking rough notes on some of the talks</em></p>
-
-<p>Konstantin Dankov <a href="http://2014.europe.wordcamp.org/session/konstantin-dankov/">http://2014.europe.wordcamp.org/session/konstantin-dankov/</a></p>
-
-<p><img src="http://photos-a.ak.instagram.com/hphotos-ak-xfp1/1742413_291384914397664_162274686_n.jpg" alt="sketchnotes by @studionetting" /></p>
-
-<p><em>Awesome sketchnotes by <a href="http://instagram.com/p/tcl0LKNkJp">@studionetting</a></em></p>
-
-<ul>
-<li><p>Why style the admin?</p>
-
-<ul>
-<li>make things simpler for the user</li>
-<li>save time by optimising workflows - supporting power users - removing unnecessary steps: e.g. jump straight to a particular page.</li>
-<li>Branding - sometimes larger organisations would like their own branding inside
-
-<ul>
-<li>Important to not go overboard! Use a little to do a lot.</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>Why NOT to do it</p>
-
-<ul>
-<li>There&rsquo;s a large cost to supporting it:
-
-<ul>
-<li>There&rsquo;s a lot of it!</li>
-</ul>
-</li>
-<li>Clashes with plugin styles: can cause plugins to break</li>
-</ul>
-</li>
-<li><p>Consider the experience of editors vs admins</p></li>
-<li><p>Adding a custom post type</p>
-
-<ul>
-<li>Defaults (all overridable when registering the post type)
-
-<ul>
-<li>It goes to the bottom of the list</li>
-<li>It has the same icon as other post</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>Using filters the order of menu items can be managed in a more coherent way: explicitly naming the order rather than using index numbers.</p></li>
-<li><p>Preference: When the custom post type is specific to that project then this menu-modifying code should be in the theme, along with the post type itself: moving it out into a plugin just adds complexity.</p></li>
-<li><p>Removing the dashboard to jump straight to the posts: useful if your primary thing is generating new content</p></li>
-<li><p>There&rsquo;s a lot of complexity in the WP admin css: responsive styles, Right->Left styles. Making modifications are a lot more work than they look</p></li>
 </ul>
 
 ]]></content>

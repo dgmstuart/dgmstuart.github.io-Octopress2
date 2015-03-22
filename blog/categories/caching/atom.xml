@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: Wordcamp London | dgms code]]></title>
-  <link href="http://dgmstuart.github.io/blog/categories/wordcamp-london/atom.xml" rel="self"/>
+  <title><![CDATA[Category: Caching | dgms code]]></title>
+  <link href="http://dgmstuart.github.io/blog/categories/caching/atom.xml" rel="self"/>
   <link href="http://dgmstuart.github.io/"/>
   <updated>2015-03-22T12:01:21+00:00</updated>
   <id>http://dgmstuart.github.io/</id>
@@ -146,115 +146,6 @@ marked as expired but not deleted until the new data is available (!)</li>
 <ul>
 <li>e.g. A complex footer that&rsquo;s the same on every page</li>
 <li><code>CWS_Fragment_Cache</code></li>
-</ul>
-</li>
-</ul>
-
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[WP London - Bruce Lawson - Responsive Images]]></title>
-    <link href="http://dgmstuart.github.io/blog/2015/03/21/wp-london-bruce-lawson-responsive-images/"/>
-    <updated>2015-03-21T15:18:00+00:00</updated>
-    <id>http://dgmstuart.github.io/blog/2015/03/21/wp-london-bruce-lawson-responsive-images</id>
-    <content type="html"><![CDATA[<p><em>I&rsquo;m at <a href="http://london.wordcamp.org/2015/">WordCamp London</a> - live-blogging
-some of the talks</em></p>
-
-<p><a href="http://www.brucelawson.co.uk/">Bruce Lawson</a></p>
-
-<ul>
-<li>Responsiveness includes speed of loading</li>
-<li>0.5 second delay is a 20% drop in traffic</li>
-<li>Images are a major cause of slowing down pages</li>
-<li>Av web page is 1.9MB - of which 1.2MB are images</li>
-<li>Number of images loaded is static over time, but the size of images
-increases significantly over time</li>
-<li>How can I send huge images to retina devices, but smaller images for
-rendering on smaller screens? Answer: HARD.</li>
-<li>First try: use css to swap in images based on page width:
-
-<ul>
-<li>Fail: loads the retina image THEN the smaller image - i.e. downloads
-both - the opposite of what we want</li>
-<li>This is because CSS and JS get applied to the DOM, so the DOM needs to
-get loaded first (?)</li>
-<li>Browsers can create the DOM tree in whatever way they like</li>
-<li>Because of preloading (&ldquo;the single greatest performance improvement
-that browsers have ever made&rdquo;) The whole of the source is read before the DOM tree is loaded - as soon
-as an image is spotted in the DOM, a request is sent off to fetch that
-image (i.e. before the DOM tree gets constructed)</li>
-<li>therefore doing things in the  CSS is too late</li>
-</ul>
-</li>
-<li>Therefore it needs to be the markup - Media Queries have been around a long
-time</li>
-<li>Respimg - responsive images community group</li>
-<li>First time a group of web developers wrote part of the standard and got it
-into the spec</li>
-<li>Now in Opera and Chrome and soon to be in Webkit</li>
-<li>First use case - optimise for high dpi screeens:
-
-<ul>
-<li>srcset attribute: specify images for particular pixel densities: a
-candidate list which the browser can use to select an optimal image</li>
-<li>The browser gets to choose - this is so that e.g. the user can choose what
-sort of image quality they wnat to have</li>
-</ul>
-</li>
-</ul>
-
-
-<p><img src="https://igcdn-photos-b-a.akamaihd.net/hphotos-ak-xaf1/t51.2885-15/11023186_1799356763623801_1327635725_n.jpg" alt="@Brucel talking responsive images" /></p>
-
-<ul>
-<li>Second use case - stretchy images
-
-<ul>
-<li>Can be done straightforwardly with css, but involves sending massive
-images down the wire and putting a lot of CPU load on the browser</li>
-<li>Slows things down for the user!</li>
-<li>solution: w descriptor - use in src set to tell the browser which image
-is more suitable for a particular page width</li>
-</ul>
-</li>
-<li>All this requires a lot of cruft to add in all the clauses to make this work, but
-there&rsquo;s a plugin from Respimg which does it for you</li>
-<li>Third use case - new image formats
-
-<ul>
-<li>JPG/PNG/GIF are ubiquitous, but there are more modern, better
-compression alternatives: smaller files, better quality - e.g. WebP</li>
-<li>Traditionally the logic is you can&rsquo;t use this in the wild because only
-Chrome and Opera support it</li>
-<li>with the <code>&lt;picture&gt;</code> element you can supply different image formats with
-fallbacks - so e.g. you can use WebP and fall back to img (actually
-browsers will force you to do progressive enhancement (supply an image)</li>
-</ul>
-</li>
-<li>Last use case - art direction
-
-<ul>
-<li>Choose a different aspect of the image to display on different devices:
-zoom in on a different bit of the image for different viewport sizes</li>
-<li>Use media queries within the <code>&lt;picture&gt;</code> element to display different
-versions of an image at different widths</li>
-</ul>
-</li>
-<li>Release dates:
-
-<ul>
-<li>in OPera and Chrome now</li>
-<li>FF in may</li>
-<li>IE &ldquo;under consideration&rdquo; &hellip;</li>
-<li>Safari already implement <code>srcset</code> - havent talked about <code>&lt;picture&gt;</code></li>
-</ul>
-</li>
-<li>YOU CAN USE THIS NOW
-
-<ul>
-<li>It&rsquo;s designed to force progressive enhancement - nobody gets a worse
-experience than they do now</li>
 </ul>
 </li>
 </ul>

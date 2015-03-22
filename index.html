@@ -10,8 +10,7 @@
 
   
   <meta name="description" content="I&rsquo;m at WordCamp London - live-blogging
-some of the talks Bruce Lawson Responsiveness includes speed of loading
-0.5 second delay is a 20% drop &hellip;">
+some of the talks Mark Jaquith Ultimately failing to cache could take your site down: run out of &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -72,6 +71,177 @@ some of the talks Bruce Lawson Responsiveness includes speed of loading
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2015/03/22/mark-jaquith-at-wordcamp-london-cache-money-business/">Mark Jaquith at WordCamp London - Cache Money Business</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+
+<time datetime="2015-03-22T11:31:06+00:00" pubdate data-updated="true">Mar 22nd, 2015</time>
+        
+           | <a href="/blog/2015/03/22/mark-jaquith-at-wordcamp-london-cache-money-business/#disqus_thread"
+             data-disqus-identifier="http://dgmstuart.github.io/blog/2015/03/22/mark-jaquith-at-wordcamp-london-cache-money-business/">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><em>I&rsquo;m at <a href="http://london.wordcamp.org/2015/">WordCamp London</a> - live-blogging
+some of the talks</em></p>
+
+<p><a href="https://twitter.com/markjaquith">Mark Jaquith</a></p>
+
+<ul>
+<li>Ultimately failing to cache could take your site down: run out of connections</li>
+<li>Caching principles:
+
+<ul>
+<li>Do less work - By default WP is Totally dynamic - there&rsquo;s a lot of
+complex stuff going on and it all gets done on every single request</li>
+<li>Hold onto data as long as it makes sense to do so: this is very specific
+to each individual site (at least for certain kinds of content)</li>
+<li>Make output generic: the more specific it is to a particular user, the
+less cachable it is</li>
+</ul>
+</li>
+<li>Page caching:
+
+<ul>
+<li>Batcache - if a page gets requested more than 3 times in 3 mins it
+caches that whole page for 6 mins</li>
+<li>Used by WP.com</li>
+<li>Unobtrusive - only caches the most frequently requested stuff</li>
+<li>low-configuration</li>
+</ul>
+</li>
+<li>W3TotalCache
+
+<ul>
+<li>Extremely complex, lots of layers</li>
+</ul>
+</li>
+<li>WPSuperCache
+
+<ul>
+<li>Somewhere in-between</li>
+</ul>
+</li>
+<li>Varnish or Nginx
+
+<ul>
+<li>Cache before it hits the webserver</li>
+</ul>
+</li>
+<li>CDN
+
+<ul>
+<li>geographically distributed caches: people access the cache closest to
+them</li>
+<li>Very popular for media files, but can be used for the whole site.</li>
+<li>Will obey cache headers</li>
+</ul>
+</li>
+<li>Nginx Cache Purging
+
+<ul>
+<li>This is tricky</li>
+<li>There&rsquo;s a third party package which can be compiled from source which
+enables this. But :-P</li>
+<li>Approach: Configure a &lsquo;magic header&rsquo; ;) - when it&rsquo;s passed with a
+request, it skips getting, but not setting, so overwrites whatever is
+currently in the cache</li>
+</ul>
+</li>
+<li>Variable cache lengths + proactive cache refreshing:
+
+<ul>
+<li>Warm the cache (on cron) more frequently than it&rsquo;s getting expired, to
+make sure that your content is always cached</li>
+</ul>
+</li>
+<li>Does being logged-in mean you can&rsquo;t cache the page?
+
+<ul>
+<li>It&rsquo;s a pain if you have 1000&rsquo;s of logged in users/active commenters etc.</li>
+<li>Think about how the page varies based on who you are logged in as:
+toolbar, private posts - etc.</li>
+<li>Choice: remove those things OR make them generic</li>
+<li>Comment forms: hide them by default, show them with ajax - either when
+hitting a button, or when scrolling to the bottom of the page (!)</li>
+<li>Remove toolbar for subscribers etc. - it&rsquo;s not very useful!</li>
+<li>Remove private post fucntionality if it&rsquo;s not used: it makes the queries
+much more complicated anyway</li>
+<li>Replace moderated comments with a generic &ldquo;your comment is being
+moderated&rdquo; message</li>
+</ul>
+</li>
+<li>Approach if you really need to show logged-in data:
+
+<ul>
+<li>Use cookies: by default WP renders user-specific content using php, but
+that&rsquo;s very odd</li>
+<li>Set JS-readable cookies and use them to populate the content</li>
+<li>He&rsquo;s just written <a href="https://github.com/markjaquith/cache-buddy">Cache
+Buddy</a> - a plugin to do this</li>
+</ul>
+</li>
+<li>Object Caching
+
+<ul>
+<li>APCu, Memcache, or (recommended:) Redis</li>
+<li>put them in <code>object-cache.php</code> - they need to be loaded before plugins</li>
+</ul>
+</li>
+<li>Transients + Object Cache
+
+<ul>
+<li>Store transients in the object cache rather than the options table</li>
+<li>Object cache can organise cache keys into groups</li>
+</ul>
+</li>
+<li>Cache stampedes: What happens when cache expires?
+
+<ul>
+<li>One user triggers the remote request</li>
+<li>then the next user also triggers it (before it&rsquo;s completed)</li>
+<li>and another&hellip; STAMPEDE!</li>
+<li><code>tlc_transient</code> - handles this problem: soft expiration - data gets
+marked as expired but not deleted until the new data is available (!)</li>
+</ul>
+</li>
+<li>Html fragment caching
+
+<ul>
+<li>e.g. A complex footer that&rsquo;s the same on every page</li>
+<li><code>CWS_Fragment_Cache</code></li>
+</ul>
+</li>
+</ul>
+
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -925,78 +1095,6 @@ scratch</a></li>
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2015/02/23/how-your-base-path-gets-generated-in-osx/">How Your Base PATH Gets Generated in OSX</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-
-<time datetime="2015-02-23T23:03:33+00:00" pubdate data-updated="true">Feb 23rd, 2015</time>
-        
-           | <a href="/blog/2015/02/23/how-your-base-path-gets-generated-in-osx/#disqus_thread"
-             data-disqus-identifier="http://dgmstuart.github.io/blog/2015/02/23/how-your-base-path-gets-generated-in-osx/">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>On OSX and linux it seems to be fairly common practice to totally define the <code>PATH</code> in a
-<code>.profile</code> or <code>.bashrc</code> file. This gives total control over the order in which
-various locations are searched through. Here&rsquo;s the line from <a href="https://github.com/dgmstuart/dotfiles/blob/master/.profile">my .profile</a>:</p>
-
-<pre><code>export PATH=~/bin:/usr/local/bin:/usr/bin:/usr/sbin:/bin:/sbin
-</code></pre>
-
-<p>However, your <code>PATH</code> isn&rsquo;t just set through <code>profile</code> and <code>rc</code> files: if you
-don&rsquo;t build your path from scratch and you only ever append or prepend to it
-with statements like <code>export PATH=$PATH:some/other/stuff</code> then the OS helpfully
-sets your base <code>PATH</code> to something sensible.</p>
-
-<p>It does this based on various files in <code>/etc</code> (at least on OSX):</p>
-
-<h2><code>/etc/paths</code></h2>
-
-<p>This contains the list of the various binary directories which make up the core of your path:</p>
-
-<pre><code>/usr/local/bin
-/usr/bin
-/bin
-/usr/sbin
-/sbin
-</code></pre>
-
-<h2><code>/etc/paths.d</code></h2>
-
-<p>This contains a number of files which contain paths for various applications,
-again with one path element per line. I believe these are added to the <em>end</em> of
-the <code>PATH</code>. Mine includes a <code>git</code> file:</p>
-
-<pre><code>/usr/local/git/bin
-</code></pre>
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="2">&larr; Older</a>
@@ -1020,6 +1118,10 @@ the <code>PATH</code>. Mine includes a <code>git</code> file:</p>
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2015/03/22/mark-jaquith-at-wordcamp-london-cache-money-business/">Mark Jaquith at WordCamp London - Cache Money Business</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2015/03/21/wp-london-bruce-lawson-responsive-images/">WP London - Bruce Lawson - Responsive Images</a>
       </li>
     
@@ -1033,10 +1135,6 @@ the <code>PATH</code>. Mine includes a <code>git</code> file:</p>
     
       <li class="post">
         <a href="/blog/2015/03/13/katrina-owen-at-bathruby-here-be-dragons/">Katrina Owen at BathRuby: Here Be Dragons</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2015/03/13/live-coding-music-at-bathruby/">Live-coding Music at BathRuby</a>
       </li>
     
   </ul>

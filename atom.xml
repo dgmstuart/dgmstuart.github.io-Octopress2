@@ -4,7 +4,7 @@
   <title><![CDATA[dgms code]]></title>
   <link href="http://dgmstuart.github.io/atom.xml" rel="self"/>
   <link href="http://dgmstuart.github.io/"/>
-  <updated>2015-03-21T15:59:08+00:00</updated>
+  <updated>2015-03-22T12:01:21+00:00</updated>
   <id>http://dgmstuart.github.io/</id>
   <author>
     <name><![CDATA[Duncan Stuart]]></name>
@@ -12,6 +12,146 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Mark Jaquith at WordCamp London - Cache Money Business]]></title>
+    <link href="http://dgmstuart.github.io/blog/2015/03/22/mark-jaquith-at-wordcamp-london-cache-money-business/"/>
+    <updated>2015-03-22T11:31:06+00:00</updated>
+    <id>http://dgmstuart.github.io/blog/2015/03/22/mark-jaquith-at-wordcamp-london-cache-money-business</id>
+    <content type="html"><![CDATA[<p><em>I&rsquo;m at <a href="http://london.wordcamp.org/2015/">WordCamp London</a> - live-blogging
+some of the talks</em></p>
+
+<p><a href="https://twitter.com/markjaquith">Mark Jaquith</a></p>
+
+<ul>
+<li>Ultimately failing to cache could take your site down: run out of connections</li>
+<li>Caching principles:
+
+<ul>
+<li>Do less work - By default WP is Totally dynamic - there&rsquo;s a lot of
+complex stuff going on and it all gets done on every single request</li>
+<li>Hold onto data as long as it makes sense to do so: this is very specific
+to each individual site (at least for certain kinds of content)</li>
+<li>Make output generic: the more specific it is to a particular user, the
+less cachable it is</li>
+</ul>
+</li>
+<li>Page caching:
+
+<ul>
+<li>Batcache - if a page gets requested more than 3 times in 3 mins it
+caches that whole page for 6 mins</li>
+<li>Used by WP.com</li>
+<li>Unobtrusive - only caches the most frequently requested stuff</li>
+<li>low-configuration</li>
+</ul>
+</li>
+<li>W3TotalCache
+
+<ul>
+<li>Extremely complex, lots of layers</li>
+</ul>
+</li>
+<li>WPSuperCache
+
+<ul>
+<li>Somewhere in-between</li>
+</ul>
+</li>
+<li>Varnish or Nginx
+
+<ul>
+<li>Cache before it hits the webserver</li>
+</ul>
+</li>
+<li>CDN
+
+<ul>
+<li>geographically distributed caches: people access the cache closest to
+them</li>
+<li>Very popular for media files, but can be used for the whole site.</li>
+<li>Will obey cache headers</li>
+</ul>
+</li>
+<li>Nginx Cache Purging
+
+<ul>
+<li>This is tricky</li>
+<li>There&rsquo;s a third party package which can be compiled from source which
+enables this. But :-P</li>
+<li>Approach: Configure a &lsquo;magic header&rsquo; ;) - when it&rsquo;s passed with a
+request, it skips getting, but not setting, so overwrites whatever is
+currently in the cache</li>
+</ul>
+</li>
+<li>Variable cache lengths + proactive cache refreshing:
+
+<ul>
+<li>Warm the cache (on cron) more frequently than it&rsquo;s getting expired, to
+make sure that your content is always cached</li>
+</ul>
+</li>
+<li>Does being logged-in mean you can&rsquo;t cache the page?
+
+<ul>
+<li>It&rsquo;s a pain if you have 1000&rsquo;s of logged in users/active commenters etc.</li>
+<li>Think about how the page varies based on who you are logged in as:
+toolbar, private posts - etc.</li>
+<li>Choice: remove those things OR make them generic</li>
+<li>Comment forms: hide them by default, show them with ajax - either when
+hitting a button, or when scrolling to the bottom of the page (!)</li>
+<li>Remove toolbar for subscribers etc. - it&rsquo;s not very useful!</li>
+<li>Remove private post fucntionality if it&rsquo;s not used: it makes the queries
+much more complicated anyway</li>
+<li>Replace moderated comments with a generic &ldquo;your comment is being
+moderated&rdquo; message</li>
+</ul>
+</li>
+<li>Approach if you really need to show logged-in data:
+
+<ul>
+<li>Use cookies: by default WP renders user-specific content using php, but
+that&rsquo;s very odd</li>
+<li>Set JS-readable cookies and use them to populate the content</li>
+<li>He&rsquo;s just written <a href="https://github.com/markjaquith/cache-buddy">Cache
+Buddy</a> - a plugin to do this</li>
+</ul>
+</li>
+<li>Object Caching
+
+<ul>
+<li>APCu, Memcache, or (recommended:) Redis</li>
+<li>put them in <code>object-cache.php</code> - they need to be loaded before plugins</li>
+</ul>
+</li>
+<li>Transients + Object Cache
+
+<ul>
+<li>Store transients in the object cache rather than the options table</li>
+<li>Object cache can organise cache keys into groups</li>
+</ul>
+</li>
+<li>Cache stampedes: What happens when cache expires?
+
+<ul>
+<li>One user triggers the remote request</li>
+<li>then the next user also triggers it (before it&rsquo;s completed)</li>
+<li>and another&hellip; STAMPEDE!</li>
+<li><code>tlc_transient</code> - handles this problem: soft expiration - data gets
+marked as expired but not deleted until the new data is available (!)</li>
+</ul>
+</li>
+<li>Html fragment caching
+
+<ul>
+<li>e.g. A complex footer that&rsquo;s the same on every page</li>
+<li><code>CWS_Fragment_Cache</code></li>
+</ul>
+</li>
+</ul>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[WP London - Bruce Lawson - Responsive Images]]></title>
@@ -1233,50 +1373,6 @@ Here&rsquo;s where it looks, in order, for an email address to use:</p>
 </ul>
 </li>
 <li><p>&ldquo;It&rsquo;s not a matter of doing it, it&rsquo;s a matter of planning it out so that we don&rsquo;t have to Re-do it in a year&rdquo;</p></li>
-</ul>
-
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[WordCamp Europe 2014 Notes - 1.4: How Come Every Time...]]></title>
-    <link href="http://dgmstuart.github.io/blog/2014/09/27/wordcamp-europe-2014-notes-4-how-come-every-time-dot-dot-dot/"/>
-    <updated>2014-09-27T10:21:08+01:00</updated>
-    <id>http://dgmstuart.github.io/blog/2014/09/27/wordcamp-europe-2014-notes-4-how-come-every-time-dot-dot-dot</id>
-    <content type="html"><![CDATA[<p><em>I&rsquo;m at <a href="http://2014.europe.wordcamp.org/">WordCamp Europe</a> in Sofia - taking rough notes on some of the talks</em></p>
-
-<h2>How come every time I get stabbed in the back, my fingerprints are on the knife?</h2>
-
-<p>Jenny Beaumont <a href="http://2014.europe.wordcamp.org/session/jenny-beaumont/">http://2014.europe.wordcamp.org/session/jenny-beaumont/</a></p>
-
-<ul>
-<li>Your business plan might be fine, but are you prepared for when things go horribly wrong?</li>
-<li>When bad things happen we&rsquo;re ultimately responsible</li>
-<li>&ldquo;Taking responsibility can be a blessing as well as a burden&rdquo;</li>
-<li>&ldquo;It&rsquo;s up to you to not only choose who you work with, but to devise communicate and enforce the rules of your profession&rdquo;</li>
-<li>This is about being professional.</li>
-<li>You need to be in charge, not the client</li>
-<li>You don&rsquo;t know what&rsquo;s going on with the client - they may be taking out on you something going on with their personal life</li>
-<li>&ldquo;Sometimes people are dicks&rdquo; :) need to blow off steam sometimes</li>
-<li>&ldquo;People don&rsquo;t always read the fine print&rdquo; or even the large print. Or contracts. Rather than getting frustrated by this, we need to recognise that it&rsquo;s a thing and deal with it.
-
-<ul>
-<li>Don&rsquo;t just assume it&rsquo;s been read and absolve responsibility - you need to continuously reinforce things throughout a project</li>
-</ul>
-</li>
-<li>&ldquo;You can&rsquo;t change people or their behaviour: you can only change your own&rdquo;</li>
-<li>Audience question - how do you filter out clients who you shouldn&rsquo;t be working with
-
-<ul>
-<li>Answer - it&rsquo;s tricky. Ask a lot of questions</li>
-</ul>
-</li>
-<li>Audience question - how much do you bend your rules when times are tough and you can&rsquo;t afford to turn work away
-
-<ul>
-<li>Really tricky. No good answer. Communicate a LOT. Let your clients know that you&rsquo;re needy: you&rsquo;ll need a lot from them - particularly availability for communication.</li>
-</ul>
-</li>
 </ul>
 
 ]]></content>
