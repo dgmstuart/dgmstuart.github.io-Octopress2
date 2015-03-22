@@ -19,7 +19,7 @@ some of the talks_
 * Acceptance testing: commands like `amOnPage`, `see`, `fillField`
 * Define scenarios: login, fill in form and submit etc.
 * Generates reports in: console, html, xml (Ick!)
-* Can use different drivers: WebDriver (fast, headless, no js), Selenium (Slow, but drives the actual browser: can be hard to set up), PhantomJS (headless, runs js)
+* Can use different drivers: WebDriver (fast, headless, no js, basically does the equivalend of cURL), Selenium (Slow, but drives the actual browser: can be hard to set up), PhantomJS (headless, runs js)
 * Functional testing: sits alongside acceptance testing
     * Test the interactions between units - integrations
     * Ignore UI and JS - make posts directly: don't emulate the browser - just
@@ -35,3 +35,10 @@ some of the talks_
       setup and teardown
 * Re-usable code in Codeception: Step objects (collections of related steps to DRY up tests?)
   - Helpers, Modules
+* Refactoring strategy: Acceptance tests allow you to refactor your unit tests
+  with confidence, (which allows you to refactor your code with confidence)
+* Question: How to not couple the tests to e.g. the names of field names
+    * Strategy: create a page object which wraps up those IDs, so that you
+      only have one point where you need to change these
+    * Makes it slightly harder for non-developers to do the changes _(does it though??)_,
+      but makes it much more maintainable
