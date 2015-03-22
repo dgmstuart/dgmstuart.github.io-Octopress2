@@ -4,7 +4,7 @@
   <title><![CDATA[dgms code]]></title>
   <link href="http://dgmstuart.github.io/atom.xml" rel="self"/>
   <link href="http://dgmstuart.github.io/"/>
-  <updated>2015-03-22T12:16:38+00:00</updated>
+  <updated>2015-03-22T12:42:17+00:00</updated>
   <id>http://dgmstuart.github.io/</id>
   <author>
     <name><![CDATA[Duncan Stuart]]></name>
@@ -12,6 +12,60 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Tim Nash at WordCamp London - Beyond Unit Tests]]></title>
+    <link href="http://dgmstuart.github.io/blog/2015/03/22/tim-nash-at-wordcamp-london-beyond-unit-tests/"/>
+    <updated>2015-03-22T12:17:20+00:00</updated>
+    <id>http://dgmstuart.github.io/blog/2015/03/22/tim-nash-at-wordcamp-london-beyond-unit-tests</id>
+    <content type="html"><![CDATA[<p><em>I&rsquo;m at <a href="http://london.wordcamp.org/2015/">WordCamp London</a> - live-blogging
+some of the talks</em></p>
+
+<p><a href="https://twitter.com/tnash">Tim Nash</a></p>
+
+<ul>
+<li>Strategy for handling a tight deadline: Piles of acceptance tests</li>
+<li>Disagreement between different languages on what unit tests mean</li>
+<li>Focus on tools and concepts not methodology</li>
+<li><a href="http://codeception.com/">Codececption</a> - does a lot of things, mocking etc.
+php testing framework</li>
+<li>Acceptance testing: commands like <code>amOnPage</code>, <code>see</code>, <code>fillField</code></li>
+<li>Define scenarios: login, fill in form and submit etc.</li>
+<li>Generates reports in: console, html, xml (Ick!)</li>
+<li>Can use different drivers: WebDriver (fast, headless, no js), Selenium (Slow, but drives the actual browser: can be hard to set up), PhantomJS (headless, runs js)</li>
+<li>Functional testing: sits alongside acceptance testing
+
+<ul>
+<li>Test the interactions between units - integrations</li>
+<li>Ignore UI and JS - make posts directly: don&rsquo;t emulate the browser - just
+call endpoints (incl. ajax) directly</li>
+<li>Can also be used to test apis/rss, cli, sending email, can also test
+xml-rpc</li>
+</ul>
+</li>
+<li>We&rsquo;ll be interacting with the database, so we need to set up and tear down
+data
+
+<ul>
+<li>WP-Browser handles these database interactions (i.e. you can directly
+insert data)</li>
+<li>Approach for setup and teardown: you can run a shell script before and
+after a codeception test, so setup wp-cli scripts to do the database
+setup and teardown</li>
+</ul>
+</li>
+<li>Re-usable code in Codeception: Step objects (collections of related steps to DRY up tests?)
+
+<ul>
+<li>Helpers, Modules</li>
+</ul>
+</li>
+<li>Refactoring strategy: Acceptance tests allow you to refactor your unit tests
+with confidence, (which allows you to refactor your code with confidence)</li>
+</ul>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Mark Jaquith at WordCamp London - Cache Money Business]]></title>
@@ -1307,75 +1361,6 @@ Here&rsquo;s where it looks, in order, for an email address to use:</p>
 <li>Answer: we design in context</li>
 </ul>
 </li>
-</ul>
-
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[WordCamp Europe 2014 Notes - 1.5: Postmodern Wordpress]]></title>
-    <link href="http://dgmstuart.github.io/blog/2014/09/27/wordcamp-europe-2014-notes-5-postmodern-wordpress/"/>
-    <updated>2014-09-27T12:32:07+01:00</updated>
-    <id>http://dgmstuart.github.io/blog/2014/09/27/wordcamp-europe-2014-notes-5-postmodern-wordpress</id>
-    <content type="html"><![CDATA[<p><em>I&rsquo;m at <a href="http://2014.europe.wordcamp.org/">WordCamp Europe</a> in Sofia - taking rough notes on some of the talks</em></p>
-
-<p>Andrew Nacin: <a href="http://2014.europe.wordcamp.org/session/andrew-nacin/">http://2014.europe.wordcamp.org/session/andrew-nacin/</a></p>
-
-<ul>
-<li>WP enables non-devs to do dev
-
-<ul>
-<li>Low barrier to entry</li>
-<li>gateway drug</li>
-</ul>
-</li>
-<li>WP is increasing in complexity
-
-<ul>
-<li>Part of it is about migrating functionality into js</li>
-</ul>
-</li>
-<li>The world of web dev is getting more complicated: html5, css3 - (Raises barrier to entry??)</li>
-<li>&ldquo;We&rsquo;re really good at managing backwards compatibility&rdquo;</li>
-<li>Dev focus is on improving the UX: source of complexity</li>
-<li>Improving docs for devs is important - experienced devs forget that it&rsquo;s an issue.</li>
-<li>Complexity needs to not come at the cost of the philosophies: trivial setup etc.</li>
-<li>&hellip;balanced against drawing the experienced</li>
-<li>&ldquo;you know what? I&rsquo;ll build this site in WP, because WP doesn&rsquo;t make me want to tear my hair out any more&rdquo;</li>
-<li>WP needs to be more consistent: decrease the time spent searching through docs/trying to work out what an argument means
-
-<ul>
-<li>inconsistencies trip people up</li>
-<li>struggle - can&rsquo;t break backwards-compatability</li>
-</ul>
-</li>
-<li>Objects should (/will have?) implementations of <a href="http://php.net/manual/en/class.jsonserializable.php">http://php.net/manual/en/class.jsonserializable.php</a></li>
-<li>A lot of people don&rsquo;t actually know they&rsquo;re writing php (!)</li>
-<li>“ I really can’t wait to have [these features] because it’s, like, <em>Sanity</em> and that’s a good thing to have”</li>
-<li>WP uses objects but in a functional way - actually going OO wouldn&rsquo;t make sense (?)</li>
-<li><a href="http://backpress.org/">http://backpress.org/</a></li>
-<li>WP should only load the necessary files - not 120.</li>
-<li>Also you should be able to pull individual files out and use them in non-wp projects.
-
-<ul>
-<li>The way you do that is by decoupling -> this also makes debugging easier</li>
-</ul>
-</li>
-<li><p>You shouldn&rsquo;t need to understand what&rsquo;s going on under the hood in WP in order to build stuff which works.</p></li>
-<li><p>Audience observation - Automattic - preferred to use REST API to WP function calls (?) because the api is more consistent</p></li>
-<li><p>Audience qu - I&rsquo;m missing a debugger</p>
-
-<ul>
-<li>Use an IDE. We could be doing more to make debugging easier, but there are a bunch of tools out there which help.</li>
-</ul>
-</li>
-<li><p>Posts might end up with relationships. Terms will probably end up with metadata</p>
-
-<ul>
-<li>Post relationships now (via a plugin): <a href="https://wordpress.org/plugins/posts-to-posts/">https://wordpress.org/plugins/posts-to-posts/</a></li>
-</ul>
-</li>
-<li><p>&ldquo;It&rsquo;s not a matter of doing it, it&rsquo;s a matter of planning it out so that we don&rsquo;t have to Re-do it in a year&rdquo;</p></li>
 </ul>
 
 ]]></content>

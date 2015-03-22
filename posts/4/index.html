@@ -9,7 +9,7 @@
   <meta name="author" content="Duncan Stuart">
 
   
-  <meta name="description" content="So, having generated my Rails app and selected postgres as the development database, I&rsquo;m now faced with getting the damn thing running. On a &hellip;">
+  <meta name="description" content="I use RSpec for doing TDD, and the rspec-rails gem for integration in Rails projects. On initialising RSpec for SOLDN2, with rspec init it generated &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -70,6 +70,114 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2014/02/10/initialising-rspec-in-a-rails-project/">Gotcha: Initialising RSpec in a Rails Project</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+
+<time datetime="2014-02-10T07:50:09+00:00" pubdate data-updated="true">Feb 10th, 2014</time>
+        
+           | <a href="/blog/2014/02/10/initialising-rspec-in-a-rails-project/#disqus_thread"
+             data-disqus-identifier="http://dgmstuart.github.io/blog/2014/02/10/initialising-rspec-in-a-rails-project/">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>I use RSpec for doing TDD, and the rspec-rails gem for integration in Rails projects. On initialising RSpec for SOLDN2, with <code>rspec init</code> it generated the following spec helper (comments removed):</p>
+
+<figure class='code'><figcaption><span>spec/spec_helper.rb </span></figcaption>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class='rb'><span class='line'><span class="no">RSpec</span><span class="o">.</span><span class="n">configure</span> <span class="k">do</span> <span class="o">|</span><span class="n">config</span><span class="o">|</span>
+</span><span class='line'>  <span class="n">config</span><span class="o">.</span><span class="n">treat_symbols_as_metadata_keys_with_true_values</span> <span class="o">=</span> <span class="kp">true</span>
+</span><span class='line'>  <span class="n">config</span><span class="o">.</span><span class="n">run_all_when_everything_filtered</span> <span class="o">=</span> <span class="kp">true</span>
+</span><span class='line'>  <span class="n">config</span><span class="o">.</span><span class="n">filter_run</span> <span class="ss">:focus</span>
+</span><span class='line'>  <span class="n">config</span><span class="o">.</span><span class="n">order</span> <span class="o">=</span> <span class="s1">&#39;random&#39;</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>This seemed to be missing some things, notably the loading of the Rails environment. Looking at the readme of the rspec-rails gem, I found that the correct command is actually:</p>
+
+<pre><code>rails generate rspec:install
+</code></pre>
+
+<p>The file this command generates is much more verbose with instructive comments:</p>
+
+<figure class='code'><figcaption><span>spec/spec_helper.rb </span></figcaption>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+</pre></td><td class='code'><pre><code class='rb'><span class='line'><span class="no">ENV</span><span class="o">[</span><span class="s2">&quot;RAILS_ENV&quot;</span><span class="o">]</span> <span class="o">||=</span> <span class="s1">&#39;test&#39;</span>
+</span><span class='line'><span class="nb">require</span> <span class="no">File</span><span class="o">.</span><span class="n">expand_path</span><span class="p">(</span><span class="s2">&quot;../../config/environment&quot;</span><span class="p">,</span> <span class="bp">__FILE__</span><span class="p">)</span>
+</span><span class='line'><span class="nb">require</span> <span class="s1">&#39;rspec/rails&#39;</span>
+</span><span class='line'><span class="nb">require</span> <span class="s1">&#39;rspec/autorun&#39;</span>
+</span><span class='line'>
+</span><span class='line'><span class="no">Dir</span><span class="o">[</span><span class="no">Rails</span><span class="o">.</span><span class="n">root</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s2">&quot;spec/support/**/*.rb&quot;</span><span class="p">)</span><span class="o">].</span><span class="n">each</span> <span class="p">{</span> <span class="o">|</span><span class="n">f</span><span class="o">|</span> <span class="nb">require</span> <span class="n">f</span> <span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'><span class="ss">ActiveRecord</span><span class="p">:</span><span class="ss">:Migration</span><span class="o">.</span><span class="n">check_pending!</span> <span class="k">if</span> <span class="n">defined?</span><span class="p">(</span><span class="ss">ActiveRecord</span><span class="p">:</span><span class="ss">:Migration</span><span class="p">)</span>
+</span><span class='line'>
+</span><span class='line'><span class="no">RSpec</span><span class="o">.</span><span class="n">configure</span> <span class="k">do</span> <span class="o">|</span><span class="n">config</span><span class="o">|</span>
+</span><span class='line'>  <span class="n">config</span><span class="o">.</span><span class="n">fixture_path</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="si">#{</span><span class="o">::</span><span class="no">Rails</span><span class="o">.</span><span class="n">root</span><span class="si">}</span><span class="s2">/spec/fixtures&quot;</span>
+</span><span class='line'>  <span class="n">config</span><span class="o">.</span><span class="n">use_transactional_fixtures</span> <span class="o">=</span> <span class="kp">true</span>
+</span><span class='line'>  <span class="n">config</span><span class="o">.</span><span class="n">infer_base_class_for_anonymous_controllers</span> <span class="o">=</span> <span class="kp">false</span>
+</span><span class='line'>  <span class="n">config</span><span class="o">.</span><span class="n">order</span> <span class="o">=</span> <span class="s2">&quot;random&quot;</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Interestingly this leaves out the <code>focus</code> config options, which allow you to select specific specs to run, e.g:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">it</span> <span class="s2">&quot;does a thing&quot;</span><span class="p">,</span> <span class="ss">:focus</span> <span class="k">do</span>
+</span><span class='line'>  <span class="c1">#...</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -264,6 +372,10 @@ Shall the new role be allowed to create more new roles? (y/n) n
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2015/03/22/tim-nash-at-wordcamp-london-beyond-unit-tests/">Tim Nash at WordCamp London - Beyond Unit Tests</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2015/03/22/mark-jaquith-at-wordcamp-london-cache-money-business/">Mark Jaquith at WordCamp London - Cache Money Business</a>
       </li>
     
@@ -277,10 +389,6 @@ Shall the new role be allowed to create more new roles? (y/n) n
     
       <li class="post">
         <a href="/blog/2015/03/13/tom-stuart-a-lever-for-the-mind-at-bathruby/">Tom Stuart - &#8216;a Lever for the Mind&#8217; at BathRuby</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2015/03/13/katrina-owen-at-bathruby-here-be-dragons/">Katrina Owen at BathRuby: Here Be Dragons</a>
       </li>
     
   </ul>

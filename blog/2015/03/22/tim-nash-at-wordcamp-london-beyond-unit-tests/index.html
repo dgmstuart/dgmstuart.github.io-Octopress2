@@ -5,11 +5,12 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Category: Bathruby - dgms code</title>
+  <title>Tim Nash at WordCamp London - Beyond Unit Tests - dgms code</title>
   <meta name="author" content="Duncan Stuart">
 
   
-  <meta name="description" content="Category: bathruby">
+  <meta name="description" content="I&rsquo;m at WordCamp London - live-blogging
+some of the talks Tim Nash Strategy for handling a tight deadline: Piles of acceptance tests &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -18,7 +19,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://dgmstuart.github.io/blog/categories/bathruby">
+  <link rel="canonical" href="http://dgmstuart.github.io/blog/2015/03/22/tim-nash-at-wordcamp-london-beyond-unit-tests">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/atom.xml" rel="alternate" title="dgms code" type="application/atom+xml">
@@ -69,120 +70,141 @@
   <div id="main">
     <div id="content">
       <div>
-<article role="article">
+<article class="hentry" role="article">
   
   <header>
-    <h1 class="entry-title">Category: Bathruby</h1>
+    
+      <h1 class="entry-title">Tim Nash at WordCamp London - Beyond Unit Tests</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+
+<time datetime="2015-03-22T12:17:20+00:00" pubdate data-updated="true">Mar 22nd, 2015</time>
+        
+           | <a href="#disqus_thread"
+             data-disqus-identifier="http://dgmstuart.github.io">Comments</a>
+        
+      </p>
     
   </header>
-  
-  <div id="blog-archives" class="category">
 
 
+<div class="entry-content"><p><em>I&rsquo;m at <a href="http://london.wordcamp.org/2015/">WordCamp London</a> - live-blogging
+some of the talks</em></p>
 
-  
-  <h2>2015</h2>
+<p><a href="https://twitter.com/tnash">Tim Nash</a></p>
 
-<article>
-  
-<h1><a href="/blog/2015/03/13/sandi-metz-nothing-is-something-at-bathruby/">Sandi Metz: Nothing Is Something - at BathRuby</a></h1>
-<time datetime="2015-03-13T16:38:05+00:00" pubdate><span class='month'>Mar</span> <span class='day'>13</span> <span class='year'>2015</span></time>
+<ul>
+<li>Strategy for handling a tight deadline: Piles of acceptance tests</li>
+<li>Disagreement between different languages on what unit tests mean</li>
+<li>Focus on tools and concepts not methodology</li>
+<li><a href="http://codeception.com/">Codececption</a> - does a lot of things, mocking etc.
+php testing framework</li>
+<li>Acceptance testing: commands like <code>amOnPage</code>, <code>see</code>, <code>fillField</code></li>
+<li>Define scenarios: login, fill in form and submit etc.</li>
+<li>Generates reports in: console, html, xml (Ick!)</li>
+<li>Can use different drivers: WebDriver (fast, headless, no js), Selenium (Slow, but drives the actual browser: can be hard to set up), PhantomJS (headless, runs js)</li>
+<li>Functional testing: sits alongside acceptance testing
 
-<footer>
-  <span class="categories">posted in <a class='category' href='/blog/categories/bathruby/'>bathruby</a></span>
-</footer>
+<ul>
+<li>Test the interactions between units - integrations</li>
+<li>Ignore UI and JS - make posts directly: don&rsquo;t emulate the browser - just
+call endpoints (incl. ajax) directly</li>
+<li>Can also be used to test apis/rss, cli, sending email, can also test
+xml-rpc</li>
+</ul>
+</li>
+<li>We&rsquo;ll be interacting with the database, so we need to set up and tear down
+data
 
+<ul>
+<li>WP-Browser handles these database interactions (i.e. you can directly
+insert data)</li>
+<li>Approach for setup and teardown: you can run a shell script before and
+after a codeception test, so setup wp-cli scripts to do the database
+setup and teardown</li>
+</ul>
+</li>
+<li>Re-usable code in Codeception: Step objects (collections of related steps to DRY up tests?)
 
-</article>
-
-
-
-<article>
-  
-<h1><a href="/blog/2015/03/13/tom-stuart-a-lever-for-the-mind-at-bathruby/">Tom Stuart - &#8216;a Lever for the Mind&#8217; at BathRuby</a></h1>
-<time datetime="2015-03-13T14:53:54+00:00" pubdate><span class='month'>Mar</span> <span class='day'>13</span> <span class='year'>2015</span></time>
-
-<footer>
-  <span class="categories">posted in <a class='category' href='/blog/categories/bathruby/'>bathruby</a></span>
-</footer>
-
-
-</article>
-
-
-
-<article>
-  
-<h1><a href="/blog/2015/03/13/katrina-owen-at-bathruby-here-be-dragons/">Katrina Owen at BathRuby: Here Be Dragons</a></h1>
-<time datetime="2015-03-13T14:00:28+00:00" pubdate><span class='month'>Mar</span> <span class='day'>13</span> <span class='year'>2015</span></time>
-
-<footer>
-  <span class="categories">posted in <a class='category' href='/blog/categories/bathruby/'>bathruby</a></span>
-</footer>
-
-
-</article>
-
-
-
-<article>
-  
-<h1><a href="/blog/2015/03/13/live-coding-music-at-bathruby/">Live-coding Music at BathRuby</a></h1>
-<time datetime="2015-03-13T12:34:18+00:00" pubdate><span class='month'>Mar</span> <span class='day'>13</span> <span class='year'>2015</span></time>
-
-<footer>
-  <span class="categories">posted in <a class='category' href='/blog/categories/bathruby/'>bathruby</a></span>
-</footer>
-
-
-</article>
-
-
-
-<article>
-  
-<h1><a href="/blog/2015/03/13/saron-yitbarek-learning-code-good-at-bathruby/">Saron Yitbarek - Learning Code Good (at BathRuby)</a></h1>
-<time datetime="2015-03-13T11:27:15+00:00" pubdate><span class='month'>Mar</span> <span class='day'>13</span> <span class='year'>2015</span></time>
-
-<footer>
-  <span class="categories">posted in <a class='category' href='/blog/categories/bathruby/'>bathruby</a>, <a class='category' href='/blog/categories/learning/'>learning</a></span>
-</footer>
-
-
-</article>
-
-
-
-<article>
-  
-<h1><a href="/blog/2015/03/13/ben-orenstein-live-coding-in-the-bath-at-bathruby/">Ben Orenstein: Live Coding in the Bath at BathRuby</a></h1>
-<time datetime="2015-03-13T10:34:52+00:00" pubdate><span class='month'>Mar</span> <span class='day'>13</span> <span class='year'>2015</span></time>
-
-<footer>
-  <span class="categories">posted in <a class='category' href='/blog/categories/bathruby/'>bathruby</a>, <a class='category' href='/blog/categories/ruby/'>ruby</a></span>
-</footer>
-
-
-</article>
-
-
-
-<article>
-  
-<h1><a href="/blog/2015/03/13/bath-ruby-linda-liukas-principles-of-play/">Bath Ruby: Linda Liukas - Principles of Play</a></h1>
-<time datetime="2015-03-13T09:42:26+00:00" pubdate><span class='month'>Mar</span> <span class='day'>13</span> <span class='year'>2015</span></time>
-
-<footer>
-  <span class="categories">posted in <a class='category' href='/blog/categories/bathruby/'>bathruby</a>, <a class='category' href='/blog/categories/ruby/'>ruby</a></span>
-</footer>
-
-
-</article>
+<ul>
+<li>Helpers, Modules</li>
+</ul>
+</li>
+<li>Refactoring strategy: Acceptance tests allow you to refactor your unit tests
+with confidence, (which allows you to refactor your code with confidence)</li>
+</ul>
 
 </div>
 
+
+  <footer>
+    <p class="meta">
+      
   
+
+<span class="byline author vcard">Posted by <span class="fn">Duncan Stuart</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+
+<time datetime="2015-03-22T12:17:20+00:00" pubdate data-updated="true">Mar 22nd, 2015</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/testing/'>testing</a>, <a class='category' href='/blog/categories/wordcamp-london/'>wordcamp london</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://dgmstuart.github.io/blog/2015/03/22/tim-nash-at-wordcamp-london-beyond-unit-tests/" data-via="dgmstuart" data-counturl="http://dgmstuart.github.io/blog/2015/03/22/tim-nash-at-wordcamp-london-beyond-unit-tests/" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2015/03/22/mark-jaquith-at-wordcamp-london-cache-money-business/" title="Previous Post: Mark Jaquith at WordCamp London - Cache Money Business">&laquo; Mark Jaquith at WordCamp London - Cache Money Business</a>
+      
+      
+    </p>
+  </footer>
 </article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
 
 </div>
 
@@ -275,7 +297,10 @@
       var disqus_shortname = 'dgmscode';
       
         
-        var disqus_script = 'count.js';
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://dgmstuart.github.io/blog/2015/03/22/tim-nash-at-wordcamp-london-beyond-unit-tests/';
+        var disqus_url = 'http://dgmstuart.github.io/blog/2015/03/22/tim-nash-at-wordcamp-london-beyond-unit-tests/';
+        var disqus_script = 'embed.js';
       
     (function () {
       var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;

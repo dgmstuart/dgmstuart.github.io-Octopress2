@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Testing | dgms code]]></title>
   <link href="http://dgmstuart.github.io/blog/categories/testing/atom.xml" rel="self"/>
   <link href="http://dgmstuart.github.io/"/>
-  <updated>2015-03-22T12:16:38+00:00</updated>
+  <updated>2015-03-22T12:42:17+00:00</updated>
   <id>http://dgmstuart.github.io/</id>
   <author>
     <name><![CDATA[Duncan Stuart]]></name>
@@ -12,6 +12,60 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Tim Nash at WordCamp London - Beyond Unit Tests]]></title>
+    <link href="http://dgmstuart.github.io/blog/2015/03/22/tim-nash-at-wordcamp-london-beyond-unit-tests/"/>
+    <updated>2015-03-22T12:17:20+00:00</updated>
+    <id>http://dgmstuart.github.io/blog/2015/03/22/tim-nash-at-wordcamp-london-beyond-unit-tests</id>
+    <content type="html"><![CDATA[<p><em>I&rsquo;m at <a href="http://london.wordcamp.org/2015/">WordCamp London</a> - live-blogging
+some of the talks</em></p>
+
+<p><a href="https://twitter.com/tnash">Tim Nash</a></p>
+
+<ul>
+<li>Strategy for handling a tight deadline: Piles of acceptance tests</li>
+<li>Disagreement between different languages on what unit tests mean</li>
+<li>Focus on tools and concepts not methodology</li>
+<li><a href="http://codeception.com/">Codececption</a> - does a lot of things, mocking etc.
+php testing framework</li>
+<li>Acceptance testing: commands like <code>amOnPage</code>, <code>see</code>, <code>fillField</code></li>
+<li>Define scenarios: login, fill in form and submit etc.</li>
+<li>Generates reports in: console, html, xml (Ick!)</li>
+<li>Can use different drivers: WebDriver (fast, headless, no js), Selenium (Slow, but drives the actual browser: can be hard to set up), PhantomJS (headless, runs js)</li>
+<li>Functional testing: sits alongside acceptance testing
+
+<ul>
+<li>Test the interactions between units - integrations</li>
+<li>Ignore UI and JS - make posts directly: don&rsquo;t emulate the browser - just
+call endpoints (incl. ajax) directly</li>
+<li>Can also be used to test apis/rss, cli, sending email, can also test
+xml-rpc</li>
+</ul>
+</li>
+<li>We&rsquo;ll be interacting with the database, so we need to set up and tear down
+data
+
+<ul>
+<li>WP-Browser handles these database interactions (i.e. you can directly
+insert data)</li>
+<li>Approach for setup and teardown: you can run a shell script before and
+after a codeception test, so setup wp-cli scripts to do the database
+setup and teardown</li>
+</ul>
+</li>
+<li>Re-usable code in Codeception: Step objects (collections of related steps to DRY up tests?)
+
+<ul>
+<li>Helpers, Modules</li>
+</ul>
+</li>
+<li>Refactoring strategy: Acceptance tests allow you to refactor your unit tests
+with confidence, (which allows you to refactor your code with confidence)</li>
+</ul>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Gotcha: Initialising RSpec in a Rails Project]]></title>
