@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Wordpress | dgms code]]></title>
   <link href="http://dgmstuart.github.io/blog/categories/wordpress/atom.xml" rel="self"/>
   <link href="http://dgmstuart.github.io/"/>
-  <updated>2015-03-22T12:01:21+00:00</updated>
+  <updated>2015-03-22T12:09:00+00:00</updated>
   <id>http://dgmstuart.github.io/</id>
   <author>
     <name><![CDATA[Duncan Stuart]]></name>
@@ -21,7 +21,10 @@
     <content type="html"><![CDATA[<p><em>I&rsquo;m at <a href="http://london.wordcamp.org/2015/">WordCamp London</a> - live-blogging
 some of the talks</em></p>
 
-<p><a href="https://twitter.com/markjaquith">Mark Jaquith</a></p>
+<p><img src="https://pbs.twimg.com/media/CAs0AgdWEAApTMb.jpg" alt="Mark Jaquith talking caching at #wcldn - photo by @davepullig on
+twitter" /></p>
+
+<p><em>photo of <a href="https://twitter.com/markjaquith">Mark Jaquith</a> by <a href="https://twitter.com/davepullig/">Dave Pullig</a></em></p>
 
 <ul>
 <li>Ultimately failing to cache could take your site down: run out of connections</li>
@@ -127,7 +130,8 @@ Buddy</a> - a plugin to do this</li>
 <li>Transients + Object Cache
 
 <ul>
-<li>Store transients in the object cache rather than the options table</li>
+<li>For just a few values use transients - stores data in the options table</li>
+<li>For 1000s of values use the object cache</li>
 <li>Object cache can organise cache keys into groups</li>
 </ul>
 </li>
