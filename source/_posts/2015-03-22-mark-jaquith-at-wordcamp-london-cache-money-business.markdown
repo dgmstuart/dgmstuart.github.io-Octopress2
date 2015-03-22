@@ -68,7 +68,8 @@ some of the talks_
     * APCu, Memcache, or (recommended:) Redis
     * put them in `object-cache.php` - they need to be loaded before plugins
 * Transients + Object Cache
-    * Store transients in the object cache rather than the options table
+    * For just a few values use transients - stores data in the options table
+    * For 1000s of values use the object cache
     * Object cache can organise cache keys into groups
 * Cache stampedes: What happens when cache expires?
     * One user triggers the remote request
