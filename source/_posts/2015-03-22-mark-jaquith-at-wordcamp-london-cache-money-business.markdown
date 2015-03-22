@@ -9,7 +9,12 @@ categories: [caching, wordpress, "wordcamp london"]
 _I'm at [WordCamp London](http://london.wordcamp.org/2015/) - live-blogging
 some of the talks_
 
-[Mark Jaquith](https://twitter.com/markjaquith)
+![Mark Jaquith talking caching at #wcldn - photo by @davepullig on
+twitter](https://pbs.twimg.com/media/CAs0AgdWEAApTMb.jpg)
+
+_photo of [Mark Jaquith](https://twitter.com/markjaquith) by [Dave Pullig](https://twitter.com/davepullig/)_
+
+
 
 * Ultimately failing to cache could take your site down: run out of connections
 * Caching principles:
