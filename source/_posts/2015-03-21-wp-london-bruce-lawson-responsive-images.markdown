@@ -11,6 +11,9 @@ some of the talks_
 
 [Bruce Lawson](http://www.brucelawson.co.uk/)
 
+_EDIT: Bruce has added some corrections and clarifications in the comments
+below_
+
 * Responsiveness includes speed of loading
 *   0.5 second delay is a 20% drop in traffic
 * Images are a major cause of slowing down pages
