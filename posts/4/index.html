@@ -9,7 +9,11 @@
   <meta name="author" content="Duncan Stuart">
 
   
-  <meta name="description" content="I use RSpec for doing TDD, and the rspec-rails gem for integration in Rails projects. On initialising RSpec for SOLDN2, with rspec init it generated &hellip;">
+  <meta name="description" content="When matching on the final segment of a string, e.g for a file extension, you could use a regular expression: 1
+2
+3
+4
+&gt; &quot;foo.bar&quot &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -70,6 +74,83 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2014/06/04/matching-on-a-final-segment-of-a-string/">Matching on a Final Segment of a String</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+
+<time datetime="2014-06-04T19:55:14+01:00" pubdate data-updated="true">Jun 4th, 2014</time>
+        
+           | <a href="/blog/2014/06/04/matching-on-a-final-segment-of-a-string/#disqus_thread"
+             data-disqus-identifier="http://dgmstuart.github.io/blog/2014/06/04/matching-on-a-final-segment-of-a-string/">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>When matching on the final segment of a string, e.g for a file extension, you could use a regular expression:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="o">&gt;</span> <span class="s2">&quot;foo.bar&quot;</span> <span class="o">=~</span> <span class="sr">/.*\.bar$/</span>
+</span><span class='line'><span class="c1"># =&gt; 0</span>
+</span><span class='line'><span class="o">&gt;</span> <span class="s2">&quot;foo.bar.baz&quot;</span> <span class="o">=~</span> <span class="sr">/.*\.bar$/</span>
+</span><span class='line'><span class="c1">#=&gt; nil</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>But of course in ruby there&rsquo;s a much more expressive way</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="o">&gt;</span> <span class="s2">&quot;foo.bar&quot;</span><span class="o">.</span><span class="n">end_with?</span><span class="p">(</span><span class="s2">&quot;.bar&quot;</span><span class="p">)</span>
+</span><span class='line'><span class="c1">#=&gt; true</span>
+</span><span class='line'><span class="o">&gt;</span> <span class="s2">&quot;foo.bar.baz&quot;</span><span class="o">.</span><span class="n">end_with?</span><span class="p">(</span><span class="s2">&quot;.bar&quot;</span><span class="p">)</span>
+</span><span class='line'><span class="c1">#=&gt; false</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>You can even pass multiple suffixes as arguments:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="o">&gt;</span> <span class="s2">&quot;foo.qux&quot;</span><span class="o">.</span><span class="n">end_with?</span><span class="p">(</span><span class="s2">&quot;bar&quot;</span><span class="p">,</span> <span class="s2">&quot;baz&quot;</span><span class="p">,</span> <span class="s2">&quot;qux&quot;</span><span class="p">)</span>
+</span><span class='line'><span class="c1">#=&gt; true</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Oh Ruby how I love you so.</p>
+
+<p><em><a href="http://www.ruby-doc.org/core-2.1.1/String.html#method-i-end_with-3F">api documentation for end_with?</a></em></p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -372,6 +453,10 @@ Shall the new role be allowed to create more new roles? (y/n) n
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2015/03/25/unboxed-event-notes/">Unboxed Event Notes</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2015/03/22/tim-nash-at-wordcamp-london-beyond-unit-tests/">Tim Nash at WordCamp London - Beyond Unit Tests</a>
       </li>
     
@@ -385,10 +470,6 @@ Shall the new role be allowed to create more new roles? (y/n) n
     
       <li class="post">
         <a href="/blog/2015/03/13/sandi-metz-nothing-is-something-at-bathruby/">Sandi Metz: Nothing Is Something - at BathRuby</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2015/03/13/tom-stuart-a-lever-for-the-mind-at-bathruby/">Tom Stuart - &#8216;a Lever for the Mind&#8217; at BathRuby</a>
       </li>
     
   </ul>

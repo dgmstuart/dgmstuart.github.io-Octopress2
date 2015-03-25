@@ -5,13 +5,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Creating a New App on Heroku Really Is Stupidly Easy - dgms code</title>
+  <title>Unboxed Event Notes - dgms code</title>
   <meta name="author" content="Duncan Stuart">
 
   
-  <meta name="description" content="heroku apps:create swingoutlondon2 --region eu
-git push heroku master
-heroku run rake db:migrate Done *. https://swingoutlondon2.herokuapp.com exists &hellip;">
+  <meta name="description" content="I&rsquo;m at a speaker session from Unboxed consulting Dave Evans - Product Manager (E-commerce) at Macmillan Publishing Group “Trust me, I’m a &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -20,7 +18,7 @@ heroku run rake db:migrate Done *. https://swingoutlondon2.herokuapp.com exists 
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://dgmstuart.github.io/blog/2014/08/15/creating-a-new-app-on-heroku-is-stupidly-easy">
+  <link rel="canonical" href="http://dgmstuart.github.io/blog/2015/03/25/unboxed-event-notes">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/atom.xml" rel="alternate" title="dgms code" type="application/atom+xml">
@@ -75,7 +73,7 @@ heroku run rake db:migrate Done *. https://swingoutlondon2.herokuapp.com exists 
   
   <header>
     
-      <h1 class="entry-title">Creating a New App on Heroku Really Is Stupidly Easy</h1>
+      <h1 class="entry-title">Unboxed Event Notes</h1>
     
     
       <p class="meta">
@@ -92,7 +90,7 @@ heroku run rake db:migrate Done *. https://swingoutlondon2.herokuapp.com exists 
 
 
 
-<time datetime="2014-08-15T13:49:11+01:00" pubdate data-updated="true">Aug 15th, 2014</time>
+<time datetime="2015-03-25T09:55:22+00:00" pubdate data-updated="true">Mar 25th, 2015</time>
         
            | <a href="#disqus_thread"
              data-disqus-identifier="http://dgmstuart.github.io">Comments</a>
@@ -102,25 +100,72 @@ heroku run rake db:migrate Done *. https://swingoutlondon2.herokuapp.com exists 
   </header>
 
 
-<div class="entry-content"><pre><code>heroku apps:create swingoutlondon2 --region eu
-git push heroku master
-heroku run rake db:migrate
-</code></pre>
+<div class="entry-content"><p><em>I&rsquo;m at a <a href="https://www.eventbrite.co.uk/e/unstick-your-digital-products-rapidly-progress-a-complex-product-or-portfolio-of-stalled-products-tickets-15872783924">speaker session from Unboxed consulting</a></em></p>
 
-<p>Done *. <a href="https://swingoutlondon2.herokuapp.com">https://swingoutlondon2.herokuapp.com</a> exists.</p>
+<h2>Dave Evans - Product Manager (E-commerce) at Macmillan Publishing Group</h2>
 
-<p>I know it&rsquo;s been around for ages, but it really is amazing how simple it is.</p>
-
-<p><em>* Actually not quite done - I still needed to:</em></p>
+<h3>“Trust me, I’m a product manager”: case study from publishing</h3>
 
 <ul>
-<li><em>set up my <a href="https://devcenter.heroku.com/changelog-items/426">secret tokens</a></em></li>
-<li><em>jump through a couple of hoops to get Devise&rsquo;s key to be recognised because <a href="https://stackoverflow.com/questions/19832218/failing-to-find-envsecret-key-in-devise-setup-on-heroku#comment35154876_19833145">Heroku doesn&rsquo;t have access to the Rails environment when deploying</a></em></li>
-<li><em><a href="http://stackoverflow.com/a/17082720/1035431">tweak my production.rb</a> to get it to compile assets</em></li>
+<li>Sales thinking: identify influencers, budget holders etc.</li>
+<li>Commercial products: it&rsquo;s all about profit-and-loss. Non-commercial products
+need different KPIs</li>
+<li>Product manager != project manager. Responsible for:
+
+<ul>
+<li>Backlog, vision statement</li>
+<li>Roadmap: what questions do we need to answer in the next windows of time</li>
+</ul>
+</li>
+<li>&ldquo;You need to go rogue&rdquo; - prove concepts on your own without a team</li>
+<li>404 test = e.g. buy now button - show it to a % of users, does nothing</li>
+<li>Concierge test = build front-end, but handle the back-end manually</li>
+<li>Everything in the backlog should be in line with the vision statement</li>
+<li>Question for unpicking feature requests which you think might not actually
+be about solving a problem: &ldquo;What happens if you <em>can&rsquo;t</em> build it?&rdquo;</li>
 </ul>
 
 
-<p><em>But whatever. Hush.</em></p>
+<h2><a href="https://twitter.com/g_parry24/">Glyn Parry</a> – SH:24 (NHS collaboration)</h2>
+
+<h3>How designing a new experience in the NHS helped to unblock and unleash new potential</h3>
+
+<ul>
+<li>His experience: People in localgov/NHS aren&rsquo;t familiar with agile</li>
+<li>Just because they don&rsquo;t think of thinks in agile terminology doesn&rsquo;t mean
+they don&rsquo;t have an agile mindset</li>
+<li>Sexual health services in Lambeth&amp;Southwark are very overstretched, and in
+rural areas, round-trip times to visit a clinic might be very long</li>
+<li>Online STI kits - convenient but expensive</li>
+<li>New service: free, user-focussed</li>
+<li>User journeys illustrated with comic-strip style graphics:
+<img src="https://igcdn-photos-e-a.akamaihd.net/hphotos-ak-xaf1/t51.2885-15/11055891_730864497033484_1856034297_n.jpg" alt="@g_parry_24 talking about SH:24 approach" /></li>
+<li>Identify people in the organisation who have an agile mindset and are quite
+influential</li>
+<li>Approach: agile prototyping, building a service piece-by-piece with users</li>
+<li>Developing personas</li>
+<li>It&rsquo;s a digital project, but only 25% of the service being provided is
+digital - needs to be recognised</li>
+<li>Started with the basic GDS form</li>
+<li>Prototyping the kits that people recieve - cardboard and post-its
+
+<ul>
+<li>Started out trying to design engaging packaging for the test kits</li>
+<li>through user testing: learned that people don&rsquo;t want this - they like a
+really simple approach</li>
+</ul>
+</li>
+<li>Need to think about the user needs of the people receiving the tests as well</li>
+<li>Continuous evaluation on multiple different angles: measuring the impact of
+the service on sexual health</li>
+<li>Assumptions broken: people don&rsquo;t actually want their results to be
+super-discreet: they just want to know as quickly and clearly as possible</li>
+</ul>
+
+
+<h2>Richard Stobart – CEO, Unboxed Consulting, Agile Coach of the Year 2014</h2>
+
+<h3>Techniques for overcoming the Big 7 digital product blockers</h3>
 </div>
 
 
@@ -144,21 +189,15 @@ heroku run rake db:migrate
 
 
 
-<time datetime="2014-08-15T13:49:11+01:00" pubdate data-updated="true">Aug 15th, 2014</time>
+<time datetime="2015-03-25T09:55:22+00:00" pubdate data-updated="true">Mar 25th, 2015</time>
       
-
-<span class="categories">
-  
-    <a class='category' href='/blog/categories/heroku/'>heroku</a>, <a class='category' href='/blog/categories/rails/'>rails</a>, <a class='category' href='/blog/categories/ruby/'>ruby</a>
-  
-</span>
 
 
     </p>
     
       <div class="sharing">
   
-  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://dgmstuart.github.io/blog/2014/08/15/creating-a-new-app-on-heroku-is-stupidly-easy/" data-via="dgmstuart" data-counturl="http://dgmstuart.github.io/blog/2014/08/15/creating-a-new-app-on-heroku-is-stupidly-easy/" >Tweet</a>
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://dgmstuart.github.io/blog/2015/03/25/unboxed-event-notes/" data-via="dgmstuart" data-counturl="http://dgmstuart.github.io/blog/2015/03/25/unboxed-event-notes/" >Tweet</a>
   
   
   
@@ -167,10 +206,8 @@ heroku run rake db:migrate
     
     <p class="meta">
       
-        <a class="basic-alignment left" href="/blog/2014/06/23/a-better-way-of-writing-commit-messages/" title="Previous Post: A better way of writing commit messages">&laquo; A better way of writing commit messages</a>
+        <a class="basic-alignment left" href="/blog/2015/03/22/tim-nash-at-wordcamp-london-beyond-unit-tests/" title="Previous Post: Tim Nash at WordCamp London - Beyond Unit Tests">&laquo; Tim Nash at WordCamp London - Beyond Unit Tests</a>
       
-      
-        <a class="basic-alignment right" href="/blog/2014/08/20/migrating-postgres-data-from-an-old-rails-project-to-a-new-one/" title="Next Post: Migrating Postgres data from an old Rails project to a new one">Migrating Postgres data from an old Rails project to a new one &raquo;</a>
       
     </p>
   </footer>
@@ -274,8 +311,8 @@ heroku run rake db:migrate
       
         
         // var disqus_developer = 1;
-        var disqus_identifier = 'http://dgmstuart.github.io/blog/2014/08/15/creating-a-new-app-on-heroku-is-stupidly-easy/';
-        var disqus_url = 'http://dgmstuart.github.io/blog/2014/08/15/creating-a-new-app-on-heroku-is-stupidly-easy/';
+        var disqus_identifier = 'http://dgmstuart.github.io/blog/2015/03/25/unboxed-event-notes/';
+        var disqus_url = 'http://dgmstuart.github.io/blog/2015/03/25/unboxed-event-notes/';
         var disqus_script = 'embed.js';
       
     (function () {
