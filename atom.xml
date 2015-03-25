@@ -4,7 +4,7 @@
   <title><![CDATA[dgms code]]></title>
   <link href="http://dgmstuart.github.io/atom.xml" rel="self"/>
   <link href="http://dgmstuart.github.io/"/>
-  <updated>2015-03-25T12:15:17+00:00</updated>
+  <updated>2015-03-25T12:27:26+00:00</updated>
   <id>http://dgmstuart.github.io/</id>
   <author>
     <name><![CDATA[Duncan Stuart]]></name>
@@ -153,6 +153,10 @@ releasing a product to all students in China (which was the MVP!!)
 <li>Creating roll-back-able database migrations: dbdeploy, liquibase etc. - have
 both database schema versions live in parallel, delete the old one when the
 new one is stable</li>
+<li>In closed-scope projects, everyone feels like they need to throw in all
+their great feature ideas before the scope window closes - leads to feature
+bloat. Solution: get stakeholders on side, and ensure that the product owner
+controls the backlog</li>
 </ul>
 
 ]]></content>
