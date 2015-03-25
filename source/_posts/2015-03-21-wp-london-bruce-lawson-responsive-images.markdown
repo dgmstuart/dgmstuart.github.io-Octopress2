@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "WP London - Bruce Lawson - Responsive Images"
+title: "WordCamp London - Bruce Lawson - Responsive Images"
 date: 2015-03-21 15:18:00 +0000
 comments: true
 categories: ["wordcamp london"]
@@ -54,7 +54,7 @@ below_
     * solution: w descriptor - use in src set to tell the browser which image
       is more suitable for a particular page width
 * All this requires a lot of cruft to add in all the clauses to make this work, but
-  there's a plugin from Respimg which does it for you
+  there's a [plugin from Respimg](https://wordpress.org/plugins/ricg-responsive-images/) which does it for you
 * Third use case - new image formats
     * JPG/PNG/GIF are ubiquitous, but there are more modern, better
       compression alternatives: smaller files, better quality - e.g. WebP
