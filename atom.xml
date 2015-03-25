@@ -4,7 +4,7 @@
   <title><![CDATA[dgms code]]></title>
   <link href="http://dgmstuart.github.io/atom.xml" rel="self"/>
   <link href="http://dgmstuart.github.io/"/>
-  <updated>2015-03-25T12:27:26+00:00</updated>
+  <updated>2015-03-25T17:31:31+00:00</updated>
   <id>http://dgmstuart.github.io/</id>
   <author>
     <name><![CDATA[Duncan Stuart]]></name>
@@ -369,7 +369,7 @@ marked as expired but not deleted until the new data is available (!)</li>
   </entry>
   
   <entry>
-    <title type="html"><![CDATA[WP London - Bruce Lawson - Responsive Images]]></title>
+    <title type="html"><![CDATA[WordCamp London - Bruce Lawson - Responsive Images]]></title>
     <link href="http://dgmstuart.github.io/blog/2015/03/21/wp-london-bruce-lawson-responsive-images/"/>
     <updated>2015-03-21T15:18:00+00:00</updated>
     <id>http://dgmstuart.github.io/blog/2015/03/21/wp-london-bruce-lawson-responsive-images</id>
@@ -437,7 +437,7 @@ is more suitable for a particular page width</li>
 </ul>
 </li>
 <li>All this requires a lot of cruft to add in all the clauses to make this work, but
-there&rsquo;s a plugin from Respimg which does it for you</li>
+there&rsquo;s a <a href="https://wordpress.org/plugins/ricg-responsive-images/"> plugin from Respimg</a> which does it for you</li>
 <li>Third use case - new image formats
 
 <ul>
