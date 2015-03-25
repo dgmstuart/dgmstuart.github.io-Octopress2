@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Agile | dgms code]]></title>
+  <link href="http://dgmstuart.github.io/blog/categories/agile/atom.xml" rel="self"/>
+  <link href="http://dgmstuart.github.io/"/>
+  <updated>2015-03-25T12:06:23+00:00</updated>
+  <id>http://dgmstuart.github.io/</id>
+  <author>
+    <name><![CDATA[Duncan Stuart]]></name>
+    <email><![CDATA[dgmstuart@gmail.com]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Unboxed Event Notes: "Unstick Your Digital Products"]]></title>
+    <link href="http://dgmstuart.github.io/blog/2015/03/25/unboxed-event-notes/"/>
+    <updated>2015-03-25T09:55:22+00:00</updated>
+    <id>http://dgmstuart.github.io/blog/2015/03/25/unboxed-event-notes</id>
+    <content type="html"><![CDATA[<p><em>I&rsquo;m at a <a href="https://www.eventbrite.co.uk/e/unstick-your-digital-products-rapidly-progress-a-complex-product-or-portfolio-of-stalled-products-tickets-15872783924">speaker session from Unboxed consulting</a></em></p>
+
+<h2><a href="https://www.linkedin.com/pub/dave-evans/a/311/919">Dave Evans</a> - Product Manager (E-commerce) at Macmillan Publishing Group</h2>
+
+<h3>“Trust me, I’m a product manager”: case study from publishing</h3>
+
+<ul>
+<li>Sales thinking: identify influencers, budget holders etc.</li>
+<li>Commercial products: it&rsquo;s all about profit-and-loss. Non-commercial products
+need different KPIs</li>
+<li>Product manager != project manager. Responsible for:
+
+<ul>
+<li>Backlog, vision statement</li>
+<li>Roadmap: what questions do we need to answer in the next windows of time</li>
+</ul>
+</li>
+<li>&ldquo;You need to go rogue&rdquo; - prove concepts on your own without a team</li>
+<li>404 test = e.g. buy now button - show it to a % of users, does nothing</li>
+<li>Concierge test = build front-end, but handle the back-end manually</li>
+<li>Everything in the backlog should be in line with the vision statement</li>
+<li>Question for unpicking feature requests which you think might not actually
+be about solving a problem: &ldquo;What happens if you <em>can&rsquo;t</em> build it?&rdquo;</li>
+</ul>
+
+
+<h2><a href="https://twitter.com/g_parry24/">Glyn Parry</a> – SH:24 (NHS collaboration)</h2>
+
+<h3>How designing a new experience in the NHS helped to unblock and unleash new potential</h3>
+
+<ul>
+<li>His experience: People in localgov/NHS aren&rsquo;t familiar with agile</li>
+<li>Just because they don&rsquo;t think of thinks in agile terminology doesn&rsquo;t mean
+they don&rsquo;t have an agile mindset</li>
+<li>Sexual health services in Lambeth&amp;Southwark are very overstretched, and in
+rural areas, round-trip times to visit a clinic might be very long</li>
+<li>Online STI kits - convenient but expensive</li>
+<li>New service: free, user-focussed</li>
+<li>User journeys illustrated with comic-strip style graphics:
+<img src="https://igcdn-photos-e-a.akamaihd.net/hphotos-ak-xaf1/t51.2885-15/11055891_730864497033484_1856034297_n.jpg" alt="@g_parry_24 talking about SH:24 approach" /></li>
+<li>Identify people in the organisation who have an agile mindset and are quite
+influential</li>
+<li>Approach: agile prototyping, building a service piece-by-piece with users</li>
+<li>Developing personas</li>
+<li>It&rsquo;s a digital project, but only 25% of the service being provided is
+digital - needs to be recognised</li>
+<li>Started with the basic GDS form</li>
+<li>Prototyping the kits that people recieve - cardboard and post-its
+
+<ul>
+<li>Started out trying to design engaging packaging for the test kits</li>
+<li>through user testing: learned that people don&rsquo;t want this - they like a
+really simple approach</li>
+</ul>
+</li>
+<li>Need to think about the user needs of the people receiving the tests as well</li>
+<li>Continuous evaluation on multiple different angles: measuring the impact of
+the service on sexual health</li>
+<li>Assumptions broken: people don&rsquo;t actually want their results to be
+super-discreet: they just want to know as quickly and clearly as possible</li>
+<li>Prior to alpha - 3 month discovery stage: very intensive working with users</li>
+</ul>
+
+
+<h2><a href="https://twitter.com/thecustomer">Will Rowan</a> - Product Manager at the Ministry of Justice (interview)</h2>
+
+<ul>
+<li>Managers are more important if they have more responsibilities - therefore
+they&rsquo;re predjudiced towards bigger projects and bigger products</li>
+<li>PRINCE2 documentation is large regardless of project size - again
+predjudicing larger projects</li>
+<li>Project example: Multi-car insurance. users not considered, data produced not
+considered, organisational capability to run the service, not considered
+(!!)</li>
+<li>On the importance of competitors: &ldquo;If you&rsquo;re trying to motivate a project team you need an enemy&rdquo;</li>
+<li>&ldquo;The more that you can get product in front of people the better&rdquo; - internal
+and external. The importance of show and tell. &ldquo;we can show you what&rsquo;s
+possible&rdquo; - unlock stakeholder committment: low cost, low-risk &ldquo;If they can
+quantify the risk they&rsquo;ll sign it off&rdquo;</li>
+<li>Stakeholders probably don&rsquo;t believe that you can deliver that much in that
+little time. Chip away at this by sharing what you&rsquo;re doing and how you&rsquo;re
+doing it.</li>
+<li>Drew the whole of a product on one A2 flipchart - helped to convince
+stakeholders it&rsquo;s feasible</li>
+<li>Attraction of Waterfall is that it lets you sign off the whole budget. In agile
+you&rsquo;re iterating the budget as well as iterating the project</li>
+<li>Getting everyone speaking the same language is important - e.g. training
+stakeholders to not refer to things as &lsquo;portals&rsquo; when they&rsquo;re nothing of the
+sort
+
+<ul>
+<li>If you discover that you&rsquo;ve got it wrong, or there&rsquo;s a better term, it
+<em>is</em> worth changing it all the way down the stack</li>
+</ul>
+</li>
+<li>When running agile: Make the work visible - extremely important: whole
+backlog on the wall. Makes it much easier to have a common understanding.
+Always carry whiteboard markers and post-its when in a non-agile environment
+(you won&rsquo;t find them there).</li>
+</ul>
+
+
+<h2>Richard Stobart – CEO, Unboxed Consulting, Agile Coach of the Year 2014</h2>
+
+<h3>Techniques for overcoming the Big 7 digital product blockers</h3>
+
+<ul>
+<li>The trap of 100% utilisation: Can&rsquo;t move quickly. Grind to a halt.</li>
+<li>70% utilisation is about as fast as you can go: helps avoid context-switching</li>
+<li>Intuitive thing when you see someone not busy is to make them busy, but this
+slows down all their other projects</li>
+<li>If you&rsquo;ve got spare time, help unblock <em>other people</em>, or do nothing&#8221;: don&rsquo;t
+add more things to the pipeline</li>
+<li>Always be delivering the highest value thing on your most important project</li>
+<li>Optimise &lsquo;batch size&rsquo; - grouping together features for deploy. Small batches
+= responding to change more quickly. = fixing bugs more easily: if the
+problem is a result of code which was written recently, the devs have that
+conceptual stack in their head.
+
+<ul>
+<li>Not achievable if your deployment process is onerous or slow</li>
+</ul>
+</li>
+<li>People used to think of environments like pets: they all had names. Today
+they&rsquo;re like cattle: set up when you need it, tear down when you&rsquo;re done.</li>
+</ul>
+
+]]></content>
+  </entry>
+  
+</feed>
