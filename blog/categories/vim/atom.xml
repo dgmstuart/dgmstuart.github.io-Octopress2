@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Vim | dgms code]]></title>
+  <link href="http://dgmstuart.github.io/blog/categories/vim/atom.xml" rel="self"/>
+  <link href="http://dgmstuart.github.io/"/>
+  <updated>2015-03-27T16:17:07+00:00</updated>
+  <id>http://dgmstuart.github.io/</id>
+  <author>
+    <name><![CDATA[Duncan Stuart]]></name>
+    <email><![CDATA[dgmstuart@gmail.com]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Execute Ruby Code Inline in the Editor]]></title>
+    <link href="http://dgmstuart.github.io/blog/2015/03/27/execute-ruby-code-inline-in-the-editor/"/>
+    <updated>2015-03-27T15:41:47+00:00</updated>
+    <id>http://dgmstuart.github.io/blog/2015/03/27/execute-ruby-code-inline-in-the-editor</id>
+    <content type="html"><![CDATA[<p>I&rsquo;ve often wondered how in Ruby screencasts they magically execute code inline
+in the editor, e.g. they type:</p>
+
+<pre><code class="ruby">[1, 2, 3].reverse # =&gt;
+</code></pre>
+
+<p>&hellip;and it magically becomes
+<code>ruby
+[1, 2, 3].reverse # =&gt; [3, 2, 1]
+</code></p>
+
+<p>You can see how effective this is in action in
+<a href="http://www.rubytapas.com/episodes/11-Method-and-Message">one of the sample episodes for Ruby Tapas</a>
+by the wise and excellent <a href="http://about.avdi.org/">Avdi Grimm</a>.</p>
+
+<p>Today I learned how. Apparently it&rsquo;s a Textmate feature called “Execute and
+Update &lsquo;# =>&rsquo; Markers” which has been ported over to other editors:</p>
+
+<ul>
+<li><a href="https://github.com/mmims/sublime-text-2-ruby-markers">Plugin for Sublime Text2</a></li>
+<li><a href="https://github.com/t9md/vim-ruby-xmpfilter">Plugin for Vim</a></li>
+</ul>
+
+
+<p><em>A quick google hasn&rsquo;t revealed how to enable this in Emacs, but it must be
+possible because I believe that&rsquo;s what Avdi uses</em></p>
+
+<p>This also explains why the snippet for <code>#</code> expands to <code># =&gt;</code>. I&rsquo;d always
+assumed that this was intended to make multiline comments more readable. That
+sounds a bit silly now that I know :)</p>
+]]></content>
+  </entry>
+  
+</feed>

@@ -10,7 +10,9 @@
 
   
   <meta name="description" content="I&rsquo;m at Bath Ruby 2015, live blogging some of the
-talks photo by @Naomi_Freeman Railsgirls in over 277(?) cities Started in Helsinki &ldquo;The &hellip;">
+talks Live coding!
+Code for sending mail to a list of recipients based on a csv
+Problems: Will &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -71,6 +73,122 @@ talks photo by @Naomi_Freeman Railsgirls in over 277(?) cities Started in Helsin
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2015/03/13/ben-orenstein-live-coding-in-the-bath-at-bathruby/">Ben Orenstein: Live Coding in the Bath at BathRuby</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+
+<time datetime="2015-03-13T10:34:52+00:00" pubdate data-updated="true">Mar 13th, 2015</time>
+        
+           | <a href="/blog/2015/03/13/ben-orenstein-live-coding-in-the-bath-at-bathruby/#disqus_thread"
+             data-disqus-identifier="http://dgmstuart.github.io/blog/2015/03/13/ben-orenstein-live-coding-in-the-bath-at-bathruby/">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><em>I&rsquo;m at <a href="http://2015.bathruby.org/">Bath Ruby 2015</a>, live blogging some of the
+talks</em></p>
+
+<ul>
+<li>Live coding!</li>
+<li>Code for sending mail to a list of recipients based on a csv</li>
+<li>Problems:
+
+<ul>
+<li>Will fail if one of the recipients fails to get parsed</li>
+<li>CSV should get injected as a dependency rather than bring parsed in this
+class.</li>
+<li>Class has multiple responsibilities: parsing and mailing</li>
+</ul>
+</li>
+<li>TDD: Should take very little time and effort to run tests (his are two
+keystrokes and no time)</li>
+<li><p>an &lsquo;extract class&rsquo; refactoring:</p>
+
+<ol>
+<li>add the class we  want in the initialiser</li>
+<li>create an empty spec</li>
+<li>create the class</li>
+</ol>
+</li>
+<li><p><code>CSV::strip_heredoc</code> - Look up</p></li>
+<li>Don&rsquo;t write specs for private methods - test them implicitly through the
+public methods</li>
+<li>Spec style for parsing output:
+
+<ol>
+<li>create a csv string</li>
+<li>create an output hash</li>
+<li>expect parsing the csv string to equal the output hash</li>
+</ol>
+</li>
+<li>TDD approach - do only the smalles thing to get the message to change: e.g.
+create initializer with no args, then add one arg, then start to define
+behaviour</li>
+<li>Now actually use the parser.</li>
+<li>Tests green = OVERWHELMING INSTINCT TO COMMIT!</li>
+<li>&ldquo;Component test&rdquo; = integration test just covering a selection of components
+(?)</li>
+<li>Test refactoring: extract methods! (e.g. to do repeated stubbing and other
+setup)
+
+<ul>
+<li>could use <code>before</code>, but tends to do this later or not at all. Makes specs
+harder to read and maintain (?): each spec is different. Extracting method is definitely the first
+step.</li>
+</ul>
+</li>
+<li>&ldquo;We make a mess first, then we clean it up&rdquo;</li>
+<li>Invert control: it&rsquo;s odd that we pass the csv into the Invitations class
+
+<ul>
+<li>Instead, &ldquo;build dependencies at higher level and pass it down to lower
+levels&rdquo; (??)</li>
+<li>Instead of passing the csv to invitations and creating a parser based on
+it, let&rsquo;s send invitations to the parser (!)</li>
+</ul>
+</li>
+<li>Inverting control benefits:
+
+<ul>
+<li>Easier to follow Open/Closed principle</li>
+<li>Shorter specs</li>
+</ul>
+</li>
+<li>Question &ldquo;The specs passed from the beginning, so weren&rsquo;t you done?&rdquo;
+
+<ul>
+<li>Answer: Refactoring makes more flexible maintainable code</li>
+</ul>
+</li>
+</ul>
+
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -989,83 +1107,6 @@ Here&rsquo;s where it looks, in order, for an email address to use:</p>
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2014/09/27/wordcamp-europe-2014-notes-8-usability-testing/">WordCamp Europe 2014 Notes - 1.8: Usability Testing</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-
-<time datetime="2014-09-27T15:15:07+01:00" pubdate data-updated="true">Sep 27th, 2014</time>
-        
-           | <a href="/blog/2014/09/27/wordcamp-europe-2014-notes-8-usability-testing/#disqus_thread"
-             data-disqus-identifier="http://dgmstuart.github.io/blog/2014/09/27/wordcamp-europe-2014-notes-8-usability-testing/">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p><em>I&rsquo;m at <a href="http://2014.europe.wordcamp.org/">WordCamp Europe</a> in Sofia - taking rough notes on some of the talks</em></p>
-
-<p>Dario Jazbec Hrvatin - <a href="http://2014.europe.wordcamp.org/session/dario-jazbec-hrvatin/">http://2014.europe.wordcamp.org/session/dario-jazbec-hrvatin/</a></p>
-
-<p><img src="http://photos-e.ak.instagram.com/hphotos-ak-xaf1/10665594_1562716813952100_214832350_n.jpg" alt="sketchnotes by @studionetting" /></p>
-
-<p><em>Awesome sketchnotes by <a href="http://instagram.com/p/tc-b8atkPN/">@studionetting</a></em></p>
-
-<ul>
-<li>Remote user testing</li>
-<li>Google hangouts or Skype
-
-<ul>
-<li>Important to make sure that your users are comfortable with the tech before officially starting the test</li>
-</ul>
-</li>
-<li>Beginners or Experts as your users: depends what you&rsquo;re testing</li>
-<li><p>Have a 5 minute chat to screen them: make sure that they meet your profile - that they will provide useful data</p></li>
-<li><p>Scenarios: Start with the test (specific task that they need to do) then work it up into a scenario</p></li>
-<li>Start off with a script</li>
-<li>after that - relax them: get them talking by asking some simple questions:
-
-<ul>
-<li>&ldquo;what are your favourite themes and plugins&rdquo;</li>
-</ul>
-</li>
-<li>Don&rsquo;t be afraid to just skip a step if they&rsquo;re struggling</li>
-<li><p>To close off the session:</p>
-
-<ul>
-<li>Ask any addition questions</li>
-<li>answer any questions they have</li>
-<li>thank them (!!)</li>
-</ul>
-</li>
-<li><p>Throughout: Keep a poker face</p></li>
-</ul>
-
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="3">&larr; Older</a>
@@ -1091,6 +1132,10 @@ Here&rsquo;s where it looks, in order, for an email address to use:</p>
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2015/03/27/execute-ruby-code-inline-in-the-editor/">Execute Ruby Code Inline in the Editor</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2015/03/25/unboxed-event-notes/">Unboxed Event Notes: &#8220;Unstick Your Digital Products&#8221;</a>
       </li>
     
@@ -1104,10 +1149,6 @@ Here&rsquo;s where it looks, in order, for an email address to use:</p>
     
       <li class="post">
         <a href="/blog/2015/03/21/wp-london-bruce-lawson-responsive-images/">WordCamp London - Bruce Lawson - Responsive Images</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2015/03/13/sandi-metz-nothing-is-something-at-bathruby/">Sandi Metz: Nothing Is Something - at BathRuby</a>
       </li>
     
   </ul>

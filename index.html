@@ -9,7 +9,9 @@
   <meta name="author" content="Duncan Stuart">
 
   
-  <meta name="description" content="I&rsquo;m at a speaker session from Unboxed consulting Dave Evans - Product Manager (E-commerce) at Macmillan Publishing Group “Trust me, I’m a &hellip;">
+  <meta name="description" content="I&rsquo;ve often wondered how in Ruby screencasts they magically execute code inline
+in the editor, e.g. they type: 1
+[1, 2, 3].reverse # =&gt; & &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -70,6 +72,79 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2015/03/27/execute-ruby-code-inline-in-the-editor/">Execute Ruby Code Inline in the Editor</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+
+<time datetime="2015-03-27T15:41:47+00:00" pubdate data-updated="true">Mar 27th, 2015</time>
+        
+           | <a href="/blog/2015/03/27/execute-ruby-code-inline-in-the-editor/#disqus_thread"
+             data-disqus-identifier="http://dgmstuart.github.io/blog/2015/03/27/execute-ruby-code-inline-in-the-editor/">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>I&rsquo;ve often wondered how in Ruby screencasts they magically execute code inline
+in the editor, e.g. they type:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="o">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="o">].</span><span class="n">reverse</span> <span class="c1"># =&gt;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>&hellip;and it magically becomes</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="o">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="o">].</span><span class="n">reverse</span> <span class="c1"># =&gt; [3, 2, 1]</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>You can see how effective this is in action in
+<a href="http://www.rubytapas.com/episodes/11-Method-and-Message">one of the sample episodes for Ruby Tapas</a>
+by the wise and excellent <a href="http://about.avdi.org/">Avdi Grimm</a>.</p>
+
+<p>Today I learned how. Apparently it&rsquo;s a Textmate feature called “Execute and
+Update &lsquo;# =>&rsquo; Markers” which has been ported over to other editors:</p>
+
+<ul>
+<li><a href="https://github.com/mmims/sublime-text-2-ruby-markers">Plugin for Sublime Text2</a></li>
+<li><a href="https://github.com/t9md/vim-ruby-xmpfilter">Plugin for Vim</a></li>
+</ul>
+
+
+<p><em>A quick google hasn&rsquo;t revealed how to enable this in Emacs, but it must be
+possible because I believe that&rsquo;s what Avdi uses</em></p>
+
+<p>This also explains why the snippet for <code>#</code> expands to <code># =&gt;</code>. I&rsquo;d always
+assumed that this was intended to make multiline comments more readable. That
+sounds a bit silly now that I know :)</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -615,7 +690,7 @@ is more suitable for a particular page width</li>
 </ul>
 </li>
 <li>All this requires a lot of cruft to add in all the clauses to make this work, but
-there&rsquo;s a <a href="https://wordpress.org/plugins/ricg-responsive-images/"> plugin from Respimg</a> which does it for you</li>
+there&rsquo;s a <a href="https://wordpress.org/plugins/ricg-responsive-images/">plugin from Respimg</a> which does it for you</li>
 <li>Third use case - new image formats
 
 <ul>
@@ -1038,122 +1113,6 @@ into files, what they&rsquo;re called etc)</li>
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2015/03/13/ben-orenstein-live-coding-in-the-bath-at-bathruby/">Ben Orenstein: Live Coding in the Bath at BathRuby</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-
-<time datetime="2015-03-13T10:34:52+00:00" pubdate data-updated="true">Mar 13th, 2015</time>
-        
-           | <a href="/blog/2015/03/13/ben-orenstein-live-coding-in-the-bath-at-bathruby/#disqus_thread"
-             data-disqus-identifier="http://dgmstuart.github.io/blog/2015/03/13/ben-orenstein-live-coding-in-the-bath-at-bathruby/">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p><em>I&rsquo;m at <a href="http://2015.bathruby.org/">Bath Ruby 2015</a>, live blogging some of the
-talks</em></p>
-
-<ul>
-<li>Live coding!</li>
-<li>Code for sending mail to a list of recipients based on a csv</li>
-<li>Problems:
-
-<ul>
-<li>Will fail if one of the recipients fails to get parsed</li>
-<li>CSV should get injected as a dependency rather than bring parsed in this
-class.</li>
-<li>Class has multiple responsibilities: parsing and mailing</li>
-</ul>
-</li>
-<li>TDD: Should take very little time and effort to run tests (his are two
-keystrokes and no time)</li>
-<li><p>an &lsquo;extract class&rsquo; refactoring:</p>
-
-<ol>
-<li>add the class we  want in the initialiser</li>
-<li>create an empty spec</li>
-<li>create the class</li>
-</ol>
-</li>
-<li><p><code>CSV::strip_heredoc</code> - Look up</p></li>
-<li>Don&rsquo;t write specs for private methods - test them implicitly through the
-public methods</li>
-<li>Spec style for parsing output:
-
-<ol>
-<li>create a csv string</li>
-<li>create an output hash</li>
-<li>expect parsing the csv string to equal the output hash</li>
-</ol>
-</li>
-<li>TDD approach - do only the smalles thing to get the message to change: e.g.
-create initializer with no args, then add one arg, then start to define
-behaviour</li>
-<li>Now actually use the parser.</li>
-<li>Tests green = OVERWHELMING INSTINCT TO COMMIT!</li>
-<li>&ldquo;Component test&rdquo; = integration test just covering a selection of components
-(?)</li>
-<li>Test refactoring: extract methods! (e.g. to do repeated stubbing and other
-setup)
-
-<ul>
-<li>could use <code>before</code>, but tends to do this later or not at all. Makes specs
-harder to read and maintain (?): each spec is different. Extracting method is definitely the first
-step.</li>
-</ul>
-</li>
-<li>&ldquo;We make a mess first, then we clean it up&rdquo;</li>
-<li>Invert control: it&rsquo;s odd that we pass the csv into the Invitations class
-
-<ul>
-<li>Instead, &ldquo;build dependencies at higher level and pass it down to lower
-levels&rdquo; (??)</li>
-<li>Instead of passing the csv to invitations and creating a parser based on
-it, let&rsquo;s send invitations to the parser (!)</li>
-</ul>
-</li>
-<li>Inverting control benefits:
-
-<ul>
-<li>Easier to follow Open/Closed principle</li>
-<li>Shorter specs</li>
-</ul>
-</li>
-<li>Question &ldquo;The specs passed from the beginning, so weren&rsquo;t you done?&rdquo;
-
-<ul>
-<li>Answer: Refactoring makes more flexible maintainable code</li>
-</ul>
-</li>
-</ul>
-
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="2">&larr; Older</a>
@@ -1177,6 +1136,10 @@ it, let&rsquo;s send invitations to the parser (!)</li>
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2015/03/27/execute-ruby-code-inline-in-the-editor/">Execute Ruby Code Inline in the Editor</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2015/03/25/unboxed-event-notes/">Unboxed Event Notes: &#8220;Unstick Your Digital Products&#8221;</a>
       </li>
     
@@ -1190,10 +1153,6 @@ it, let&rsquo;s send invitations to the parser (!)</li>
     
       <li class="post">
         <a href="/blog/2015/03/21/wp-london-bruce-lawson-responsive-images/">WordCamp London - Bruce Lawson - Responsive Images</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2015/03/13/sandi-metz-nothing-is-something-at-bathruby/">Sandi Metz: Nothing Is Something - at BathRuby</a>
       </li>
     
   </ul>

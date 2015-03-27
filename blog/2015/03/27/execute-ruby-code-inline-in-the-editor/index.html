@@ -5,12 +5,13 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Setting Up a Ruby Dev Environment on Bowery.io - dgms code</title>
+  <title>Execute Ruby Code Inline in the Editor - dgms code</title>
   <meta name="author" content="Duncan Stuart">
 
   
-  <meta name="description" content="EDIT: Apparently it&rsquo;s not possible to run docker inside a Bowery instance
-because Bowery uses docker and docker has a hard time running inside &hellip;">
+  <meta name="description" content="I&rsquo;ve often wondered how in Ruby screencasts they magically execute code inline
+in the editor, e.g. they type: 1
+[1, 2, 3].reverse # =&gt; & &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -19,7 +20,7 @@ because Bowery uses docker and docker has a hard time running inside &hellip;">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://dgmstuart.github.io/blog/2015/02/28/setting-up-a-ruby-on-rails-dev-environment-on-bowery-dot-io">
+  <link rel="canonical" href="http://dgmstuart.github.io/blog/2015/03/27/execute-ruby-code-inline-in-the-editor">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/atom.xml" rel="alternate" title="dgms code" type="application/atom+xml">
@@ -74,7 +75,7 @@ because Bowery uses docker and docker has a hard time running inside &hellip;">
   
   <header>
     
-      <h1 class="entry-title">Setting Up a Ruby Dev Environment on Bowery.io</h1>
+      <h1 class="entry-title">Execute Ruby Code Inline in the Editor</h1>
     
     
       <p class="meta">
@@ -91,7 +92,7 @@ because Bowery uses docker and docker has a hard time running inside &hellip;">
 
 
 
-<time datetime="2015-02-28T01:27:44+00:00" pubdate data-updated="true">Feb 28th, 2015</time>
+<time datetime="2015-03-27T15:41:47+00:00" pubdate data-updated="true">Mar 27th, 2015</time>
         
            | <a href="#disqus_thread"
              data-disqus-identifier="http://dgmstuart.github.io">Comments</a>
@@ -101,95 +102,40 @@ because Bowery uses docker and docker has a hard time running inside &hellip;">
   </header>
 
 
-<div class="entry-content"><p><em>EDIT: Apparently it&rsquo;s not possible to run docker inside a Bowery instance
-because Bowery uses docker and docker has a hard time running inside a docker
-container - see <a href="https://groups.google.com/forum/#!topic/bowery/WsXWzWghwVc">this post on the forum</a></em></p>
+<div class="entry-content"><p>I&rsquo;ve often wondered how in Ruby screencasts they magically execute code inline
+in the editor, e.g. they type:</p>
 
-<p><a href="http://bowery.io/">Bowery.io</a> is a hosted development environment service.
-The idea is that you edit your files locally, but run your code in a cloud-hosted
-<a href="https://www.docker.com/">Docker</a> container, based on an image which can be
-shared and edited by teams.</p>
-
-<p>It looks like it used to host its own packages and allow environments to be
-set up through a gui, but now the approach is to either install everything by
-hand or use a dockerfile, which I guess makes sense as docker has become more
-and more popular and Bowery&rsquo;s main audience is going to be quite devvy devs
-who are comfortable using docker.</p>
-
-<p>I had a go at setting up an environment for ruby development and didn&rsquo;t really
-find any documentation so here&rsquo;s what I tried:</p>
-
-<h2>Approach: Use a dockerfile</h2>
-
-<p>The simplest way to start your Bowery image with ruby is to use a dockerfile
-which sets ruby up for you. This can be as simple as creating a file called
-<code>Dockerfile</code> at the root of your project, consisting of this line:</p>
-
-<pre><code>from ruby:2.2.0
-</code></pre>
-
-<p>&hellip;then when you select your code directory for the first time through the
-Bowery app you can click &ldquo;Yes&rdquo; on this prompt to initialize your Bowery image
-based on that Dockerfile:</p>
-
-<p><img src="/images/content/bowery_prompt.png"></p>
-
-<p>More details about this approach can be found <a href="http://bowery.io/posts/dockerfile-support/">on the Bowery blog</a></p>
-
-<h2>Approach: Install ruby directly</h2>
-
-<p>Not having ever used docker in anger, my first attempt involved just
-installing ruby manually. The following steps are
-basically a textbook set of steps for installing ruby on a new Ubuntu machine
-(which is what Bowery instances are based on):</p>
-
-<ol>
-<li><p>Update apt-get:</p>
-
-<pre><code> apt-get update
-</code></pre></li>
-<li><p><a href="https://github.com/sstephenson/ruby-build/wiki#suggested-build-environment">Install the dependencies for ruby-build</a>
-using apt-get</p></li>
-<li><p><a href="https://github.com/sstephenson/rbenv">Install rbenv</a></p></li>
-<li><p><a href="https://github.com/sstephenson/ruby-build">Install ruby-build</a></p></li>
-<li><p>Install ruby with rbenv:</p>
-
-<pre><code> rbenv install 2.2.0
- rbenv global 2.2.0
-</code></pre></li>
-<li><p>Install bundler:</p>
-
-<pre><code> gem install bundler
-</code></pre></li>
-</ol>
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="o">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="o">].</span><span class="n">reverse</span> <span class="c1"># =&gt;</span>
+</span></code></pre></td></tr></table></div></figure>
 
 
-<h2>What about Rails?</h2>
+<p>&hellip;and it magically becomes</p>
 
-<p>I <em>have</em> managed to successfully set up a Rails dev environment using Bowery,
-but it ended up being pretty fiddly and I&rsquo;m not sure I have anything coherent
-enough to blog about.</p>
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="o">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="o">].</span><span class="n">reverse</span> <span class="c1"># =&gt; [3, 2, 1]</span>
+</span></code></pre></td></tr></table></div></figure>
 
-<p>I essentially set it up just like any other ubuntu box would be set up (but
-I&rsquo;m still pretty green at server management - hence fiddly).</p>
 
-<p>What I was hoping
-to find was a Dockerfile which at least set up Ruby and Postgres, but it seems
-like the normal approach is to run separate Docker containers and link them
-(as in <a href="http://allenwei.cn/setup-rails-development-environment-with-docker/">this tutorial</a>).
-I don&rsquo;t think this approach applies to Bowery, where a single dockerfile is
-used to initialize the image. I suppose I could run docker on Bowery though? (#meta)</p>
+<p>You can see how effective this is in action in
+<a href="http://www.rubytapas.com/episodes/11-Method-and-Message">one of the sample episodes for Ruby Tapas</a>
+by the wise and excellent <a href="http://about.avdi.org/">Avdi Grimm</a>.</p>
 
-<p>In any case, here are the additional components which need to be installed to
-run my Rails dev environment:</p>
+<p>Today I learned how. Apparently it&rsquo;s a Textmate feature called “Execute and
+Update &lsquo;# =>&rsquo; Markers” which has been ported over to other editors:</p>
 
 <ul>
-<li>A Javascript runtime (I installed Node.js with apt-get)</li>
-<li>A database (I installed Postgresql with apt-get but had a pain setting it up)</li>
-<li>A headless browser for javascript specs (I <a href="http://phantomjs.org/build.html">built phantom.js from
-scratch</a></li>
+<li><a href="https://github.com/mmims/sublime-text-2-ruby-markers">Plugin for Sublime Text2</a></li>
+<li><a href="https://github.com/t9md/vim-ruby-xmpfilter">Plugin for Vim</a></li>
 </ul>
 
+
+<p><em>A quick google hasn&rsquo;t revealed how to enable this in Emacs, but it must be
+possible because I believe that&rsquo;s what Avdi uses</em></p>
+
+<p>This also explains why the snippet for <code>#</code> expands to <code># =&gt;</code>. I&rsquo;d always
+assumed that this was intended to make multiline comments more readable. That
+sounds a bit silly now that I know :)</p>
 </div>
 
 
@@ -213,12 +159,12 @@ scratch</a></li>
 
 
 
-<time datetime="2015-02-28T01:27:44+00:00" pubdate data-updated="true">Feb 28th, 2015</time>
+<time datetime="2015-03-27T15:41:47+00:00" pubdate data-updated="true">Mar 27th, 2015</time>
       
 
 <span class="categories">
   
-    <a class='category' href='/blog/categories/ruby/'>ruby</a>, <a class='category' href='/blog/categories/ubuntu/'>ubuntu</a>
+    <a class='category' href='/blog/categories/ruby/'>ruby</a>, <a class='category' href='/blog/categories/sublime/'>sublime</a>, <a class='category' href='/blog/categories/vim/'>vim</a>
   
 </span>
 
@@ -227,7 +173,7 @@ scratch</a></li>
     
       <div class="sharing">
   
-  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://dgmstuart.github.io/blog/2015/02/28/setting-up-a-ruby-on-rails-dev-environment-on-bowery-dot-io/" data-via="dgmstuart" data-counturl="http://dgmstuart.github.io/blog/2015/02/28/setting-up-a-ruby-on-rails-dev-environment-on-bowery-dot-io/" >Tweet</a>
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://dgmstuart.github.io/blog/2015/03/27/execute-ruby-code-inline-in-the-editor/" data-via="dgmstuart" data-counturl="http://dgmstuart.github.io/blog/2015/03/27/execute-ruby-code-inline-in-the-editor/" >Tweet</a>
   
   
   
@@ -236,10 +182,8 @@ scratch</a></li>
     
     <p class="meta">
       
-        <a class="basic-alignment left" href="/blog/2015/02/23/how-your-base-path-gets-generated-in-osx/" title="Previous Post: How your base PATH gets generated in OSX">&laquo; How your base PATH gets generated in OSX</a>
+        <a class="basic-alignment left" href="/blog/2015/03/25/unboxed-event-notes/" title="Previous Post: Unboxed Event notes: "Unstick your digital products"">&laquo; Unboxed Event notes: &#8220;Unstick your digital products&#8221;</a>
       
-      
-        <a class="basic-alignment right" href="/blog/2015/03/13/bath-ruby-linda-liukas-principles-of-play/" title="Next Post: Bath Ruby: Linda Liukas - principles of play">Bath Ruby: Linda Liukas - principles of play &raquo;</a>
       
     </p>
   </footer>
@@ -343,8 +287,8 @@ scratch</a></li>
       
         
         // var disqus_developer = 1;
-        var disqus_identifier = 'http://dgmstuart.github.io/blog/2015/02/28/setting-up-a-ruby-on-rails-dev-environment-on-bowery-dot-io/';
-        var disqus_url = 'http://dgmstuart.github.io/blog/2015/02/28/setting-up-a-ruby-on-rails-dev-environment-on-bowery-dot-io/';
+        var disqus_identifier = 'http://dgmstuart.github.io/blog/2015/03/27/execute-ruby-code-inline-in-the-editor/';
+        var disqus_url = 'http://dgmstuart.github.io/blog/2015/03/27/execute-ruby-code-inline-in-the-editor/';
         var disqus_script = 'embed.js';
       
     (function () {
