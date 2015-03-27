@@ -1,50 +1,31 @@
 ---
 layout: post
-title: "Some tools for faster blogging in Octopress (and tips for live
-blogging)"
+title: "Some tools for faster blogging in Octopress"
 date: 2015-03-27 18:48:31 +0000
 comments: true
-categories:
+categories: [blogging, vim, octopress]
 published: false
 ---
 
-When I go to conferences and talks I've developed a habit of live-blogging my
-notes: taking them in markdown and publishing them with Octopress on this
-blog.
+I've been to a number of conferences and talks recently and I've developed a habit
+of live-blogging my notes: getting them up online as quickly as possible EXAMPLESSSSSSSsssssss
 
-I need to be able to start taking notes fast, and publish them even faster
-(when a talk finishes, lots of people will be trying to get out of the row of
-seats past me!).
+More on that in a future post but I want to talk about how I am able to start taking
+notes fast, and publish them even faster (when a talk finishes, lots of people will be
+trying to get out of the row of seats past me!).
 
-Here's my workflow:
+_NOTE: The scripts below assume editing with terminal vim. It might be more flexible to switch this out for
+the `$VISUAL` environment variable (?), but if you use a different editor you'll probably
+just want to replace `vim` with whatever command you use to boot up your editor - e.g. `subl`, `mvim` etc._
 
-1. Open a new post in vim with `newpost "My Post title"`
-2. In another terminal window, run `rake isolate[unique words in title]`,
-   followed by `rake preview`
-3. Start typing, occasionally writing (`:w`) and checking the post in a
-   browser window (http://localhost:4000) to make sure the formatting is
-   correct
-4. As soon as the talk is finished, type `rgd` to publish the post
-5. Tweet about the post
-6. Find a photo which someone has tweeted of the talk (usually on instagram)
-   and add it with `![Speaker speaking at event](Link to photo)`, as well as
-   crediting the photographer and linking to their twitter
-7. Deploy again (`rgd`) and tweet at the photographer telling them I've done
-   so and asking if that's OK
-8. When I get a chance, commit and push the source
-
-## Tools for fast blogging
-Note that some of those are provided by Octopress, and others are my own
-aliases and functions:
-
-### `newpost`
+### Creating posts
 The octopress command for creating a post is `rake new_post["The name of my
 post"]`. I'd then typically select the filename it outputs with the mouse,
 paste that into the command line and open it with vim. That's _way_ too much
 typing, and any seasoned vim user would wince at the word "mouse".
 
-Here's a function which creates the post, isolates it and opens it in one
-step:
+Here's a function which lets me type `newpost "The name of my post"` and creates
+the post, isolates it and opens it in one step:
 
 {% codeblock lang:sh ~/.profile %}
 function newpost(){
@@ -54,8 +35,11 @@ function newpost(){
 
   local return_code=$?
   if [ $return_code -eq 0 ]; then
-    # Get the name of the file which was just created and open it:
+    # Get the name of the file which was just created:
     post_path=$(grep -o 'source\/_posts\/.*\.markdown' <<< $output)
+    # Stash all other posts (for faster generation)
+    echo "Isolating post..."
+    rake isolate["$post_path"]
     # Open with the cursor at the bottom of the header:
     vim -c 'normal G' $post_path
   fi
@@ -72,14 +56,48 @@ export BLOG_HOME=$HOME/Dev/Personal/blog
 
 I'm pretty new at shell scripting, so if you know of a way to make this better
 or more robust, please let me know in the comments.
-## Publish and be damned
-Notice there's no mention in that of editing. I know that if I held back
-publishing until I'd corrected all my mistakes, explained all my ambiguities
-and added in links to all the references, I'd never publish anything at all. I
-feel like it's much more valuable for those notes to be up as soon as
-possible, than for them to be a nicely formed, well-presented narrative.
 
-On top of that, I feel like the main benefit in taking notes is as a form of
-[active learning](https://www.linkedin.com/pulse/20130702175823-659753-if-you-aren-t-taking-notes-you-aren-t-learning):
-the value is in the process of taking notes, not in the end result.
+### Isolating Posts
 
+Notice in the `newpost` function I've got `rake isolate["$post_path"]` - that's a
+nifty task provided by Octopress which gets around the fact that when you generate
+your Octopress blog it has to rebuild the entire site (?) which can be very slow.
+Unfortunately it doesn't seem to be documented, but you can see the source in the
+`Rakefile` of your Octopress install.
+
+_Side note: run `rake -T` in your blog directory to see all of the Octopress commands #protip_
+
+`rake isolate` moves all posts into `source/_stash`, unless they  match the given
+string in their title. This means that when you're previewing your post with `rake preview`
+it's much faster to re-generate because it's only having to handle one post each time.
+
+If you're running this manually, there's no need to pass the whole path: you can just
+find one of two words which are unique in the filename of your post and use that - e.g.
+`rake isolate[wizards]`
+
+You can put your stashed posts back with `rake integrate`.
+
+### Listing and revisiting posts
+A couple of things I find myself needing to do fairly often:
+* Make an edit to the post I was most recently editing
+* Find a post where I can't remember the title was
+
+{% codeblock lang:sh ~/.profile %}
+# blogposts: display the list of posts ordered by last modified time
+# %m                           -- Last modified timestamp
+# %N                           -- Quoted File name
+# -exec stat -f "%m %N" {} \;  -- Outputs a timestamp at the beginning of the line for sorting
+# cut -d ' ' -f2-              -- Returns only the second field in a space-delimited string
+alias blogposts='find $BLOG_HOME/source/_posts/* -exec stat -f "%m %N" {} \; | sort -n | cut -d " " -f2-'
+alias lastpost='find `blogposts` | tail -1 '
+alias epost='vim `lastpost`'
+{% endcodeblock %}
+
+### Deploying
+The `gen:deploy` rake task is a built-in alias for running the
+`:integrate`, `:generate`, and `:deploy` tasks, but again, typing
+`rake gen:deploy` is just too much typing, hence:
+
+{% codeblock lang:sh ~/.profile %}
+alias rgd='rake gen_deploy'
+{% endcodeblock %}
