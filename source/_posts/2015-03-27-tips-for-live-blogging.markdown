@@ -7,12 +7,11 @@ categories: [blogging, vim, octopress]
 published: false
 ---
 
-When I go to conferences and talks I've developed a habit of live-blogging my
-notes: getting them up online as quickly as possible EXAMPLESSSSSSSsssssss
-
-I need to be able to start taking notes fast, and publish them even faster
-(when a talk finishes, lots of people will be trying to get out of the row of
-seats past me!).
+I've been going to a number of conferences and talks recently and I've developed a habit of taking
+notes on my laptop and 'live-blogging' them: getting them up online as quickly as possible
+after the talk finishes. You can see some examples
+[here](/blog/categories/liveblog/)
+([source](https://github.com/dgmstuart/dgmstuart.github.io/tree/source/source/_posts)).
 
 ## Workflow
 I take my notes in [Markdown](https://daringfireball.net/projects/markdown/syntax)

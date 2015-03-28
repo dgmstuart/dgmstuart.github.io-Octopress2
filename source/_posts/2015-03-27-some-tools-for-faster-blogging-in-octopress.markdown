@@ -4,11 +4,10 @@ title: "Some tools for faster blogging in Octopress"
 date: 2015-03-27 18:48:31 +0000
 comments: true
 categories: [blogging, vim, octopress]
-published: false
 ---
 
 I've been to a number of conferences and talks recently and I've developed a habit
-of live-blogging my notes: getting them up online as quickly as possible EXAMPLESSSSSSSsssssss
+of live-blogging my notes: getting them up online as quickly as possible.
 
 More on that in a future post but I want to talk about how I am able to start taking
 notes fast, and publish them even faster (when a talk finishes, lots of people will be
@@ -79,8 +78,11 @@ You can put your stashed posts back with `rake integrate`.
 
 ### Listing and revisiting posts
 A couple of things I find myself needing to do fairly often:
+
 * Make an edit to the post I was most recently editing
 * Find a post where I can't remember the title was
+
+The following aliases achieve that:
 
 {% codeblock lang:sh ~/.profile %}
 # blogposts: display the list of posts ordered by last modified time
