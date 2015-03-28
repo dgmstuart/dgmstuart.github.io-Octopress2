@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Octopress | dgms code]]></title>
   <link href="http://dgmstuart.github.io/blog/categories/octopress/atom.xml" rel="self"/>
   <link href="http://dgmstuart.github.io/"/>
-  <updated>2015-03-28T13:07:01+00:00</updated>
+  <updated>2015-03-28T13:50:03+00:00</updated>
   <id>http://dgmstuart.github.io/</id>
   <author>
     <name><![CDATA[Duncan Stuart]]></name>
@@ -115,6 +115,8 @@ find one of two words which are unique in the filename of your post and use that
 <li>Find a post where I can&rsquo;t remember the title was</li>
 </ul>
 
+
+<p>The following aliases achieve that:</p>
 
 <p><figure class='code'><figcaption><span>~/.profile </span></figcaption>
 <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
