@@ -3,7 +3,7 @@ layout: post
 title: "Mark Jaquith at WordCamp London - Cache Money Business"
 date: 2015-03-22 11:31:06 +0000
 comments: true
-categories: [caching, wordpress, "wordcamp london"]
+categories: [caching, wordpress, "wordcamp london", liveblog]
 ---
 
 _I'm at [WordCamp London](http://london.wordcamp.org/2015/) - live-blogging

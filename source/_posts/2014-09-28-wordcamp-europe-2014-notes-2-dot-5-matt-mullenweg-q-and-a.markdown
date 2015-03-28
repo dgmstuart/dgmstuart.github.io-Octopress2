@@ -3,7 +3,7 @@ layout: post
 title: "WordCamp Europe 2014 notes - 2.5: Matt Mullenweg Q&amp;A"
 date: 2014-09-28 14:28:13 +0300
 comments: true
-categories:  [WordCampEurope, CSS, Prototyping]
+categories:  [WordCampEurope, CSS, Prototyping, liveblog]
 ---
 
 _I'm at [WordCamp Europe](http://2014.europe.wordcamp.org/) in Sofia - taking rough notes on some of the talks_

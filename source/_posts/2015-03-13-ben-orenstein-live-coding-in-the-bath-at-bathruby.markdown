@@ -3,7 +3,7 @@ layout: post
 title: "Ben Orenstein: live coding in the Bath at BathRuby"
 date: 2015-03-13 10:34:52 +0000
 comments: true
-categories: [ruby, bathruby]
+categories: [ruby, bathruby, liveblog]
 ---
 _I'm at [Bath Ruby 2015](http://2015.bathruby.org/), live blogging some of the
 talks_

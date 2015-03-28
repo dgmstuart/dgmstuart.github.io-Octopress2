@@ -3,7 +3,7 @@ layout: post
 title: "Tom Stuart - 'A lever for the mind' at BathRuby"
 date: 2015-03-13 14:53:54 +0000
 comments: true
-categories: bathruby
+categories: [bathruby, liveblog]
 ---
 
 _I'm at [Bath Ruby 2015](http://2015.bathruby.org/), live blogging some of the

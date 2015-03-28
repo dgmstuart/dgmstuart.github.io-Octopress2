@@ -3,7 +3,7 @@ layout: post
 title: "WordCamp Europe 2014 notes - 2.4: Code Deodorant"
 date: 2014-09-28 12:27:07 +0300
 comments: true
-categories: [WordPress, PHP, WordCampEurope]
+categories: [WordPress, PHP, WordCampEurope, liveblog]
 ---
 _I'm at [WordCamp Europe](http://2014.europe.wordcamp.org/) in Sofia - taking rough notes on some of the talks_
 

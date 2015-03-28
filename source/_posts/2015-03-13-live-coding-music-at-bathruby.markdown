@@ -3,7 +3,7 @@ layout: post
 title: "Live-coding music at BathRuby"
 date: 2015-03-13 12:34:18 +0000
 comments: true
-categories: bathruby
+categories: [bathruby, liveblog]
 ---
 
 _I'm at [Bath Ruby 2015](http://2015.bathruby.org/), live blogging some of the
