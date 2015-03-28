@@ -148,7 +148,7 @@
 </span><span class='line'>
 </span><span class='line'><span class="no">Dir</span><span class="o">[</span><span class="no">Rails</span><span class="o">.</span><span class="n">root</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s2">&quot;spec/support/**/*.rb&quot;</span><span class="p">)</span><span class="o">].</span><span class="n">each</span> <span class="p">{</span> <span class="o">|</span><span class="n">f</span><span class="o">|</span> <span class="nb">require</span> <span class="n">f</span> <span class="p">}</span>
 </span><span class='line'>
-</span><span class='line'><span class="ss">ActiveRecord</span><span class="p">:</span><span class="ss">:Migration</span><span class="o">.</span><span class="n">check_pending!</span> <span class="k">if</span> <span class="n">defined?</span><span class="p">(</span><span class="ss">ActiveRecord</span><span class="p">:</span><span class="ss">:Migration</span><span class="p">)</span>
+</span><span class='line'><span class="no">ActiveRecord</span><span class="o">::</span><span class="no">Migration</span><span class="o">.</span><span class="n">check_pending!</span> <span class="k">if</span> <span class="n">defined?</span><span class="p">(</span><span class="no">ActiveRecord</span><span class="o">::</span><span class="no">Migration</span><span class="p">)</span>
 </span><span class='line'>
 </span><span class='line'><span class="no">RSpec</span><span class="o">.</span><span class="n">configure</span> <span class="k">do</span> <span class="o">|</span><span class="n">config</span><span class="o">|</span>
 </span><span class='line'>  <span class="n">config</span><span class="o">.</span><span class="n">fixture_path</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="si">#{</span><span class="o">::</span><span class="no">Rails</span><span class="o">.</span><span class="n">root</span><span class="si">}</span><span class="s2">/spec/fixtures&quot;</span>
@@ -247,6 +247,10 @@
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2015/03/27/some-tools-for-faster-blogging-in-octopress/">Some Tools for Faster Blogging in Octopress</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2015/03/27/execute-ruby-code-inline-in-the-editor/">Execute Ruby Code Inline in the Editor</a>
       </li>
     
@@ -260,10 +264,6 @@
     
       <li class="post">
         <a href="/blog/2015/03/22/mark-jaquith-at-wordcamp-london-cache-money-business/">Mark Jaquith at WordCamp London - Cache Money Business</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2015/03/21/wp-london-bruce-lawson-responsive-images/">WordCamp London - Bruce Lawson - Responsive Images</a>
       </li>
     
   </ul>

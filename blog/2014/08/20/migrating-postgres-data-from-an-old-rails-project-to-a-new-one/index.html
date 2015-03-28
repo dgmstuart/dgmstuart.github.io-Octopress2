@@ -184,11 +184,11 @@ and associated with <code>events</code> via a join table: <code>event_swing_date
 <span class='line-number'>5</span>
 <span class='line-number'>6</span>
 <span class='line-number'>7</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">class</span> <span class="nc">EventSeed</span> <span class="o">&lt;</span>  <span class="ss">ActiveRecord</span><span class="p">:</span><span class="ss">:Base</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">class</span> <span class="nc">EventSeed</span> <span class="o">&lt;</span>  <span class="no">ActiveRecord</span><span class="o">::</span><span class="no">Base</span>
 </span><span class='line'>  <span class="n">belongs_to</span> <span class="ss">:event</span>
 </span><span class='line'>  <span class="n">belongs_to</span> <span class="ss">:venue</span>
 </span><span class='line'><span class="k">end</span>
-</span><span class='line'><span class="k">class</span> <span class="nc">EventGenerator</span> <span class="o">&lt;</span> <span class="ss">ActiveRecord</span><span class="p">:</span><span class="ss">:Base</span>
+</span><span class='line'><span class="k">class</span> <span class="nc">EventGenerator</span> <span class="o">&lt;</span> <span class="no">ActiveRecord</span><span class="o">::</span><span class="no">Base</span>
 </span><span class='line'>  <span class="n">belongs_to</span> <span class="ss">:event_seed</span>
 </span><span class='line'><span class="k">end</span>
 </span></code></pre></td></tr></table></div></figure>
@@ -362,6 +362,10 @@ and associated with <code>events</code> via a join table: <code>event_swing_date
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2015/03/27/some-tools-for-faster-blogging-in-octopress/">Some Tools for Faster Blogging in Octopress</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2015/03/27/execute-ruby-code-inline-in-the-editor/">Execute Ruby Code Inline in the Editor</a>
       </li>
     
@@ -375,10 +379,6 @@ and associated with <code>events</code> via a join table: <code>event_swing_date
     
       <li class="post">
         <a href="/blog/2015/03/22/mark-jaquith-at-wordcamp-london-cache-money-business/">Mark Jaquith at WordCamp London - Cache Money Business</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2015/03/21/wp-london-bruce-lawson-responsive-images/">WordCamp London - Bruce Lawson - Responsive Images</a>
       </li>
     
   </ul>

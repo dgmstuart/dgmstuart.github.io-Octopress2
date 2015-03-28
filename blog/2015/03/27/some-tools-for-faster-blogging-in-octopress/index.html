@@ -1,0 +1,435 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Some Tools for Faster Blogging in Octopress - dgms code</title>
+  <meta name="author" content="Duncan Stuart">
+
+  
+  <meta name="description" content="I&rsquo;ve been to a number of conferences and talks recently and I&rsquo;ve developed a habit
+of live-blogging my notes: getting them up online as &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://dgmstuart.github.io/blog/2015/03/27/some-tools-for-faster-blogging-in-octopress">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="dgms code" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/libs/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href='https://fonts.googleapis.com/css?family=Noto+Serif:400,700' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-44436648-5']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">dgms code</a></h1>
+  
+    <h2>A dev blog: mostly Ruby on Rails with a little WordPress</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  
+  
+</ul>
+
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Some Tools for Faster Blogging in Octopress</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+
+<time datetime="2015-03-27T18:48:31+00:00" pubdate data-updated="true">Mar 27th, 2015</time>
+        
+           | <a href="#disqus_thread"
+             data-disqus-identifier="http://dgmstuart.github.io">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>I&rsquo;ve been to a number of conferences and talks recently and I&rsquo;ve developed a habit
+of live-blogging my notes: getting them up online as quickly as possible.</p>
+
+<p>More on that in a future post but I want to talk about how I am able to start taking
+notes fast, and publish them even faster (when a talk finishes, lots of people will be
+trying to get out of the row of seats past me!).</p>
+
+<p><em>NOTE: The scripts below assume editing with terminal vim. It might be more flexible to switch this out for
+the <code>$VISUAL</code> environment variable (?), but if you use a different editor you&rsquo;ll probably
+just want to replace <code>vim</code> with whatever command you use to boot up your editor - e.g. <code>subl</code>, <code>mvim</code> etc.</em></p>
+
+<h3>Creating posts</h3>
+
+<p>The octopress command for creating a post is <code>rake new_post["The name of my
+post"]</code>. I&rsquo;d then typically select the filename it outputs with the mouse,
+paste that into the command line and open it with vim. That&rsquo;s <em>way</em> too much
+typing, and any seasoned vim user would wince at the word &ldquo;mouse&rdquo;.</p>
+
+<p>Here&rsquo;s a function which lets me type <code>newpost "The name of my post"</code> and creates
+the post, isolates it and opens it in one step:</p>
+
+<figure class='code'><figcaption><span>~/.profile </span></figcaption>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+</pre></td><td class='code'><pre><code class='sh'><span class='line'><span class="k">function</span> newpost<span class="o">(){</span>
+</span><span class='line'>  <span class="nb">cd</span> <span class="k">${</span><span class="nv">BLOG_HOME</span><span class="p">:?</span><span class="s2">&quot;Need to set BLOG_HOME to the location of the octopress blog directory&quot;</span><span class="k">}</span>
+</span><span class='line'>  <span class="nv">output</span><span class="o">=</span><span class="k">$(</span> rake new_post<span class="o">[</span><span class="s2">&quot;$@&quot;</span><span class="o">]</span> <span class="k">)</span>
+</span><span class='line'>  <span class="nb">echo</span> <span class="s2">&quot;$output&quot;</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="nb">local </span><span class="nv">return_code</span><span class="o">=</span><span class="nv">$?</span>
+</span><span class='line'>  <span class="k">if</span> <span class="o">[</span> <span class="nv">$return_code</span> -eq <span class="m">0</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
+</span><span class='line'>    <span class="c"># Get the name of the file which was just created:</span>
+</span><span class='line'>    <span class="nv">post_path</span><span class="o">=</span><span class="k">$(</span>grep -o <span class="s1">&#39;source\/_posts\/.*\.markdown&#39;</span> <span class="o">&lt;&lt;&lt;</span> <span class="nv">$output</span><span class="k">)</span>
+</span><span class='line'>    <span class="c"># Stash all other posts (for faster generation)</span>
+</span><span class='line'>    <span class="nb">echo</span> <span class="s2">&quot;Isolating post...&quot;</span>
+</span><span class='line'>    rake isolate<span class="o">[</span><span class="s2">&quot;$post_path&quot;</span><span class="o">]</span>
+</span><span class='line'>    <span class="c"># Open with the cursor at the bottom of the header:</span>
+</span><span class='line'>    vim -c <span class="s1">&#39;normal G&#39;</span> <span class="nv">$post_path</span>
+</span><span class='line'>  <span class="k">fi</span>
+</span><span class='line'><span class="o">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>My <a href="https://github.com/dgmstuart/dotfiles">dotfiles</a> are shared between
+multiple machines, so the <code>BLOG_HOME</code> environment variable is set in a local
+profile:</p>
+
+<figure class='code'><figcaption><span>~/.profile.local </span></figcaption>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='sh'><span class='line'><span class="nb">export </span><span class="nv">BLOG_HOME</span><span class="o">=</span><span class="nv">$HOME</span>/Dev/Personal/blog
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>I&rsquo;m pretty new at shell scripting, so if you know of a way to make this better
+or more robust, please let me know in the comments.</p>
+
+<h3>Isolating Posts</h3>
+
+<p>Notice in the <code>newpost</code> function I&rsquo;ve got <code>rake isolate["$post_path"]</code> - that&rsquo;s a
+nifty task provided by Octopress which gets around the fact that when you generate
+your Octopress blog it has to rebuild the entire site (?) which can be very slow.
+Unfortunately it doesn&rsquo;t seem to be documented, but you can see the source in the
+<code>Rakefile</code> of your Octopress install.</p>
+
+<p><em>Side note: run <code>rake -T</code> in your blog directory to see all of the Octopress commands #protip</em></p>
+
+<p><code>rake isolate</code> moves all posts into <code>source/_stash</code>, unless they  match the given
+string in their title. This means that when you&rsquo;re previewing your post with <code>rake preview</code>
+it&rsquo;s much faster to re-generate because it&rsquo;s only having to handle one post each time.</p>
+
+<p>If you&rsquo;re running this manually, there&rsquo;s no need to pass the whole path: you can just
+find one of two words which are unique in the filename of your post and use that - e.g.
+<code>rake isolate[wizards]</code></p>
+
+<p>You can put your stashed posts back with <code>rake integrate</code>.</p>
+
+<h3>Listing and revisiting posts</h3>
+
+<p>A couple of things I find myself needing to do fairly often:
+* Make an edit to the post I was most recently editing
+* Find a post where I can&rsquo;t remember the title was</p>
+
+<figure class='code'><figcaption><span>~/.profile </span></figcaption>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+</pre></td><td class='code'><pre><code class='sh'><span class='line'><span class="c"># blogposts: display the list of posts ordered by last modified time</span>
+</span><span class='line'><span class="c"># %m                           -- Last modified timestamp</span>
+</span><span class='line'><span class="c"># %N                           -- Quoted File name</span>
+</span><span class='line'><span class="c"># -exec stat -f &quot;%m %N&quot; {} \;  -- Outputs a timestamp at the beginning of the line for sorting</span>
+</span><span class='line'><span class="c"># cut -d &#39; &#39; -f2-              -- Returns only the second field in a space-delimited string</span>
+</span><span class='line'><span class="nb">alias </span><span class="nv">blogposts</span><span class="o">=</span><span class="s1">&#39;find $BLOG_HOME/source/_posts/* -exec stat -f &quot;%m %N&quot; {} \; | sort -n | cut -d &quot; &quot; -f2-&#39;</span>
+</span><span class='line'><span class="nb">alias </span><span class="nv">lastpost</span><span class="o">=</span><span class="s1">&#39;find `blogposts` | tail -1 &#39;</span>
+</span><span class='line'><span class="nb">alias </span><span class="nv">epost</span><span class="o">=</span><span class="s1">&#39;vim `lastpost`&#39;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>Deploying</h3>
+
+<p>The <code>gen:deploy</code> rake task is a built-in alias for running the
+<code>:integrate</code>, <code>:generate</code>, and <code>:deploy</code> tasks, but again, typing
+<code>rake gen:deploy</code> is just too much typing, hence:</p>
+
+<figure class='code'><figcaption><span>~/.profile </span></figcaption>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='sh'><span class='line'><span class="nb">alias </span><span class="nv">rgd</span><span class="o">=</span><span class="s1">&#39;rake gen_deploy&#39;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Duncan Stuart</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+
+<time datetime="2015-03-27T18:48:31+00:00" pubdate data-updated="true">Mar 27th, 2015</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/blogging/'>blogging</a>, <a class='category' href='/blog/categories/octopress/'>octopress</a>, <a class='category' href='/blog/categories/vim/'>vim</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://dgmstuart.github.io/blog/2015/03/27/some-tools-for-faster-blogging-in-octopress/" data-via="dgmstuart" data-counturl="http://dgmstuart.github.io/blog/2015/03/27/some-tools-for-faster-blogging-in-octopress/" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2015/03/27/execute-ruby-code-inline-in-the-editor/" title="Previous Post: Execute ruby code inline in the editor">&laquo; Execute ruby code inline in the editor</a>
+      
+      
+    </p>
+  </footer>
+</article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
+
+</div>
+
+  <aside class="sidebar">
+   
+<form action="https://www.google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:dgmstuart.github.io" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2015/03/27/some-tools-for-faster-blogging-in-octopress/">Some Tools for Faster Blogging in Octopress</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2015/03/27/execute-ruby-code-inline-in-the-editor/">Execute Ruby Code Inline in the Editor</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2015/03/25/unboxed-event-notes/">Unboxed Event Notes: &#8220;Unstick Your Digital Products&#8221;</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2015/03/22/tim-nash-at-wordcamp-london-beyond-unit-tests/">Tim Nash at WordCamp London - Beyond Unit Tests</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2015/03/22/mark-jaquith-at-wordcamp-london-cache-money-business/">Mark Jaquith at WordCamp London - Cache Money Business</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section>
+  <h1>GitHub Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating&#8230;</li>
+  </ul>
+  
+  <a href="https://github.com/dgmstuart">@dgmstuart</a> on GitHub
+  
+  <script type="text/javascript">
+    $(document).ready(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'dgmstuart',
+            count: 0,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/javascripts/github.js" type="text/javascript"> </script>
+</section>
+
+
+
+
+
+  
+</aside>
+
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2015 - Duncan Stuart -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'dgmscode';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://dgmstuart.github.io/blog/2015/03/27/some-tools-for-faster-blogging-in-octopress/';
+        var disqus_url = 'http://dgmstuart.github.io/blog/2015/03/27/some-tools-for-faster-blogging-in-octopress/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = '//platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+<script>
+  $(document).ready(function() {  
+  var stickyNavTop = $('nav').offset().top;  
+    
+  var stickyNav = function(){  
+  var scrollTop = $(window).scrollTop();  
+         
+  if (scrollTop > stickyNavTop) {   
+      $('nav').addClass('sticky');  
+  } else {  
+      $('nav').removeClass('sticky');   
+  }  
+  };  
+    
+  stickyNav();  
+    
+  $(window).scroll(function() {  
+      stickyNav();  
+  });  
+  });  
+</script>
+
+
+</body>
+</html>

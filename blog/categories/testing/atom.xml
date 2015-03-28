@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Testing | dgms code]]></title>
   <link href="http://dgmstuart.github.io/blog/categories/testing/atom.xml" rel="self"/>
   <link href="http://dgmstuart.github.io/"/>
-  <updated>2015-03-27T16:17:07+00:00</updated>
+  <updated>2015-03-28T13:02:37+00:00</updated>
   <id>http://dgmstuart.github.io/</id>
   <author>
     <name><![CDATA[Duncan Stuart]]></name>
@@ -128,7 +128,7 @@ but makes it much more maintainable</li>
 </span><span class='line'>
 </span><span class='line'><span class="sr">&lt;p&gt;Dir[Rails.root.join(&amp;ldquo;spec/su</span><span class="n">pport</span><span class="o">/&lt;</span><span class="n">em</span><span class="o">&gt;*/&lt;</span><span class="sr">/em&gt;.rb&amp;rdquo;)].each { |f| require f }&lt;/</span><span class="nb">p</span><span class="o">&gt;</span>
 </span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="nb">p</span><span class="o">&gt;</span><span class="ss">ActiveRecord</span><span class="p">:</span><span class="ss">:Migration</span><span class="o">.</span><span class="n">check_pending!</span> <span class="k">if</span> <span class="n">defined?</span><span class="p">(</span><span class="ss">ActiveRecord</span><span class="p">:</span><span class="ss">:Migration</span><span class="p">)</span><span class="o">&lt;</span><span class="sr">/p&gt;</span>
+</span><span class='line'><span class="o">&lt;</span><span class="nb">p</span><span class="o">&gt;</span><span class="no">ActiveRecord</span><span class="o">::</span><span class="no">Migration</span><span class="o">.</span><span class="n">check_pending!</span> <span class="k">if</span> <span class="n">defined?</span><span class="p">(</span><span class="no">ActiveRecord</span><span class="o">::</span><span class="no">Migration</span><span class="p">)</span><span class="o">&lt;</span><span class="sr">/p&gt;</span>
 </span><span class='line'>
 </span><span class='line'><span class="sr">&lt;p&gt;RSpec.configure do |config|</span>
 </span><span class='line'><span class="sr">  config.fixture_path = &amp;ldquo;</span><span class="si">#{</span><span class="o">::</span><span class="no">Rails</span><span class="o">.</span><span class="n">root</span><span class="si">}</span><span class="sr">/s</span><span class="n">pec</span><span class="o">/</span><span class="n">fixtures</span><span class="o">&amp;</span><span class="n">rdquo</span><span class="p">;</span>

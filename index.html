@@ -9,9 +9,8 @@
   <meta name="author" content="Duncan Stuart">
 
   
-  <meta name="description" content="I&rsquo;ve often wondered how in Ruby screencasts they magically execute code inline
-in the editor, e.g. they type: 1
-[1, 2, 3].reverse # =&gt; & &hellip;">
+  <meta name="description" content="I&rsquo;ve been to a number of conferences and talks recently and I&rsquo;ve developed a habit
+of live-blogging my notes: getting them up online as &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -72,6 +71,172 @@ in the editor, e.g. they type: 1
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2015/03/27/some-tools-for-faster-blogging-in-octopress/">Some Tools for Faster Blogging in Octopress</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+
+<time datetime="2015-03-27T18:48:31+00:00" pubdate data-updated="true">Mar 27th, 2015</time>
+        
+           | <a href="/blog/2015/03/27/some-tools-for-faster-blogging-in-octopress/#disqus_thread"
+             data-disqus-identifier="http://dgmstuart.github.io/blog/2015/03/27/some-tools-for-faster-blogging-in-octopress/">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>I&rsquo;ve been to a number of conferences and talks recently and I&rsquo;ve developed a habit
+of live-blogging my notes: getting them up online as quickly as possible.</p>
+
+<p>More on that in a future post but I want to talk about how I am able to start taking
+notes fast, and publish them even faster (when a talk finishes, lots of people will be
+trying to get out of the row of seats past me!).</p>
+
+<p><em>NOTE: The scripts below assume editing with terminal vim. It might be more flexible to switch this out for
+the <code>$VISUAL</code> environment variable (?), but if you use a different editor you&rsquo;ll probably
+just want to replace <code>vim</code> with whatever command you use to boot up your editor - e.g. <code>subl</code>, <code>mvim</code> etc.</em></p>
+
+<h3>Creating posts</h3>
+
+<p>The octopress command for creating a post is <code>rake new_post["The name of my
+post"]</code>. I&rsquo;d then typically select the filename it outputs with the mouse,
+paste that into the command line and open it with vim. That&rsquo;s <em>way</em> too much
+typing, and any seasoned vim user would wince at the word &ldquo;mouse&rdquo;.</p>
+
+<p>Here&rsquo;s a function which lets me type <code>newpost "The name of my post"</code> and creates
+the post, isolates it and opens it in one step:</p>
+
+<figure class='code'><figcaption><span>~/.profile </span></figcaption>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+</pre></td><td class='code'><pre><code class='sh'><span class='line'><span class="k">function</span> newpost<span class="o">(){</span>
+</span><span class='line'>  <span class="nb">cd</span> <span class="k">${</span><span class="nv">BLOG_HOME</span><span class="p">:?</span><span class="s2">&quot;Need to set BLOG_HOME to the location of the octopress blog directory&quot;</span><span class="k">}</span>
+</span><span class='line'>  <span class="nv">output</span><span class="o">=</span><span class="k">$(</span> rake new_post<span class="o">[</span><span class="s2">&quot;$@&quot;</span><span class="o">]</span> <span class="k">)</span>
+</span><span class='line'>  <span class="nb">echo</span> <span class="s2">&quot;$output&quot;</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="nb">local </span><span class="nv">return_code</span><span class="o">=</span><span class="nv">$?</span>
+</span><span class='line'>  <span class="k">if</span> <span class="o">[</span> <span class="nv">$return_code</span> -eq <span class="m">0</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
+</span><span class='line'>    <span class="c"># Get the name of the file which was just created:</span>
+</span><span class='line'>    <span class="nv">post_path</span><span class="o">=</span><span class="k">$(</span>grep -o <span class="s1">&#39;source\/_posts\/.*\.markdown&#39;</span> <span class="o">&lt;&lt;&lt;</span> <span class="nv">$output</span><span class="k">)</span>
+</span><span class='line'>    <span class="c"># Stash all other posts (for faster generation)</span>
+</span><span class='line'>    <span class="nb">echo</span> <span class="s2">&quot;Isolating post...&quot;</span>
+</span><span class='line'>    rake isolate<span class="o">[</span><span class="s2">&quot;$post_path&quot;</span><span class="o">]</span>
+</span><span class='line'>    <span class="c"># Open with the cursor at the bottom of the header:</span>
+</span><span class='line'>    vim -c <span class="s1">&#39;normal G&#39;</span> <span class="nv">$post_path</span>
+</span><span class='line'>  <span class="k">fi</span>
+</span><span class='line'><span class="o">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>My <a href="https://github.com/dgmstuart/dotfiles">dotfiles</a> are shared between
+multiple machines, so the <code>BLOG_HOME</code> environment variable is set in a local
+profile:</p>
+
+<figure class='code'><figcaption><span>~/.profile.local </span></figcaption>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='sh'><span class='line'><span class="nb">export </span><span class="nv">BLOG_HOME</span><span class="o">=</span><span class="nv">$HOME</span>/Dev/Personal/blog
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>I&rsquo;m pretty new at shell scripting, so if you know of a way to make this better
+or more robust, please let me know in the comments.</p>
+
+<h3>Isolating Posts</h3>
+
+<p>Notice in the <code>newpost</code> function I&rsquo;ve got <code>rake isolate["$post_path"]</code> - that&rsquo;s a
+nifty task provided by Octopress which gets around the fact that when you generate
+your Octopress blog it has to rebuild the entire site (?) which can be very slow.
+Unfortunately it doesn&rsquo;t seem to be documented, but you can see the source in the
+<code>Rakefile</code> of your Octopress install.</p>
+
+<p><em>Side note: run <code>rake -T</code> in your blog directory to see all of the Octopress commands #protip</em></p>
+
+<p><code>rake isolate</code> moves all posts into <code>source/_stash</code>, unless they  match the given
+string in their title. This means that when you&rsquo;re previewing your post with <code>rake preview</code>
+it&rsquo;s much faster to re-generate because it&rsquo;s only having to handle one post each time.</p>
+
+<p>If you&rsquo;re running this manually, there&rsquo;s no need to pass the whole path: you can just
+find one of two words which are unique in the filename of your post and use that - e.g.
+<code>rake isolate[wizards]</code></p>
+
+<p>You can put your stashed posts back with <code>rake integrate</code>.</p>
+
+<h3>Listing and revisiting posts</h3>
+
+<p>A couple of things I find myself needing to do fairly often:
+* Make an edit to the post I was most recently editing
+* Find a post where I can&rsquo;t remember the title was</p>
+
+<figure class='code'><figcaption><span>~/.profile </span></figcaption>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+</pre></td><td class='code'><pre><code class='sh'><span class='line'><span class="c"># blogposts: display the list of posts ordered by last modified time</span>
+</span><span class='line'><span class="c"># %m                           -- Last modified timestamp</span>
+</span><span class='line'><span class="c"># %N                           -- Quoted File name</span>
+</span><span class='line'><span class="c"># -exec stat -f &quot;%m %N&quot; {} \;  -- Outputs a timestamp at the beginning of the line for sorting</span>
+</span><span class='line'><span class="c"># cut -d &#39; &#39; -f2-              -- Returns only the second field in a space-delimited string</span>
+</span><span class='line'><span class="nb">alias </span><span class="nv">blogposts</span><span class="o">=</span><span class="s1">&#39;find $BLOG_HOME/source/_posts/* -exec stat -f &quot;%m %N&quot; {} \; | sort -n | cut -d &quot; &quot; -f2-&#39;</span>
+</span><span class='line'><span class="nb">alias </span><span class="nv">lastpost</span><span class="o">=</span><span class="s1">&#39;find `blogposts` | tail -1 &#39;</span>
+</span><span class='line'><span class="nb">alias </span><span class="nv">epost</span><span class="o">=</span><span class="s1">&#39;vim `lastpost`&#39;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>Deploying</h3>
+
+<p>The <code>gen:deploy</code> rake task is a built-in alias for running the
+<code>:integrate</code>, <code>:generate</code>, and <code>:deploy</code> tasks, but again, typing
+<code>rake gen:deploy</code> is just too much typing, hence:</p>
+
+<figure class='code'><figcaption><span>~/.profile </span></figcaption>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='sh'><span class='line'><span class="nb">alias </span><span class="nv">rgd</span><span class="o">=</span><span class="s1">&#39;rake gen_deploy&#39;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -1026,93 +1191,6 @@ src="https://platform.vine.co/static/scripts/embed.js"></script></p>
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2015/03/13/saron-yitbarek-learning-code-good-at-bathruby/">Saron Yitbarek - Learning Code Good (at BathRuby)</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-
-<time datetime="2015-03-13T11:27:15+00:00" pubdate data-updated="true">Mar 13th, 2015</time>
-        
-           | <a href="/blog/2015/03/13/saron-yitbarek-learning-code-good-at-bathruby/#disqus_thread"
-             data-disqus-identifier="http://dgmstuart.github.io/blog/2015/03/13/saron-yitbarek-learning-code-good-at-bathruby/">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p><em>I&rsquo;m at <a href="http://2015.bathruby.org/">Bath Ruby 2015</a>, live blogging some of the
-talks</em>
-<img src="https://pbs.twimg.com/media/B_-Xi25W8AAKFwW.jpg:medium" alt="photo by
-@Naomi_Freeman" /></p>
-
-<p><em>Photo by <a href="https://twitter.com/Naomi_Freeman">@Naomi_Freeman</a></em></p>
-
-<ul>
-<li>Dreyfus model of skill acquisition - LOOK UP</li>
-<li>Advice she got for going from novice to expert: &ldquo;Read code&rdquo;</li>
-<li>Codeclub: sunday morning reading group</li>
-<li>Rules for what to read: Exemplary code: popular, documented, well maintained</li>
-<li>Starting point: Sinatra&rsquo;s <code>get</code> method</li>
-<li>&ldquo;A huge fan of remote working: Any excuse to not wear pants is great&rdquo; :)</li>
-<li>Met on google hangouts</li>
-<li>Did a retrospective on the sessions:
-
-<ul>
-<li>Decided to pick only small things: &lt; 100 lines of code: gives space to ask
-questions, reasearch etc.</li>
-</ul>
-</li>
-<li>Understanding: it&rsquo;s not really about reading the code: it&rsquo;s about the
-convesations it starts.</li>
-<li>Keeping it small - 5 consistent people - helps to keep it engaged</li>
-<li>Important to have a &lsquo;tour guide&rsquo; making sure everyone is engaged and
-contributing (?)</li>
-<li>Asking the question of crappy methods &ldquo;how would we have written it?&rdquo; is
-really interesting.
-
-<ul>
-<li>Therefore it&rsquo;s not necessary for the code to be exemplary: lots of benefit
-in reading shonky code</li>
-</ul>
-</li>
-<li>Drawing out knowledge gaps: the things you think you understand but actually
-have no idea about</li>
-<li>Reading something you actually need to use is a totally different
-experience: you&rsquo;re much more invested in it</li>
-<li>Look at organisation of the code, not just the detail (how code is organised
-into files, what they&rsquo;re called etc)</li>
-<li>Learning on your own is possible but really tiring.</li>
-<li>Learning in a bootcamp is very expensive and time-consuming</li>
-<li>Solution: <a href="http://www.codenewbie.org/">codenewbie</a> - connecting new developers with each other</li>
-<li>&ldquo;The learning happens in the digressions&rdquo;</li>
-<li>Knowledge = connecting the &lsquo;dots&rsquo; of information</li>
-</ul>
-
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="2">&larr; Older</a>
@@ -1136,6 +1214,10 @@ into files, what they&rsquo;re called etc)</li>
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2015/03/27/some-tools-for-faster-blogging-in-octopress/">Some Tools for Faster Blogging in Octopress</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2015/03/27/execute-ruby-code-inline-in-the-editor/">Execute Ruby Code Inline in the Editor</a>
       </li>
     
@@ -1149,10 +1231,6 @@ into files, what they&rsquo;re called etc)</li>
     
       <li class="post">
         <a href="/blog/2015/03/22/mark-jaquith-at-wordcamp-london-cache-money-business/">Mark Jaquith at WordCamp London - Cache Money Business</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2015/03/21/wp-london-bruce-lawson-responsive-images/">WordCamp London - Bruce Lawson - Responsive Images</a>
       </li>
     
   </ul>

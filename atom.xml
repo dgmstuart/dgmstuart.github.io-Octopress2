@@ -4,7 +4,7 @@
   <title><![CDATA[dgms code]]></title>
   <link href="http://dgmstuart.github.io/atom.xml" rel="self"/>
   <link href="http://dgmstuart.github.io/"/>
-  <updated>2015-03-27T16:17:07+00:00</updated>
+  <updated>2015-03-28T13:02:37+00:00</updated>
   <id>http://dgmstuart.github.io/</id>
   <author>
     <name><![CDATA[Duncan Stuart]]></name>
@@ -12,6 +12,141 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Some Tools for Faster Blogging in Octopress]]></title>
+    <link href="http://dgmstuart.github.io/blog/2015/03/27/some-tools-for-faster-blogging-in-octopress/"/>
+    <updated>2015-03-27T18:48:31+00:00</updated>
+    <id>http://dgmstuart.github.io/blog/2015/03/27/some-tools-for-faster-blogging-in-octopress</id>
+    <content type="html"><![CDATA[<p>I&rsquo;ve been to a number of conferences and talks recently and I&rsquo;ve developed a habit
+of live-blogging my notes: getting them up online as quickly as possible.</p>
+
+<p>More on that in a future post but I want to talk about how I am able to start taking
+notes fast, and publish them even faster (when a talk finishes, lots of people will be
+trying to get out of the row of seats past me!).</p>
+
+<p><em>NOTE: The scripts below assume editing with terminal vim. It might be more flexible to switch this out for
+the <code>$VISUAL</code> environment variable (?), but if you use a different editor you&rsquo;ll probably
+just want to replace <code>vim</code> with whatever command you use to boot up your editor - e.g. <code>subl</code>, <code>mvim</code> etc.</em></p>
+
+<h3>Creating posts</h3>
+
+<p>The octopress command for creating a post is <code>rake new_post["The name of my
+post"]</code>. I&rsquo;d then typically select the filename it outputs with the mouse,
+paste that into the command line and open it with vim. That&rsquo;s <em>way</em> too much
+typing, and any seasoned vim user would wince at the word &ldquo;mouse&rdquo;.</p>
+
+<p>Here&rsquo;s a function which lets me type <code>newpost "The name of my post"</code> and creates
+the post, isolates it and opens it in one step:</p>
+
+<figure class='code'><figcaption><span>~/.profile </span></figcaption>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+</pre></td><td class='code'><pre><code class='sh'><span class='line'><span class="k">function</span> newpost<span class="o">(){</span>
+</span><span class='line'>  <span class="nb">cd</span> <span class="k">${</span><span class="nv">BLOG_HOME</span><span class="p">:?</span><span class="s2">&quot;Need to set BLOG_HOME to the location of the octopress blog directory&quot;</span><span class="k">}</span>
+</span><span class='line'>  <span class="nv">output</span><span class="o">=</span><span class="k">$(</span> rake new_post<span class="o">[</span><span class="s2">&quot;$@&quot;</span><span class="o">]</span> <span class="k">)</span>
+</span><span class='line'>  <span class="nb">echo</span> <span class="s2">&quot;$output&quot;</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="nb">local </span><span class="nv">return_code</span><span class="o">=</span><span class="nv">$?</span>
+</span><span class='line'>  <span class="k">if</span> <span class="o">[</span> <span class="nv">$return_code</span> -eq <span class="m">0</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
+</span><span class='line'>    <span class="c"># Get the name of the file which was just created:</span>
+</span><span class='line'>    <span class="nv">post_path</span><span class="o">=</span><span class="k">$(</span>grep -o <span class="s1">&#39;source\/_posts\/.*\.markdown&#39;</span> <span class="o">&lt;&lt;&lt;</span> <span class="nv">$output</span><span class="k">)</span>
+</span><span class='line'>    <span class="c"># Stash all other posts (for faster generation)</span>
+</span><span class='line'>    <span class="nb">echo</span> <span class="s2">&quot;Isolating post...&quot;</span>
+</span><span class='line'>    rake isolate<span class="o">[</span><span class="s2">&quot;$post_path&quot;</span><span class="o">]</span>
+</span><span class='line'>    <span class="c"># Open with the cursor at the bottom of the header:</span>
+</span><span class='line'>    vim -c <span class="s1">&#39;normal G&#39;</span> <span class="nv">$post_path</span>
+</span><span class='line'>  <span class="k">fi</span>
+</span><span class='line'><span class="o">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>My <a href="https://github.com/dgmstuart/dotfiles">dotfiles</a> are shared between
+multiple machines, so the <code>BLOG_HOME</code> environment variable is set in a local
+profile:</p>
+
+<figure class='code'><figcaption><span>~/.profile.local </span></figcaption>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='sh'><span class='line'><span class="nb">export </span><span class="nv">BLOG_HOME</span><span class="o">=</span><span class="nv">$HOME</span>/Dev/Personal/blog
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>I&rsquo;m pretty new at shell scripting, so if you know of a way to make this better
+or more robust, please let me know in the comments.</p>
+
+<h3>Isolating Posts</h3>
+
+<p>Notice in the <code>newpost</code> function I&rsquo;ve got <code>rake isolate["$post_path"]</code> - that&rsquo;s a
+nifty task provided by Octopress which gets around the fact that when you generate
+your Octopress blog it has to rebuild the entire site (?) which can be very slow.
+Unfortunately it doesn&rsquo;t seem to be documented, but you can see the source in the
+<code>Rakefile</code> of your Octopress install.</p>
+
+<p><em>Side note: run <code>rake -T</code> in your blog directory to see all of the Octopress commands #protip</em></p>
+
+<p><code>rake isolate</code> moves all posts into <code>source/_stash</code>, unless they  match the given
+string in their title. This means that when you&rsquo;re previewing your post with <code>rake preview</code>
+it&rsquo;s much faster to re-generate because it&rsquo;s only having to handle one post each time.</p>
+
+<p>If you&rsquo;re running this manually, there&rsquo;s no need to pass the whole path: you can just
+find one of two words which are unique in the filename of your post and use that - e.g.
+<code>rake isolate[wizards]</code></p>
+
+<p>You can put your stashed posts back with <code>rake integrate</code>.</p>
+
+<h3>Listing and revisiting posts</h3>
+
+<p>A couple of things I find myself needing to do fairly often:
+* Make an edit to the post I was most recently editing
+* Find a post where I can&rsquo;t remember the title was</p>
+
+<figure class='code'><figcaption><span>~/.profile </span></figcaption>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+</pre></td><td class='code'><pre><code class='sh'><span class='line'><span class="c"># blogposts: display the list of posts ordered by last modified time</span>
+</span><span class='line'><span class="c"># %m                           -- Last modified timestamp</span>
+</span><span class='line'><span class="c"># %N                           -- Quoted File name</span>
+</span><span class='line'><span class="c"># -exec stat -f &quot;%m %N&quot; {} \;  -- Outputs a timestamp at the beginning of the line for sorting</span>
+</span><span class='line'><span class="c"># cut -d &#39; &#39; -f2-              -- Returns only the second field in a space-delimited string</span>
+</span><span class='line'><span class="nb">alias </span><span class="nv">blogposts</span><span class="o">=</span><span class="s1">&#39;find $BLOG_HOME/source/_posts/* -exec stat -f &quot;%m %N&quot; {} \; | sort -n | cut -d &quot; &quot; -f2-&#39;</span>
+</span><span class='line'><span class="nb">alias </span><span class="nv">lastpost</span><span class="o">=</span><span class="s1">&#39;find `blogposts` | tail -1 &#39;</span>
+</span><span class='line'><span class="nb">alias </span><span class="nv">epost</span><span class="o">=</span><span class="s1">&#39;vim `lastpost`&#39;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>Deploying</h3>
+
+<p>The <code>gen:deploy</code> rake task is a built-in alias for running the
+<code>:integrate</code>, <code>:generate</code>, and <code>:deploy</code> tasks, but again, typing
+<code>rake gen:deploy</code> is just too much typing, hence:</p>
+
+<figure class='code'><figcaption><span>~/.profile </span></figcaption>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='sh'><span class='line'><span class="nb">alias </span><span class="nv">rgd</span><span class="o">=</span><span class="s1">&#39;rake gen_deploy&#39;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Execute Ruby Code Inline in the Editor]]></title>
@@ -1334,135 +1469,6 @@ Here&rsquo;s where it looks, in order, for an email address to use:</p>
 </li>
 </ul>
 
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[WordCamp Europe 2014 Notes - 2.3: The Next Generation Hosting Stack]]></title>
-    <link href="http://dgmstuart.github.io/blog/2014/09/28/wordcamp-europe-2014-notes-2-dot-3-the-next-generation-hosting-stack/"/>
-    <updated>2014-09-28T09:33:02+01:00</updated>
-    <id>http://dgmstuart.github.io/blog/2014/09/28/wordcamp-europe-2014-notes-2-dot-3-the-next-generation-hosting-stack</id>
-    <content type="html"><![CDATA[<p><em>I&rsquo;m at <a href="http://2014.europe.wordcamp.org/">WordCamp Europe</a> in Sofia - taking rough notes on some of the talks</em></p>
-
-<p>Mark Jaquith (@markjaquith) <a href="http://2014.europe.wordcamp.org/session/mark-jaquith/">http://2014.europe.wordcamp.org/session/mark-jaquith/</a></p>
-
-<ul>
-<li>Why is performance important?
-
-<ul>
-<li>It&rsquo;s not about overall speed - it&rsquo;s about the frustration of being interrupted</li>
-<li>Everyone hates Lag</li>
-</ul>
-</li>
-<li>WP has a bad rep for speed
-
-<ul>
-<li>no matter what wp core do, WP DB&rsquo;s are getting bigger, lots of functionality, lots of plugins</li>
-</ul>
-</li>
-<li>WP is dynamic - everything is built on the fly
-
-<ul>
-<li>Why don&rsquo;t we just generate static files? - No persistent caching in core. Pages are so dynamic: search results etc. Only a small number of pages can be cached</li>
-</ul>
-</li>
-<li>For the purposes of this talk: speed = speed of download of just the html page (not css or other assets)</li>
-<li>3+ seconds = EMERGENCY</li>
-<li>1-3 seconds = Slow</li>
-<li>100-250ms = fast</li>
-<li>&lt;100ms = instant</li>
-<li>Many hosts don&rsquo;t help with static caching</li>
-<li>Virtual server hosting - what to look for
-
-<ul>
-<li>Are they going to be around for a while?</li>
-<li>What&rsquo;s their raw performance - lots of people have done hardcore speed tests - easily googleable</li>
-<li>Value for money</li>
-<li>Tool support - provisioning scripts, auto backup</li>
-<li>Recommended: Linode, Digital Ocean</li>
-</ul>
-</li>
-</ul>
-
-
-<h2>Web Server</h2>
-
-<ul>
-<li>&ldquo;Nginx is the best thing to happen to web servers ever&rdquo;</li>
-<li>Apache approach - php is baked in. That means there&rsquo;s an overhead for each request</li>
-<li>Nginx approach - can&rsquo;t have php baked in. PHP-FPM runs php</li>
-<li>PHP 5.5 has significant performance improvements over previous versions</li>
-<li>HHVM - facebook project: transcodes php into machine code on the fly, with caching = crazy fast
-
-<ul>
-<li>Might not be production stable - need monitoring to catch when it crashes</li>
-</ul>
-</li>
-</ul>
-
-
-<h2>Database</h2>
-
-<ul>
-<li>MySQL is not the only option: MariaDB, Percona</li>
-<li>HyperDB - project for providing a layer to manage lots of database instances</li>
-</ul>
-
-
-<h2>Caching</h2>
-
-<h3>Page caching:</h3>
-
-<ul>
-<li>Questions - who, what, how long. Answers: Anonymous???, front of site, minutes, maybe hours???.</li>
-<li>Nginx has a cache</li>
-<li>Varnish is another option, but is another moving part</li>
-<li>Plugins are tightly integrated with WP, but run in php so are much slower</li>
-</ul>
-
-
-<h3>Object caching:</h3>
-
-<ul>
-<li>Recommend using Redis (Pantheon uses it)</li>
-<li>Memcached - used to be a recommendation. Restarting flushes the data - can cause massive spikes in load</li>
-<li>Mark&rsquo;s wrappers:
-
-<ul>
-<li>TLC Tranients <a href="http://bitly/tlc-transients">http://bitly/tlc-transients</a></li>
-<li>Fragment caching: <a href="http://bitly/fragment-cache">http://bitly/fragment-cache</a></li>
-</ul>
-</li>
-</ul>
-
-
-<h3>The next generation stack</h3>
-
-<p><img src="https://pbs.twimg.com/media/Bym-26pCcAAyPVd.jpg:large" alt="The next generation WordPress hosting stack" /></p>
-
-<ul>
-<li><p>Audience qu Hyper db - works with MariaDB &amp; Percona?</p>
-
-<ul>
-<li>AFAIK yes</li>
-</ul>
-</li>
-<li><p>My qu - can you make core use Redis for your object cache or is that just for your own caching</p>
-
-<ul>
-<li>Yes - you configure an object cache and core will use it to cache posts, taxonomies, a bunch of other things.</li>
-</ul>
-</li>
-<li><p>Audience qu: What do you use for performance monitoring</p>
-
-<ul>
-<li>NewRelic: very expensive, but gives you amazing insights</li>
-</ul>
-</li>
-</ul>
-
-
-<p>*</p>
 ]]></content>
   </entry>
   

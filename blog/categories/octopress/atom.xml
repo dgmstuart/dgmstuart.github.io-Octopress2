@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Octopress | dgms code]]></title>
+  <link href="http://dgmstuart.github.io/blog/categories/octopress/atom.xml" rel="self"/>
+  <link href="http://dgmstuart.github.io/"/>
+  <updated>2015-03-28T13:02:37+00:00</updated>
+  <id>http://dgmstuart.github.io/</id>
+  <author>
+    <name><![CDATA[Duncan Stuart]]></name>
+    <email><![CDATA[dgmstuart@gmail.com]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Some Tools for Faster Blogging in Octopress]]></title>
+    <link href="http://dgmstuart.github.io/blog/2015/03/27/some-tools-for-faster-blogging-in-octopress/"/>
+    <updated>2015-03-27T18:48:31+00:00</updated>
+    <id>http://dgmstuart.github.io/blog/2015/03/27/some-tools-for-faster-blogging-in-octopress</id>
+    <content type="html"><![CDATA[<p>I&rsquo;ve been to a number of conferences and talks recently and I&rsquo;ve developed a habit
+of live-blogging my notes: getting them up online as quickly as possible.</p>
+
+<p>More on that in a future post but I want to talk about how I am able to start taking
+notes fast, and publish them even faster (when a talk finishes, lots of people will be
+trying to get out of the row of seats past me!).</p>
+
+<p><em>NOTE: The scripts below assume editing with terminal vim. It might be more flexible to switch this out for
+the <code>$VISUAL</code> environment variable (?), but if you use a different editor you&rsquo;ll probably
+just want to replace <code>vim</code> with whatever command you use to boot up your editor - e.g. <code>subl</code>, <code>mvim</code> etc.</em></p>
+
+<h3>Creating posts</h3>
+
+<p>The octopress command for creating a post is <code>rake new_post["The name of my
+post"]</code>. I&rsquo;d then typically select the filename it outputs with the mouse,
+paste that into the command line and open it with vim. That&rsquo;s <em>way</em> too much
+typing, and any seasoned vim user would wince at the word &ldquo;mouse&rdquo;.</p>
+
+<p>Here&rsquo;s a function which lets me type <code>newpost "The name of my post"</code> and creates
+the post, isolates it and opens it in one step:</p>
+
+<p><figure class='code'><figcaption><span>~/.profile </span></figcaption>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+</pre></td><td class='code'><pre><code class='sh'><span class='line'><span class="k">function</span> newpost<span class="o">(){</span>
+</span><span class='line'>  <span class="nb">cd</span> <span class="k">${</span><span class="nv">BLOG_HOME</span><span class="p">:?&amp;ldquo;Need to set BLOG_HOME to the location of the octopress blog directory&amp;rdquo;</span><span class="k">}</span>
+</span><span class='line'>  <span class="nv">output</span><span class="o">=</span><span class="k">$(</span> rake new_post<span class="o">[</span><span class="p">&amp;</span>ldquo<span class="p">;</span><span class="nv">$@</span><span class="p">&amp;</span>rdquo<span class="p">;</span><span class="o">]</span> <span class="k">)</span>
+</span><span class='line'>  <span class="nb">echo</span> <span class="p">&amp;</span>ldquo<span class="p">;</span><span class="nv">$output</span><span class="p">&amp;</span>rdquo<span class="p">;</span>&lt;/p&gt;
+</span><span class='line'>
+</span><span class='line'>&lt;p&gt;  <span class="nb">local </span><span class="nv">return_code</span><span class="o">=</span><span class="nv">$?</span>
+</span><span class='line'>  <span class="k">if</span> <span class="o">[</span> <span class="nv">$return_code</span> -eq <span class="m">0</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
+</span><span class='line'>    <span class="c"># Get the name of the file which was just created:</span>
+</span><span class='line'>    <span class="nv">post_path</span><span class="o">=</span><span class="k">$(</span>grep -o <span class="p">&amp;</span>lsquo<span class="p">;</span><span class="nb">source</span><span class="se">\/</span>_posts<span class="se">\/</span>.*.markdown<span class="p">&amp;</span>rsquo<span class="p">;</span> <span class="p">&amp;</span>lt<span class="p">;&amp;</span>lt<span class="p">;&amp;</span>lt<span class="p">;</span> <span class="nv">$output</span><span class="k">)</span>
+</span><span class='line'>    <span class="c"># Stash all other posts (for faster generation)</span>
+</span><span class='line'>    <span class="nb">echo</span> <span class="p">&amp;</span>ldquo<span class="p">;</span>Isolating post<span class="p">&amp;</span>hellip<span class="p">;&amp;</span>rdquo<span class="p">;</span>
+</span><span class='line'>    rake isolate<span class="o">[</span><span class="p">&amp;</span>ldquo<span class="p">;</span><span class="nv">$post_path</span><span class="p">&amp;</span>rdquo<span class="p">;</span><span class="o">]</span>
+</span><span class='line'>    <span class="c"># Open with the cursor at the bottom of the header:</span>
+</span><span class='line'>    vim -c <span class="p">&amp;</span>lsquo<span class="p">;</span>normal G<span class="p">&amp;</span>rsquo<span class="p">;</span> <span class="nv">$post_path</span>
+</span><span class='line'>  <span class="k">fi</span>
+</span><span class='line'><span class="o">}</span>
+</span></code></pre></td></tr></table></div></figure></p>
+
+<p>My <a href="https://github.com/dgmstuart/dotfiles">dotfiles</a> are shared between
+multiple machines, so the <code>BLOG_HOME</code> environment variable is set in a local
+profile:</p>
+
+<p><figure class='code'><figcaption><span>~/.profile.local </span></figcaption>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='sh'><span class='line'><span class="nb">export </span><span class="nv">BLOG_HOME</span><span class="o">=</span><span class="nv">$HOME</span>/Dev/Personal/blog
+</span></code></pre></td></tr></table></div></figure></p>
+
+<p>I&rsquo;m pretty new at shell scripting, so if you know of a way to make this better
+or more robust, please let me know in the comments.</p>
+
+<h3>Isolating Posts</h3>
+
+<p>Notice in the <code>newpost</code> function I&rsquo;ve got <code>rake isolate["$post_path"]</code> - that&rsquo;s a
+nifty task provided by Octopress which gets around the fact that when you generate
+your Octopress blog it has to rebuild the entire site (?) which can be very slow.
+Unfortunately it doesn&rsquo;t seem to be documented, but you can see the source in the
+<code>Rakefile</code> of your Octopress install.</p>
+
+<p><em>Side note: run <code>rake -T</code> in your blog directory to see all of the Octopress commands #protip</em></p>
+
+<p><code>rake isolate</code> moves all posts into <code>source/_stash</code>, unless they  match the given
+string in their title. This means that when you&rsquo;re previewing your post with <code>rake preview</code>
+it&rsquo;s much faster to re-generate because it&rsquo;s only having to handle one post each time.</p>
+
+<p>If you&rsquo;re running this manually, there&rsquo;s no need to pass the whole path: you can just
+find one of two words which are unique in the filename of your post and use that - e.g.
+<code>rake isolate[wizards]</code></p>
+
+<p>You can put your stashed posts back with <code>rake integrate</code>.</p>
+
+<h3>Listing and revisiting posts</h3>
+
+<p>A couple of things I find myself needing to do fairly often:
+* Make an edit to the post I was most recently editing
+* Find a post where I can&rsquo;t remember the title was</p>
+
+<p><figure class='code'><figcaption><span>~/.profile </span></figcaption>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+</pre></td><td class='code'><pre><code class='sh'><span class='line'>&lt;/p&gt;
+</span><span class='line'>
+</span><span class='line'>&lt;h1&gt;blogposts: display the list of posts ordered by last modified <span class="nb">time</span>&lt;/h1&gt;
+</span><span class='line'>
+</span><span class='line'>&lt;h1&gt;%m                           <span class="p">&amp;</span>ndash<span class="p">;</span> Last modified timestamp&lt;/h1&gt;
+</span><span class='line'>
+</span><span class='line'>&lt;h1&gt;%N                           <span class="p">&amp;</span>ndash<span class="p">;</span> Quoted File name&lt;/h1&gt;
+</span><span class='line'>
+</span><span class='line'>&lt;h1&gt;-exec stat -f <span class="p">&amp;</span>ldquo<span class="p">;</span>%m %N<span class="p">&amp;</span>rdquo<span class="p">;</span> <span class="o">{}</span> <span class="se">\;</span>  <span class="p">&amp;</span>ndash<span class="p">;</span> Outputs a timestamp at the beginning of the line <span class="k">for</span> sorting&lt;/h1&gt;
+</span><span class='line'>
+</span><span class='line'>&lt;h1&gt;cut -d <span class="p">&amp;</span>lsquo<span class="p">;</span> <span class="p">&amp;</span>rsquo<span class="p">;</span> -f2-              <span class="p">&amp;</span>ndash<span class="p">;</span> Returns only the second field in a space-delimited string&lt;/h1&gt;
+</span><span class='line'>
+</span><span class='line'>&lt;p&gt;alias <span class="nv">blogposts</span><span class="o">=</span><span class="p">&amp;</span>lsquo<span class="p">;</span>find <span class="nv">$BLOG_HOME</span>/source/_posts/* -exec stat -f <span class="p">&amp;</span>ldquo<span class="p">;</span>%m %N<span class="p">&amp;</span>rdquo<span class="p">;</span> <span class="o">{}</span> <span class="se">\;</span> <span class="p">|</span> sort -n <span class="p">|</span> cut -d <span class="p">&amp;</span>ldquo<span class="p">;</span> <span class="p">&amp;</span>rdquo<span class="p">;</span> -f2-<span class="p">&amp;</span>rsquo<span class="p">;</span>
+</span><span class='line'><span class="nb">alias </span><span class="nv">lastpost</span><span class="o">=</span><span class="p">&amp;</span>lsquo<span class="p">;</span>find &lt;code&gt;blogposts&lt;/code&gt; <span class="p">|</span> tail -1 <span class="p">&amp;</span>rsquo<span class="p">;</span>
+</span><span class='line'><span class="nb">alias </span><span class="nv">epost</span><span class="o">=</span><span class="p">&amp;</span>lsquo<span class="p">;</span>vim &lt;code&gt;lastpost&lt;/code&gt;<span class="p">&amp;</span>rsquo<span class="p">;</span>
+</span></code></pre></td></tr></table></div></figure></p>
+
+<h3>Deploying</h3>
+
+<p>The <code>gen:deploy</code> rake task is a built-in alias for running the
+<code>:integrate</code>, <code>:generate</code>, and <code>:deploy</code> tasks, but again, typing
+<code>rake gen:deploy</code> is just too much typing, hence:</p>
+
+<p><figure class='code'><figcaption><span>~/.profile </span></figcaption>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='sh'><span class='line'><span class="nb">alias </span><span class="nv">rgd</span><span class="o">=</span><span class="p">&amp;</span>lsquo<span class="p">;</span>rake gen_deploy<span class="p">&amp;</span>rsquo<span class="p">;</span>
+</span></code></pre></td></tr></table></div></figure></p>
+]]></content>
+  </entry>
+  
+</feed>

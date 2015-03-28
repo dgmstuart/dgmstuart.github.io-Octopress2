@@ -1,0 +1,543 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Liveblog | dgms code]]></title>
+  <link href="http://dgmstuart.github.io/blog/categories/liveblog/atom.xml" rel="self"/>
+  <link href="http://dgmstuart.github.io/"/>
+  <updated>2015-03-28T13:02:37+00:00</updated>
+  <id>http://dgmstuart.github.io/</id>
+  <author>
+    <name><![CDATA[Duncan Stuart]]></name>
+    <email><![CDATA[dgmstuart@gmail.com]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Unboxed Event Notes: "Unstick Your Digital Products"]]></title>
+    <link href="http://dgmstuart.github.io/blog/2015/03/25/unboxed-event-notes/"/>
+    <updated>2015-03-25T09:55:22+00:00</updated>
+    <id>http://dgmstuart.github.io/blog/2015/03/25/unboxed-event-notes</id>
+    <content type="html"><![CDATA[<p><em>I&rsquo;m at a <a href="https://www.eventbrite.co.uk/e/unstick-your-digital-products-rapidly-progress-a-complex-product-or-portfolio-of-stalled-products-tickets-15872783924">speaker session from Unboxed consulting</a></em></p>
+
+<h2><a href="https://www.linkedin.com/pub/dave-evans/a/311/919">Dave Evans</a> - Product Manager (E-commerce) at Macmillan Publishing Group</h2>
+
+<h3>“Trust me, I’m a product manager”: case study from publishing</h3>
+
+<ul>
+<li>Sales thinking: identify influencers, budget holders etc.</li>
+<li>Commercial products: it&rsquo;s all about profit-and-loss. Non-commercial products
+need different KPIs</li>
+<li>Product manager != project manager. Responsible for:
+
+<ul>
+<li>Backlog, vision statement</li>
+<li>Roadmap: what questions do we need to answer in the next windows of time</li>
+</ul>
+</li>
+<li>&ldquo;You need to go rogue&rdquo; - prove concepts on your own without a team</li>
+<li>404 test = e.g. buy now button - show it to a % of users, does nothing</li>
+<li>Concierge test = build front-end, but handle the back-end manually</li>
+<li>Everything in the backlog should be in line with the vision statement</li>
+<li>Question for unpicking feature requests which you think might not actually
+be about solving a problem: &ldquo;What happens if you <em>can&rsquo;t</em> build it?&rdquo;</li>
+</ul>
+
+
+<h2><a href="https://twitter.com/g_parry24/">Glyn Parry</a> – SH:24 (NHS collaboration)</h2>
+
+<h3>How designing a new experience in the NHS helped to unblock and unleash new potential</h3>
+
+<ul>
+<li>His experience: People in localgov/NHS aren&rsquo;t familiar with agile</li>
+<li>Just because they don&rsquo;t think of thinks in agile terminology doesn&rsquo;t mean
+they don&rsquo;t have an agile mindset</li>
+<li>Sexual health services in Lambeth&amp;Southwark are very overstretched, and in
+rural areas, round-trip times to visit a clinic might be very long</li>
+<li>Online STI kits - convenient but expensive</li>
+<li>New service: free, user-focussed</li>
+<li>User journeys illustrated with comic-strip style graphics:
+<img src="https://igcdn-photos-e-a.akamaihd.net/hphotos-ak-xaf1/t51.2885-15/11055891_730864497033484_1856034297_n.jpg" alt="@g_parry_24 talking about SH:24 approach" /></li>
+<li>Identify people in the organisation who have an agile mindset and are quite
+influential</li>
+<li>Approach: agile prototyping, building a service piece-by-piece with users</li>
+<li>Developing personas</li>
+<li>It&rsquo;s a digital project, but only 25% of the service being provided is
+digital - needs to be recognised</li>
+<li>Started with the basic GDS form</li>
+<li>Prototyping the kits that people recieve - cardboard and post-its
+
+<ul>
+<li>Started out trying to design engaging packaging for the test kits</li>
+<li>through user testing: learned that people don&rsquo;t want this - they like a
+really simple approach</li>
+</ul>
+</li>
+<li>Need to think about the user needs of the people receiving the tests as well</li>
+<li>Continuous evaluation on multiple different angles: measuring the impact of
+the service on sexual health</li>
+<li>Assumptions broken: people don&rsquo;t actually want their results to be
+super-discreet: they just want to know as quickly and clearly as possible</li>
+<li>Prior to alpha - 3 month discovery stage: very intensive working with users</li>
+</ul>
+
+
+<h2><a href="https://twitter.com/thecustomer">Will Rowan</a> - Product Manager at the Ministry of Justice (interview)</h2>
+
+<ul>
+<li>Managers are more important if they have more responsibilities - therefore
+they&rsquo;re predjudiced towards bigger projects and bigger products</li>
+<li>PRINCE2 documentation is large regardless of project size - again
+predjudicing larger projects</li>
+<li>Project example: Multi-car insurance. users not considered, data produced not
+considered, organisational capability to run the service, not considered
+(!!)</li>
+<li>On the importance of competitors: &ldquo;If you&rsquo;re trying to motivate a project team you need an enemy&rdquo;</li>
+<li>&ldquo;The more that you can get product in front of people the better&rdquo; - internal
+and external. The importance of show and tell. &ldquo;we can show you what&rsquo;s
+possible&rdquo; - unlock stakeholder committment: low cost, low-risk &ldquo;If they can
+quantify the risk they&rsquo;ll sign it off&rdquo;</li>
+<li>Stakeholders probably don&rsquo;t believe that you can deliver that much in that
+little time. Chip away at this by sharing what you&rsquo;re doing and how you&rsquo;re
+doing it.</li>
+<li>Drew the whole of a product on one A2 flipchart - helped to convince
+stakeholders it&rsquo;s feasible</li>
+<li>Attraction of Waterfall is that it lets you sign off the whole budget. In agile
+you&rsquo;re iterating the budget as well as iterating the project</li>
+<li>Getting everyone speaking the same language is important - e.g. training
+stakeholders to not refer to things as &lsquo;portals&rsquo; when they&rsquo;re nothing of the
+sort
+
+<ul>
+<li>If you discover that you&rsquo;ve got it wrong, or there&rsquo;s a better term, it
+<em>is</em> worth changing it all the way down the stack</li>
+</ul>
+</li>
+<li>When running agile: Make the work visible - extremely important: whole
+backlog on the wall. Makes it much easier to have a common understanding.
+Always carry whiteboard markers and post-its when in a non-agile environment
+(you won&rsquo;t find them there).</li>
+</ul>
+
+
+<h2><a href="https://twitter.com/richardstobart">Richard Stobart</a> – CEO, Unboxed Consulting, Agile Coach of the Year 2014</h2>
+
+<h3>Techniques for overcoming the Big 7 digital product blockers</h3>
+
+<ul>
+<li>The trap of 100% utilisation: Can&rsquo;t move quickly. Grind to a halt.</li>
+<li>70% utilisation is about as fast as you can go: helps avoid context-switching</li>
+<li>Intuitive thing when you see someone not busy is to make them busy, but this
+slows down all their other projects</li>
+<li>If you&rsquo;ve got spare time, help unblock <em>other people</em>, or do nothing&#8221;: don&rsquo;t
+add more things to the pipeline</li>
+<li>Always be delivering the highest value thing on your most important project</li>
+<li>Optimise &lsquo;batch size&rsquo; - grouping together features for deploy. Small batches
+= responding to change more quickly. = fixing bugs more easily: if the
+problem is a result of code which was written recently, the devs have that
+conceptual stack in their head.
+
+<ul>
+<li>Not achievable if your deployment process is onerous or slow</li>
+</ul>
+</li>
+<li>People used to think of environments like pets: they all had names. Today
+they&rsquo;re like cattle: set up when you need it, tear down when you&rsquo;re done.</li>
+<li>rightscale + ansible + docker: used to spin up 1000 test servers to test
+releasing a product to all students in China (which was the MVP!!)
+
+<ul>
+<li>Cost £10k to run that test but was trivial to set up</li>
+</ul>
+</li>
+<li>Creating roll-back-able database migrations: dbdeploy, liquibase etc. - have
+both database schema versions live in parallel, delete the old one when the
+new one is stable</li>
+<li>In closed-scope projects, everyone feels like they need to throw in all
+their great feature ideas before the scope window closes - leads to feature
+bloat. Solution: get stakeholders on side, and ensure that the product owner
+controls the backlog</li>
+</ul>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Tim Nash at WordCamp London - Beyond Unit Tests]]></title>
+    <link href="http://dgmstuart.github.io/blog/2015/03/22/tim-nash-at-wordcamp-london-beyond-unit-tests/"/>
+    <updated>2015-03-22T12:17:20+00:00</updated>
+    <id>http://dgmstuart.github.io/blog/2015/03/22/tim-nash-at-wordcamp-london-beyond-unit-tests</id>
+    <content type="html"><![CDATA[<p><em>I&rsquo;m at <a href="http://london.wordcamp.org/2015/">WordCamp London</a> - live-blogging
+some of the talks</em></p>
+
+<p><a href="https://twitter.com/tnash">Tim Nash</a></p>
+
+<ul>
+<li>Strategy for handling a tight deadline: Piles of acceptance tests</li>
+<li>Disagreement between different languages on what unit tests mean</li>
+<li>Focus on tools and concepts not methodology</li>
+<li><a href="http://codeception.com/">Codececption</a> - does a lot of things, mocking etc.
+php testing framework</li>
+<li>Acceptance testing: commands like <code>amOnPage</code>, <code>see</code>, <code>fillField</code></li>
+<li>Define scenarios: login, fill in form and submit etc.</li>
+<li>Generates reports in: console, html, xml (Ick!)</li>
+<li>Can use different drivers: WebDriver (fast, headless, no js, basically does the equivalend of cURL), Selenium (Slow, but drives the actual browser: can be hard to set up), PhantomJS (headless, runs js)</li>
+<li>Functional testing: sits alongside acceptance testing
+
+<ul>
+<li>Test the interactions between units - integrations</li>
+<li>Ignore UI and JS - make posts directly: don&rsquo;t emulate the browser - just
+call endpoints (incl. ajax) directly</li>
+<li>Can also be used to test apis/rss, cli, sending email, can also test
+xml-rpc</li>
+</ul>
+</li>
+<li>We&rsquo;ll be interacting with the database, so we need to set up and tear down
+data
+
+<ul>
+<li>WP-Browser handles these database interactions (i.e. you can directly
+insert data)</li>
+<li>Approach for setup and teardown: you can run a shell script before and
+after a codeception test, so setup wp-cli scripts to do the database
+setup and teardown</li>
+</ul>
+</li>
+<li>Re-usable code in Codeception: Step objects (collections of related steps to DRY up tests?)
+
+<ul>
+<li>Helpers, Modules</li>
+</ul>
+</li>
+<li>Refactoring strategy: Acceptance tests allow you to refactor your unit tests
+with confidence, (which allows you to refactor your code with confidence)</li>
+<li>Question: How to not couple the tests to e.g. the names of field names
+
+<ul>
+<li>Strategy: create a page object which wraps up those IDs, so that you
+only have one point where you need to change these</li>
+<li>Makes it slightly harder for non-developers to do the changes <em>(does it though??)</em>,
+but makes it much more maintainable</li>
+</ul>
+</li>
+</ul>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Mark Jaquith at WordCamp London - Cache Money Business]]></title>
+    <link href="http://dgmstuart.github.io/blog/2015/03/22/mark-jaquith-at-wordcamp-london-cache-money-business/"/>
+    <updated>2015-03-22T11:31:06+00:00</updated>
+    <id>http://dgmstuart.github.io/blog/2015/03/22/mark-jaquith-at-wordcamp-london-cache-money-business</id>
+    <content type="html"><![CDATA[<p><em>I&rsquo;m at <a href="http://london.wordcamp.org/2015/">WordCamp London</a> - live-blogging
+some of the talks</em></p>
+
+<p><img src="https://pbs.twimg.com/media/CAs0AgdWEAApTMb.jpg" alt="Mark Jaquith talking caching at #wcldn - photo by @davepullig on
+twitter" /></p>
+
+<p><em>photo of <a href="https://twitter.com/markjaquith">Mark Jaquith</a> by <a href="https://twitter.com/davepullig/">Dave Pullig</a></em></p>
+
+<ul>
+<li>Ultimately failing to cache could take your site down: run out of connections</li>
+<li>Caching principles:
+
+<ul>
+<li>Do less work - By default WP is Totally dynamic - there&rsquo;s a lot of
+complex stuff going on and it all gets done on every single request</li>
+<li>Hold onto data as long as it makes sense to do so: this is very specific
+to each individual site (at least for certain kinds of content)</li>
+<li>Make output generic: the more specific it is to a particular user, the
+less cachable it is</li>
+</ul>
+</li>
+<li>Page caching:
+
+<ul>
+<li>Batcache - if a page gets requested more than 3 times in 3 mins it
+caches that whole page for 6 mins</li>
+<li>Used by WP.com</li>
+<li>Unobtrusive - only caches the most frequently requested stuff</li>
+<li>low-configuration</li>
+</ul>
+</li>
+<li>W3TotalCache
+
+<ul>
+<li>Extremely complex, lots of layers</li>
+</ul>
+</li>
+<li>WPSuperCache
+
+<ul>
+<li>Somewhere in-between</li>
+</ul>
+</li>
+<li>Varnish or Nginx
+
+<ul>
+<li>Cache before it hits the webserver</li>
+</ul>
+</li>
+<li>CDN
+
+<ul>
+<li>geographically distributed caches: people access the cache closest to
+them</li>
+<li>Very popular for media files, but can be used for the whole site.</li>
+<li>Will obey cache headers</li>
+</ul>
+</li>
+<li>Nginx Cache Purging
+
+<ul>
+<li>This is tricky</li>
+<li>There&rsquo;s a third party package which can be compiled from source which
+enables this. But :-P</li>
+<li>Approach: Configure a &lsquo;magic header&rsquo; ;) - when it&rsquo;s passed with a
+request, it skips getting, but not setting, so overwrites whatever is
+currently in the cache</li>
+</ul>
+</li>
+<li>Variable cache lengths + proactive cache refreshing:
+
+<ul>
+<li>Warm the cache (on cron) more frequently than it&rsquo;s getting expired, to
+make sure that your content is always cached</li>
+</ul>
+</li>
+<li>Does being logged-in mean you can&rsquo;t cache the page?
+
+<ul>
+<li>It&rsquo;s a pain if you have 1000&rsquo;s of logged in users/active commenters etc.</li>
+<li>Think about how the page varies based on who you are logged in as:
+toolbar, private posts - etc.</li>
+<li>Choice: remove those things OR make them generic</li>
+<li>Comment forms: hide them by default, show them with ajax - either when
+hitting a button, or when scrolling to the bottom of the page (!)</li>
+<li>Remove toolbar for subscribers etc. - it&rsquo;s not very useful!</li>
+<li>Remove private post fucntionality if it&rsquo;s not used: it makes the queries
+much more complicated anyway</li>
+<li>Replace moderated comments with a generic &ldquo;your comment is being
+moderated&rdquo; message</li>
+</ul>
+</li>
+<li>Approach if you really need to show logged-in data:
+
+<ul>
+<li>Use cookies: by default WP renders user-specific content using php, but
+that&rsquo;s very odd</li>
+<li>Set JS-readable cookies and use them to populate the content</li>
+<li>He&rsquo;s just written <a href="https://github.com/markjaquith/cache-buddy">Cache Buddy</a> - a plugin to do this</li>
+</ul>
+</li>
+<li>Object Caching
+
+<ul>
+<li>APCu, Memcache, or (recommended:) Redis</li>
+<li>put them in <code>object-cache.php</code> - they need to be loaded before plugins</li>
+</ul>
+</li>
+<li>Transients + Object Cache
+
+<ul>
+<li>For just a few values use transients - stores data in the options table</li>
+<li>For 1000s of values use the object cache</li>
+<li>Object cache can organise cache keys into groups</li>
+</ul>
+</li>
+<li>Cache stampedes: What happens when cache expires?
+
+<ul>
+<li>One user triggers the remote request</li>
+<li>then the next user also triggers it (before it&rsquo;s completed)</li>
+<li>and another&hellip; STAMPEDE!</li>
+<li><code>tlc_transient</code> - handles this problem: soft expiration - data gets
+marked as expired but not deleted until the new data is available (!)</li>
+</ul>
+</li>
+<li>Html fragment caching
+
+<ul>
+<li>e.g. A complex footer that&rsquo;s the same on every page</li>
+<li><code>CWS_Fragment_Cache</code></li>
+</ul>
+</li>
+</ul>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[WordCamp London - Bruce Lawson - Responsive Images]]></title>
+    <link href="http://dgmstuart.github.io/blog/2015/03/21/wp-london-bruce-lawson-responsive-images/"/>
+    <updated>2015-03-21T15:18:00+00:00</updated>
+    <id>http://dgmstuart.github.io/blog/2015/03/21/wp-london-bruce-lawson-responsive-images</id>
+    <content type="html"><![CDATA[<p><em>I&rsquo;m at <a href="http://london.wordcamp.org/2015/">WordCamp London</a> - live-blogging
+some of the talks</em></p>
+
+<p><a href="http://www.brucelawson.co.uk/">Bruce Lawson</a></p>
+
+<p><em>EDIT: Bruce has added some corrections and clarifications in the comments
+below</em></p>
+
+<ul>
+<li>Responsiveness includes speed of loading</li>
+<li>0.5 second delay is a 20% drop in traffic</li>
+<li>Images are a major cause of slowing down pages</li>
+<li>Av web page is 1.9MB - of which 1.2MB are images</li>
+<li>Number of images loaded is static over time, but the size of images
+increases significantly over time</li>
+<li>How can I send huge images to retina devices, but smaller images for
+rendering on smaller screens? Answer: HARD.</li>
+<li>First try: use css to swap in images based on page width:
+
+<ul>
+<li>Fail: loads the retina image THEN the smaller image - i.e. downloads
+both - the opposite of what we want</li>
+<li>This is because CSS and JS get applied to the DOM, so the DOM needs to
+get loaded first (?)</li>
+<li>Browsers can create the DOM tree in whatever way they like</li>
+<li>Because of preloading (&ldquo;the single greatest performance improvement
+that browsers have ever made&rdquo;) The whole of the source is read before the DOM tree is loaded - as soon
+as an image is spotted in the DOM, a request is sent off to fetch that
+image (i.e. before the DOM tree gets constructed)</li>
+<li>therefore doing things in the  CSS is too late</li>
+</ul>
+</li>
+<li>Therefore it needs to be the markup - Media Queries have been around a long
+time</li>
+<li>Respimg - responsive images community group</li>
+<li>First time a group of web developers wrote part of the standard and got it
+into the spec</li>
+<li>Now in Opera and Chrome and soon to be in Webkit</li>
+<li>First use case - optimise for high dpi screeens:
+
+<ul>
+<li>srcset attribute: specify images for particular pixel densities: a
+candidate list which the browser can use to select an optimal image</li>
+<li>The browser gets to choose - this is so that e.g. the user can choose what
+sort of image quality they wnat to have</li>
+</ul>
+</li>
+</ul>
+
+
+<p><img src="https://igcdn-photos-b-a.akamaihd.net/hphotos-ak-xaf1/t51.2885-15/11023186_1799356763623801_1327635725_n.jpg" alt="@Brucel talking responsive images" /></p>
+
+<ul>
+<li>Second use case - stretchy images
+
+<ul>
+<li>Can be done straightforwardly with css, but involves sending massive
+images down the wire and putting a lot of CPU load on the browser</li>
+<li>Slows things down for the user!</li>
+<li>solution: w descriptor - use in src set to tell the browser which image
+is more suitable for a particular page width</li>
+</ul>
+</li>
+<li>All this requires a lot of cruft to add in all the clauses to make this work, but
+there&rsquo;s a <a href="https://wordpress.org/plugins/ricg-responsive-images/">plugin from Respimg</a> which does it for you</li>
+<li>Third use case - new image formats
+
+<ul>
+<li>JPG/PNG/GIF are ubiquitous, but there are more modern, better
+compression alternatives: smaller files, better quality - e.g. WebP</li>
+<li>Traditionally the logic is you can&rsquo;t use this in the wild because only
+Chrome and Opera support it</li>
+<li>with the <code>&lt;picture&gt;</code> element you can supply different image formats with
+fallbacks - so e.g. you can use WebP and fall back to img (actually
+browsers will force you to do progressive enhancement (supply an image)</li>
+</ul>
+</li>
+<li>Last use case - art direction
+
+<ul>
+<li>Choose a different aspect of the image to display on different devices:
+zoom in on a different bit of the image for different viewport sizes</li>
+<li>Use media queries within the <code>&lt;picture&gt;</code> element to display different
+versions of an image at different widths</li>
+</ul>
+</li>
+<li>Release dates:
+
+<ul>
+<li>in OPera and Chrome now</li>
+<li>FF in may</li>
+<li>IE &ldquo;under consideration&rdquo; &hellip;</li>
+<li>Safari already implement <code>srcset</code> - havent talked about <code>&lt;picture&gt;</code></li>
+</ul>
+</li>
+<li>YOU CAN USE THIS NOW
+
+<ul>
+<li>It&rsquo;s designed to force progressive enhancement - nobody gets a worse
+experience than they do now</li>
+</ul>
+</li>
+</ul>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Sandi Metz: Nothing Is Something - at BathRuby]]></title>
+    <link href="http://dgmstuart.github.io/blog/2015/03/13/sandi-metz-nothing-is-something-at-bathruby/"/>
+    <updated>2015-03-13T16:38:05+00:00</updated>
+    <id>http://dgmstuart.github.io/blog/2015/03/13/sandi-metz-nothing-is-something-at-bathruby</id>
+    <content type="html"><![CDATA[<p><em>I&rsquo;m at <a href="http://2015.bathruby.org/">Bath Ruby 2015</a>, live blogging some of the
+talks</em></p>
+
+<ul>
+<li>All of her teaching ideas have a single underlying principle</li>
+<li>Learned OO from Smalltalk - massive influence on the way she thinks about
+objects</li>
+<li><code>+</code> is just a method on <code>Fixnum</code></li>
+<li>Ruby&rsquo;s <code>if</code> is effectively a typecheck (a check of whether an object is a
+member of <code>NilClass</code>/<code>Trueclass</code> ??)
+
+<ul>
+<li><code>if</code> is very prodedural (not OO)</li>
+</ul>
+</li>
+<li>Sometimes <code>nil</code> means nothing - so just remove nils from your results (e.g.
+<code>compact</code> the array</li>
+<li><code>try</code> can effectively be a typecheck (for <code>NilClass</code>)</li>
+<li>Conditions breed: if you have one you&rsquo;ll get more. Making a change around
+them in one place may involve making changes in lots of places (&ldquo;shotgun
+surgery&rdquo;)</li>
+<li>If you return nil then calls to that object can return objects which respond
+to different Apis: The object&rsquo;s or NilClass&rsquo;s. Solution: Null Object Pattern
+(#ftw)</li>
+<li>Null Object is for when Nothing is actually a thing - for when you need to
+talk to it</li>
+<li>Null Object is a new dependency, so wrap it in a new class which returns
+either an instance of your Object, or the Null Object, then pass this new
+class around</li>
+<li>Null Object is a concrete implementation of a more general idea</li>
+<li>Single responsibilities allow you to override specific behaviours when
+inheriting</li>
+<li>Extending behaviour by inheritance makes it impossible to share multiple
+behaviours</li>
+<li>Inheritance is for specialisation (not for ??)
+
+<ul>
+<li>There&rsquo;s no such thing as just one specialisation&hellip;</li>
+</ul>
+</li>
+<li>Approach - Composition and dependecy injection:
+
+<ol>
+<li>make the original behaviour and the new behaviour look the same - this
+highlights the way they&rsquo;re different</li>
+<li>Give the new behaviour a name - this helps work out what&rsquo;s being applied
+to the original object</li>
+<li>Inject an object which represents the behaviour</li>
+</ol>
+</li>
+</ul>
+
+]]></content>
+  </entry>
+  
+</feed>
