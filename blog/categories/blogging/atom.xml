@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Blogging | dgms code]]></title>
   <link href="http://dgmstuart.github.io/blog/categories/blogging/atom.xml" rel="self"/>
   <link href="http://dgmstuart.github.io/"/>
-  <updated>2015-03-28T13:02:37+00:00</updated>
+  <updated>2015-03-28T13:07:01+00:00</updated>
   <id>http://dgmstuart.github.io/</id>
   <author>
     <name><![CDATA[Duncan Stuart]]></name>
@@ -108,9 +108,13 @@ find one of two words which are unique in the filename of your post and use that
 
 <h3>Listing and revisiting posts</h3>
 
-<p>A couple of things I find myself needing to do fairly often:
-* Make an edit to the post I was most recently editing
-* Find a post where I can&rsquo;t remember the title was</p>
+<p>A couple of things I find myself needing to do fairly often:</p>
+
+<ul>
+<li>Make an edit to the post I was most recently editing</li>
+<li>Find a post where I can&rsquo;t remember the title was</li>
+</ul>
+
 
 <p><figure class='code'><figcaption><span>~/.profile </span></figcaption>
 <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
